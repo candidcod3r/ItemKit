@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ItemKit_Example' do
+  pod 'ItemKit', :path => '../'
+
+  target 'ItemKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
