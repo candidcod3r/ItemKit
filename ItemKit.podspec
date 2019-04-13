@@ -6,10 +6,10 @@
 # To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
 #
 
-Pod::Spec.new do |s|
-  s.name             = 'ItemKit'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of ItemKit.'
+Pod::Spec.new do |spec|
+  spec.name             = 'ItemKit'
+  spec.version          = '0.1.0'
+  spec.summary          = 'A simple and gracious alternative to manual layout with readability, flexibility and performance.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,33 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  spec.description      = 'A simple and gracious alternative to manual layout with readability, flexibility and performance. The framework enables to developer to create view layout much faster. The layouts can be computed on the background thread and can be applied to the views on main thread.'
 
-  s.homepage         = 'https://github.com/candidcod3r/ItemKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'candidcod3r' => 'candidcod3r@gmail.com' }
-  s.source           = { :git => 'https://github.com/candidcod3r/ItemKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  spec.homepage         = 'https://github.com/candidcod3r/ItemKit'
+  # spec.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  spec.license          = { :type => 'MIT', :file => 'LICENSE' }
+  spec.author           = { 'Candid Cod3r' => 'candidcod3r@gmail.com' }
+  spec.source           = { :git => 'https://github.com/candidcod3r/ItemKit.git', :tag => spec.version.to_s }
+  # spec.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  spec.platform           = :ios, '11.0'
+  spec.swift_version      = '5.0'
+  spec.source_files       = 'Sources/**/*.{h,m,swift}'
 
-  s.source_files = 'ItemKit/Classes/**/*'
-  
-  # s.resource_bundles = {
+  spec.ios.deployment_target = '8.0'
+  spec.ios.frameworks        = 'Foundation', 'CoreGraphics', 'UIKit'
+  spec.ios.exclude_files     = [
+  ]
+
+  spec.prefix_header_contents = '
+  import Foundation
+  import UIKit'
+
+  # spec.resource_bundles = {
   #   'ItemKit' => ['ItemKit/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  # spec.public_header_files = 'Pod/Classes/**/*.h'
+  # spec.frameworks = 'UIKit', 'MapKit'
+  # spec.dependency 'AFNetworking', '~> 2.3'
 end

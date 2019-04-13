@@ -22,7 +22,7 @@ pod 'ItemKit'
 
 ## Author
 
-candidcod3r, candidcod3r@gmail.com
+[Candid Cod3r](mailto:candidcod3r@gmail.com)
 
 ## License
 

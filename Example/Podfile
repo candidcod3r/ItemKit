@@ -1,11 +1,7 @@
 use_frameworks!
 
-target 'ItemKit_Example' do
+platform :ios, '8.0'
+
+target 'ItemKitExample' do
   pod 'ItemKit', :path => '../'
-
-  target 'ItemKit_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
