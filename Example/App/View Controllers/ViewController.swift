@@ -17,11 +17,10 @@ class ViewController: UIViewController {
         let item = Item(
             viewID: "",
             insets: .zero,
-            sizeGuide: SizeGuide(
-                width: .fillParent, widthRange: DimensionRange(),
-                height: .fillParent, heightRange: DimensionRange()),
-            alignment: Alignment(horizontal: .leading, vertical: .top),
-            adaptability: .normal, subItems: [])
+            sizeGuide: SizeGuide(width: .fillParent, height: .fillParent),
+            alignment: .leadingTop,
+            flexibility: .normal,
+            subItems: [])
 
         item.updateMeasurement(within: .zero)
         item.updateLayout(within: .zero)
