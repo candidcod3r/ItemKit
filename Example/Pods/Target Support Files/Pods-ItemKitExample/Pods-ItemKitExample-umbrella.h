@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ItemKit_ExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ItemKit_ExampleVersionString[];
+FOUNDATION_EXPORT double Pods_ItemKitExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_ItemKitExampleVersionString[];
 
