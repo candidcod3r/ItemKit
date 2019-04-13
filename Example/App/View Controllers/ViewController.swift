@@ -3,7 +3,7 @@
 //  ItemKit
 //
 //  Created by candidcod3r on 04/12/2019.
-//  Copyright (c) 2019 candidcod3r. All rights reserved.
+//  Copyright (c) 2019 candidcod3r.
 //
 
 import UIKit
