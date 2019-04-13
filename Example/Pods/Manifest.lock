@@ -1,0 +1,16 @@
+PODS:
+  - ItemKit (0.1.0)
+
+DEPENDENCIES:
+  - ItemKit (from `../`)
+
+EXTERNAL SOURCES:
+  ItemKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ItemKit: 18800da1e562b8893cf5c13df5a380168d25daf4
+
+PODFILE CHECKSUM: 907351d184b6706f86f0b8337dbbee2a5a3cadc2
+
+COCOAPODS: 1.5.3

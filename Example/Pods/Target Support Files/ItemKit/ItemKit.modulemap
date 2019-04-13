@@ -1,0 +1,6 @@
+framework module ItemKit {
+  umbrella header "ItemKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
