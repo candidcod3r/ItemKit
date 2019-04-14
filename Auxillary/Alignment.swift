@@ -6,8 +6,6 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-import Foundation
-
 public enum HorizontalAlignment {
     case leading
     case center

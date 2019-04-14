@@ -18,6 +18,9 @@
 		4E3EA0E22261CE7500D20F51 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0E12261CE7500D20F51 /* Item.swift */; };
 		4E3EA0E42261CE8F00D20F51 /* Measurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0E32261CE8F00D20F51 /* Measurable.swift */; };
 		4E3EA0E62261CE9900D20F51 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0E52261CE9900D20F51 /* Layoutable.swift */; };
+		4E3EA0E922627FA500D20F51 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0E822627FA500D20F51 /* Axis.swift */; };
+		4E3EA0EB2262842000D20F51 /* DirectionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0EA2262842000D20F51 /* DirectionalValue.swift */; };
+		4E3EA0ED2262A76400D20F51 /* AxisDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0EC2262A76400D20F51 /* AxisDimension.swift */; };
 		5D64B737EE0BEAB5C63B9862F63DD415 /* ItemKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA2BFE6A3D237772B5A13F91967CC64 /* ItemKit-dummy.m */; };
 		5F75C1784777F97C32DFD4653EA2906E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC14D54CF483CF531F6412BFC589C4B /* CoreGraphics.framework */; };
 		6BF03D40130EF55188EA81E63A7750BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484CFBFE2A7C64F31ED406CB49E7DDE /* UIKit.framework */; };
@@ -52,6 +55,9 @@
 		4E3EA0E12261CE7500D20F51 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4E3EA0E32261CE8F00D20F51 /* Measurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurable.swift; sourceTree = "<group>"; };
 		4E3EA0E52261CE9900D20F51 /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
+		4E3EA0E822627FA500D20F51 /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
+		4E3EA0EA2262842000D20F51 /* DirectionalValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalValue.swift; sourceTree = "<group>"; };
+		4E3EA0EC2262A76400D20F51 /* AxisDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisDimension.swift; sourceTree = "<group>"; };
 		4F2ED0B1842A79F0669179980C701562 /* Pods-ItemKitExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-resources.sh"; sourceTree = "<group>"; };
 		56489F2F821735AA1EC875ACA4360D41 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57065064A21471B7A84EF8910A2A0516 /* Pods-ItemKitExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemKitExample-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -129,6 +135,16 @@
 			path = Auxillary;
 			sourceTree = "<group>";
 		};
+		4E3EA0E722627EC100D20F51 /* Axis */ = {
+			isa = PBXGroup;
+			children = (
+				4E3EA0E822627FA500D20F51 /* Axis.swift */,
+				4E3EA0EC2262A76400D20F51 /* AxisDimension.swift */,
+				4E3EA0EA2262842000D20F51 /* DirectionalValue.swift */,
+			);
+			path = Axis;
+			sourceTree = "<group>";
+		};
 		4F3C0E3EBB5EED392E67AF66C363EEFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				4E3EA0D82261AD4000D20F51 /* Auxillary */,
+				4E3EA0E722627EC100D20F51 /* Axis */,
 				4E3EA0D622618E9900D20F51 /* Classes.swift */,
 				4E3EA0E12261CE7500D20F51 /* Item.swift */,
 				4E3EA0DF2261CE5200D20F51 /* ItemProtocol.swift */,
@@ -329,8 +346,11 @@
 				4E3EA0DE2261CE1C00D20F51 /* SizeGuide.swift in Sources */,
 				4E3EA0E02261CE5200D20F51 /* ItemProtocol.swift in Sources */,
 				4E3EA0DC2261CA6C00D20F51 /* Flexibility.swift in Sources */,
+				4E3EA0E922627FA500D20F51 /* Axis.swift in Sources */,
 				4E3EA0E42261CE8F00D20F51 /* Measurable.swift in Sources */,
 				4E3EA0E22261CE7500D20F51 /* Item.swift in Sources */,
+				4E3EA0EB2262842000D20F51 /* DirectionalValue.swift in Sources */,
+				4E3EA0ED2262A76400D20F51 /* AxisDimension.swift in Sources */,
 				4E3EA0DA2261C11E00D20F51 /* Alignment.swift in Sources */,
 				4E3EA0D722618E9900D20F51 /* Classes.swift in Sources */,
 			);
