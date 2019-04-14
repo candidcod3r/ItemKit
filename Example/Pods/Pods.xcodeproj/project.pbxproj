@@ -21,6 +21,13 @@
 		4E3EA0E922627FA500D20F51 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0E822627FA500D20F51 /* Axis.swift */; };
 		4E3EA0EB2262842000D20F51 /* DirectionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0EA2262842000D20F51 /* DirectionalValue.swift */; };
 		4E3EA0ED2262A76400D20F51 /* AxisDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0EC2262A76400D20F51 /* AxisDimension.swift */; };
+		4E3EA0F02262B48000D20F51 /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0EF2262B48000D20F51 /* CGSize+.swift */; };
+		4E3EA0F22262B50200D20F51 /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0F12262B50200D20F51 /* UIEdgeInsets+.swift */; };
+		4E3EA0F42262B8BD00D20F51 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0F32262B8BD00D20F51 /* CGFloat+.swift */; };
+		4E3EA0F72262B8E100D20F51 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0F62262B8E100D20F51 /* Global.swift */; };
+		4E3EA0F92262CBE100D20F51 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0F82262CBE100D20F51 /* Text.swift */; };
+		4E3EA0FB2262CC2400D20F51 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0FA2262CC2400D20F51 /* NSAttributedString+.swift */; };
+		4E3EA0FD2262D3A100D20F51 /* Framer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EA0FC2262D3A100D20F51 /* Framer.swift */; };
 		5D64B737EE0BEAB5C63B9862F63DD415 /* ItemKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA2BFE6A3D237772B5A13F91967CC64 /* ItemKit-dummy.m */; };
 		5F75C1784777F97C32DFD4653EA2906E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC14D54CF483CF531F6412BFC589C4B /* CoreGraphics.framework */; };
 		6BF03D40130EF55188EA81E63A7750BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484CFBFE2A7C64F31ED406CB49E7DDE /* UIKit.framework */; };
@@ -58,6 +65,13 @@
 		4E3EA0E822627FA500D20F51 /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		4E3EA0EA2262842000D20F51 /* DirectionalValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalValue.swift; sourceTree = "<group>"; };
 		4E3EA0EC2262A76400D20F51 /* AxisDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisDimension.swift; sourceTree = "<group>"; };
+		4E3EA0EF2262B48000D20F51 /* CGSize+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
+		4E3EA0F12262B50200D20F51 /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
+		4E3EA0F32262B8BD00D20F51 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
+		4E3EA0F62262B8E100D20F51 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		4E3EA0F82262CBE100D20F51 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		4E3EA0FA2262CC2400D20F51 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
+		4E3EA0FC2262D3A100D20F51 /* Framer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framer.swift; sourceTree = "<group>"; };
 		4F2ED0B1842A79F0669179980C701562 /* Pods-ItemKitExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-resources.sh"; sourceTree = "<group>"; };
 		56489F2F821735AA1EC875ACA4360D41 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57065064A21471B7A84EF8910A2A0516 /* Pods-ItemKitExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemKitExample-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -130,7 +144,9 @@
 			children = (
 				4E3EA0D92261C11E00D20F51 /* Alignment.swift */,
 				4E3EA0DB2261CA6C00D20F51 /* Flexibility.swift */,
+				4E3EA0FC2262D3A100D20F51 /* Framer.swift */,
 				4E3EA0DD2261CE1C00D20F51 /* SizeGuide.swift */,
+				4E3EA0F82262CBE100D20F51 /* Text.swift */,
 			);
 			path = Auxillary;
 			sourceTree = "<group>";
@@ -143,6 +159,25 @@
 				4E3EA0EA2262842000D20F51 /* DirectionalValue.swift */,
 			);
 			path = Axis;
+			sourceTree = "<group>";
+		};
+		4E3EA0EE2262B47600D20F51 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4E3EA0F32262B8BD00D20F51 /* CGFloat+.swift */,
+				4E3EA0EF2262B48000D20F51 /* CGSize+.swift */,
+				4E3EA0F12262B50200D20F51 /* UIEdgeInsets+.swift */,
+				4E3EA0FA2262CC2400D20F51 /* NSAttributedString+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4E3EA0F52262B8D200D20F51 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				4E3EA0F62262B8E100D20F51 /* Global.swift */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		4F3C0E3EBB5EED392E67AF66C363EEFE /* Products */ = {
@@ -218,6 +253,8 @@
 		F19F9A7D61B1590314FB89AA2FEBDDE1 /* ItemKit */ = {
 			isa = PBXGroup;
 			children = (
+				4E3EA0F52262B8D200D20F51 /* Internal */,
+				4E3EA0EE2262B47600D20F51 /* Extensions */,
 				4E3EA0D82261AD4000D20F51 /* Auxillary */,
 				4E3EA0E722627EC100D20F51 /* Axis */,
 				4E3EA0D622618E9900D20F51 /* Classes.swift */,
@@ -343,13 +380,20 @@
 			files = (
 				5D64B737EE0BEAB5C63B9862F63DD415 /* ItemKit-dummy.m in Sources */,
 				4E3EA0E62261CE9900D20F51 /* Layoutable.swift in Sources */,
+				4E3EA0FD2262D3A100D20F51 /* Framer.swift in Sources */,
 				4E3EA0DE2261CE1C00D20F51 /* SizeGuide.swift in Sources */,
 				4E3EA0E02261CE5200D20F51 /* ItemProtocol.swift in Sources */,
+				4E3EA0F42262B8BD00D20F51 /* CGFloat+.swift in Sources */,
 				4E3EA0DC2261CA6C00D20F51 /* Flexibility.swift in Sources */,
 				4E3EA0E922627FA500D20F51 /* Axis.swift in Sources */,
+				4E3EA0FB2262CC2400D20F51 /* NSAttributedString+.swift in Sources */,
 				4E3EA0E42261CE8F00D20F51 /* Measurable.swift in Sources */,
+				4E3EA0F72262B8E100D20F51 /* Global.swift in Sources */,
 				4E3EA0E22261CE7500D20F51 /* Item.swift in Sources */,
 				4E3EA0EB2262842000D20F51 /* DirectionalValue.swift in Sources */,
+				4E3EA0F92262CBE100D20F51 /* Text.swift in Sources */,
+				4E3EA0F02262B48000D20F51 /* CGSize+.swift in Sources */,
+				4E3EA0F22262B50200D20F51 /* UIEdgeInsets+.swift in Sources */,
 				4E3EA0ED2262A76400D20F51 /* AxisDimension.swift in Sources */,
 				4E3EA0DA2261C11E00D20F51 /* Alignment.swift in Sources */,
 				4E3EA0D722618E9900D20F51 /* Classes.swift in Sources */,
@@ -484,6 +528,7 @@
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -583,6 +628,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

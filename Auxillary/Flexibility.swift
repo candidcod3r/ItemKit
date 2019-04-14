@@ -33,7 +33,7 @@ public struct Flexibility {
     public static let high = Flexibility(.high, .high)
     public static let max = Flexibility(.max, .max)
 
-    public func flex(for axis: Axis) -> Flex {
+    func flex(for axis: Axis) -> Flex {
         switch axis {
         case .horizontal:
             return horizontal
@@ -54,5 +54,4 @@ public struct Flexibility {
             return .orderedSame
         }
     }
-
 }

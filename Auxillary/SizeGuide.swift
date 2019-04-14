@@ -6,27 +6,27 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public enum Dimension {
+public enum DimensionGuide {
     case fixed(CGFloat)
     case wrapContent
     case percentageParent(CGFloat)
     case fillParent
 }
 
-public struct SizeGuide {
-    public typealias DimensionRange = ClosedRange<CGFloat>
+public typealias DimensionRange = ClosedRange<CGFloat>
 
+public struct SizeGuide {
     public static let fullRange = 0...CGFloat.greatestFiniteMagnitude
 
-    public var width: Dimension
+    public var width: DimensionGuide
     public var widthRange: DimensionRange
 
-    public var height: Dimension
+    public var height: DimensionGuide
     public var heightRange: DimensionRange
 
-    public init(width: Dimension,
+    public init(width: DimensionGuide,
                 widthRange: DimensionRange = fullRange,
-                height: Dimension,
+                height: DimensionGuide,
                 heightRange: DimensionRange = fullRange) {
         self.width = width
         self.widthRange = widthRange

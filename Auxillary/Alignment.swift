@@ -39,8 +39,12 @@ public struct Alignment {
     public static let centerBottom = Alignment(.center, .bottom)
     public static let center = Alignment(.center, .center)
 
-    private static func verticalAlignment(from horizontalAlignment: HorizontalAlignment) -> VerticalAlignment {
-        switch horizontalAlignment {
+
+}
+
+extension HorizontalAlignment {
+    func verticalAlignment() -> VerticalAlignment {
+        switch self {
         case .leading:
             return .top
         case .trailing:
@@ -49,9 +53,11 @@ public struct Alignment {
             return .center
         }
     }
+}
 
-    private static func horizontalAlignment(from verticalAlignment: VerticalAlignment) -> HorizontalAlignment {
-        switch verticalAlignment {
+extension VerticalAlignment {
+    func horizontalAlignment() -> HorizontalAlignment {
+        switch self {
         case .top:
             return .leading
         case .bottom:
@@ -60,5 +66,4 @@ public struct Alignment {
             return .center
         }
     }
-
 }
