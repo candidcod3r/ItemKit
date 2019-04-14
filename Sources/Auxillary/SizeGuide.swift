@@ -6,13 +6,6 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public enum DimensionGuide {
-    case fixed(CGFloat)
-    case wrapContent
-    case percentageParent(CGFloat)
-    case fillParent
-}
-
 public typealias DimensionRange = ClosedRange<CGFloat>
 
 public struct SizeGuide {

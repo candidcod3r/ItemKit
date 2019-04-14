@@ -9,5 +9,7 @@
 import Foundation
 
 public protocol Measurable {
-    func updateMeasurement(within size: CGSize)
+    func intrinsicSize(within maxSize: CGSize) -> CGSize
+
+    func updateMeasurement(within maxSize: CGSize)
 }

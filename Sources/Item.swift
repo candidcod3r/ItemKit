@@ -37,7 +37,15 @@ public struct Item: ItemProtocol {
 }
 
 extension Item: Measurable {
-    public func updateMeasurement(within size: CGSize) { }
+
+    public func updateMeasurement(within maxSize: CGSize) {
+
+    }
+
+    public func intrinsicSize(within maxSize: CGSize) -> CGSize {
+        return .zero
+    }
+
 }
 
 extension Item: Layoutable {

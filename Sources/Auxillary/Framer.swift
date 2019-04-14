@@ -7,74 +7,52 @@
 //
 
 struct Framer {
-    typealias CoordinateDimension = (coordinate: CGFloat, dimension: CGFloat)
+    typealias OffsetDimension = (offset: CGFloat, dimension: CGFloat)
 
-    public static func frame(with size: CGSize,
+    public static func frame(with contentSize: CGSize,
                              guide: SizeGuide,
                              alignment: Alignment,
                              within frame: CGRect) -> CGRect {
-        let horizontal = coordinateDimension(
-            with: size.width,
+        let horizontal = offsetDimension(
+            with: contentSize.width,
             guide: guide.width,
             clampRange: guide.widthRange,
             alignment: alignment.horizontal,
             within: frame.width)
 
-        let vertical = coordinateDimension(
-            with: size.height,
+        let vertical = offsetDimension(
+            with: contentSize.height,
             guide: guide.height,
             clampRange: guide.heightRange,
             alignment: alignment.vertical,
             within: frame.height)
 
         return CGRect(
-            x: frame.origin.x + horizontal.coordinate,
-            y: frame.origin.y + vertical.coordinate,
+            x: frame.origin.x + horizontal.offset,
+            y: frame.origin.y + vertical.offset,
             width: horizontal.dimension,
             height: vertical.dimension)
     }
 
-    public static func coordinateDimension(with value: CGFloat,
-                                           guide: DimensionGuide,
-                                           clampRange: DimensionRange,
-                                           alignment: HorizontalAlignment,
-                                           within maxValue: CGFloat) -> CoordinateDimension {
-        let value: CGFloat = {
-            switch guide {
-            case .fixed(let value):
-                return value
-            case .percentageParent(let value):
-                return maxValue * clamp(value, within: 0...1)
-            case .wrapContent:
-                return value
-            case .fillParent:
-                return maxValue
-            }
-        }()
+    public static func offsetDimension(with contentDimension: CGFloat,
+                                       guide: DimensionGuide,
+                                       clampRange: DimensionRange,
+                                       alignment: HorizontalAlignment,
+                                       within maxDimension: CGFloat) -> OffsetDimension {
+        let unclampedDimension = guide.dimension(of: contentDimension, within: maxDimension)
+        let dimension = clamp(unclampedDimension, within: clampRange)
+        let offset = alignment.offet(of: dimension, within: maxDimension)
 
-        let dimension = clamp(value, within: clampRange)
-
-        let excessValue = max(maxValue - value, 0)
-        let coordinate: CGFloat
-        switch alignment {
-        case .leading:
-            coordinate = 0
-        case .trailing:
-            coordinate = excessValue
-        case .center:
-            coordinate = excessValue / 2.0
-        }
-
-        return (coordinate, dimension)
+        return (offset, dimension)
     }
 
-    public static func coordinateDimension(with value: CGFloat,
-                                           guide: DimensionGuide,
-                                           clampRange: DimensionRange,
-                                           alignment: VerticalAlignment,
-                                           within maxValue: CGFloat) -> CoordinateDimension {
-        return coordinateDimension(
-            with: value,
+    public static func offsetDimension(with contentDimension: CGFloat,
+                                       guide: DimensionGuide,
+                                       clampRange: DimensionRange,
+                                       alignment: VerticalAlignment,
+                                       within maxValue: CGFloat) -> OffsetDimension {
+        return offsetDimension(
+            with: contentDimension,
             guide: guide,
             clampRange: clampRange,
             alignment: alignment.horizontalAlignment(),

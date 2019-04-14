@@ -10,12 +10,36 @@ public enum HorizontalAlignment {
     case leading
     case center
     case trailing
+
+    public func offet(of dimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
+        let excessDimension = max(maxDimension - dimension, 0)
+        switch self {
+        case .leading:
+            return 0
+        case .trailing:
+            return excessDimension
+        case .center:
+            return excessDimension / 2.0
+        }
+    }
 }
 
 public enum VerticalAlignment {
     case top
     case center
     case bottom
+
+    public func offet(of dimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
+        let excessDimension = max(maxDimension - dimension, 0)
+        switch self {
+        case .top:
+            return 0
+        case .bottom:
+            return excessDimension
+        case .center:
+            return excessDimension / 2.0
+        }
+    }
 }
 
 public struct Alignment {
@@ -38,8 +62,6 @@ public struct Alignment {
     public static let centerTop = Alignment(.center, .top)
     public static let centerBottom = Alignment(.center, .bottom)
     public static let center = Alignment(.center, .center)
-
-
 }
 
 extension HorizontalAlignment {
