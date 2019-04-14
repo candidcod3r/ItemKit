@@ -22,6 +22,8 @@
 		44C7BD0EF29CEB45EF0794C3E5212199 /* UIColor+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C04C6B3D14DC68FEDE29F7218F902A6 /* UIColor+Debug.swift */; };
 		46943820130EEAEEA0D5CB993863D22D /* ItemKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FDF8FF44DD3EDBE3220C6BEDCA3D53 /* ItemKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E05A1AA2263D57B008F53CB /* DimensionGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1A92263D57B008F53CB /* DimensionGuide.swift */; };
+		4E05A1AC2263F0C9008F53CB /* Sizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1AB2263F0C9008F53CB /* Sizer.swift */; };
+		4E05A1AE2263F6FD008F53CB /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1AD2263F6FD008F53CB /* CGRect+.swift */; };
 		579DB6A37A6696FE58F2CB4BFEE27C15 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE2685268BCD7F0D2CE4328A809B89 /* Layoutable.swift */; };
 		604502634E93AFC74806B4343C9A99DB /* UIView+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCECD8391D6B9DED6883C51663FEF79 /* UIView+Debug.swift */; };
 		648B07F545DB44B0CF686770BC0249F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC14D54CF483CF531F6412BFC589C4B /* CoreGraphics.framework */; };
@@ -64,6 +66,8 @@
 		476307E137BB1C31DD28D9262BF3A924 /* Axis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		47F02DA0DBCFFA1D59995EBB0B70FDDF /* Measurable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Measurable.swift; path = Sources/Measurable.swift; sourceTree = "<group>"; };
 		4E05A1A92263D57B008F53CB /* DimensionGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimensionGuide.swift; sourceTree = "<group>"; };
+		4E05A1AB2263F0C9008F53CB /* Sizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizer.swift; sourceTree = "<group>"; };
+		4E05A1AD2263F6FD008F53CB /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		4F2ED0B1842A79F0669179980C701562 /* Pods-ItemKitExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-resources.sh"; sourceTree = "<group>"; };
 		56489F2F821735AA1EC875ACA4360D41 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57065064A21471B7A84EF8910A2A0516 /* Pods-ItemKitExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemKitExample-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				CFB689098DE7EBD2B1B087A21EE9DFB4 /* CGFloat+.swift */,
+				4E05A1AD2263F6FD008F53CB /* CGRect+.swift */,
 				58D69739EEC63A8F7C843C9EE1C253A2 /* CGSize+.swift */,
 				121E3804684B8865533A0E837072BFD6 /* NSAttributedString+.swift */,
 				21C54C326FD141FBF765B1CDBDE43F8C /* UIEdgeInsets+.swift */,
@@ -257,6 +262,7 @@
 				F283C5EAD9F2307B530881945E0E4F9D /* Flexibility.swift */,
 				01ED16A616AFF862D4C553F679FF3A43 /* Framer.swift */,
 				E5F6C9C0A0FAE17862CD05F1162FD4D4 /* SizeGuide.swift */,
+				4E05A1AB2263F0C9008F53CB /* Sizer.swift */,
 				8BBED4F2CD346A70A4954BA20C49BA93 /* Text.swift */,
 			);
 			name = Auxillary;
@@ -407,6 +413,8 @@
 				6AB1961C1A44C8CEB49D004830B37B13 /* CGSize+.swift in Sources */,
 				4079E7739D67C391A5E9F39E576BFA01 /* Classes.swift in Sources */,
 				06DC95E2D11951FA06C4EC8F589BBCD7 /* DirectionalValue.swift in Sources */,
+				4E05A1AE2263F6FD008F53CB /* CGRect+.swift in Sources */,
+				4E05A1AC2263F0C9008F53CB /* Sizer.swift in Sources */,
 				AB0AE458812F83A2818644DCF7432A09 /* Flexibility.swift in Sources */,
 				03EBE987D385486F7AC80F3439290161 /* Framer.swift in Sources */,
 				BB942932E0F5829203DC0228B9450302 /* Global.swift in Sources */,

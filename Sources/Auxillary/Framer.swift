@@ -6,57 +6,27 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-struct Framer {
-    typealias OffsetDimension = (offset: CGFloat, dimension: CGFloat)
+public struct Framer {
 
     public static func frame(with contentSize: CGSize,
-                             guide: SizeGuide,
+                             sizeGuide: SizeGuide,
                              alignment: Alignment,
-                             within frame: CGRect) -> CGRect {
-        let horizontal = offsetDimension(
-            with: contentSize.width,
-            guide: guide.width,
-            clampRange: guide.widthRange,
-            alignment: alignment.horizontal,
-            within: frame.width)
+                             within maxFrame: CGRect) -> CGRect {
+        let size = Sizer.size(with: contentSize, guide: sizeGuide, within: maxFrame.size)
+        return frame(with: size, alignment: alignment, within: maxFrame)
+    }
 
-        let vertical = offsetDimension(
-            with: contentSize.height,
-            guide: guide.height,
-            clampRange: guide.heightRange,
-            alignment: alignment.vertical,
-            within: frame.height)
+    public static func frame(with size: CGSize,
+                             alignment: Alignment,
+                             within maxFrame: CGRect) -> CGRect {
+        let xOffset = alignment.horizontal.offet(with: size.width, within: maxFrame.size.width)
+        let yOffset = alignment.vertical.offet(with: size.height, within: maxFrame.size.height)
 
         return CGRect(
-            x: frame.origin.x + horizontal.offset,
-            y: frame.origin.y + vertical.offset,
-            width: horizontal.dimension,
-            height: vertical.dimension)
-    }
-
-    public static func offsetDimension(with contentDimension: CGFloat,
-                                       guide: DimensionGuide,
-                                       clampRange: DimensionRange,
-                                       alignment: HorizontalAlignment,
-                                       within maxDimension: CGFloat) -> OffsetDimension {
-        let unclampedDimension = guide.dimension(of: contentDimension, within: maxDimension)
-        let dimension = clamp(unclampedDimension, within: clampRange)
-        let offset = alignment.offet(of: dimension, within: maxDimension)
-
-        return (offset, dimension)
-    }
-
-    public static func offsetDimension(with contentDimension: CGFloat,
-                                       guide: DimensionGuide,
-                                       clampRange: DimensionRange,
-                                       alignment: VerticalAlignment,
-                                       within maxValue: CGFloat) -> OffsetDimension {
-        return offsetDimension(
-            with: contentDimension,
-            guide: guide,
-            clampRange: clampRange,
-            alignment: alignment.horizontalAlignment(),
-            within: maxValue)
+            x: maxFrame.origin.x + xOffset,
+            y: maxFrame.origin.y + yOffset,
+            width: size.width,
+            height: size.height)
     }
 
 }

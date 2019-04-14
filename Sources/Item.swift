@@ -68,7 +68,11 @@ extension Item: Layoutable {
 
     @discardableResult
     public func updateLayouts(within maxFrame: CGRect) -> CGRect {
-        let frame = Framer.frame(with: measurement, guide: sizeGuide, alignment: alignment, within: maxFrame)
+        let frame = Framer.frame(
+            with: measurement,
+            sizeGuide: sizeGuide,
+            alignment: alignment,
+            within: maxFrame)
 
         let contentMaxSize = frame.size.decreased(by: insets)
 

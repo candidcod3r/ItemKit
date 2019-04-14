@@ -11,7 +11,7 @@ public enum HorizontalAlignment {
     case center
     case trailing
 
-    public func offet(of dimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
+    public func offet(with dimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
         let excessDimension = max(maxDimension - dimension, 0)
         switch self {
         case .leading:
@@ -29,7 +29,7 @@ public enum VerticalAlignment {
     case center
     case bottom
 
-    public func offet(of dimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
+    public func offet(with dimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
         let excessDimension = max(maxDimension - dimension, 0)
         switch self {
         case .top:
