@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let item = Item(
+        var item = Item(
             viewID: "",
             insets: .zero,
             sizeGuide: SizeGuide(width: .fillParent, height: .fillParent),
@@ -22,8 +22,8 @@ class ViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
 
-        item.updateMeasurement(within: .zero)
-        item.updateLayout(within: .zero)
+        item.updateMeasurements(within: .zero)
+        item.updateLayouts(within: .zero)
     }
 
 }

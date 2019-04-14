@@ -38,16 +38,50 @@ public struct Item: ItemProtocol {
 
 extension Item: Measurable {
 
-    public func updateMeasurement(within maxSize: CGSize) {
+    @discardableResult
+    public mutating func updateMeasurements(within maxSize: CGSize) -> CGSize {
+        let fittingSize = maxSize.clamp(min: sizeGuide.minSize, max: sizeGuide.maxSize)
 
+        let contentFittingSize = fittingSize.decreased(by: insets)
+        let contentMeasurement = updateContentMeasurements(within: contentFittingSize)
+
+        if sizeGuide.width.isWrapContent || sizeGuide.height.isWrapContent {
+            measurement = contentMeasurement.increased(by: insets)
+        } else {
+            measurement = fittingSize
+        }
+
+        return measurement
     }
 
-    public func intrinsicSize(within maxSize: CGSize) -> CGSize {
+    @discardableResult
+    public mutating func updateContentMeasurements(within maxSize: CGSize) -> CGSize {
+        for i in 0..<subItems.count {
+            subItems[i].updateMeasurements(within: maxSize)
+        }
         return .zero
     }
 
 }
 
 extension Item: Layoutable {
-    public func updateLayout(within frame: CGRect) { }
+
+    @discardableResult
+    public func updateLayouts(within maxFrame: CGRect) -> CGRect {
+        let frame = Framer.frame(with: measurement, guide: sizeGuide, alignment: alignment, within: maxFrame)
+
+        let contentMaxSize = frame.size.decreased(by: insets)
+
+        let contentOrigin = (requiresView)
+            ? CGPoint(x: insets.left, y: insets.top)
+            : CGPoint(x: frame.origin.x + insets.left, y: frame.origin.y + insets.top)
+
+        let contentMaxRect = CGRect(origin: contentOrigin, size: contentMaxSize)
+        for i in 0..<subItems.count {
+            subItems[i].updateLayouts(within: contentMaxRect)
+        }
+
+        return frame
+    }
+
 }

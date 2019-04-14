@@ -26,4 +26,12 @@ public struct SizeGuide {
         self.height = height
         self.heightRange = heightRange
     }
+
+    public var minSize: CGSize {
+        return CGSize(width: widthRange.lowerBound, height: heightRange.lowerBound)
+    }
+
+    public var maxSize: CGSize {
+        return CGSize(width: widthRange.upperBound, height: heightRange.upperBound)
+    }
 }

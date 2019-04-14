@@ -46,4 +46,12 @@ extension UIEdgeInsets {
         return clamp(within: closedRange)
     }
 
+    public func negated() -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: -top,
+            left: -left,
+            bottom: -bottom,
+            right: -right)
+    }
+
 }

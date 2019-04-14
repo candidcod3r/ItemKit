@@ -8,6 +8,12 @@
 
 extension CGSize {
 
+    func insetted(by insets: UIEdgeInsets) -> CGSize {
+        let insettedWidth = width + insets.totalHorizontal
+        let insettedHeight = height + insets.totalVertical
+        return CGSize(width: insettedWidth, height: insettedHeight)
+    }
+
     func increased(by insets: UIEdgeInsets) -> CGSize {
         let increasedWidth = width + insets.totalHorizontal
         let increasedHeight = height + insets.totalVertical
@@ -21,16 +27,22 @@ extension CGSize {
     }
 
     func increased(to maxSize: CGSize) -> CGSize {
-        return clamp(to: maxSize, clampFunc: max)
+        return limit(to: maxSize, limitFunc: max)
     }
 
     func decreased(to minSize: CGSize) -> CGSize {
-        return clamp(to: minSize, clampFunc: min)
+        return limit(to: minSize, limitFunc: min)
     }
 
-    func clamp(to size: CGSize, clampFunc: (CGFloat, CGFloat) -> CGFloat) -> CGSize {
-        let clampedWidth = clampFunc(width, size.width)
-        let clampedHeight = clampFunc(height, size.height)
+    private func limit(to size: CGSize, limitFunc: (CGFloat, CGFloat) -> CGFloat) -> CGSize {
+        let limitedWidth = limitFunc(width, size.width)
+        let limitedHeight = limitFunc(height, size.height)
+        return CGSize(width: limitedWidth, height: limitedHeight)
+    }
+
+    func clamp(min minSize: CGSize, max maxSize: CGSize) -> CGSize {
+        let clampedWidth = ItemKit.clamp(width, within: minSize.width...maxSize.width)
+        let clampedHeight = ItemKit.clamp(height, within: minSize.height...maxSize.height)
         return CGSize(width: clampedWidth, height: clampedHeight)
     }
 

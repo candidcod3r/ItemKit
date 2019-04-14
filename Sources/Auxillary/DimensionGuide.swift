@@ -25,4 +25,23 @@ public enum DimensionGuide {
             return maxDimension
         }
     }
+
+    var isWrapContent: Bool {
+        switch self {
+        case .wrapContent:
+            return true
+        default:
+            return false
+        }
+    }
+
+    var isFillParent: Bool {
+        switch self {
+        case .fillParent:
+            return true
+        default:
+            return false
+        }
+    }
+
 }
