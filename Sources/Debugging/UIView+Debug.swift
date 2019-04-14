@@ -6,6 +6,8 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
+import UIKit
+
 private var itemKitIDKey: UInt8 = 0
 
 extension UIView {
