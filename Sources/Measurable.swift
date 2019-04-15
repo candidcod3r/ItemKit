@@ -9,8 +9,7 @@
 import Foundation
 
 public protocol Measurable {
-    @discardableResult
-    mutating func updateMeasurements(within maxSize: CGSize) -> CGSize
+    mutating func updateMeasurements(within maxSize: CGSize)
 
     @discardableResult
     mutating func updateContentMeasurements(within maxSize: CGSize) -> CGSize

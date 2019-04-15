@@ -55,8 +55,7 @@ public struct Item: ItemProtocol {
 
 extension Item: Measurable {
 
-    @discardableResult
-    public mutating func updateMeasurements(within maxSize: CGSize) -> CGSize {
+    public mutating func updateMeasurements(within maxSize: CGSize) {
         let fittingSize = Sizer.fittingSize(within: maxSize, guide: sizeGuide)
 
         let contentFittingSize = fittingSize.decreased(by: insets)
@@ -67,8 +66,6 @@ extension Item: Measurable {
         } else {
             measurement = fittingSize
         }
-
-        return measurement
     }
 
     @discardableResult
@@ -83,9 +80,8 @@ extension Item: Measurable {
 
 extension Item: Layoutable {
 
-    @discardableResult
-    public func updateLayouts(within maxFrame: CGRect) -> CGRect {
-        let frame = Framer.frame(
+    public mutating func updateLayouts(within maxFrame: CGRect) {
+        let origin = Framer.origin(
             with: measurement,
             alignment: alignment,
             within: maxFrame)
@@ -101,7 +97,7 @@ extension Item: Layoutable {
             subItems[i].updateLayouts(within: contentMaxRect)
         }
 
-        return frame
+        self.origin = origin
     }
 
 }

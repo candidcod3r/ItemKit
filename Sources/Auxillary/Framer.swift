@@ -8,17 +8,15 @@
 
 public struct Framer {
 
-    public static func frame(with size: CGSize,
-                             alignment: Alignment,
-                             within maxFrame: CGRect) -> CGRect {
+    public static func origin(with size: CGSize,
+                              alignment: Alignment,
+                              within maxFrame: CGRect) -> CGPoint {
         let xOffset = alignment.horizontal.offet(with: size.width, within: maxFrame.size.width)
         let yOffset = alignment.vertical.offet(with: size.height, within: maxFrame.size.height)
 
-        return CGRect(
+        return CGPoint(
             x: maxFrame.origin.x + xOffset,
-            y: maxFrame.origin.y + yOffset,
-            width: size.width,
-            height: size.height)
+            y: maxFrame.origin.y + yOffset)
     }
 
 }

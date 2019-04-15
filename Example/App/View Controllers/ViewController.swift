@@ -60,27 +60,26 @@ class ViewController: UIViewController {
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
-        redItem.updateMeasurements(within: contentView.frame.size)
-        redItem.updateLayouts(within: contentView.frame)
+        redItem.updateMeasurements(within: contentView.bounds.size)
+        redItem.updateLayouts(within: contentView.bounds)
+        print(redItem.debugDescription())
 
         redView.configure(redItem)
         redView.updateLayouts(with: redItem)
-        print(redItem.debugDescription())
-
+        
         var blueItem = Item(
             id: "blueView",
             insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(20)),
-            alignment: .leadingTop,
+            alignment: .trailingTop,
             flexibility: .normal,
             subItems: [])
-        blueItem.updateMeasurements(within: contentView.frame.size)
-        blueItem.updateLayouts(within: contentView.frame)
+        blueItem.updateMeasurements(within: contentView.bounds.size)
+        blueItem.updateLayouts(within: contentView.bounds)
+        print(blueItem.debugDescription())
 
         blueView.configure(blueItem)
         blueView.updateLayouts(with: blueItem)
-        print(blueItem.debugDescription())
-        
     }
 
 }

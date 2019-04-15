@@ -9,6 +9,5 @@
 import Foundation
 
 public protocol Layoutable {
-    @discardableResult
-    mutating func updateLayouts(within maxFrame: CGRect) -> CGRect
+    mutating func updateLayouts(within maxFrame: CGRect)
 }
