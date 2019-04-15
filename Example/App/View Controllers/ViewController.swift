@@ -11,19 +11,46 @@ import ItemKit
 
 class ViewController: UIViewController {
 
+    let contentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+
+    let redView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var item = Item(
-            viewID: "",
+        setup()
+    }
+
+    func setup() {
+        let leftPadding: CGFloat = 16
+        let topPadding: CGFloat = 64
+        let contentWidth = self.view.bounds.width - 2 * leftPadding
+        let contentHeight = self.view.frame.height - 2 * topPadding
+
+        contentView.frame = CGRect(
+            x: leftPadding,
+            y: topPadding,
+            width: contentWidth,
+            height: contentHeight)
+
+        var redItem = Item(
+            id: "redView",
             insets: .zero,
             sizeGuide: SizeGuide(width: .fillParent, height: .fillParent),
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
 
-        item.updateMeasurements(within: .zero)
-        item.updateLayouts(within: .zero)
+        redItem.updateMeasurements(within: .zero)
+        redItem.updateLayouts(within: .zero)
     }
 
 }

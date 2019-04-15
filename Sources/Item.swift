@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Item: ItemProtocol {
-    public var viewID: String?
+    public var id: String?
     public var insets: UIEdgeInsets
     public var sizeGuide: SizeGuide
     public var alignment: Alignment
@@ -21,19 +21,36 @@ public struct Item: ItemProtocol {
 
     public private(set) var parentFrame: CGRect = .zero
 
-    public init(viewID: String?,
-                insets: UIEdgeInsets,
-                sizeGuide: SizeGuide,
-                alignment: Alignment,
-                flexibility: Flexibility,
-                subItems: [Item]) {
-        self.viewID = viewID
+    public init(id: String? = nil,
+                insets: UIEdgeInsets = .zero,
+                sizeGuide: SizeGuide = SizeGuide(),
+                alignment: Alignment = .leadingTop,
+                flexibility: Flexibility = .normal,
+                subItems: [Item] = []) {
+        self.id = id
         self.insets = insets
         self.sizeGuide = sizeGuide
         self.alignment = alignment
         self.flexibility = flexibility
         self.subItems = subItems
     }
+
+    public func createViewItemCache() -> ViewItemCache {
+        let cache = ViewItemCache()
+        addToViewItemCache(cache)
+        return cache
+    }
+
+    private func addToViewItemCache(_ cache: ViewItemCache) {
+        let viewIDString = id ?? ""
+        if !viewIDString.isEmpty {
+            cache .setViewItem(self, for: viewIDString)
+        }
+        for subItem in subItems {
+            subItem.addToViewItemCache(cache)
+        }
+    }
+
 }
 
 extension Item: Measurable {

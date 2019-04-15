@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol ItemProtocol {
-    var viewID: String? { get set }
+    var id: String? { get set }
     var insets: UIEdgeInsets { get set }
     var sizeGuide: SizeGuide { get set }
     var alignment: Alignment { get set }
@@ -27,7 +27,7 @@ public protocol ItemProtocol {
 
 extension ItemProtocol {
     public var requiresView: Bool {
-        return (viewID?.count ?? 0) > 0
+        return (id?.count ?? 0) > 0
     }
 
     public var frame: CGRect {
