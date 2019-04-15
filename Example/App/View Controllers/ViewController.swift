@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.addSubview(contentView)
+        contentView.addSubview(redView)
+
         setup()
     }
 
@@ -48,9 +51,12 @@ class ViewController: UIViewController {
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
+        redView.configure(redItem)
 
-        redItem.updateMeasurements(within: .zero)
-        redItem.updateLayouts(within: .zero)
+        redItem.updateMeasurements(within: contentView.frame.size)
+        redItem.updateLayouts(within: contentView.frame)
+
+        redView.updateLayout(with: redItem)
     }
 
 }

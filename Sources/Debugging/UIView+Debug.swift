@@ -21,4 +21,18 @@ extension UIView {
         }
     }
 
+    func setBorders(with color: UIColor?, recursively: Bool = true) {
+        let nonnilColor = color ?? .random
+        layer.borderColor = nonnilColor.cgColor
+        layer.borderWidth = 1
+
+        guard recursively else {
+            return
+        }
+
+        for subview in subviews {
+            subview.setBorders(with: color, recursively: recursively)
+        }
+    }
+
 }

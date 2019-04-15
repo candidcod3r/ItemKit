@@ -15,7 +15,10 @@ public class ViewItemCache {
         store = BackingStore()
     }
 
-    public func viewItem(for key: String) -> Item? {
+    public func viewItem(for key: String?) -> Item? {
+        guard let key = key else {
+            return nil
+        }
         return store[key]
     }
 

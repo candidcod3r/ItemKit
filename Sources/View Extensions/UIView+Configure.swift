@@ -8,7 +8,7 @@
 
 extension UIView {
 
-    func configure(_ item: Item) {
+    public func configure(_ item: Item) {
         self.itemID = item.id
     }
 
