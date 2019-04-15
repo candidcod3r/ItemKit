@@ -8,14 +8,6 @@
 
 public struct Framer {
 
-    public static func frame(with contentSize: CGSize,
-                             sizeGuide: SizeGuide,
-                             alignment: Alignment,
-                             within maxFrame: CGRect) -> CGRect {
-        let size = Sizer.size(with: contentSize, guide: sizeGuide, within: maxFrame.size)
-        return frame(with: size, alignment: alignment, within: maxFrame)
-    }
-
     public static func frame(with size: CGSize,
                              alignment: Alignment,
                              within maxFrame: CGRect) -> CGRect {

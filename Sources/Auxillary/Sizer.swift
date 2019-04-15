@@ -8,31 +8,23 @@
 
 public struct Sizer {
 
-    public static func size(with contentSize: CGSize,
-                            guide: SizeGuide,
-                            within maxSize: CGSize) -> CGSize {
-        let horizontal = dimension(
-            with: contentSize.width,
+    public static func fittingSize(within maxSize: CGSize, guide: SizeGuide) -> CGSize {
+        let horizontal = fittingDimension(
+            within: maxSize.width,
             guide: guide.width,
-            clampRange: guide.widthRange,
-            within: maxSize.width)
+            clampRange: guide.widthRange)
 
-        let vertical = dimension(
-            with: contentSize.height,
+        let vertical = fittingDimension(
+            within: maxSize.height,
             guide: guide.height,
-            clampRange: guide.heightRange,
-            within: maxSize.height)
+            clampRange: guide.heightRange)
 
         return CGSize(width: horizontal, height: vertical)
     }
 
-    public static func dimension(with contentDimension: CGFloat,
-                                 guide: DimensionGuide,
-                                 clampRange: DimensionRange,
-                                 within maxDimension: CGFloat) -> CGFloat {
-        let unclampedDimension = guide.dimension(of: contentDimension, within: maxDimension)
+    public static func fittingDimension(within maxDimension: CGFloat, guide: DimensionGuide, clampRange: DimensionRange) -> CGFloat {
+        let unclampedDimension = guide.fittingDimension(within: maxDimension)
         let dimension = clamp(unclampedDimension, within: clampRange)
-
         return dimension
     }
 

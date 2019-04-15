@@ -57,7 +57,7 @@ extension Item: Measurable {
 
     @discardableResult
     public mutating func updateMeasurements(within maxSize: CGSize) -> CGSize {
-        let fittingSize = maxSize.clamp(min: sizeGuide.minSize, max: sizeGuide.maxSize)
+        let fittingSize = Sizer.fittingSize(within: maxSize, guide: sizeGuide)
 
         let contentFittingSize = fittingSize.decreased(by: insets)
         let contentMeasurement = updateContentMeasurements(within: contentFittingSize)
@@ -87,7 +87,6 @@ extension Item: Layoutable {
     public func updateLayouts(within maxFrame: CGRect) -> CGRect {
         let frame = Framer.frame(
             with: measurement,
-            sizeGuide: sizeGuide,
             alignment: alignment,
             within: maxFrame)
 

@@ -17,9 +17,9 @@ public struct SizeGuide {
     public var height: DimensionGuide
     public var heightRange: DimensionRange
 
-    public init(width: DimensionGuide = .intrinsic,
+    public init(width: DimensionGuide = .fit,
                 widthRange: DimensionRange = fullRange,
-                height: DimensionGuide = .intrinsic,
+                height: DimensionGuide = .fit,
                 heightRange: DimensionRange = fullRange) {
         self.width = width
         self.widthRange = widthRange

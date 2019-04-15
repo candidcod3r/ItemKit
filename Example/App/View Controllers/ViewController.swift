@@ -53,19 +53,19 @@ class ViewController: UIViewController {
             width: contentWidth,
             height: contentHeight)
 
-//        var redItem = Item(
-//            id: "redView",
-//            insets: .zero,
-//            sizeGuide: SizeGuide(width: .fillParent, height: .fillParent),
-//            alignment: .leadingTop,
-//            flexibility: .normal,
-//            subItems: [])
-//        redItem.updateMeasurements(within: contentView.frame.size)
-//        redItem.updateLayouts(within: contentView.frame)
-//
-//        redView.configure(redItem)
-//        redView.updateLayouts(with: redItem)
-//        print(redItem.debugDescription())
+        var redItem = Item(
+            id: "redView",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fill, height: .fill),
+            alignment: .leadingTop,
+            flexibility: .normal,
+            subItems: [])
+        redItem.updateMeasurements(within: contentView.frame.size)
+        redItem.updateLayouts(within: contentView.frame)
+
+        redView.configure(redItem)
+        redView.updateLayouts(with: redItem)
+        print(redItem.debugDescription())
 
         var blueItem = Item(
             id: "blueView",
