@@ -19,18 +19,18 @@ extension UIView {
         }
     }
 
-    public func updateLayout(with item: Item) {
+    public func updateLayouts(with item: Item) {
         let itemCache = item.createViewItemCache()
-        updateLayout(with: itemCache)
+        updateLayouts(with: itemCache)
     }
 
-    public func updateLayout(with itemCache: ViewItemCache) {
+    public func updateLayouts(with itemCache: ViewItemCache) {
         if let item = itemCache.viewItem(for: itemID) {
             frame = item.frame
         }
 
         for subview in subviews {
-            subview.updateLayout(with: itemCache)
+            subview.updateLayouts(with: itemCache)
         }
     }
 

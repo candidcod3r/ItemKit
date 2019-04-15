@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E05A1D7226464D5008F53CB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1D6226464D5008F53CB /* UIColor+.swift */; };
+		4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1D8226464EF008F53CB /* UIView+.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 		05A4D31DB71777D0EF3D6C59 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		085417863845156EB1904C48 /* Pods-ItemKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemKitExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemKitExample/Pods-ItemKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		4940495ADF0B36F91C265FC5 /* Pods_ItemKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E05A1D6226464D5008F53CB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		4E05A1D8226464EF008F53CB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		52A482C1B81D5A057FB11AB5 /* Pods-ItemKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemKit_Example/Pods-ItemKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ItemKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +58,15 @@
 				05A4D31DB71777D0EF3D6C59 /* Pods_ItemKitExample.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E05A1D5226464BA008F53CB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4E05A1D6226464D5008F53CB /* UIColor+.swift */,
+				4E05A1D8226464EF008F53CB /* UIView+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4EC1C5C222617F5500C724AA /* Support Files */ = {
@@ -104,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				4E05A1D5226464BA008F53CB /* Extensions */,
 				4EC1C5C422617F6100C724AA /* Resources */,
 				4EC1C5C222617F5500C724AA /* Support Files */,
 				4EC1C5C522617F7A00C724AA /* View Controllers */,
@@ -239,8 +253,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				4E05A1D7226464D5008F53CB /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

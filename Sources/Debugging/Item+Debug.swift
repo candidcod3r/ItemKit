@@ -8,35 +8,27 @@
 
 extension Item {
 
-    public func descriptionString() -> String {
+    func descriptionString() -> String {
         let classString = String(describing: type(of: self))
-        let originString = NSCoder.string(for: origin)
-        let sizeString = NSCoder.string(for: measurement)
+        let originString = "(\(origin.x), \(origin.y))"
+        let sizeString = "(\(measurement.width), \(measurement.height))"
         let itemIDString = id ?? "NO_ID"
 
-        let descriptionString = "[<\(classString): \(itemIDString)>" + "origin: \(originString), size: \(sizeString)]"
+        let descriptionString = "[<\(classString):\(itemIDString)>" + " origin:\(originString) size:\(sizeString)]"
         return descriptionString
-    }
-
-    public func debugDescription() -> String {
-        return debugDescription(0)
-    }
-
-    func debugDescription(_ indentLevel: Int) -> String {
-        return addToDebugString("", indentLevel: indentLevel)
     }
 
     /**
      Print using Depth first traversal
      */
-    func addToDebugString(_ debugString: String, indentLevel: Int) -> String {
+    public func debugDescription(_ debugString: String = "", indentLevel: Int = 0) -> String {
         let spacesString = "".padding(toLength: 2 * indentLevel, withPad: "-", startingAt: 0)
 
         var debugString = debugString + "|\(spacesString)\(descriptionString())\n"
 
         var subItemsString = ""
         for subItem in subItems {
-            let subItemString = subItem.debugDescription(indentLevel + 1)
+            let subItemString = subItem.debugDescription("", indentLevel: indentLevel + 1)
             subItemsString += subItemString
         }
 

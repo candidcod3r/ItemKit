@@ -23,20 +23,29 @@ class ViewController: UIViewController {
         return view
     }()
 
+    let blueView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor(hex: 0xFBFBFB)
+
         view.addSubview(contentView)
         contentView.addSubview(redView)
+        contentView.addSubview(blueView)
 
         setup()
     }
 
     func setup() {
-        let leftPadding: CGFloat = 16
+        let leftPadding: CGFloat = 4
         let topPadding: CGFloat = 64
         let contentWidth = self.view.bounds.width - 2 * leftPadding
-        let contentHeight = self.view.frame.height - 2 * topPadding
+        let contentHeight = 500 - 2 * topPadding
 
         contentView.frame = CGRect(
             x: leftPadding,
@@ -44,19 +53,34 @@ class ViewController: UIViewController {
             width: contentWidth,
             height: contentHeight)
 
-        var redItem = Item(
-            id: "redView",
+//        var redItem = Item(
+//            id: "redView",
+//            insets: .zero,
+//            sizeGuide: SizeGuide(width: .fillParent, height: .fillParent),
+//            alignment: .leadingTop,
+//            flexibility: .normal,
+//            subItems: [])
+//        redItem.updateMeasurements(within: contentView.frame.size)
+//        redItem.updateLayouts(within: contentView.frame)
+//
+//        redView.configure(redItem)
+//        redView.updateLayouts(with: redItem)
+//        print(redItem.debugDescription())
+
+        var blueItem = Item(
+            id: "blueView",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fillParent, height: .fillParent),
+            sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(20)),
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
-        redView.configure(redItem)
+        blueItem.updateMeasurements(within: contentView.frame.size)
+        blueItem.updateLayouts(within: contentView.frame)
 
-        redItem.updateMeasurements(within: contentView.frame.size)
-        redItem.updateLayouts(within: contentView.frame)
-
-        redView.updateLayout(with: redItem)
+        blueView.configure(blueItem)
+        blueView.updateLayouts(with: blueItem)
+        print(blueItem.debugDescription())
+        
     }
 
 }
