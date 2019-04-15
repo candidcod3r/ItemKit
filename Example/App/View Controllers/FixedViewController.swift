@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class ViewController: UIViewController {
+class FixedViewController: UIViewController {
 
     let contentView: UIView = {
         let view = UIView()
@@ -79,6 +79,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Testing fixed size guide"
         view.backgroundColor = .white
 
         view.addSubview(contentView)
