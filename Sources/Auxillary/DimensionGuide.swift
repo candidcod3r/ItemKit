@@ -8,27 +8,27 @@
 
 public enum DimensionGuide {
     case fixed(CGFloat)
-    case wrapContent
-    case percentageParent(CGFloat)
-    case fillParent
+    case intrinsic
+    case percent(CGFloat)
+    case fill
 
     func dimension(of contentDimension: CGFloat, within maxDimension: CGFloat) -> CGFloat {
         switch self {
         case .fixed(let value):
             return value
-        case .percentageParent(let value):
+        case .percent(let value):
             let clampedPercentage = clamp(value, within: 0...1)
             return maxDimension * clampedPercentage
-        case .wrapContent:
+        case .intrinsic:
             return contentDimension
-        case .fillParent:
+        case .fill:
             return maxDimension
         }
     }
 
     var isWrapContent: Bool {
         switch self {
-        case .wrapContent:
+        case .intrinsic:
             return true
         default:
             return false
@@ -37,7 +37,7 @@ public enum DimensionGuide {
 
     var isFillParent: Bool {
         switch self {
-        case .fillParent:
+        case .fill:
             return true
         default:
             return false
