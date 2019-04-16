@@ -10,4 +10,6 @@ import Foundation
 
 public protocol Layoutable {
     mutating func updateLayouts(within maxFrame: CGRect)
+    
+    mutating func updateContentLayouts(within maxFrame: CGRect)
 }

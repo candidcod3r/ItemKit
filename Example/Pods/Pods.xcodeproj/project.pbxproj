@@ -110,7 +110,7 @@
 		BEB1A33F6A8EE2D4658784794D612FFC /* Pods-ItemKitExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ItemKitExample-umbrella.h"; sourceTree = "<group>"; };
 		CEB18A2F76F31A76E8C0A1C931133065 /* ItemKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ItemKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB689098DE7EBD2B1B087A21EE9DFB4 /* CGFloat+.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
-		D15162910A46D6C48B282EA661F8F1BF /* Item.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Sources/Item.swift; sourceTree = "<group>"; };
+		D15162910A46D6C48B282EA661F8F1BF /* Item.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D484CFBFE2A7C64F31ED406CB49E7DDE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA7F828743D8C0B24E67F336B7466B13 /* Pods-ItemKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		E4FDF8FF44DD3EDBE3220C6BEDCA3D53 /* ItemKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ItemKit-umbrella.h"; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 		497C3EC884437CC8D3BC5F44A28EC177 /* ItemKit */ = {
 			isa = PBXGroup;
 			children = (
-				D15162910A46D6C48B282EA661F8F1BF /* Item.swift */,
 				BC74AC09F75925EBC3DAB05BDE388E01 /* ItemProtocol.swift */,
 				64DE2685268BCD7F0D2CE4328A809B89 /* Layoutable.swift */,
 				47F02DA0DBCFFA1D59995EBB0B70FDDF /* Measurable.swift */,
@@ -253,6 +252,7 @@
 		4E05A1CC22645ACF008F53CB /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				D15162910A46D6C48B282EA661F8F1BF /* Item.swift */,
 				4E05A1CF22645AED008F53CB /* StackItem.swift */,
 				4E05A1D122645B0F008F53CB /* ButtonItem.swift */,
 				4E05A1CD22645ADE008F53CB /* TextItem.swift */,

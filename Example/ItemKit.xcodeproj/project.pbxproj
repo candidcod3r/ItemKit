@@ -105,9 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				607FACD21AFB9204008FA782 /* App */,
-				607FACD11AFB9204008FA782 /* Products */,
-				78D336EB865AFE41D4D35D2C /* Pods */,
 				27CAD5CDB44F51D9E151B58D /* Frameworks */,
+				78D336EB865AFE41D4D35D2C /* Pods */,
+				607FACD11AFB9204008FA782 /* Products */,
 			);
 			sourceTree = "<group>";
 		};

@@ -86,18 +86,25 @@ extension Item: Layoutable {
             alignment: alignment,
             within: maxFrame)
 
-        let contentMaxSize = frame.size.decreased(by: insets)
+        let maxContentSize = frame.size.decreased(by: insets)
+        let contentOrigin: CGPoint = {
+            if requiresView {
+                return CGPoint(x: insets.left, y: insets.top)
+            } else {
+                return CGPoint(x: frame.origin.x + insets.left, y: frame.origin.y + insets.top)
+            }
+        }()
 
-        let contentOrigin = (requiresView)
-            ? CGPoint(x: insets.left, y: insets.top)
-            : CGPoint(x: frame.origin.x + insets.left, y: frame.origin.y + insets.top)
-
-        let contentMaxRect = CGRect(origin: contentOrigin, size: contentMaxSize)
-        for i in 0..<subItems.count {
-            subItems[i].updateLayouts(within: contentMaxRect)
-        }
+        let maxContentFrame = CGRect(origin: contentOrigin, size: maxContentSize)
+        updateContentLayouts(within: maxContentFrame)
 
         self.origin = origin
+    }
+
+    public mutating func updateContentLayouts(within maxFrame: CGRect) {
+        for i in 0..<subItems.count {
+            subItems[i].updateLayouts(within: maxFrame)
+        }
     }
 
 }
