@@ -7,20 +7,20 @@
 //
 
 public protocol Layoutable {
-    mutating func updateLayouts(within maxFrame: CGRect)
+    mutating func updateAlignments(within maxFrame: CGRect)
     
-    mutating func updateContentLayouts(contentFrame: CGRect)
+    mutating func updateContentAlignments(contentFrame: CGRect)
 }
 
 extension Layoutable where Self: ItemProtocol {
-    func origin(within maxFrame: CGRect) -> CGPoint {
+    fileprivate func origin(within maxFrame: CGRect) -> CGPoint {
         return Aligner.origin(
             with: measurement,
             alignment: alignment,
             within: maxFrame)
     }
 
-    mutating func updateContentLayouts(withinFrame maxFrame: CGRect) {
+    fileprivate mutating func updateContentAlignments(within maxFrame: CGRect) {
         let contentSize = maxFrame.size.decreased(by: insets)
         let contentOrigin: CGPoint = {
             if requiresView {
@@ -31,12 +31,15 @@ extension Layoutable where Self: ItemProtocol {
         }()
 
         let contentFrame = CGRect(origin: contentOrigin, size: contentSize)
-        updateContentLayouts(contentFrame: contentFrame)
+        updateContentAlignments(contentFrame: contentFrame)
     }
 
-    mutating func originByUpdatingContentLayouts(within maxFrame: CGRect) -> CGPoint {
-        updateContentLayouts(withinFrame: maxFrame)
+    mutating func originByUpdatingContentAlignments(within maxFrame: CGRect) -> CGPoint {
         let origin = self.origin(within: maxFrame)
+
+        let fittingFrame = CGRect(origin: origin, size: measurement)
+        updateContentAlignments(within: fittingFrame)
+
         return origin
     }
 }

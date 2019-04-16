@@ -11,16 +11,11 @@ import ItemKit
 
 class TestFixedViewController: UIViewController {
 
-    let contentView: UIView = {
+    let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
-        return view
-    }()
-
-    let grayView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(hex: 0xF0F0F0)
+        view.backgroundColor = UIColor(hex: 0xE9E9E9)
         return view
     }()
 
@@ -84,32 +79,31 @@ class TestFixedViewController: UIViewController {
         title = "Testing fixed size guide"
         view.backgroundColor = .white
 
-        view.addSubview(contentView)
-        contentView.addSubview(grayView)
-        grayView.addSubview(redView)
-        grayView.addSubview(blueView)
-        grayView.addSubview(cyanView)
-        grayView.addSubview(greenView)
-        grayView.addSubview(yellowView)
-        grayView.addSubview(purpleView)
-        grayView.addSubview(orangeView)
-        grayView.addSubview(lightGreenView)
-        grayView.addSubview(pinkView)
+        view.addSubview(containerView)
+        containerView.addSubview(redView)
+        containerView.addSubview(blueView)
+        containerView.addSubview(cyanView)
+        containerView.addSubview(greenView)
+        containerView.addSubview(yellowView)
+        containerView.addSubview(purpleView)
+        containerView.addSubview(orangeView)
+        containerView.addSubview(lightGreenView)
+        containerView.addSubview(pinkView)
 
         setup()
     }
 
     func setup() {
-        let leftPadding: CGFloat = 8
-        let topPadding: CGFloat = 8
-        let contentWidth: CGFloat = self.view.bounds.width - 2 * leftPadding
-        let contentHeight: CGFloat = 400
+        let containerWidth: CGFloat = 360
+        let containerHeight: CGFloat = 400
 
-        contentView.frame = CGRect(
-            x: leftPadding,
-            y: topPadding,
-            width: contentWidth,
-            height: contentHeight)
+        ///////////////////
+        // containerView //
+        ///////////////////
+        var containerItem = Item(
+            id: "containerItem",
+            sizeGuide: SizeGuide(width: .fill, height: .fill))
+        containerView.configure(containerItem)
 
         /////////////
         // redView //
@@ -121,6 +115,7 @@ class TestFixedViewController: UIViewController {
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(redItem)
         redView.configure(redItem)
 
         //////////////
@@ -133,6 +128,7 @@ class TestFixedViewController: UIViewController {
             alignment: .trailingTop,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(blueItem)
         blueView.configure(blueItem)
 
         //////////////
@@ -145,6 +141,7 @@ class TestFixedViewController: UIViewController {
             alignment: .leadingBottom,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(cyanItem)
         cyanView.configure(cyanItem)
 
         ///////////////
@@ -157,6 +154,7 @@ class TestFixedViewController: UIViewController {
             alignment: .center,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(greenItem)
         greenView.configure(greenItem)
 
         ////////////////
@@ -169,6 +167,7 @@ class TestFixedViewController: UIViewController {
             alignment: .trailingBottom,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(yellowItem)
         yellowView.configure(yellowItem)
 
         ////////////////
@@ -181,6 +180,7 @@ class TestFixedViewController: UIViewController {
             alignment: .trailingCenter,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(purpleItem)
         purpleView.configure(purpleItem)
 
         ////////////////
@@ -193,6 +193,7 @@ class TestFixedViewController: UIViewController {
             alignment: .leadingCenter,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(orangeItem)
         orangeView.configure(orangeItem)
 
         ////////////////////
@@ -205,6 +206,7 @@ class TestFixedViewController: UIViewController {
             alignment: .centerTop,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(lightGreenItem)
         lightGreenView.configure(lightGreenItem)
 
         //////////////
@@ -217,24 +219,23 @@ class TestFixedViewController: UIViewController {
             alignment: .centerBottom,
             flexibility: .normal,
             subItems: [])
+        containerItem.subItems.append(pinkItem)
         pinkView.configure(pinkItem)
 
-        //////////////
-        // grayView //
-        //////////////
-        var grayItem = Item(
-            id: "grayItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fill, height: .fill),
-            alignment: .leadingTop,
+        /////////////////////////
+        // containerParentItem //
+        /////////////////////////
+        var containerParentItem = Item(
+            insets: UIEdgeInsets(8),
+            sizeGuide: SizeGuide(width: .fixed(containerWidth), height: .fixed(containerHeight)),
+            alignment: .centerTop,
             flexibility: .normal,
-            subItems: [redItem, blueItem, cyanItem, greenItem, yellowItem, purpleItem, orangeItem, lightGreenItem, pinkItem])
-        grayItem.updateMeasurements(within: contentView.bounds.size)
-        grayItem.updateLayouts(within: contentView.bounds)
-        print(grayItem.debugDescription())
+            subItems: [containerItem])
 
-        grayView.configure(grayItem)
-        grayView.updateLayouts(with: grayItem)
+        containerParentItem.updateLayouts(within: view.bounds)
+        print(containerParentItem.debugDescription())
+
+        containerView.updateLayouts(with: containerParentItem)
     }
 
 }

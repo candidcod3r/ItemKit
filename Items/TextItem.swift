@@ -51,13 +51,13 @@ extension TextItem {
 
 // MARK: Layoutable
 extension TextItem {
-    public mutating func updateLayouts(within maxFrame: CGRect) {
-        origin = originByUpdatingContentLayouts(within: maxFrame)
+    public mutating func updateAlignments(within maxFrame: CGRect) {
+        origin = originByUpdatingContentAlignments(within: maxFrame)
     }
 
-    public mutating func updateContentLayouts(contentFrame: CGRect) {
+    public mutating func updateContentAlignments(contentFrame: CGRect) {
         for i in 0..<subItems.count {
-            subItems[i].updateLayouts(within: contentFrame)
+            subItems[i].updateAlignments(within: contentFrame)
         }
     }
 }

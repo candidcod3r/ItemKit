@@ -32,3 +32,10 @@ extension ItemProtocol {
         return CGRect(origin: origin, size: measurement)
     }
 }
+
+extension ItemProtocol {
+    mutating public func updateLayouts(within maxFrame: CGRect) {
+        updateMeasurements(within: maxFrame.size)
+        updateAlignments(within: maxFrame)
+    }
+}
