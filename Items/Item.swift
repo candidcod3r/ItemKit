@@ -38,11 +38,11 @@ public struct Item: ItemProtocol, Cacheable {
 extension Item {
 
     public mutating func updateMeasurements(within maxSize: CGSize) {
-        measurement = getMeasurementAndUpdateContentMeasurements(within: maxSize)
+        measurement = measurementByUpdatingContentMeasurements(within: maxSize)
     }
 
     @discardableResult
-    public mutating func updateContentMeasurements(within maxSize: CGSize) -> CGSize {
+    public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
         for i in 0..<subItems.count {
             subItems[i].updateMeasurements(within: maxSize)
         }
@@ -53,12 +53,12 @@ extension Item {
 // MARK: Layoutable
 extension Item {
     public mutating func updateLayouts(within maxFrame: CGRect) {
-        origin = getOriginAndUpdateContentLayouts(within: maxFrame)
+        origin = originByUpdatingContentLayouts(within: maxFrame)
     }
 
-    public mutating func updateContentLayouts(within maxFrame: CGRect) {
+    public mutating func updateContentLayouts(contentFrame: CGRect) {
         for i in 0..<subItems.count {
-            subItems[i].updateLayouts(within: maxFrame)
+            subItems[i].updateLayouts(within: contentFrame)
         }
     }
 }
