@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
     spec.name             = 'ItemKit'
-    spec.version          = '0.1.0'
+    spec.version          = '0.6.0'
     spec.summary          = 'A simple and gracious alternative to manual layout with readability, flexibility and performance.'
 
     # This description is used to generate tags and improve search results.
