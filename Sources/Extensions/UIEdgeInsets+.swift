@@ -8,11 +8,11 @@
 
 extension UIEdgeInsets {
 
-    public init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
+    init(horizontal: CGFloat = 0, vertical: CGFloat = 0) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
 
-    public init(_ value: CGFloat) {
+    init(_ value: CGFloat) {
         self.init(horizontal: value, vertical: value)
     }
 
@@ -24,7 +24,7 @@ extension UIEdgeInsets {
         return top + bottom
     }
 
-    public func offsetted(by offset: UIOffset) -> UIEdgeInsets {
+    func offsetted(by offset: UIOffset) -> UIEdgeInsets {
         return UIEdgeInsets(
             top: top + offset.vertical,
             left: left + offset.horizontal,
@@ -33,7 +33,7 @@ extension UIEdgeInsets {
         )
     }
 
-    public func clamp(within range: ClosedRange<CGFloat>) -> UIEdgeInsets {
+    func clamp(within range: ClosedRange<CGFloat>) -> UIEdgeInsets {
         return UIEdgeInsets(
             top: ItemKit.clamp(top, within: range),
             left: ItemKit.clamp(left, within: range),
@@ -41,17 +41,16 @@ extension UIEdgeInsets {
             right: ItemKit.clamp(right, within: range))
     }
 
-    public func clamp(min: CGFloat, max: CGFloat) -> UIEdgeInsets {
+    func clamp(min: CGFloat, max: CGFloat) -> UIEdgeInsets {
         let closedRange = min...max
         return clamp(within: closedRange)
     }
 
-    public func negated() -> UIEdgeInsets {
+    func negated() -> UIEdgeInsets {
         return UIEdgeInsets(
             top: -top,
             left: -left,
             bottom: -bottom,
             right: -right)
     }
-
 }

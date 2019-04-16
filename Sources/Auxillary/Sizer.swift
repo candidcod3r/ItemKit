@@ -7,7 +7,6 @@
 //
 
 public struct Sizer {
-
     public static func fittingSize(within maxSize: CGSize, guide: SizeGuide) -> CGSize {
         let horizontal = fittingDimension(
             within: maxSize.width,
@@ -27,5 +26,4 @@ public struct Sizer {
         let dimension = clamp(unclampedDimension, within: clampRange)
         return dimension
     }
-
 }

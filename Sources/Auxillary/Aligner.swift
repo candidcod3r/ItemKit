@@ -7,7 +7,6 @@
 //
 
 public struct Aligner {
-
     public static func origin(with size: CGSize,
                               alignment: Alignment,
                               within maxFrame: CGRect) -> CGPoint {
@@ -18,5 +17,4 @@ public struct Aligner {
             x: maxFrame.origin.x + xOffset,
             y: maxFrame.origin.y + yOffset)
     }
-
 }

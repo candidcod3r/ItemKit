@@ -9,7 +9,6 @@
 import Foundation
 
 public struct Item: ItemProtocol, Cacheable {
-
     public var id: String?
     public var insets: UIEdgeInsets
     public var sizeGuide: SizeGuide
@@ -35,11 +34,10 @@ public struct Item: ItemProtocol, Cacheable {
         self.flexibility = flexibility
         self.subItems = subItems
     }
-
 }
 
+// MARK: Measurable
 extension Item {
-
     public mutating func updateMeasurements(within maxSize: CGSize) {
         let fittingSize = Sizer.fittingSize(within: maxSize, guide: sizeGuide)
 
@@ -60,11 +58,10 @@ extension Item {
         }
         return .zero
     }
-
 }
 
+// MARK: Layoutable
 extension Item {
-
     public mutating func updateLayouts(within maxFrame: CGRect) {
         let origin = Aligner.origin(
             with: measurement,
@@ -91,5 +88,4 @@ extension Item {
             subItems[i].updateLayouts(within: maxFrame)
         }
     }
-
 }

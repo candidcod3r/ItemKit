@@ -7,9 +7,7 @@
 //
 
 extension UIView {
-
-    public func configure(_ item: Item) {
+    public func configure(_ item: ItemProtocol) {
         self.itemID = item.id
     }
-
 }

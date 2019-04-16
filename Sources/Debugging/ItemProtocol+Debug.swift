@@ -7,7 +7,6 @@
 //
 
 extension ItemProtocol {
-
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))
         let originString = "(\(origin.x), \(origin.y))"
@@ -35,5 +34,4 @@ extension ItemProtocol {
         debugString += subItemsString
         return debugString
     }
-
 }

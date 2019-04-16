@@ -7,7 +7,6 @@
 //
 
 extension CGFloat {
-
     var roundedUp: CGFloat {
         if self == 0 {
             return 0
@@ -26,7 +25,7 @@ extension CGFloat {
 
         return ceil(self * pixelsPerPoint) / pixelsPerPoint
     }
-
+    
     var roundedDown: CGFloat {
         if self == 0 {
             return 0
@@ -55,6 +54,4 @@ extension CGFloat {
         let roundedDownValue = roundedDown
         return roundedUpValue - self <= self - roundedDownValue ? roundedUpValue : roundedDownValue
     }
-
-
 }

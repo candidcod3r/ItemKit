@@ -7,7 +7,6 @@
 //
 
 extension NSAttributedString {
-
     func apply(font: UIFont) -> NSAttributedString {
         let result = NSMutableAttributedString(string: string, attributes: [NSAttributedString.Key.font : font])
         let range = NSRange(location: 0, length: self.string.count)
@@ -22,5 +21,4 @@ extension NSAttributedString {
 
         return result
     }
-
 }

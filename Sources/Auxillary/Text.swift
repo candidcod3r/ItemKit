@@ -50,5 +50,4 @@ public enum Text {
         
         return textSize.roundedUp
     }
-
 }

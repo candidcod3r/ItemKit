@@ -7,7 +7,6 @@
 //
 
 extension CGRect {
-
     var top: CGFloat {
         get {
             return origin.y
@@ -43,5 +42,4 @@ extension CGRect {
             left = newValue - width
         }
     }
-
 }

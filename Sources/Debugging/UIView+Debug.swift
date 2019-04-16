@@ -11,7 +11,6 @@ import UIKit
 private var itemKitIDKey: UInt8 = 0
 
 extension UIView {
-
     var itemKitID: String? {
         get {
             return objc_getAssociatedObject(self, &itemKitIDKey) as? String
@@ -34,5 +33,4 @@ extension UIView {
             subview.setBorders(with: color, recursively: recursively)
         }
     }
-
 }

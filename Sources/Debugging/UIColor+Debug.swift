@@ -7,7 +7,6 @@
 //
 
 extension UIColor {
-
     convenience init(hex: Int) {
         let red = (CGFloat((hex >> 16) & 0xff)) / 255.0
         let green = (CGFloat((hex >> 8) & 0xff)) / 255.0
@@ -29,5 +28,4 @@ extension UIColor {
     private static var randomColorSpaceValue: CGFloat {
         return CGFloat(arc4random_uniform(256)) / 255.0
     }
-
 }

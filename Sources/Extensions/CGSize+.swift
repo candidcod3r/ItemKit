@@ -7,7 +7,6 @@
 //
 
 extension CGSize {
-
     func insetted(by insets: UIEdgeInsets) -> CGSize {
         let insettedWidth = width + insets.totalHorizontal
         let insettedHeight = height + insets.totalVertical
@@ -51,5 +50,4 @@ extension CGSize {
         let roundedUpHeight = height.roundedUp
         return CGSize(width: roundedUpWidth, height: roundedUpHeight)
     }
-
 }

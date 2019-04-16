@@ -9,7 +9,6 @@
 private var itemIDKey: UInt8 = 0
 
 extension UIView {
-
     public internal(set) var itemID: String? {
         get {
             return objc_getAssociatedObject(self, &itemIDKey) as? String
@@ -33,5 +32,4 @@ extension UIView {
             subview.updateLayouts(with: itemCache)
         }
     }
-
 }
