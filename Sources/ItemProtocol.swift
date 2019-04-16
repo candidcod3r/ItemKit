@@ -6,8 +6,6 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-import Foundation
-
 public protocol ItemProtocol: Measurable, Layoutable {
     var id: String? { get set }
     var insets: UIEdgeInsets { get set }

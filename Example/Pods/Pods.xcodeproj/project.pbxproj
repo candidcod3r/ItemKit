@@ -255,9 +255,9 @@
 		4E05A1CC22645ACF008F53CB /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				4E05A1D122645B0F008F53CB /* ButtonItem.swift */,
 				D15162910A46D6C48B282EA661F8F1BF /* Item.swift */,
 				4E05A1CF22645AED008F53CB /* StackItem.swift */,
-				4E05A1D122645B0F008F53CB /* ButtonItem.swift */,
 				4E05A1CD22645ADE008F53CB /* TextItem.swift */,
 			);
 			path = Items;

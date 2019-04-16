@@ -6,8 +6,6 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-import Foundation
-
 public struct Item: ItemProtocol, Cacheable {
     public var id: String?
     public var insets: UIEdgeInsets
@@ -38,17 +36,9 @@ public struct Item: ItemProtocol, Cacheable {
 
 // MARK: Measurable
 extension Item {
+
     public mutating func updateMeasurements(within maxSize: CGSize) {
-        let fittingSize = Sizer.fittingSize(within: maxSize, guide: sizeGuide)
-
-        let contentFittingSize = fittingSize.decreased(by: insets)
-        let contentMeasurement = updateContentMeasurements(within: contentFittingSize)
-
-        if sizeGuide.width.isWrapContent || sizeGuide.height.isWrapContent {
-            measurement = contentMeasurement.increased(by: insets)
-        } else {
-            measurement = fittingSize
-        }
+        measurement = getMeasurementAndUpdateContentMeasurements(within: maxSize)
     }
 
     @discardableResult
@@ -63,24 +53,7 @@ extension Item {
 // MARK: Layoutable
 extension Item {
     public mutating func updateLayouts(within maxFrame: CGRect) {
-        let origin = Aligner.origin(
-            with: measurement,
-            alignment: alignment,
-            within: maxFrame)
-
-        let maxContentSize = frame.size.decreased(by: insets)
-        let contentOrigin: CGPoint = {
-            if requiresView {
-                return CGPoint(x: insets.left, y: insets.top)
-            } else {
-                return CGPoint(x: frame.origin.x + insets.left, y: frame.origin.y + insets.top)
-            }
-        }()
-
-        let maxContentFrame = CGRect(origin: contentOrigin, size: maxContentSize)
-        updateContentLayouts(within: maxContentFrame)
-
-        self.origin = origin
+        origin = getOriginAndUpdateContentLayouts(within: maxFrame)
     }
 
     public mutating func updateContentLayouts(within maxFrame: CGRect) {
