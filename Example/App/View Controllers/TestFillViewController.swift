@@ -1,18 +1,20 @@
 //
-//  ViewController.swift
-//  ItemKit
+//  TestFillViewController.swift
+//  ItemKitExample
 //
-//  Created by candidcod3r on 04/12/2019.
-//  Copyright (c) 2019 candidcod3r.
+//  Created by Candid Cod3r on 4/15/19.
+//  Copyright (c) 2019 Candid Cod3r.
 //
 
 import UIKit
 import ItemKit
 
-class FixedViewController: UIViewController {
+class TestFillViewController: UIViewController {
 
     let contentView: UIView = {
         let view = UIView()
+        view.clipsToBounds = false
+        view.layer.masksToBounds = false
         return view
     }()
 
@@ -40,21 +42,9 @@ class FixedViewController: UIViewController {
         return view
     }()
 
-    let greenView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        return view
-    }()
-
     let yellowView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0xFFCC00)
-        return view
-    }()
-
-    let purpleView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(hex: 0xC86EDF)
         return view
     }()
 
@@ -64,15 +54,9 @@ class FixedViewController: UIViewController {
         return view
     }()
 
-    let lightGreenView: UIView = {
+    let greenView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hex: 0x55EFCB)
-        return view
-    }()
-
-    let pinkView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(hex: 0xFF2D55)
+        view.backgroundColor = .green
         return view
     }()
 
@@ -87,12 +71,9 @@ class FixedViewController: UIViewController {
         contentView.addSubview(redView)
         contentView.addSubview(blueView)
         contentView.addSubview(cyanView)
-        contentView.addSubview(greenView)
         contentView.addSubview(yellowView)
-        contentView.addSubview(purpleView)
         contentView.addSubview(orangeView)
-        contentView.addSubview(lightGreenView)
-        contentView.addSubview(pinkView)
+        contentView.addSubview(greenView)
 
         setup()
     }
@@ -109,6 +90,9 @@ class FixedViewController: UIViewController {
             width: contentWidth,
             height: contentHeight)
 
+        //////////////
+        // grayView //
+        //////////////
         var grayItem = Item(
             id: "grayItem",
             insets: .zero,
@@ -123,10 +107,13 @@ class FixedViewController: UIViewController {
         grayView.configure(grayItem)
         grayView.updateLayouts(with: grayItem)
 
+        /////////////
+        // redView //
+        /////////////
         var redItem = Item(
             id: "redItem",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(20)),
+            sizeGuide: SizeGuide(width: .fixed(40), height: .fill),
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
@@ -137,10 +124,13 @@ class FixedViewController: UIViewController {
         redView.configure(redItem)
         redView.updateLayouts(with: redItem)
 
+        //////////////
+        // blueView //
+        //////////////
         var blueItem = Item(
             id: "blueItem",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(10)),
+            sizeGuide: SizeGuide(width: .fill, height: .fixed(10)),
             alignment: .trailingTop,
             flexibility: .normal,
             subItems: [])
@@ -151,10 +141,13 @@ class FixedViewController: UIViewController {
         blueView.configure(blueItem)
         blueView.updateLayouts(with: blueItem)
 
+        //////////////
+        // cyanView //
+        //////////////
         var cyanItem = Item(
             id: "cyanItem",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(20)),
+            sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
             alignment: .leadingBottom,
             flexibility: .normal,
             subItems: [])
@@ -165,10 +158,13 @@ class FixedViewController: UIViewController {
         cyanView.configure(cyanItem)
         cyanView.updateLayouts(with: cyanItem)
 
+        ///////////////
+        // greenView //
+        ///////////////
         var greenItem = Item(
             id: "greenItem",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(50), height: .fixed(50)),
+            sizeGuide: SizeGuide(width: .fixed(50), height: .fill),
             alignment: .center,
             flexibility: .normal,
             subItems: [])
@@ -179,10 +175,13 @@ class FixedViewController: UIViewController {
         greenView.configure(greenItem)
         greenView.updateLayouts(with: greenItem)
 
+        ////////////////
+        // yellowView //
+        ////////////////
         var yellowItem = Item(
             id: "yellowItem",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(15), height: .fixed(20)),
+            sizeGuide: SizeGuide(width: .fixed(15), height: .fill),
             alignment: .trailingBottom,
             flexibility: .normal,
             subItems: [])
@@ -193,24 +192,13 @@ class FixedViewController: UIViewController {
         yellowView.configure(yellowItem)
         yellowView.updateLayouts(with: yellowItem)
 
-        var purpleItem = Item(
-            id: "purpleItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
-            alignment: .trailingCenter,
-            flexibility: .normal,
-            subItems: [])
-        purpleItem.updateMeasurements(within: contentView.bounds.size)
-        purpleItem.updateLayouts(within: contentView.bounds)
-        print(purpleItem.debugDescription())
-
-        purpleView.configure(purpleItem)
-        purpleView.updateLayouts(with: purpleItem)
-
+        ////////////////
+        // orangeView //
+        ////////////////
         var orangeItem = Item(
             id: "orangeItem",
             insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
+            sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
             alignment: .leadingCenter,
             flexibility: .normal,
             subItems: [])
@@ -220,35 +208,6 @@ class FixedViewController: UIViewController {
 
         orangeView.configure(orangeItem)
         orangeView.updateLayouts(with: orangeItem)
-
-        var lightGreenItem = Item(
-            id: "lightGreenItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
-            alignment: .centerTop,
-            flexibility: .normal,
-            subItems: [])
-        lightGreenItem.updateMeasurements(within: contentView.bounds.size)
-        lightGreenItem.updateLayouts(within: contentView.bounds)
-        print(lightGreenItem.debugDescription())
-
-        lightGreenView.configure(lightGreenItem)
-        lightGreenView.updateLayouts(with: lightGreenItem)
-
-        var pinkItem = Item(
-            id: "pinkItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
-            alignment: .centerBottom,
-            flexibility: .normal,
-            subItems: [])
-        pinkItem.updateMeasurements(within: contentView.bounds.size)
-        pinkItem.updateLayouts(within: contentView.bounds)
-        print(pinkItem.debugDescription())
-
-        pinkView.configure(pinkItem)
-        pinkView.updateLayouts(with: pinkItem)
     }
 
 }
-
