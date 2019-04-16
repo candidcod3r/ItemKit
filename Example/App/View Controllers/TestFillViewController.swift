@@ -68,12 +68,12 @@ class TestFillViewController: UIViewController {
 
         view.addSubview(contentView)
         contentView.addSubview(grayView)
-        contentView.addSubview(redView)
-        contentView.addSubview(blueView)
-        contentView.addSubview(cyanView)
-        contentView.addSubview(yellowView)
-        contentView.addSubview(orangeView)
-        contentView.addSubview(greenView)
+        grayView.addSubview(redView)
+        grayView.addSubview(blueView)
+        grayView.addSubview(cyanView)
+        grayView.addSubview(yellowView)
+        grayView.addSubview(orangeView)
+        grayView.addSubview(greenView)
 
         setup()
     }
@@ -90,6 +90,78 @@ class TestFillViewController: UIViewController {
             width: contentWidth,
             height: contentHeight)
 
+        /////////////
+        // redView //
+        /////////////
+        let redItem = Item(
+            id: "redItem",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fixed(40), height: .fill),
+            alignment: .leadingTop,
+            flexibility: .normal,
+            subItems: [])
+        redView.configure(redItem)
+
+        //////////////
+        // blueView //
+        //////////////
+        let blueItem = Item(
+            id: "blueItem",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fill, height: .fixed(10)),
+            alignment: .trailingTop,
+            flexibility: .normal,
+            subItems: [])
+        blueView.configure(blueItem)
+
+        //////////////
+        // cyanView //
+        //////////////
+        let cyanItem = Item(
+            id: "cyanItem",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
+            alignment: .leadingBottom,
+            flexibility: .normal,
+            subItems: [])
+        cyanView.configure(cyanItem)
+
+        ///////////////
+        // greenView //
+        ///////////////
+        let greenItem = Item(
+            id: "greenItem",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fixed(50), height: .fill),
+            alignment: .center,
+            flexibility: .normal,
+            subItems: [])
+        greenView.configure(greenItem)
+
+        ////////////////
+        // yellowView //
+        ////////////////
+        let yellowItem = Item(
+            id: "yellowItem",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fixed(15), height: .fill),
+            alignment: .trailingBottom,
+            flexibility: .normal,
+            subItems: [])
+        yellowView.configure(yellowItem)
+
+        ////////////////
+        // orangeView //
+        ////////////////
+        let orangeItem = Item(
+            id: "orangeItem",
+            insets: .zero,
+            sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
+            alignment: .leadingCenter,
+            flexibility: .normal,
+            subItems: [])
+        orangeView.configure(orangeItem)
+
         //////////////
         // grayView //
         //////////////
@@ -99,115 +171,13 @@ class TestFillViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fill),
             alignment: .leadingTop,
             flexibility: .normal,
-            subItems: [])
+            subItems: [redItem, blueItem, cyanItem, greenItem, yellowItem, orangeItem])
         grayItem.updateMeasurements(within: contentView.bounds.size)
         grayItem.updateLayouts(within: contentView.bounds)
         print(grayItem.debugDescription())
 
         grayView.configure(grayItem)
         grayView.updateLayouts(with: grayItem)
-
-        /////////////
-        // redView //
-        /////////////
-        var redItem = Item(
-            id: "redItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(40), height: .fill),
-            alignment: .leadingTop,
-            flexibility: .normal,
-            subItems: [])
-        redItem.updateMeasurements(within: contentView.bounds.size)
-        redItem.updateLayouts(within: contentView.bounds)
-        print(redItem.debugDescription())
-
-        redView.configure(redItem)
-        redView.updateLayouts(with: redItem)
-
-        //////////////
-        // blueView //
-        //////////////
-        var blueItem = Item(
-            id: "blueItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fill, height: .fixed(10)),
-            alignment: .trailingTop,
-            flexibility: .normal,
-            subItems: [])
-        blueItem.updateMeasurements(within: contentView.bounds.size)
-        blueItem.updateLayouts(within: contentView.bounds)
-        print(blueItem.debugDescription())
-
-        blueView.configure(blueItem)
-        blueView.updateLayouts(with: blueItem)
-
-        //////////////
-        // cyanView //
-        //////////////
-        var cyanItem = Item(
-            id: "cyanItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
-            alignment: .leadingBottom,
-            flexibility: .normal,
-            subItems: [])
-        cyanItem.updateMeasurements(within: contentView.bounds.size)
-        cyanItem.updateLayouts(within: contentView.bounds)
-        print(cyanItem.debugDescription())
-
-        cyanView.configure(cyanItem)
-        cyanView.updateLayouts(with: cyanItem)
-
-        ///////////////
-        // greenView //
-        ///////////////
-        var greenItem = Item(
-            id: "greenItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(50), height: .fill),
-            alignment: .center,
-            flexibility: .normal,
-            subItems: [])
-        greenItem.updateMeasurements(within: contentView.bounds.size)
-        greenItem.updateLayouts(within: contentView.bounds)
-        print(greenItem.debugDescription())
-
-        greenView.configure(greenItem)
-        greenView.updateLayouts(with: greenItem)
-
-        ////////////////
-        // yellowView //
-        ////////////////
-        var yellowItem = Item(
-            id: "yellowItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fixed(15), height: .fill),
-            alignment: .trailingBottom,
-            flexibility: .normal,
-            subItems: [])
-        yellowItem.updateMeasurements(within: contentView.bounds.size)
-        yellowItem.updateLayouts(within: contentView.bounds)
-        print(yellowItem.debugDescription())
-
-        yellowView.configure(yellowItem)
-        yellowView.updateLayouts(with: yellowItem)
-
-        ////////////////
-        // orangeView //
-        ////////////////
-        var orangeItem = Item(
-            id: "orangeItem",
-            insets: .zero,
-            sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
-            alignment: .leadingCenter,
-            flexibility: .normal,
-            subItems: [])
-        orangeItem.updateMeasurements(within: contentView.bounds.size)
-        orangeItem.updateLayouts(within: contentView.bounds)
-        print(orangeItem.debugDescription())
-
-        orangeView.configure(orangeItem)
-        orangeView.updateLayouts(with: orangeItem)
     }
 
 }
