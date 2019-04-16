@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        window = UIWindow(frame: UIScreen.main.bounds)
         let navigationVC = UINavigationController(rootViewController: MenuViewController())
         navigationVC.navigationBar.isTranslucent = false
         window?.rootViewController = navigationVC
