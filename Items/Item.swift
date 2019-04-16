@@ -66,7 +66,7 @@ extension Item {
 extension Item {
 
     public mutating func updateLayouts(within maxFrame: CGRect) {
-        let origin = Framer.origin(
+        let origin = Aligner.origin(
             with: measurement,
             alignment: alignment,
             within: maxFrame)

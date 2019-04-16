@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03EBE987D385486F7AC80F3439290161 /* Framer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED16A616AFF862D4C553F679FF3A43 /* Framer.swift */; };
+		03EBE987D385486F7AC80F3439290161 /* Aligner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED16A616AFF862D4C553F679FF3A43 /* Aligner.swift */; };
 		06DC95E2D11951FA06C4EC8F589BBCD7 /* DirectionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB06488276C637314AE0DFB30ED83B29 /* DirectionalValue.swift */; };
 		10E771E17109FB77CB154E69647830F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AF5EA4D9F769D41042A99A80FFB9ED /* Foundation.framework */; };
 		1235A80C30D768844B73EB5545FD4044 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476307E137BB1C31DD28D9262BF3A924 /* Axis.swift */; };
@@ -62,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01ED16A616AFF862D4C553F679FF3A43 /* Framer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Framer.swift; sourceTree = "<group>"; };
+		01ED16A616AFF862D4C553F679FF3A43 /* Aligner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Aligner.swift; sourceTree = "<group>"; };
 		02088E509BFB5A1473C2260DB984E703 /* AxisDimension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AxisDimension.swift; sourceTree = "<group>"; };
 		045E88E89225238FF5C201B358FBFF01 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086CDCD988DE43E93A658168DD4CF7A9 /* ItemKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ItemKit-dummy.m"; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 				BD6A38CBD5B89F628CD006407787E439 /* Alignment.swift */,
 				4E05A1A92263D57B008F53CB /* DimensionGuide.swift */,
 				F283C5EAD9F2307B530881945E0E4F9D /* Flexibility.swift */,
-				01ED16A616AFF862D4C553F679FF3A43 /* Framer.swift */,
+				01ED16A616AFF862D4C553F679FF3A43 /* Aligner.swift */,
 				E5F6C9C0A0FAE17862CD05F1162FD4D4 /* SizeGuide.swift */,
 				4E05A1AB2263F0C9008F53CB /* Sizer.swift */,
 				8BBED4F2CD346A70A4954BA20C49BA93 /* Text.swift */,
@@ -471,7 +471,7 @@
 				4E05A1CB22645AB4008F53CB /* UIView+Configure.swift in Sources */,
 				4E05A1AC2263F0C9008F53CB /* Sizer.swift in Sources */,
 				AB0AE458812F83A2818644DCF7432A09 /* Flexibility.swift in Sources */,
-				03EBE987D385486F7AC80F3439290161 /* Framer.swift in Sources */,
+				03EBE987D385486F7AC80F3439290161 /* Aligner.swift in Sources */,
 				BB942932E0F5829203DC0228B9450302 /* Global.swift in Sources */,
 				6DC759FC352514E1636FD6F1D41631DC /* Item.swift in Sources */,
 				4E05A1D422645DB0008F53CB /* ItemProtocol+Debug.swift in Sources */,
