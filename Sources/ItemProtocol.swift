@@ -8,13 +8,13 @@
 
 import Foundation
 
-public protocol ItemProtocol {
+public protocol ItemProtocol: Measurable, Layoutable {
     var id: String? { get set }
     var insets: UIEdgeInsets { get set }
     var sizeGuide: SizeGuide { get set }
     var alignment: Alignment { get set }
     var flexibility: Flexibility { get set }
-    var subItems: [Self] { get set }
+    var subItems: [ItemProtocol] { get set }
 
     var origin: CGPoint { get }
     var measurement: CGSize { get }

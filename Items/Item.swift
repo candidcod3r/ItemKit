@@ -8,13 +8,14 @@
 
 import Foundation
 
-public struct Item: ItemProtocol {
+public struct Item: ItemProtocol, Cacheable {
+
     public var id: String?
     public var insets: UIEdgeInsets
     public var sizeGuide: SizeGuide
     public var alignment: Alignment
     public var flexibility: Flexibility
-    public var subItems: [Item]
+    public var subItems: [ItemProtocol]
 
     public private(set) var origin: CGPoint = .zero
     public private(set) var measurement: CGSize = .zero
@@ -35,25 +36,9 @@ public struct Item: ItemProtocol {
         self.subItems = subItems
     }
 
-    public func createViewItemCache() -> ViewItemCache {
-        let cache = ViewItemCache()
-        addToViewItemCache(cache)
-        return cache
-    }
-
-    private func addToViewItemCache(_ cache: ViewItemCache) {
-        let viewIDString = id ?? ""
-        if !viewIDString.isEmpty {
-            cache .setViewItem(self, for: viewIDString)
-        }
-        for subItem in subItems {
-            subItem.addToViewItemCache(cache)
-        }
-    }
-
 }
 
-extension Item: Measurable {
+extension Item {
 
     public mutating func updateMeasurements(within maxSize: CGSize) {
         let fittingSize = Sizer.fittingSize(within: maxSize, guide: sizeGuide)
@@ -78,7 +63,7 @@ extension Item: Measurable {
 
 }
 
-extension Item: Layoutable {
+extension Item {
 
     public mutating func updateLayouts(within maxFrame: CGRect) {
         let origin = Framer.origin(

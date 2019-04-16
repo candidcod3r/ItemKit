@@ -1,12 +1,12 @@
 //
-//  Item+Debug.swift
+//  ItemProtocol+Debug.swift
 //  ItemKit
 //
 //  Created by Candid Cod3r on 4/14/19.
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-extension Item {
+extension ItemProtocol {
 
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))

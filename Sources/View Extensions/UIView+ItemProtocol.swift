@@ -19,8 +19,8 @@ extension UIView {
         }
     }
 
-    public func updateLayouts(with item: Item) {
-        let itemCache = item.createViewItemCache()
+    public func updateLayouts<Item: ItemProtocol>(with item: Item) where Item: Cacheable {
+        let itemCache = item.createCache()
         updateLayouts(with: itemCache)
     }
 
