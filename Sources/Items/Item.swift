@@ -17,8 +17,6 @@ public struct Item: ItemProtocol, Cacheable {
     public private(set) var origin: CGPoint = .zero
     public private(set) var measurement: CGSize = .zero
 
-    public private(set) var parentFrame: CGRect = .zero
-
     public init(id: String? = nil,
                 insets: UIEdgeInsets = .zero,
                 sizeGuide: SizeGuide = SizeGuide(),
