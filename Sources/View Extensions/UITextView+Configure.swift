@@ -7,5 +7,18 @@
 //
 
 extension UITextView {
-    
+    public func configure(withTextItem item: TextItem) {
+        configure(withItem: item)
+        switch item.text {
+        case .simple(let text):
+            self.text = text
+        case .attributed(let attributedText):
+            self.attributedText = attributedText
+        }
+
+        font = item.font
+        textContainerInset = item.textContainerInsets
+        textContainer.lineFragmentPadding = item.lineFragmentPadding
+        layoutManager.usesFontLeading = false
+    }
 }

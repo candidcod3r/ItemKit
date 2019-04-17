@@ -94,16 +94,13 @@ class TestFixedViewController: UIViewController {
     }
 
     func setup() {
-        let containerWidth: CGFloat = 360
-        let containerHeight: CGFloat = 400
-
         ///////////////////
         // containerView //
         ///////////////////
         var containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(containerItem)
+        containerView.configure(withItem: containerItem)
 
         /////////////
         // redView //
@@ -116,7 +113,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(redItem)
-        redView.configure(redItem)
+        redView.configure(withItem: redItem)
 
         //////////////
         // blueView //
@@ -129,7 +126,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(blueItem)
-        blueView.configure(blueItem)
+        blueView.configure(withItem: blueItem)
 
         //////////////
         // cyanView //
@@ -142,7 +139,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(cyanItem)
-        cyanView.configure(cyanItem)
+        cyanView.configure(withItem: cyanItem)
 
         ///////////////
         // greenView //
@@ -155,7 +152,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(greenItem)
-        greenView.configure(greenItem)
+        greenView.configure(withItem: greenItem)
 
         ////////////////
         // yellowView //
@@ -168,7 +165,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(yellowItem)
-        yellowView.configure(yellowItem)
+        yellowView.configure(withItem: yellowItem)
 
         ////////////////
         // purpleView //
@@ -181,7 +178,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(purpleItem)
-        purpleView.configure(purpleItem)
+        purpleView.configure(withItem: purpleItem)
 
         ////////////////
         // orangeView //
@@ -194,7 +191,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(orangeItem)
-        orangeView.configure(orangeItem)
+        orangeView.configure(withItem: orangeItem)
 
         ////////////////////
         // lightGreenView //
@@ -207,7 +204,7 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(lightGreenItem)
-        lightGreenView.configure(lightGreenItem)
+        lightGreenView.configure(withItem: lightGreenItem)
 
         //////////////
         // pinkView //
@@ -220,14 +217,17 @@ class TestFixedViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(pinkItem)
-        pinkView.configure(pinkItem)
+        pinkView.configure(withItem: pinkItem)
+
+        let containerParentWidth: CGFloat = 360
+        let containerParentHeight: CGFloat = 400
 
         /////////////////////////
         // containerParentItem //
         /////////////////////////
         var containerParentItem = Item(
             insets: UIEdgeInsets(8),
-            sizeGuide: SizeGuide(width: .fixed(containerWidth), height: .fixed(containerHeight)),
+            sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             alignment: .centerTop,
             flexibility: .normal,
             subItems: [containerItem])

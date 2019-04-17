@@ -20,7 +20,7 @@ public struct TextItem: ItemProtocol, Cacheable {
     public internal(set) var measurement: CGSize = .zero
 
     // MARK:- TextItem Properties
-    public var text: Text
+    var text: Text
     public var font: UIFont
     public var numberOfLines: Int
     public var textContainerInsets: UIEdgeInsets
@@ -40,7 +40,7 @@ public struct TextItem: ItemProtocol, Cacheable {
         self.id = id
         self.text = text
         self.font = font
-        self.numberOfLines = min(numberOfLines, 0)
+        self.numberOfLines = max(numberOfLines, 0)
         self.textContainerInsets = textContainerInsets
         self.lineFragmentPadding = lineFragmentPadding
         self.insets = insets

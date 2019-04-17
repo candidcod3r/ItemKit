@@ -11,7 +11,7 @@ import UIKit
 
 extension UIView {
 
-    func setBorders(with color: UIColor?, recursively: Bool = true) {
+    func setBorders(with color: UIColor? = nil, recursively: Bool = true) {
         let nonnilColor = color ?? .random
         layer.borderColor = nonnilColor.cgColor
         layer.borderWidth = 1

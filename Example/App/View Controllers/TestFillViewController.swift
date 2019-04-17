@@ -73,16 +73,13 @@ class TestFillViewController: UIViewController {
     }
 
     func setup() {
-        let containerWidth: CGFloat = 360
-        let containerHeight: CGFloat = 400
-
         ///////////////////
         // containerView //
         ///////////////////
         var containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(containerItem)
+        containerView.configure(withItem: containerItem)
 
         /////////////
         // redView //
@@ -95,7 +92,7 @@ class TestFillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(redItem)
-        redView.configure(redItem)
+        redView.configure(withItem: redItem)
 
         //////////////
         // blueView //
@@ -108,7 +105,7 @@ class TestFillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(blueItem)
-        blueView.configure(blueItem)
+        blueView.configure(withItem: blueItem)
 
         //////////////
         // cyanView //
@@ -121,7 +118,7 @@ class TestFillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(cyanItem)
-        cyanView.configure(cyanItem)
+        cyanView.configure(withItem: cyanItem)
 
         ///////////////
         // greenView //
@@ -134,7 +131,7 @@ class TestFillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(greenItem)
-        greenView.configure(greenItem)
+        greenView.configure(withItem: greenItem)
 
         ////////////////
         // yellowView //
@@ -147,7 +144,7 @@ class TestFillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(yellowItem)
-        yellowView.configure(yellowItem)
+        yellowView.configure(withItem: yellowItem)
 
         ////////////////
         // orangeView //
@@ -160,14 +157,17 @@ class TestFillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(orangeItem)
-        orangeView.configure(orangeItem)
+        orangeView.configure(withItem: orangeItem)
+
+        let containerParentWidth: CGFloat = 360
+        let containerParentHeight: CGFloat = 400
 
         /////////////////////////
         // containerParentItem //
         /////////////////////////
         var containerParentItem = Item(
             insets: UIEdgeInsets(8),
-            sizeGuide: SizeGuide(width: .fixed(containerWidth), height: .fixed(containerHeight)),
+            sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             alignment: .centerTop,
             flexibility: .normal,
             subItems: [containerItem])

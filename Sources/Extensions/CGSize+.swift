@@ -7,6 +7,15 @@
 //
 
 extension CGSize {
+
+    static func +(_ left: CGSize, _ right: CGSize) -> CGSize {
+        return CGSize(width: left.width + right.width, height: left.height + right.height)
+    }
+
+    static func +=(_ left: inout CGSize, _ right: CGSize) {
+        left = left + right
+    }
+
     func insetted(by insets: UIEdgeInsets) -> CGSize {
         let insettedWidth = width + insets.totalHorizontal
         let insettedHeight = height + insets.totalVertical

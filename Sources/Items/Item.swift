@@ -22,7 +22,7 @@ public struct Item: ItemProtocol, Cacheable {
                 sizeGuide: SizeGuide = SizeGuide(),
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility = .normal,
-                subItems: [Item] = []) {
+                subItems: [ItemProtocol] = []) {
         self.id = id
         self.insets = insets
         self.sizeGuide = sizeGuide
@@ -41,10 +41,12 @@ extension Item {
 
     @discardableResult
     public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
+        var contentMeasurement = CGSize.zero
         for i in 0..<subItems.count {
             subItems[i].updateMeasurements(within: maxSize)
+            contentMeasurement += subItems[i].measurement
         }
-        return .zero
+        return contentMeasurement
     }
 }
 

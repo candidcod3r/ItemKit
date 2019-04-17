@@ -17,7 +17,8 @@ class MenuViewController: UIViewController {
 
     let viewControllers: [UIViewController.Type] = [
         TestFixedViewController.self,
-        TestFillViewController.self
+        TestFillViewController.self,
+        TestTextItemViewController.self
     ]
 
     let tableView: UITableView = {
