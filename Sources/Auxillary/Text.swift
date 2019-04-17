@@ -26,7 +26,7 @@ enum Text {
             return .zero
         }
 
-        let options: NSStringDrawingOptions = [.usesLineFragmentOrigin]
+        let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
 
         let textSize: CGSize
         switch self {

@@ -114,22 +114,22 @@ extension TextItem {
             .decreased(by: textContainerInsets)
             .decreased(by: lineFragmentInsets)
 
-        let textSize = self.textSize(within: maxTextSize)
+        let maxPermissibleLinesHeight = self.maxPermissibleLinesHeight()
+        let textSize = text.size(with: font, within: maxTextSize)
 
-        let size: CGSize = textSize
-            .increased(by: textContainerInsets)
+        let adjustedTextContainerInsets = textSize.height > maxPermissibleLinesHeight
+            ? textContainerInsets.removedBottom()
+            : textContainerInsets
+
+        let textAreaSize = CGSize(width: textSize.width, height: min(textSize.height, maxPermissibleLinesHeight))
+
+        let size: CGSize = textAreaSize
+            .increased(by: adjustedTextContainerInsets)
             .increased(by: lineFragmentInsets)
         return size
     }
 
-    private func textSize(within maxSize: CGSize) -> CGSize {
-        let maxAllowableLinesHeight = self.maxAllowableLinesHeight()
-        let size = text.size(with: font, within: maxSize)
-
-        return CGSize(width: size.width, height: min(size.height, maxAllowableLinesHeight))
-    }
-
-    private func maxAllowableLinesHeight() -> CGFloat {
+    private func maxPermissibleLinesHeight() -> CGFloat {
         guard numberOfLines > 0 && numberOfLines != Int.max else {
             return CGFloat.greatestFiniteMagnitude
         }

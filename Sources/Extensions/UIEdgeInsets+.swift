@@ -45,8 +45,55 @@ extension UIEdgeInsets {
             top: top + offset.vertical,
             left: left + offset.horizontal,
             bottom: bottom + offset.vertical,
-            right: right + offset.horizontal
-        )
+            right: right + offset.horizontal)
+    }
+
+    func offsettedtTop(by offset: CGFloat) -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: top + offset,
+            left: left,
+            bottom: bottom,
+            right: right)
+    }
+
+    func offsettedtLeft(by offset: CGFloat) -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: top,
+            left: left + offset,
+            bottom: bottom,
+            right: right)
+    }
+
+    func offsettedBottom(by offset: CGFloat) -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: bottom + offset,
+            right: right)
+    }
+
+    func offsettedtRight(by offset: CGFloat) -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right + offset)
+    }
+
+    func removedTop() -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: 0,
+            left: left,
+            bottom: bottom,
+            right: right)
+    }
+
+    func removedBottom() -> UIEdgeInsets {
+        return UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: 0,
+            right: right)
     }
 
     func clamp(within range: ClosedRange<CGFloat>) -> UIEdgeInsets {

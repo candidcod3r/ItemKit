@@ -89,7 +89,7 @@ class TestTextItemViewController: UIViewController {
             alignment: .trailingTop)
 
         let textView1ParentItem = Item(
-            insets: UIEdgeInsets(top: 20),
+            insets: UIEdgeInsets(top: 32),
             alignment: .trailingTop,
             subItems: [textView1Item])
         containerItem.subItems.append(textView1ParentItem)
@@ -97,7 +97,7 @@ class TestTextItemViewController: UIViewController {
 
         let textView2Item = TextItem(
             id: "textView2",
-            text: "The Great Smoky Mountains are a mountain range rising along the Tennessee–North Carolina border in the southeastern United States. They are a subrange of the Appalachian Mountains, and form part of the Blue Ridge Physiographic Province.",
+            text: "The Great Smoky Mountains ⛰️ are a mountain range rising along the Tennessee–North Carolina border in the southeastern United States. They are a subrange of the Appalachian Mountains, and form part of the Blue Ridge Physiographic Province.",
             font: UIFont.helveticaLight(of: 15),
             numberOfLines: 3,
             textContainerInsets: UIEdgeInsets(8),
