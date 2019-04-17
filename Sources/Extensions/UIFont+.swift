@@ -15,8 +15,8 @@ enum FontName: String {
 }
 
 extension UIFont {
-    static let defaultLabel = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-    static let defaultTextView = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    static let label = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    static let textView = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     static let buttonTitle = UIFont.systemFont(ofSize: UIFont.systemFontSize)
 
     static func helvetica(of size: CGFloat) -> UIFont {

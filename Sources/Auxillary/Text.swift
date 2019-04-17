@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Text {
+public enum Text {
     case simple(String)
     case attributed(NSAttributedString)
 

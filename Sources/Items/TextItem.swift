@@ -20,26 +20,26 @@ public struct TextItem: ItemProtocol, Cacheable {
     public internal(set) var measurement: CGSize = .zero
 
     // MARK:- TextItem Properties
-    var text: Text
+    public var text: Text
     public var font: UIFont
     public var numberOfLines: Int
     public var textContainerInsets: UIEdgeInsets
     public var lineFragmentPadding: CGFloat
 
     // MARK:- Designated intializer
-    init(id: String? = nil,
-         text: Text,
-         font: UIFont = UIFont.defaultLabel,
-         numberOfLines: Int = 0,
-         textContainerInsets: UIEdgeInsets = .zero,
-         lineFragmentPadding: CGFloat = 0,
-         insets: UIEdgeInsets = .zero,
-         sizeGuide: SizeGuide = SizeGuide(),
-         alignment: Alignment = .leadingTop,
-         flexibility: Flexibility = .normal) {
+    public init(id: String? = nil,
+                text: Text,
+                font: UIFont? = nil,
+                numberOfLines: Int = 0,
+                textContainerInsets: UIEdgeInsets = .zero,
+                lineFragmentPadding: CGFloat = 0,
+                insets: UIEdgeInsets = .zero,
+                sizeGuide: SizeGuide = SizeGuide(),
+                alignment: Alignment = .leadingTop,
+                flexibility: Flexibility = .normal) {
         self.id = id
         self.text = text
-        self.font = font
+        self.font = font ?? UIFont.label
         self.numberOfLines = max(numberOfLines, 0)
         self.textContainerInsets = textContainerInsets
         self.lineFragmentPadding = lineFragmentPadding
@@ -64,7 +64,7 @@ public struct TextItem: ItemProtocol, Cacheable {
         self.init(
             id: id,
             text: Text.simple(text),
-            font: font ?? UIFont.defaultLabel,
+            font: font ?? UIFont.label,
             numberOfLines: numberOfLines,
             textContainerInsets: textContainerInsets,
             lineFragmentPadding: lineFragmentPadding,
@@ -75,7 +75,7 @@ public struct TextItem: ItemProtocol, Cacheable {
     }
 
     public init(id: String? = nil,
-                attributedText: NSAttributedString,
+                text: NSAttributedString,
                 font: UIFont? = nil,
                 numberOfLines: Int = 0,
                 textContainerInsets: UIEdgeInsets = .zero,
@@ -86,8 +86,8 @@ public struct TextItem: ItemProtocol, Cacheable {
                 flexibility: Flexibility = .normal) {
         self.init(
             id: id,
-            text: Text.attributed(attributedText),
-            font: font ?? UIFont.defaultLabel,
+            text: Text.attributed(text),
+            font: font ?? UIFont.label,
             numberOfLines: numberOfLines,
             textContainerInsets: textContainerInsets,
             lineFragmentPadding: lineFragmentPadding,
