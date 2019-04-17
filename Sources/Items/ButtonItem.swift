@@ -20,7 +20,7 @@ public struct ButtonItem: ItemProtocol, Cacheable {
     public internal(set) var measurement: CGSize = .zero
 
     // MARK:- ButtonItem Properties
-    public var title: Text
+    public var title: Text?
     public var image: UIImage?
     public var font: UIFont
     public var contentInsets: UIEdgeInsets
@@ -29,7 +29,7 @@ public struct ButtonItem: ItemProtocol, Cacheable {
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
-                title: Text,
+                title: Text? = nil,
                 image: UIImage? = nil,
                 font: UIFont? = nil,
                 contentInsets: UIEdgeInsets = .zero,
@@ -114,7 +114,28 @@ extension ButtonItem {
 
     @discardableResult
     public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
-        return .zero
+        let imageSize = self.imageSize
+            .insetted(by: imageInsets)
+            .decreased(to: maxSize)
+
+        let titleSize = self.titleSize(within: maxSize)
+            .insetted(by: titleInsets)
+
+        let contentWidth = imageSize.width + titleSize.width
+        let contentHeight = max(imageSize.height, titleSize.height)
+        let contentSize = CGSize(width: contentWidth, height: contentHeight)
+            .insetted(by: contentInsets)
+            .decreased(to: maxSize)
+
+        return contentSize
+    }
+
+    private func titleSize(within maxSize: CGSize) -> CGSize {
+        return title?.size(with: font, within: maxSize) ?? .zero
+    }
+
+    private var imageSize: CGSize {
+        return image?.size ?? .zero
     }
 
 }
@@ -126,9 +147,6 @@ extension ButtonItem {
     }
 
     public mutating func updateContentAlignments(contentFrame: CGRect) {
-        for i in 0..<subItems.count {
-            subItems[i].updateAlignments(within: contentFrame)
-        }
     }
 }
 

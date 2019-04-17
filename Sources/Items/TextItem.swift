@@ -148,9 +148,6 @@ extension TextItem {
     }
 
     public mutating func updateContentAlignments(contentFrame: CGRect) {
-        for i in 0..<subItems.count {
-            subItems[i].updateAlignments(within: contentFrame)
-        }
     }
 }
 
