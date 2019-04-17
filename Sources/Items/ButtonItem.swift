@@ -68,10 +68,11 @@ public struct ButtonItem: ItemProtocol, Cacheable {
         self.init(
             id: id,
             title: Text.simple(title),
+            image: image,
             font: font,
             contentInsets: contentInsets,
             titleInsets: titleInsets,
-            imageInsets:imageInsets,
+            imageInsets: imageInsets,
             insets: insets,
             sizeGuide: sizeGuide,
             alignment: alignment,
@@ -92,10 +93,11 @@ public struct ButtonItem: ItemProtocol, Cacheable {
         self.init(
             id: id,
             title: Text.attributed(title),
+            image: image,
             font: font,
             contentInsets: contentInsets,
             titleInsets: titleInsets,
-            imageInsets:imageInsets,
+            imageInsets: imageInsets,
             insets: insets,
             sizeGuide: sizeGuide,
             alignment: alignment,
@@ -137,7 +139,7 @@ extension ButtonItem {
     private var imageSize: CGSize {
         return image?.size ?? .zero
     }
-
+    
 }
 
 // MARK:- Layoutable

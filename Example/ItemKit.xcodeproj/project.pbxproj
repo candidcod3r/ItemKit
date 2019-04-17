@@ -14,6 +14,7 @@
 		4E50753F2265C32B006DF752 /* UIEdgeInsets+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E50753E2265C32B006DF752 /* UIEdgeInsets+.swift */; };
 		4E66A6002266DFDA00824280 /* TestTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */; };
 		4E66A6022266E1E500824280 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A6012266E1E500824280 /* UIFont+.swift */; };
+		4E66A60822670A3C00824280 /* TestButtonItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* TestFixedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* TestFixedViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 		4E50753E2265C32B006DF752 /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
 		4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextItemViewController.swift; sourceTree = "<group>"; };
 		4E66A6012266E1E500824280 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonItemViewController.swift; sourceTree = "<group>"; };
 		52A482C1B81D5A057FB11AB5 /* Pods-ItemKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemKit_Example/Pods-ItemKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ItemKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4E50753622654D3E006DF752 /* MenuViewController.swift */,
+				4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */,
 				4E50753822659B45006DF752 /* TestFillViewController.swift */,
 				607FACD71AFB9204008FA782 /* TestFixedViewController.swift */,
 				4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */,
@@ -271,6 +274,7 @@
 				4E50753F2265C32B006DF752 /* UIEdgeInsets+.swift in Sources */,
 				4E66A6002266DFDA00824280 /* TestTextItemViewController.swift in Sources */,
 				4E50753922659B45006DF752 /* TestFillViewController.swift in Sources */,
+				4E66A60822670A3C00824280 /* TestButtonItemViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				4E05A1D7226464D5008F53CB /* UIColor+.swift in Sources */,
 			);
