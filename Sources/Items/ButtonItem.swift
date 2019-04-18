@@ -7,7 +7,6 @@
 //
 
 public struct ButtonItem: ItemProtocol, Cacheable {
-
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
@@ -103,13 +102,10 @@ public struct ButtonItem: ItemProtocol, Cacheable {
             alignment: alignment,
             flexibility: flexibility)
     }
-
-
 }
 
 // MARK:- Measurable
 extension ButtonItem {
-
     public mutating func updateMeasurements(within maxSize: CGSize) {
         measurement = measurementByUpdatingContentMeasurements(within: maxSize)
     }
@@ -139,7 +135,6 @@ extension ButtonItem {
     private var imageSize: CGSize {
         return image?.size ?? .zero
     }
-    
 }
 
 // MARK:- Layoutable

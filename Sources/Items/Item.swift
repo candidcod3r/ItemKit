@@ -7,6 +7,7 @@
 //
 
 public struct Item: ItemProtocol, Cacheable {
+    // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
     public var sizeGuide: SizeGuide
@@ -17,6 +18,7 @@ public struct Item: ItemProtocol, Cacheable {
     public private(set) var origin: CGPoint = .zero
     public private(set) var measurement: CGSize = .zero
 
+    // MARK:- Designated intializer
     public init(id: String? = nil,
                 insets: UIEdgeInsets = .zero,
                 sizeGuide: SizeGuide = SizeGuide(),

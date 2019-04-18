@@ -7,7 +7,6 @@
 //
 
 public struct TextItem: ItemProtocol, Cacheable {
-
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
@@ -96,13 +95,10 @@ public struct TextItem: ItemProtocol, Cacheable {
             alignment: alignment,
             flexibility: flexibility)
     }
-
-
 }
 
 // MARK:- Measurable
 extension TextItem {
-
     public mutating func updateMeasurements(within maxSize: CGSize) {
         measurement = measurementByUpdatingContentMeasurements(within: maxSize)
     }
@@ -138,7 +134,6 @@ extension TextItem {
         let maxHeight = totalLinesHeight.roundedUp
         return maxHeight
     }
-
 }
 
 // MARK:- Layoutable
