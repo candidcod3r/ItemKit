@@ -128,10 +128,10 @@ class TestButtonItemViewController: UIViewController {
             flexibility: .normal,
             subItems: [containerItem])
 
-        containerParentItem.updateLayouts(within: view.bounds)
+        containerParentItem.updateLayout(within: view.bounds)
         print(containerParentItem.debugDescription())
 
-        containerView.updateLayouts(with: containerParentItem)
+        containerView.updateLayout(with: containerParentItem)
     }
 
 }

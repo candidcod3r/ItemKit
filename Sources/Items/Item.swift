@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct Item: ItemProtocol, Cacheable {
+public struct Item: InternalItemProtocol, Cacheable {
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
@@ -15,8 +15,9 @@ public struct Item: ItemProtocol, Cacheable {
     public var flexibility: Flexibility
     public var subItems: [ItemProtocol]
 
-    public private(set) var origin: CGPoint = .zero
-    public private(set) var measurement: CGSize = .zero
+    public internal(set) var frame: CGRect = .zero
+    public internal(set) var fittingSize: CGSize = .zero
+    public internal(set) var withinFrame: CGRect = .zero
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
@@ -34,33 +35,24 @@ public struct Item: ItemProtocol, Cacheable {
     }
 }
 
-// MARK: Measurable
+// MARK:- Measurable
 extension Item {
-
-    public mutating func updateMeasurements(within maxSize: CGSize) {
-        measurement = measurementByUpdatingContentMeasurements(within: maxSize)
-    }
-
-    @discardableResult
-    public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
-        var contentMeasurement = CGSize.zero
+    public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
+        var contentFittingSize = CGSize.zero
         for i in 0..<subItems.count {
-            subItems[i].updateMeasurements(within: maxSize)
-            contentMeasurement += subItems[i].measurement
+            subItems[i].updateFittingSize(within: maxSize)
+            contentFittingSize = subItems[i].fittingSize
+
         }
-        return contentMeasurement
+        return contentFittingSize
     }
 }
 
-// MARK: Layoutable
+// MARK:- Layoutable
 extension Item {
-    public mutating func updateAlignments(within maxFrame: CGRect) {
-        origin = originByUpdatingContentAlignments(within: maxFrame)
-    }
-
-    public mutating func updateContentAlignments(contentFrame: CGRect) {
+    public mutating func updateContentLayout(within maxFrame: CGRect) {
         for i in 0..<subItems.count {
-            subItems[i].updateAlignments(within: contentFrame)
+            subItems[i].updateLayout(within: maxFrame)
         }
     }
 }

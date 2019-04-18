@@ -7,8 +7,8 @@
 //
 
 public struct Aligner {
-    public static func origin(with size: CGSize,
-                              alignment: Alignment,
+    public static func origin(of size: CGSize,
+                              with alignment: Alignment,
                               within maxFrame: CGRect) -> CGPoint {
         let xOffset = alignment.horizontal.offet(with: size.width, within: maxFrame.size.width)
         let yOffset = alignment.vertical.offet(with: size.height, within: maxFrame.size.height)

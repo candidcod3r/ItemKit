@@ -10,101 +10,118 @@ public enum StackDistribution {
     case leading
     case trailing
     case center
+    case equal
     case equalSpacing
-    case equalSize
     case fillExtraSpace
     case fillExtraSpaceEqually
 }
 
-public struct StackItem: ItemProtocol, Cacheable {
-    // MARK:- ItemProtocol Properties
-    public var id: String?
-    public var insets: UIEdgeInsets
-    public var sizeGuide: SizeGuide
-    public var alignment: Alignment
-    public var flexibility: Flexibility
-    public var subItems: [ItemProtocol]
-
-    public private(set) var origin: CGPoint = .zero
-    public private(set) var measurement: CGSize = .zero
-
-    // MARK:- StackItem Properties
-    public var axis: Axis
-    public var spacing: CGFloat
-    public var distribution: StackDistribution
-
-    // MARK:- Designated intializer
-    public init(id: String? = nil,
-                axis: Axis = .horizontal,
-                spacing: CGFloat = 0,
-                distribution: StackDistribution,
-                insets: UIEdgeInsets = .zero,
-                sizeGuide: SizeGuide = SizeGuide(),
-                alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal,
-                subItems: [ItemProtocol] = []) {
-        self.id = id
-        self.axis = axis
-        self.spacing = spacing
-        self.distribution = distribution
-        self.insets = insets
-        self.sizeGuide = sizeGuide
-        self.alignment = alignment
-        self.flexibility = flexibility
-        self.subItems = subItems
-    }
-}
-
-// MARK: Measurable
-extension StackItem {
-    public mutating func updateMeasurements(within maxSize: CGSize) {
-        measurement = measurementByUpdatingContentMeasurements(within: maxSize)
-    }
-
-    @discardableResult
-    public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
-        var contentMeasurement = CGSize.zero
-        for i in 0..<subItems.count {
-            subItems[i].updateMeasurements(within: maxSize)
-            contentMeasurement += subItems[i].measurement
-        }
-        return contentMeasurement
-    }
-
-
-    // MARK:- Private helpers
-
-    private func subItemSizeForEqualSizeDistribution(within size: CGSize) -> CGSize {
+//public struct StackItem: ItemProtocol, Cacheable {
+//    // MARK:- ItemProtocol Properties
+//    public var id: String?
+//    public var insets: UIEdgeInsets
+//    public var sizeGuide: SizeGuide
+//    public var alignment: Alignment
+//    public var flexibility: Flexibility
+//    public var subItems: [ItemProtocol]
+//
+//    public private(set) var origin: CGPoint = .zero
+//    public private(set) var size: CGSize = .zero
+//
+//    // MARK:- StackItem Properties
+//    public var axis: Axis
+//    public var spacing: CGFloat
+//    public var distribution: StackDistribution
+//
+//    // MARK:- Designated intializer
+//    public init(id: String? = nil,
+//                axis: Axis = .horizontal,
+//                spacing: CGFloat = 0,
+//                distribution: StackDistribution,
+//                insets: UIEdgeInsets = .zero,
+//                sizeGuide: SizeGuide = SizeGuide(),
+//                alignment: Alignment = .leadingTop,
+//                flexibility: Flexibility = .normal,
+//                subItems: [ItemProtocol] = []) {
+//        self.id = id
+//        self.axis = axis
+//        self.spacing = spacing
+//        self.distribution = distribution
+//        self.insets = insets
+//        self.sizeGuide = sizeGuide
+//        self.alignment = alignment
+//        self.flexibility = flexibility
+//        self.subItems = subItems
+//    }
+//}
+//
+//// MARK: Measurable
+//extension StackItem {
+//    public mutating func updateMeasurements(within maxSize: CGSize) {
+//        size = measurementByUpdatingContentMeasurements(within: maxSize)
+//    }
+//
+//    @discardableResult
+//    public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
+//        var contentMeasurement = CGSize.zero
+//        for i in 0..<subItems.count {
+//            subItems[i].updateMeasurements(within: maxSize)
+//            contentMeasurement += subItems[i].size
+//        }
+//        return contentMeasurement
+//    }
+//
+//
+//    // MARK:- Private helpers
+//
+//    private mutating func contentMeasurementForEqualDistribution(within maxSize: CGSize) -> CGSize {
+//        let maxSubItemSize = maxSubItemSizeForEqualDistribution(within: maxSize)
+//
+//        var contentAxisLength = CGFloat.leastNormalMagnitude
+//        var contentCrossLength = CGFloat.greatestFiniteMagnitude
+//
+//        for i in 0..<subItems.count {
+//            subItems[i].updateMeasurements(within: maxSize)
+//
+//            //
+////            contentAxisLength = min(contentAxisLength, subItems[i].measurement)
+//
+//        }
+//
+//        return .zero
+//    }
+//
+//    private func maxSubItemSizeForEqualDistribution(within size: CGSize) -> CGSize {
 //        let axisLength = size.value(along: axis)
 //        let crossLength = size.value(across: axis)
-//        let subItemLength = subItemLengthForEqualSizeDistribution(within: axisLength)
-        return .zero
-    }
-
-    private func subItemLengthForEqualSizeDistribution(within totalLength: CGFloat) -> CGFloat {
-        // CGFloat because to make the calculations look more readable
-        let subItemsCount = CGFloat(subItems.count)
-
-        if subItemsCount <= 1 {
-            return totalLength
-        } else {
-            let totalSpacing = (subItemsCount - 1) * spacing
-            let totalAvailableSpace = abs(totalLength - totalSpacing)
-            return totalAvailableSpace / subItemsCount
-        }
-    }
-
-}
-
-// MARK: Layoutable
-extension StackItem {
-    public mutating func updateAlignments(within maxFrame: CGRect) {
-        origin = originByUpdatingContentAlignments(within: maxFrame)
-    }
-
-    public mutating func updateContentAlignments(contentFrame: CGRect) {
-        for i in 0..<subItems.count {
-            subItems[i].updateAlignments(within: contentFrame)
-        }
-    }
-}
+//        let maxSubItemLength = maxSubItemLengthForEqualDistribution(within: axisLength)
+//        return CGSize(axisValue: maxSubItemLength, crossValue: crossLength, axis: axis)
+//    }
+//
+//    private func maxSubItemLengthForEqualDistribution(within totalLength: CGFloat) -> CGFloat {
+//        // CGFloat because to make the calculations look more readable
+//        let subItemsCount = CGFloat(subItems.count)
+//
+//        if subItemsCount <= 1 {
+//            return totalLength
+//        } else {
+//            let totalSpacing = (subItemsCount - 1) * spacing
+//            let totalAvailableSpace = abs(totalLength - totalSpacing)
+//            return totalAvailableSpace / subItemsCount
+//        }
+//    }
+//
+//}
+//
+//// MARK: Layoutable
+//extension StackItem {
+//    public mutating func updateAlignments(within maxFrame: CGRect) {
+//        origin = originByUpdatingContentAlignments(within: maxFrame)
+//    }
+//
+//    public mutating func updateContentAlignments(contentFrame: CGRect) {
+//        for i in 0..<subItems.count {
+//            subItems[i].updateAlignments(within: contentFrame)
+//        }
+//    }
+//}

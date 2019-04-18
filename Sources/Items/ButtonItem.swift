@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct ButtonItem: ItemProtocol, Cacheable {
+public struct ButtonItem: InternalItemProtocol, Cacheable {
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
@@ -15,8 +15,9 @@ public struct ButtonItem: ItemProtocol, Cacheable {
     public var flexibility: Flexibility
     public var subItems: [ItemProtocol]
 
-    public internal(set) var origin: CGPoint = .zero
-    public internal(set) var measurement: CGSize = .zero
+    public internal(set) var frame: CGRect = .zero
+    public internal(set) var fittingSize: CGSize = .zero
+    public internal(set) var withinFrame: CGRect = .zero
 
     // MARK:- ButtonItem Properties
     public var title: Text?
@@ -106,12 +107,7 @@ public struct ButtonItem: ItemProtocol, Cacheable {
 
 // MARK:- Measurable
 extension ButtonItem {
-    public mutating func updateMeasurements(within maxSize: CGSize) {
-        measurement = measurementByUpdatingContentMeasurements(within: maxSize)
-    }
-
-    @discardableResult
-    public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
+    public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
         let imageSize = self.imageSize
             .insetted(by: imageInsets)
             .decreased(to: maxSize)
@@ -139,11 +135,6 @@ extension ButtonItem {
 
 // MARK:- Layoutable
 extension ButtonItem {
-    public mutating func updateAlignments(within maxFrame: CGRect) {
-        origin = originByUpdatingContentAlignments(within: maxFrame)
-    }
-
-    public mutating func updateContentAlignments(contentFrame: CGRect) {
+    public mutating func updateContentLayout(within maxFrame: CGRect) {
     }
 }
-

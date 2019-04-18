@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct TextItem: ItemProtocol, Cacheable {
+public struct TextItem: InternalItemProtocol, Cacheable {
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
@@ -15,8 +15,9 @@ public struct TextItem: ItemProtocol, Cacheable {
     public var flexibility: Flexibility
     public var subItems: [ItemProtocol]
 
-    public internal(set) var origin: CGPoint = .zero
-    public internal(set) var measurement: CGSize = .zero
+    public internal(set) var frame: CGRect = .zero
+    public internal(set) var fittingSize: CGSize = .zero
+    public internal(set) var withinFrame: CGRect = .zero
 
     // MARK:- TextItem Properties
     public var text: Text
@@ -99,12 +100,7 @@ public struct TextItem: ItemProtocol, Cacheable {
 
 // MARK:- Measurable
 extension TextItem {
-    public mutating func updateMeasurements(within maxSize: CGSize) {
-        measurement = measurementByUpdatingContentMeasurements(within: maxSize)
-    }
-
-    @discardableResult
-    public mutating func contentMeasurementByUpdatingSubItemsMeasurements(within maxSize: CGSize) -> CGSize {
+    public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
         let lineFragmentInsets = UIEdgeInsets(horizontal: lineFragmentPadding)
         let maxTextSize = maxSize
             .decreased(by: textContainerInsets)
@@ -138,11 +134,6 @@ extension TextItem {
 
 // MARK:- Layoutable
 extension TextItem {
-    public mutating func updateAlignments(within maxFrame: CGRect) {
-        origin = originByUpdatingContentAlignments(within: maxFrame)
-    }
-
-    public mutating func updateContentAlignments(contentFrame: CGRect) {
+    public mutating func updateContentLayout(within maxFrame: CGRect) {
     }
 }
-

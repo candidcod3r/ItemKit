@@ -10,7 +10,7 @@ extension ItemProtocol {
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))
         let originString = "(\(origin.x), \(origin.y))"
-        let sizeString = "(\(measurement.width), \(measurement.height))"
+        let sizeString = "(\(size.width), \(size.height))"
         let itemIDString = id ?? "NO_ID"
 
         let descriptionString = "[<\(classString):\(itemIDString)>" + " origin:\(originString) size:\(sizeString)]"

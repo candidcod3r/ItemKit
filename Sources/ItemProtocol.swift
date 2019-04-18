@@ -13,27 +13,94 @@ public protocol ItemProtocol: Measurable, Layoutable {
     var alignment: Alignment { get set }
     var flexibility: Flexibility { get set }
     var subItems: [ItemProtocol] { get set }
-
-    var origin: CGPoint { get }
-    var measurement: CGSize { get }
-
-    var requiresView: Bool { get }
+    
     var frame: CGRect { get }
+    var fittingSize: CGSize { get }
+    var withinFrame: CGRect { get }
+    
+    var requiresView: Bool { get }
 }
 
 extension ItemProtocol {
     public var requiresView: Bool {
         return (id?.count ?? 0) > 0
     }
+    
+    public var origin: CGPoint {
+        return frame.origin
+    }
 
-    public var frame: CGRect {
-        return CGRect(origin: origin, size: measurement)
+    public var size: CGSize {
+        return frame.size
+    }
+
+    // MARK:- Measurable helper methods
+    fileprivate mutating func updatedFittingSize(within maxSize: CGSize) -> CGSize {
+        // adjust maxSize according to the size guide
+        let maxFittingSize = Sizer.maxFittingSize(within: maxSize, using: sizeGuide)
+
+        // decrease by insets so that the content takes the decreased size
+        let maxContentSize = maxFittingSize.decreased(by: insets)
+
+        // compute the content fitting size
+        let contentFittingSize = self.contentFittingSize(within: maxContentSize)
+
+        return contentFittingSize.increased(by: insets)
+    }
+
+    // MARK:- Layoutable helper methods
+    fileprivate mutating func updatedFrame(within maxFrame: CGRect) -> CGRect {
+        let size = Sizer.size(of: fittingSize, within: maxFrame.size, using: sizeGuide)
+        let origin = Aligner.origin(of: size, with: alignment, within: maxFrame)
+
+        let itemFrame = CGRect(origin: origin, size: size)
+
+        // update the content layout
+        updateContentLayout(itemFrame: itemFrame)
+
+        return itemFrame
+    }
+
+    private mutating func updateContentLayout(itemFrame: CGRect) {
+        let contentFrameOrigin = self.contentFrameOrigin(within: itemFrame)
+        let contentFrameSize = itemFrame.size.decreased(by: insets)
+
+        let maxContentFrame = CGRect(origin: contentFrameOrigin, size: contentFrameSize)
+        updateContentLayout(within: maxContentFrame)
+    }
+
+    private func contentFrameOrigin(within maxFrame: CGRect) -> CGPoint {
+        if requiresView {
+            return CGPoint(x: insets.left, y: insets.top)
+        } else {
+            return CGPoint(x: maxFrame.origin.x + insets.left, y: maxFrame.origin.y + insets.top)
+        }
     }
 }
 
-extension ItemProtocol {
-    mutating public func updateLayouts(within maxFrame: CGRect) {
-        updateMeasurements(within: maxFrame.size)
-        updateAlignments(within: maxFrame)
+/**
+ Internal protocol for ItemProtocol to access the setters for stored properties
+ */
+protocol InternalItemProtocol: ItemProtocol {
+    var frame: CGRect { get set }
+    var fittingSize: CGSize { get set }
+    var withinFrame: CGRect { get set }
+}
+
+extension InternalItemProtocol {
+    // MARK:- Measurable
+    public mutating func updateFittingSize(within maxSize: CGSize) {
+        fittingSize = self.updatedFittingSize(within: maxSize)
+    }
+
+    // MARK:- Layoutable
+    public mutating func updateLayout(within maxFrame: CGRect) {
+        // update withinFrame for debugging purposes
+        withinFrame = maxFrame
+
+        // update the fitting size
+        updateFittingSize(within: withinFrame.size)
+
+        frame = self.updatedFrame(within: withinFrame)
     }
 }

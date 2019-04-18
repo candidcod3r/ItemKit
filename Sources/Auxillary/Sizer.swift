@@ -7,22 +7,43 @@
 //
 
 public struct Sizer {
-    public static func fittingSize(within maxSize: CGSize, guide: SizeGuide) -> CGSize {
-        let horizontal = fittingDimension(
+    public static func size(of fittingSize: CGSize, within maxSize: CGSize, using guide: SizeGuide) -> CGSize {
+        let horizontal = dimension(
+            fittingDimension: fittingSize.width,
             within: maxSize.width,
-            guide: guide.width,
+            using: guide.width,
             clampRange: guide.widthRange)
 
-        let vertical = fittingDimension(
+        let vertical = dimension(
+            fittingDimension: fittingSize.height,
             within: maxSize.height,
-            guide: guide.height,
+            using: guide.height,
             clampRange: guide.heightRange)
 
         return CGSize(width: horizontal, height: vertical)
     }
 
-    public static func fittingDimension(within maxDimension: CGFloat, guide: DimensionGuide, clampRange: DimensionRange) -> CGFloat {
-        let unclampedDimension = guide.fittingDimension(within: maxDimension)
+    public static func maxFittingSize(within maxSize: CGSize, using guide: SizeGuide) -> CGSize {
+        let horizontal = dimension(
+            fittingDimension: maxSize.width,
+            within: maxSize.width,
+            using: guide.width,
+            clampRange: guide.widthRange)
+
+        let vertical = dimension(
+            fittingDimension: maxSize.height,
+            within: maxSize.height,
+            using: guide.height,
+            clampRange: guide.heightRange)
+
+        return CGSize(width: horizontal, height: vertical)
+    }
+
+    public static func dimension(fittingDimension: CGFloat,
+                                 within maxDimension: CGFloat,
+                                 using guide: DimensionGuide,
+                                 clampRange: DimensionRange) -> CGFloat {
+        let unclampedDimension = guide.dimension(of: fittingDimension, within: maxDimension)
         let dimension = clamp(unclampedDimension, within: clampRange)
         return dimension
     }

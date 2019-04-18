@@ -7,12 +7,19 @@
 //
 
 public enum DimensionGuide {
+    // fixed value
     case fixed(CGFloat)
+
+    // content fit
     case fit
+
+    // percent of max value
     case percent(CGFloat)
+
+    // use the max value
     case fill
 
-    func fittingDimension(within maxDimension: CGFloat) -> CGFloat {
+    func dimension(of value: CGFloat, within maxDimension: CGFloat) -> CGFloat {
         switch self {
         case .fixed(let value):
             return value
@@ -20,13 +27,13 @@ public enum DimensionGuide {
             let clampedPercentage = clamp(value, within: 0...1)
             return maxDimension * clampedPercentage
         case .fit:
-            return maxDimension
+            return value
         case .fill:
             return maxDimension
         }
     }
 
-    var isWrapContent: Bool {
+    var isFit: Bool {
         switch self {
         case .fit:
             return true
@@ -35,7 +42,7 @@ public enum DimensionGuide {
         }
     }
 
-    var isFillParent: Bool {
+    var isFill: Bool {
         switch self {
         case .fill:
             return true
