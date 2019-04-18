@@ -9,6 +9,5 @@
 public protocol Measurable {
     mutating func updateFittingSize(within maxSize: CGSize)
 
-    @discardableResult
     mutating func contentFittingSize(within maxSize: CGSize) -> CGSize
 }
