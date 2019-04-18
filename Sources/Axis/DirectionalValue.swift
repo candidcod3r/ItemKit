@@ -6,14 +6,16 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public protocol DirectionalValue {
+protocol DirectionalValue {
     associatedtype ValueType
     var horizontal: ValueType { get set }
     var vertical: ValueType { get set }
+
+    init(axisValue: ValueType, crossValue: ValueType, axis: Axis)
 }
 
 extension DirectionalValue {
-    public func value(along axis: Axis) -> ValueType {
+    func value(along axis: Axis) -> ValueType {
         switch axis {
         case .horizontal:
             return horizontal
@@ -22,7 +24,7 @@ extension DirectionalValue {
         }
     }
 
-    public func value(across axis: Axis) -> ValueType {
+    func value(across axis: Axis) -> ValueType {
         switch axis {
         case .horizontal:
             return vertical
@@ -31,7 +33,7 @@ extension DirectionalValue {
         }
     }
 
-    public mutating func setValue(value: ValueType, along axis: Axis) {
+    mutating func set(value: ValueType, along axis: Axis) {
         switch axis {
         case .horizontal:
             horizontal = value
@@ -40,7 +42,7 @@ extension DirectionalValue {
         }
     }
 
-    public mutating func setValue(value: ValueType, across axis: Axis) {
+    mutating func set(value: ValueType, across axis: Axis) {
         switch axis {
         case .horizontal:
             vertical = value
@@ -51,7 +53,7 @@ extension DirectionalValue {
 }
 
 extension CGSize: DirectionalValue {
-    public var horizontal: CGFloat {
+    var horizontal: CGFloat {
         get {
             return width
         }
@@ -60,7 +62,7 @@ extension CGSize: DirectionalValue {
         }
     }
 
-    public var vertical: CGFloat {
+    var vertical: CGFloat {
         get {
             return height
         }
@@ -68,10 +70,19 @@ extension CGSize: DirectionalValue {
             height = newValue
         }
     }
+
+    init(axisValue: CGFloat, crossValue: CGFloat, axis: Axis) {
+        switch axis {
+        case .horizontal:
+            self.init(width: axisValue, height: crossValue)
+        case .vertical:
+            self.init(width: crossValue, height: axisValue)
+        }
+    }
 }
 
 extension CGPoint: DirectionalValue {
-    public var horizontal: CGFloat {
+    var horizontal: CGFloat {
         get {
             return x
         }
@@ -80,7 +91,7 @@ extension CGPoint: DirectionalValue {
         }
     }
 
-    public var vertical: CGFloat {
+    var vertical: CGFloat {
         get {
             return y
         }
@@ -88,7 +99,24 @@ extension CGPoint: DirectionalValue {
             y = newValue
         }
     }
+
+    init(axisValue: CGFloat, crossValue: CGFloat, axis: Axis) {
+        switch axis {
+        case .horizontal:
+            self.init(x: axisValue, y: crossValue)
+        case .vertical:
+            self.init(x: crossValue, y: axisValue)
+        }
+    }
 }
 
 extension Flexibility: DirectionalValue {
+    init(axisValue: Flex, crossValue: Flex, axis: Axis) {
+        switch axis {
+        case .horizontal:
+            self.init(axisValue, crossValue)
+        case .vertical:
+            self.init(crossValue, axisValue)
+        }
+    }
 }

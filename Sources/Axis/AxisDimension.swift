@@ -6,29 +6,29 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct AxisDimension<DimensionType: DirectionalValue> {
-    public var axis: Axis
-    public var dimension: DimensionType
+struct AxisDimension<DimensionType: DirectionalValue> {
+    var axis: Axis
+    var dimension: DimensionType
 
-    public var axisValue: DimensionType.ValueType {
+    var axisValue: DimensionType.ValueType {
         get {
             return dimension.value(along: axis)
         }
         set {
-            dimension.setValue(value: newValue, along: axis)
+            dimension.set(value: newValue, along: axis)
         }
     }
 
-    public var crossValue: DimensionType.ValueType {
+    var crossValue: DimensionType.ValueType {
         get {
             return dimension.value(across: axis)
         }
         set {
-            dimension.setValue(value: newValue, across: axis)
+            dimension.set(value: newValue, across: axis)
         }
     }
 
-    public init(axis: Axis, dimension: DimensionType) {
+    init(axis: Axis, dimension: DimensionType) {
         self.axis = axis
         self.dimension = dimension
     }

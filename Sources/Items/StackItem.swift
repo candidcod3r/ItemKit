@@ -70,6 +70,30 @@ extension StackItem {
         }
         return contentMeasurement
     }
+
+
+    // MARK:- Private helpers
+
+    private func subItemSizeForEqualSizeDistribution(within size: CGSize) -> CGSize {
+//        let axisLength = size.value(along: axis)
+//        let crossLength = size.value(across: axis)
+//        let subItemLength = subItemLengthForEqualSizeDistribution(within: axisLength)
+        return .zero
+    }
+
+    private func subItemLengthForEqualSizeDistribution(within totalLength: CGFloat) -> CGFloat {
+        // CGFloat because to make the calculations look more readable
+        let subItemsCount = CGFloat(subItems.count)
+
+        if subItemsCount <= 1 {
+            return totalLength
+        } else {
+            let totalSpacing = (subItemsCount - 1) * spacing
+            let totalAvailableSpace = abs(totalLength - totalSpacing)
+            return totalAvailableSpace / subItemsCount
+        }
+    }
+
 }
 
 // MARK: Layoutable
