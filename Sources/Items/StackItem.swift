@@ -27,7 +27,8 @@ public struct StackItem: InternalItemProtocol, Cacheable {
 
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    public internal(set) var withinFrame: CGRect = .zero
+    var withinOrigin: CGPoint = .zero
+    var withinSize: CGSize = .zero
 
     // MARK:- StackItem Properties
     public var axis: Axis
@@ -59,6 +60,10 @@ public struct StackItem: InternalItemProtocol, Cacheable {
 // MARK: Measurable
 extension StackItem {
     public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
+        if distribution == .equal {
+            return contentFittingSizeForEqualDistribution(within: maxSize)
+        }
+
         var contentFittingSize = CGSize.zero
         for i in 0..<subItems.count {
             subItems[i].updateFittingSize(within: maxSize)
@@ -70,11 +75,11 @@ extension StackItem {
 
     // MARK:- Private helpers
 
-    private mutating func contentMeasurementForEqualDistribution(within maxSize: CGSize) -> CGSize {
+    private mutating func contentFittingSizeForEqualDistribution(within maxSize: CGSize) -> CGSize {
         let maxSubItemSize = maxSubItemSizeForEqualDistribution(within: maxSize)
 
-        var contentAxisLength = CGFloat.leastNormalMagnitude
-        var contentCrossLength = CGFloat.leastNormalMagnitude
+        var maxSubItemAxisLength = CGFloat.leastNormalMagnitude
+        var contentFittingCrossLength = CGFloat.leastNormalMagnitude
 
         for i in 0..<subItems.count {
             subItems[i].updateFittingSize(within: maxSubItemSize)
@@ -82,11 +87,15 @@ extension StackItem {
             let subItemAxisLength = subItems[i].fittingSize.value(along: axis)
             let subItemCrossLength = subItems[i].fittingSize.value(across: axis)
 
-            contentAxisLength = max(contentAxisLength, subItemAxisLength)
-            contentCrossLength = max(contentCrossLength, subItemCrossLength)
+            maxSubItemAxisLength = max(maxSubItemAxisLength, subItemAxisLength)
+            contentFittingCrossLength = max(contentFittingCrossLength, subItemCrossLength)
         }
 
-        return CGSize(axisValue: contentAxisLength, crossValue: contentCrossLength, axis: axis)
+        // CGFloat because to make the calculations look more readable
+        let subItemsCount = CGFloat(subItems.count)
+        let contentFittingAxisLength = (maxSubItemAxisLength + spacing) * subItemsCount - spacing
+
+        return CGSize(axisValue: contentFittingAxisLength, crossValue: contentFittingCrossLength, axis: axis)
     }
 
     private func maxSubItemSizeForEqualDistribution(within size: CGSize) -> CGSize {

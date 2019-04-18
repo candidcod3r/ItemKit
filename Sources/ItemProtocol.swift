@@ -16,7 +16,6 @@ public protocol ItemProtocol: Measurable, Layoutable {
     
     var frame: CGRect { get }
     var fittingSize: CGSize { get }
-    var withinFrame: CGRect { get }
     
     var requiresView: Bool { get }
 }
@@ -84,23 +83,33 @@ extension ItemProtocol {
 protocol InternalItemProtocol: ItemProtocol {
     var frame: CGRect { get set }
     var fittingSize: CGSize { get set }
-    var withinFrame: CGRect { get set }
+
+    // MARK:- Internal properties
+
+    // origin used when frame was updated
+    var withinOrigin: CGPoint { get set }
+
+    // maxSize used when fittingSize was updated
+    var withinSize: CGSize { get set }
 }
 
 extension InternalItemProtocol {
     // MARK:- Measurable
     public mutating func updateFittingSize(within maxSize: CGSize) {
+        // update withinSize
+        withinSize = maxSize
+
         fittingSize = self.updatedFittingSize(within: maxSize)
     }
 
     // MARK:- Layoutable
     public mutating func updateLayout(within maxFrame: CGRect) {
-        // update withinFrame for debugging purposes
-        withinFrame = maxFrame
+        // update withinOrigin
+        withinOrigin = maxFrame.origin
 
         // update the fitting size
-        updateFittingSize(within: withinFrame.size)
+        updateFittingSize(within: maxFrame.size)
 
-        frame = self.updatedFrame(within: withinFrame)
+        frame = updatedFrame(within: maxFrame)
     }
 }

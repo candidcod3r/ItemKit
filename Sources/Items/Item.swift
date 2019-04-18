@@ -17,7 +17,8 @@ public struct Item: InternalItemProtocol, Cacheable {
 
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    public internal(set) var withinFrame: CGRect = .zero
+    var withinOrigin: CGPoint = .zero
+    var withinSize: CGSize = .zero
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
