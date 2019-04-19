@@ -136,10 +136,16 @@ class TestStackItemViewController: UIViewController {
             flexibility: .normal,
             subItems: [containerItem])
 
-        containerParentItem.updateLayout(within: view.bounds)
-        print(containerParentItem.debugDescription())
+        let viewBounds = self.view.bounds
+        DispatchQueue.global(qos: .background).async {
+            containerParentItem.updateLayout(within: viewBounds)
+            print(containerParentItem.debugDescription())
 
-        containerView.updateLayout(with: containerParentItem)
+            DispatchQueue.main.async {
+                self.containerView.updateLayout(with: containerParentItem)
+                self.view.setBorders()
+            }
+        }
     }
 
 }
