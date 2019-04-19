@@ -1,6 +1,6 @@
 {
   "name": "ItemKit",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "summary": "A simple and gracious alternative to manual layout with readability, flexibility and performance.",
   "description": "A simple and gracious alternative to manual layout with readability, flexibility and performance. The framework enables to developer to create view layout much faster. The layouts can be computed on the background thread and can be applied to the views on main thread.",
   "homepage": "https://github.com/candidcod3r/ItemKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/candidcod3r/ItemKit.git",
-    "tag": "0.8.0"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"
