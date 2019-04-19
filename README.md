@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/ItemKit.svg?style=flat)](https://cocoapods.org/pods/ItemKit)
 [![Platform](https://img.shields.io/cocoapods/p/ItemKit.svg?style=flat)](https://cocoapods.org/pods/ItemKit)
 
+A simple and gracious alternative to manual layout with readability, flexibility and performance. The framework enables developers to create view layouts much faster. The frames can be computed on the background thread and can be applied to the views on main thread.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

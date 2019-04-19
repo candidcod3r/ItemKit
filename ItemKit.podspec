@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
     #   * Write the description between the DESC delimiters below.
     #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-    spec.description      = 'A simple and gracious alternative to manual layout with readability, flexibility and performance. The framework enables to developer to create view layout much faster. The layouts can be computed on the background thread and can be applied to the views on main thread.'
+    spec.description      = 'A simple and gracious alternative to manual layout with readability, flexibility and performance. The framework enables developers to create view layouts much faster. The frames can be computed on the background thread and can be applied to the views on main thread.'
 
     spec.homepage         = 'https://github.com/candidcod3r/ItemKit'
     # spec.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
