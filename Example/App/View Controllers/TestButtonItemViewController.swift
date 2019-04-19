@@ -11,7 +11,7 @@ import ItemKit
 
 class TestButtonItemViewController: UIViewController {
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
@@ -19,7 +19,7 @@ class TestButtonItemViewController: UIViewController {
         return view
     }()
 
-    static func createButton() -> UIButton {
+    private static func createButton() -> UIButton {
         let button = UIButton()
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFill
@@ -27,30 +27,30 @@ class TestButtonItemViewController: UIViewController {
         return button
     }
 
-    let button1: UIButton = {
+    private let button1: UIButton = {
         return createButton()
     }()
 
-    let button2: UIButton = {
+    private let button2: UIButton = {
         return createButton()
     }()
 
-    let button3: UIButton = {
+    private let button3: UIButton = {
         return createButton()
     }()
 
-    let button4: UIButton = {
+    private let button4: UIButton = {
         return createButton()
     }()
 
-    let button5: UIButton = {
+    private let button5: UIButton = {
         return createButton()
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Testing fixed size guide"
+        title = "Testing ButtonItem"
         view.backgroundColor = .white
 
         view.addSubview(containerView)

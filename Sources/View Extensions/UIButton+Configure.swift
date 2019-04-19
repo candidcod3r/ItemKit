@@ -7,7 +7,11 @@
 //
 
 extension UIButton {
-    public func configure(withButtonItem item: ButtonItem) {
+    public func configure(withButtonItem item: ButtonItem?) {
+        guard let item = item else {
+            return
+        }
+
         configure(withItem: item)
 
         setTitle(item.title)

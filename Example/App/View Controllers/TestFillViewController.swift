@@ -11,7 +11,7 @@ import ItemKit
 
 class TestFillViewController: UIViewController {
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
@@ -19,37 +19,37 @@ class TestFillViewController: UIViewController {
         return view
     }()
 
-    let redView: UIView = {
+    private let redView: UIView = {
         let view = UIView()
         view.backgroundColor = .red
         return view
     }()
 
-    let blueView: UIView = {
+    private let blueView: UIView = {
         let view = UIView()
         view.backgroundColor = .blue
         return view
     }()
 
-    let cyanView: UIView = {
+    private let cyanView: UIView = {
         let view = UIView()
         view.backgroundColor = .cyan
         return view
     }()
 
-    let yellowView: UIView = {
+    private let yellowView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0xFFCC00)
         return view
     }()
 
-    let orangeView: UIView = {
+    private let orangeView: UIView = {
         let view = UIView()
         view.backgroundColor = .orange
         return view
     }()
 
-    let greenView: UIView = {
+    private let greenView: UIView = {
         let view = UIView()
         view.backgroundColor = .green
         return view
@@ -58,7 +58,7 @@ class TestFillViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Testing fixed size guide"
+        title = "Testing fill size guide"
         view.backgroundColor = .white
 
         view.addSubview(containerView)
@@ -72,7 +72,7 @@ class TestFillViewController: UIViewController {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         ///////////////////
         // containerView //
         ///////////////////

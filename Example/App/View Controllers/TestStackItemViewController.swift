@@ -11,7 +11,7 @@ import ItemKit
 
 class TestStackItemViewController: UIViewController {
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
@@ -19,28 +19,28 @@ class TestStackItemViewController: UIViewController {
         return view
     }()
 
-    let actorImageView: UIImageView = {
+    private let actorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
 
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = UIColor(hex: 0xD8EDFF)
         return label
     }()
 
-    let subtitleLabel: UILabel = {
+    private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = UIColor(hex: 0xFFCF85)
         return label
     }()
 
-    let connectButton: UIButton = {
+    private let connectButton: UIButton = {
         let button = UIButton()
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFill
@@ -51,7 +51,7 @@ class TestStackItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Testing fixed size guide"
+        title = "Testing StackItem"
         view.backgroundColor = .white
         view.clipsToBounds = false
 
@@ -64,7 +64,7 @@ class TestStackItemViewController: UIViewController {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         var containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))

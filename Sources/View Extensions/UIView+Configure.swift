@@ -7,7 +7,11 @@
 //
 
 extension UIView {
-    public func configure(withItem item: ItemProtocol) {
+    public func configure(withItem item: ItemProtocol?) {
+        guard let item = item else {
+            return
+        }
+        
         self.itemID = item.id
     }
 }

@@ -10,15 +10,13 @@ public protocol Cacheable {
     func createCache() -> ViewItemCache
 }
 
-extension Cacheable where Self: ItemProtocol {
+extension ItemProtocol {
     public func createCache() -> ViewItemCache {
         let cache = ViewItemCache()
         self.add(to: cache)
         return cache
     }
-}
 
-extension ItemProtocol {
     func add(to cache: ViewItemCache) {
         let viewIDString = id ?? ""
         if !viewIDString.isEmpty {

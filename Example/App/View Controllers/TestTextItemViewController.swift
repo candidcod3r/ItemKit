@@ -11,7 +11,7 @@ import ItemKit
 
 class TestTextItemViewController: UIViewController {
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
@@ -19,28 +19,28 @@ class TestTextItemViewController: UIViewController {
         return view
     }()
 
-    let label1: UILabel = {
+    private let label1: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = UIColor(hex: 0xFFD4D4)
         return label
     }()
 
-    let textView1: UITextView = {
+    private let textView1: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
         textView.backgroundColor = UIColor(hex: 0xD8EDFF)
         return textView
     }()
 
-    let label2: UILabel = {
+    private let label2: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.backgroundColor = UIColor(hex: 0xFFCF85)
         return label
     }()
 
-    let textView2: UITextView = {
+    private let textView2: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
         textView.backgroundColor = UIColor(hex: 0xC4F8BD)
@@ -50,7 +50,7 @@ class TestTextItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Testing fixed size guide"
+        title = "Testing TextItem"
         view.backgroundColor = .white
 
         view.addSubview(containerView)
@@ -62,7 +62,7 @@ class TestTextItemViewController: UIViewController {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         var containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))

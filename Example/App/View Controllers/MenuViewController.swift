@@ -15,15 +15,16 @@ class MenuViewController: UIViewController {
         static let tableViewCellReuseID = "tableViewCellID"
     }
 
-    let viewControllers: [UIViewController.Type] = [
+    private let viewControllers: [UIViewController.Type] = [
         TestFixedViewController.self,
         TestFillViewController.self,
         TestTextItemViewController.self,
         TestButtonItemViewController.self,
-        TestStackItemViewController.self
+        TestStackItemViewController.self,
+        TestBoardingPassViewController.self
     ]
 
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView()
         return tableView
     }()
@@ -58,12 +59,10 @@ extension MenuViewController: UITableViewDataSource {
 }
 
 extension MenuViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewControllerClass = viewControllers[indexPath.row]
         let viewController = viewControllerClass.init()
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }

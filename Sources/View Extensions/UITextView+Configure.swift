@@ -7,7 +7,11 @@
 //
 
 extension UITextView {
-    public func configure(withTextItem item: TextItem) {
+    public func configure(withTextItem item: TextItem?) {
+        guard let item = item else {
+            return
+        }
+        
         configure(withItem: item)
         switch item.text {
         case .simple(let text):

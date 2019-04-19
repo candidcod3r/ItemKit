@@ -11,7 +11,7 @@ import ItemKit
 
 class TestFixedViewController: UIViewController {
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
@@ -19,55 +19,55 @@ class TestFixedViewController: UIViewController {
         return view
     }()
 
-    let redView: UIView = {
+    private let redView: UIView = {
         let view = UIView()
         view.backgroundColor = .red
         return view
     }()
 
-    let blueView: UIView = {
+    private let blueView: UIView = {
         let view = UIView()
         view.backgroundColor = .blue
         return view
     }()
 
-    let cyanView: UIView = {
+    private let cyanView: UIView = {
         let view = UIView()
         view.backgroundColor = .cyan
         return view
     }()
 
-    let greenView: UIView = {
+    private let greenView: UIView = {
         let view = UIView()
         view.backgroundColor = .green
         return view
     }()
 
-    let yellowView: UIView = {
+    private let yellowView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0xFFCC00)
         return view
     }()
 
-    let purpleView: UIView = {
+    private let purpleView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0xC86EDF)
         return view
     }()
 
-    let orangeView: UIView = {
+    private let orangeView: UIView = {
         let view = UIView()
         view.backgroundColor = .orange
         return view
     }()
 
-    let lightGreenView: UIView = {
+    private let lightGreenView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0x55EFCB)
         return view
     }()
 
-    let pinkView: UIView = {
+    private let pinkView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0xFF4981)
         return view
@@ -93,7 +93,7 @@ class TestFixedViewController: UIViewController {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         ///////////////////
         // containerView //
         ///////////////////
