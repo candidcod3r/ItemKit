@@ -10,7 +10,7 @@ public enum StackDistribution {
     case leading
     case trailing
     case center
-    case equal
+    case equalSize
     case equalSpacing
     case fillExtraSpace
     case fillExtraSpaceEqually
@@ -69,7 +69,7 @@ public struct StackItem: InternalItemProtocol, Cacheable {
 // MARK: Measurable
 extension StackItem {
     public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
-        guard distribution != .equal else {
+        guard distribution != .equalSize else {
             return contentFittingSizeForEqualDistribution(within: maxSize)
         }
 
@@ -171,7 +171,7 @@ extension StackItem {
         subItemAxisOrigin.axisValue += subItemOffset
 
         for i in 0..<subItems.count {
-            let maxSubItemSize = (distribution == .equal)
+            let maxSubItemSize = (distribution == .equalSize)
                 ? maxSubItemSizeForEqualDistribution
                 : adjustedSubItemAxisSize(
                     subItemSize: subItems[i].fittingSize,
@@ -196,7 +196,7 @@ extension StackItem {
         let axisLength = subItemAxisSize.axisValue
         let crossLength = maxAxisSize.crossValue
 
-        if distribution == .equal {
+        if distribution == .equalSize {
             return maxSubItemSizeForEqualDistribution(within: maxSize)
         } else if distribution == .fillExtraSpace && isMostFlexible {
             return CGSize(axisValue: axisLength + excessAxisLength, crossValue: crossLength, axis: axis)
@@ -212,7 +212,7 @@ extension StackItem {
     private func subItemOffset(with excessLength: CGFloat) -> CGFloat {
         switch distribution {
         case .leading,
-             .equal,
+             .equalSize,
              .equalSpacing,
              .fillExtraSpace,
              .fillExtraSpaceEqually:
@@ -229,7 +229,7 @@ extension StackItem {
         case .leading,
              .trailing,
              .center,
-             .equal,
+             .equalSize,
              .fillExtraSpace,
              .fillExtraSpaceEqually:
             return spacing

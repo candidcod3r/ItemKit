@@ -9,11 +9,11 @@
 extension ItemProtocol {
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))
-        let originString = "(\(frame.origin.x), \(frame.origin.y))"
-        let sizeString = "(\(frame.size.width), \(frame.size.height))"
+        let originString = "x: (\(frame.origin.x.formatted), y: \(frame.origin.y.formatted))"
+        let sizeString = "w: \(frame.size.width.formatted), h: \(frame.size.height.formatted)"
         let itemIDString = id ?? "NO_ID"
 
-        let descriptionString = "[<\(classString):\(itemIDString)>" + " origin:\(originString) size:\(sizeString)]"
+        let descriptionString = "[<\(classString):\(itemIDString)>" + " (\(originString), \(sizeString))]"
         return descriptionString
     }
 
@@ -72,5 +72,12 @@ extension ItemProtocol {
                 subview.removeFromSuperview()
             }
         }
+    }
+}
+
+
+extension CGFloat {
+    fileprivate var formatted: String {
+        return String(format: "%.2f", self)
     }
 }

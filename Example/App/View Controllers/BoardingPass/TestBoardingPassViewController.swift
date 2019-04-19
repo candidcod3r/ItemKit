@@ -15,7 +15,6 @@ class TestBoardingPassViewController: UIViewController {
         let view = UIView()
         view.clipsToBounds = false
         view.layer.masksToBounds = false
-        view.backgroundColor = UIColor(hex: 0xE9E9E9)
         return view
     }()
 
@@ -26,7 +25,7 @@ class TestBoardingPassViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Testing boarding pass layout"
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hex: 0xEAEAEA)
         view.clipsToBounds = false
 
         view.addSubview(containerView)
@@ -75,7 +74,7 @@ class TestBoardingPassViewController: UIViewController {
 
                 self.containerView.configure(withItem: containerItem)
                 self.containerView.updateLayout(with: containerParentItem)
-                self.view.setBorders()
+                containerParentItem.createDebugViews(in: self.view)
             }
         }
     }

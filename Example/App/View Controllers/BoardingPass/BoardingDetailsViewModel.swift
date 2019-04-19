@@ -11,7 +11,7 @@ import ItemKit
 class BoardingDetailsViewModel {
 
     struct Constant {
-        static let headerFont = UIFont.helvetica(of: 17)
+        static let headerFont = UIFont.helveticaLight(of: 17)
         static let valueFont = UIFont.helvetica(of: 21)
     }
 
@@ -62,8 +62,8 @@ class BoardingDetailsViewModel {
             font: Constant.valueFont)
 
         boardingTextItem = TextItem(
-            id: "gateText",
-            text: "GATE",
+            id: "boardingText",
+            text: "BOARDING",
             font: Constant.headerFont)
 
         boardingTimeItem = TextItem(
@@ -86,7 +86,7 @@ class BoardingDetailsViewModel {
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
-            subItems: [terminalTextItem, terminalTextItem])
+            subItems: [terminalTextItem, terminalNumberItem])
 
         let gateStackItem = StackItem(
             axis: .vertical,
@@ -102,18 +102,21 @@ class BoardingDetailsViewModel {
 
         let topStackItem = StackItem(
             axis: .horizontal,
-            sizeGuide: SizeGuide(width: .fill, height: .fill),
+            distribution: .equalSize,
+            sizeGuide: SizeGuide(width: .fill),
             subItems: [flightStackItem, terminalStackItem])
 
         let bottomStackItem = StackItem(
             axis: .horizontal,
-            sizeGuide: SizeGuide(width: .fill, height: .fill),
+            distribution: .equalSize,
+            sizeGuide: SizeGuide(width: .fill),
             subItems: [gateStackItem, boardingStackItem])
 
         return StackItem(
+            id: "boardingDetailsView",
             axis: .vertical,
             spacing: 16,
-            insets: UIEdgeInsets(8),
+            insets: UIEdgeInsets(16),
             sizeGuide: SizeGuide(width: .fill),
             subItems: [topStackItem, bottomStackItem])
     }

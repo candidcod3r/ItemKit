@@ -92,6 +92,7 @@ class ItineraryView: UIView {
         flightImageView.configure(withItem: viewModel?.flightImageItem)
         flightImageView.image = viewModel?.flightImage
 
+        configure(withItem: viewModel?.item)
         self.viewModel = viewModel
     }
 

@@ -69,7 +69,7 @@ class ItineraryViewModel {
 
         toTimeItem = TextItem(
             id: "toTime",
-            text: "9:00AM",
+            text: "8:00AM",
             font: Constant.timeTextFont,
             alignment: .center)
 
@@ -91,10 +91,12 @@ class ItineraryViewModel {
             subItems: [toTextItem, toAirportItem, toTimeItem])
 
         return StackItem(
+            id: "itineraryView",
             axis: .horizontal,
             distribution: .fillExtraSpace,
-            insets: UIEdgeInsets(8),
+            insets: UIEdgeInsets(16),
             sizeGuide: SizeGuide(width: .fill, height: .fill),
+            alignment: .center,
             subItems: [leftStackItem, flightImageItem, rightStackItem])
     }
 

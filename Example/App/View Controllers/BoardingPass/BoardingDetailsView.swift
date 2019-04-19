@@ -100,6 +100,7 @@ class BoardingDetailsView: UIView {
         boardingTextLabel.configure(withTextItem: viewModel?.boardingTextItem)
         boardingTimeLabel.configure(withTextItem: viewModel?.boardingTimeItem)
 
+        configure(withItem: viewModel?.item)
         self.viewModel = viewModel
     }
 
