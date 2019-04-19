@@ -27,7 +27,7 @@ public struct StackItem: InternalItemProtocol, Cacheable {
 
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    var withinFrame: CGRect = .zero
+    public internal(set) var withinFrame: CGRect = .zero
 
     // MARK:- StackItem Properties
     public var axis: Axis

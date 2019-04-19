@@ -16,6 +16,7 @@ public protocol ItemProtocol: Measurable, Layoutable {
     
     var frame: CGRect { get }
     var fittingSize: CGSize { get }
+    var withinFrame: CGRect { get }
     
     var requiresView: Bool { get }
 }

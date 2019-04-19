@@ -9,11 +9,11 @@
 extension ItemProtocol {
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))
-        let originString = "x: (\(frame.origin.x.formatted), y: \(frame.origin.y.formatted))"
-        let sizeString = "w: \(frame.size.width.formatted), h: \(frame.size.height.formatted)"
+        let frameString = frame.formatted
+        let withinFrameString = withinFrame.formatted
         let itemIDString = id ?? "NO_ID"
 
-        let descriptionString = "[<\(classString):\(itemIDString)>" + " (\(originString), \(sizeString))]"
+        let descriptionString = "[<\(classString):\(itemIDString)> \(frameString)], withIn: \(withinFrameString)"
         return descriptionString
     }
 
@@ -79,5 +79,13 @@ extension ItemProtocol {
 extension CGFloat {
     fileprivate var formatted: String {
         return String(format: "%.2f", self)
+    }
+}
+
+extension CGRect {
+    fileprivate var formatted: String {
+        let originString = "x: (\(origin.x.formatted), y: \(origin.y.formatted))"
+        let sizeString = "w: \(size.width.formatted), h: \(size.height.formatted)"
+        return "(\(originString), \(sizeString))"
     }
 }

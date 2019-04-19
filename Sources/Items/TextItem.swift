@@ -17,7 +17,7 @@ public struct TextItem: InternalItemProtocol, Cacheable {
 
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    var withinFrame: CGRect = .zero
+    public internal(set) var withinFrame: CGRect = .zero
 
     // MARK:- TextItem Properties
     public var text: Text

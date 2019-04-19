@@ -14,11 +14,11 @@ public struct ButtonItem: InternalItemProtocol, Cacheable {
     public var alignment: Alignment
     public var flexibility: Flexibility
     public var subItems: [ItemProtocol]
-
+    
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    var withinFrame: CGRect = .zero
-
+    public internal(set) var withinFrame: CGRect = .zero
+    
     // MARK:- ButtonItem Properties
     public var title: Text?
     public var image: UIImage?
@@ -26,7 +26,7 @@ public struct ButtonItem: InternalItemProtocol, Cacheable {
     public var contentInsets: UIEdgeInsets
     public var titleInsets: UIEdgeInsets
     public var imageInsets: UIEdgeInsets
-
+    
     // MARK:- Designated intializer
     public init(id: String? = nil,
                 title: Text? = nil,
@@ -52,7 +52,7 @@ public struct ButtonItem: InternalItemProtocol, Cacheable {
         self.flexibility = flexibility
         self.subItems = []
     }
-
+    
     // MARK:- Convenience intializers
     public init(id: String? = nil,
                 title: String,
@@ -78,7 +78,7 @@ public struct ButtonItem: InternalItemProtocol, Cacheable {
             alignment: alignment,
             flexibility: flexibility)
     }
-
+    
     public init(id: String? = nil,
                 title: NSAttributedString,
                 image: UIImage? = nil,
@@ -111,23 +111,23 @@ extension ButtonItem {
         let imageSize = self.imageSize
             .insetted(by: imageInsets)
             .decreased(to: maxSize)
-
+        
         let titleSize = self.titleSize(within: maxSize)
             .insetted(by: titleInsets)
-
+        
         let contentWidth = imageSize.width + titleSize.width
         let contentHeight = max(imageSize.height, titleSize.height)
         let contentSize = CGSize(width: contentWidth, height: contentHeight)
             .insetted(by: contentInsets)
             .decreased(to: maxSize)
-
+        
         return contentSize
     }
-
+    
     private func titleSize(within maxSize: CGSize) -> CGSize {
         return title?.size(with: font, within: maxSize) ?? .zero
     }
-
+    
     private var imageSize: CGSize {
         return image?.size ?? .zero
     }
