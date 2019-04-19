@@ -17,8 +17,7 @@ public struct ButtonItem: InternalItemProtocol, Cacheable {
 
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    var withinOrigin: CGPoint = .zero
-    var withinSize: CGSize = .zero
+    var withinFrame: CGRect = .zero
 
     // MARK:- ButtonItem Properties
     public var title: Text?

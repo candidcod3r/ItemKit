@@ -33,15 +33,6 @@ public struct Flexibility {
     public static let high = Flexibility(.high, .high)
     public static let max = Flexibility(.max, .max)
 
-    func flex(for axis: Axis) -> Flex {
-        switch axis {
-        case .horizontal:
-            return horizontal
-        case .vertical:
-            return vertical
-        }
-    }
-
     func compare(to other: Flexibility, for axis: Axis) -> ComparisonResult {
         let flex = self.value(along: axis)
         let otherFlex = other.value(along: axis)

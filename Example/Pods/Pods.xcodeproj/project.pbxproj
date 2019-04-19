@@ -27,7 +27,7 @@
 		4E45EC2A22685C01006CD84B /* UILabel+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F01DD5DFCFA15467745DED27A4F5CA /* UILabel+Configure.swift */; };
 		4E45EC2B22685C03006CD84B /* UITextView+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6151155E0279452B40EA183EBCFA16 /* UITextView+Configure.swift */; };
 		4E52782592F34E1AE3FD5CC6BD5B3821 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFEDAC80D323CF0758A49D9F4A5FDA5 /* Layoutable.swift */; };
-		4E549A1C226818B000DA3492 /* IndexedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E549A1B226818B000DA3492 /* IndexedObject.swift */; };
+		4E549A1C226818B000DA3492 /* IndexedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E549A1B226818B000DA3492 /* IndexedValue.swift */; };
 		66BE547C9AB73FA6F442BC572BA68F02 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468438DC7E0D3A49145436D4E8D6C7C /* Alignment.swift */; };
 		73225C020370885A19F243D4E33F6B32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AF5EA4D9F769D41042A99A80FFB9ED /* Foundation.framework */; };
 		7DC8AEE4433976203E149166312173E1 /* Measurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E11F8830B4530561EBBA60B60BE6D /* Measurable.swift */; };
@@ -47,7 +47,7 @@
 		F43ABA2B6DAA226666F67F10FC263A49 /* Sizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C837FC53CFCF81EA306EB26C65519F /* Sizer.swift */; };
 		F47D94B0A047BB73BFAC31F88732F751 /* Aligner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163B8CB5392B57612154024E122D49FD /* Aligner.swift */; };
 		F58B3D5821722506934CAAD3424A1F59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC14D54CF483CF531F6412BFC589C4B /* CoreGraphics.framework */; };
-		F65295DFE4DEF302A07266163D0E3873 /* AxisDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8823F1F39343A31E80EE568507DEAEF /* AxisDimension.swift */; };
+		F65295DFE4DEF302A07266163D0E3873 /* AxisValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8823F1F39343A31E80EE568507DEAEF /* AxisValue.swift */; };
 		F7A824706A4F88190B208C0A86BEEE65 /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EBD64D785D7FD29D76283160BCF893 /* Cacheable.swift */; };
 		FC0FAA86D07E9E06F739A5F48164F964 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5E25881F8440F89FEA2E41B1B1E89 /* Text.swift */; };
 /* End PBXBuildFile section */
@@ -78,7 +78,7 @@
 		32087505838133B941791175B37DC80E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		418F47348A591C14D2AA0BA6B656A1F2 /* Pods-ItemKitExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-frameworks.sh"; sourceTree = "<group>"; };
 		4CBEAA92D4C5E2EE558B6FC6B7EFD105 /* UIFont+.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		4E549A1B226818B000DA3492 /* IndexedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedObject.swift; sourceTree = "<group>"; };
+		4E549A1B226818B000DA3492 /* IndexedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedValue.swift; sourceTree = "<group>"; };
 		4F2ED0B1842A79F0669179980C701562 /* Pods-ItemKitExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-resources.sh"; sourceTree = "<group>"; };
 		51F5E25881F8440F89FEA2E41B1B1E89 /* Text.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		56489F2F821735AA1EC875ACA4360D41 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +121,7 @@
 		E5310F820BFD162EFB54D03F3128C4C9 /* ItemKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ItemKit-dummy.m"; sourceTree = "<group>"; };
 		EEFEDAC80D323CF0758A49D9F4A5FDA5 /* Layoutable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Layoutable.swift; path = Sources/Layoutable.swift; sourceTree = "<group>"; };
 		F2217A46D989CDBC1DAAD5BCBFA5E163 /* UIButton+Configure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIButton+Configure.swift"; sourceTree = "<group>"; };
-		F8823F1F39343A31E80EE568507DEAEF /* AxisDimension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AxisDimension.swift; sourceTree = "<group>"; };
+		F8823F1F39343A31E80EE568507DEAEF /* AxisValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AxisValue.swift; sourceTree = "<group>"; };
 		FEBBF849E89E530B8BE2060009BFD074 /* TextItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TextItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2BE86C5EE4174AB9D70F43E65B20EE /* Axis.swift */,
-				F8823F1F39343A31E80EE568507DEAEF /* AxisDimension.swift */,
+				F8823F1F39343A31E80EE568507DEAEF /* AxisValue.swift */,
 				8611940D6BE30BC5A07BCAD08E85119A /* DirectionalValue.swift */,
 			);
 			name = Axis;
@@ -253,10 +253,10 @@
 				8468438DC7E0D3A49145436D4E8D6C7C /* Alignment.swift */,
 				E25FDC00F38BD5A4683E6A637667947F /* DimensionGuide.swift */,
 				7B21EAAF32373555FD2D41F46043BE45 /* Flexibility.swift */,
+				4E549A1B226818B000DA3492 /* IndexedValue.swift */,
 				65BA7495F509CC70D1D418F3A3BF3936 /* SizeGuide.swift */,
 				93C837FC53CFCF81EA306EB26C65519F /* Sizer.swift */,
 				51F5E25881F8440F89FEA2E41B1B1E89 /* Text.swift */,
-				4E549A1B226818B000DA3492 /* IndexedObject.swift */,
 			);
 			name = Auxillary;
 			path = Sources/Auxillary;
@@ -465,7 +465,7 @@
 				4E45EC2422684E89006CD84B /* Item.swift in Sources */,
 				9F9C9A5CBD6B87EA43EC12882D3E775B /* Axis.swift in Sources */,
 				4E45EC2B22685C03006CD84B /* UITextView+Configure.swift in Sources */,
-				F65295DFE4DEF302A07266163D0E3873 /* AxisDimension.swift in Sources */,
+				F65295DFE4DEF302A07266163D0E3873 /* AxisValue.swift in Sources */,
 				F7A824706A4F88190B208C0A86BEEE65 /* Cacheable.swift in Sources */,
 				287FD0A76BB29833C9424765BA04E77D /* CGFloat+.swift in Sources */,
 				08875E207B08844006857EAA38BBA7CA /* CGRect+.swift in Sources */,
@@ -483,7 +483,7 @@
 				AF351E79833CFC984BEB505AC1322539 /* NSAttributedString+.swift in Sources */,
 				DAA233B7ADC7C0205AB0ABFE7D511557 /* SizeGuide.swift in Sources */,
 				F43ABA2B6DAA226666F67F10FC263A49 /* Sizer.swift in Sources */,
-				4E549A1C226818B000DA3492 /* IndexedObject.swift in Sources */,
+				4E549A1C226818B000DA3492 /* IndexedValue.swift in Sources */,
 				FC0FAA86D07E9E06F739A5F48164F964 /* Text.swift in Sources */,
 				DECBC25733A7C14EA4B05C6BAA6E5CD6 /* UIColor+Debug.swift in Sources */,
 				E5F4A978563E269793A216E022774470 /* UIEdgeInsets+.swift in Sources */,

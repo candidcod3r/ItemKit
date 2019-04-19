@@ -86,26 +86,20 @@ protocol InternalItemProtocol: ItemProtocol {
 
     // MARK:- Internal properties
 
-    // origin used when frame was updated
-    var withinOrigin: CGPoint { get set }
-
-    // maxSize used when fittingSize was updated
-    var withinSize: CGSize { get set }
+    // used for debugging purposes
+    var withinFrame: CGRect { get set }
 }
 
 extension InternalItemProtocol {
     // MARK:- Measurable
     public mutating func updateFittingSize(within maxSize: CGSize) {
-        // update withinSize
-        withinSize = maxSize
-
         fittingSize = self.updatedFittingSize(within: maxSize)
     }
 
     // MARK:- Layoutable
     public mutating func updateLayout(within maxFrame: CGRect) {
-        // update withinOrigin
-        withinOrigin = maxFrame.origin
+        // update withinFrame
+        withinFrame = maxFrame
 
         // update the fitting size
         updateFittingSize(within: maxFrame.size)
