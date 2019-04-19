@@ -44,7 +44,7 @@ extension Item {
             contentFittingSize = subItems[i].fittingSize
 
         }
-        return contentFittingSize
+        return Sizer.fittingSize(within: contentFittingSize, using: sizeGuide)
     }
 }
 

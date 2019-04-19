@@ -9,8 +9,8 @@
 extension ItemProtocol {
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))
-        let originString = "(\(origin.x), \(origin.y))"
-        let sizeString = "(\(size.width), \(size.height))"
+        let originString = "(\(frame.origin.x), \(frame.origin.y))"
+        let sizeString = "(\(frame.size.width), \(frame.size.height))"
         let itemIDString = id ?? "NO_ID"
 
         let descriptionString = "[<\(classString):\(itemIDString)>" + " origin:\(originString) size:\(sizeString)]"
@@ -33,5 +33,44 @@ extension ItemProtocol {
 
         debugString += subItemsString
         return debugString
+    }
+
+    public func createDebugViews(in parentView: UIView) {
+        removeDebugViews(in: parentView)
+        createDebugViews(in: parentView, coordinateSpaceView: parentView)
+    }
+
+    private func createDebugViews(in parentView: UIView, coordinateSpaceView: UIView) {
+        let rect = coordinateSpaceView.convert(frame, to: parentView)
+        let debugView = createDebugView(with: rect)
+        parentView.addSubview(debugView)
+        
+        for i in 0..<subItems.count {
+            if requiresView {
+                subItems[i].createDebugViews(in: debugView, coordinateSpaceView: debugView)
+            } else {
+                subItems[i].createDebugViews(in: debugView, coordinateSpaceView: coordinateSpaceView)
+            }
+        }
+
+    }
+
+    private func createDebugView(with rect: CGRect) -> UIView {
+        let view = UIView()
+        view.itemKitID = "com.itemkit.debugview"
+        view.layer.borderColor = UIColor.random.cgColor
+        view.layer.borderWidth = 1
+        view.frame = rect
+        return view
+    }
+
+    private func removeDebugViews(in view: UIView) {
+        // remove all previously created subviews
+        for subview in view.subviews {
+            removeDebugViews(in: subview)
+            if subview.itemKitID != nil {
+                subview.removeFromSuperview()
+            }
+        }
     }
 }

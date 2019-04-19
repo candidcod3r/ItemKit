@@ -19,7 +19,8 @@ class MenuViewController: UIViewController {
         TestFixedViewController.self,
         TestFillViewController.self,
         TestTextItemViewController.self,
-        TestButtonItemViewController.self
+        TestButtonItemViewController.self,
+        TestStackItemViewController.self
     ]
 
     let tableView: UITableView = {

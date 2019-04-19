@@ -38,7 +38,7 @@ public struct StackItem: InternalItemProtocol, Cacheable {
     public init(id: String? = nil,
                 axis: Axis = .horizontal,
                 spacing: CGFloat = 0,
-                distribution: StackDistribution,
+                distribution: StackDistribution = .leading,
                 insets: UIEdgeInsets = .zero,
                 sizeGuide: SizeGuide = SizeGuide(),
                 alignment: Alignment = .leadingTop,
@@ -69,7 +69,7 @@ public struct StackItem: InternalItemProtocol, Cacheable {
 // MARK: Measurable
 extension StackItem {
     public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
-        if distribution == .equal {
+        guard distribution != .equal else {
             return contentFittingSizeForEqualDistribution(within: maxSize)
         }
 
@@ -253,7 +253,7 @@ extension StackItem {
         for i in 0..<subItems.count {
             let maxFlex = subItems[mostFlexibleIndex].flexibility.value(along: axis)
             let subItemflex = subItems[i].flexibility.value(along: axis)
-            if maxFlex < subItemflex {
+            if maxFlex <= subItemflex {
                 mostFlexibleIndex = i
             }
         }

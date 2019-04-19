@@ -16,6 +16,7 @@
 		4E66A6002266DFDA00824280 /* TestTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */; };
 		4E66A6022266E1E500824280 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A6012266E1E500824280 /* UIFont+.swift */; };
 		4E66A60822670A3C00824280 /* TestButtonItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */; };
+		4EFB818322696A4400B8D849 /* TestStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* TestStackItemViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* TestFixedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* TestFixedViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -36,6 +37,7 @@
 		4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextItemViewController.swift; sourceTree = "<group>"; };
 		4E66A6012266E1E500824280 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonItemViewController.swift; sourceTree = "<group>"; };
+		4EFB818222696A4400B8D849 /* TestStackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStackItemViewController.swift; sourceTree = "<group>"; };
 		52A482C1B81D5A057FB11AB5 /* Pods-ItemKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemKit_Example/Pods-ItemKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ItemKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				4E50753822659B45006DF752 /* TestFillViewController.swift */,
 				607FACD71AFB9204008FA782 /* TestFixedViewController.swift */,
 				4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */,
+				4EFB818222696A4400B8D849 /* TestStackItemViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFB818322696A4400B8D849 /* TestStackItemViewController.swift in Sources */,
 				4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */,
 				4E66A6022266E1E500824280 /* UIFont+.swift in Sources */,
 				4E50753722654D3E006DF752 /* MenuViewController.swift in Sources */,

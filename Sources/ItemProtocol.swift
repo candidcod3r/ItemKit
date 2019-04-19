@@ -24,19 +24,11 @@ extension ItemProtocol {
     public var requiresView: Bool {
         return (id?.count ?? 0) > 0
     }
-    
-    public var origin: CGPoint {
-        return frame.origin
-    }
-
-    public var size: CGSize {
-        return frame.size
-    }
 
     // MARK:- Measurable helper methods
     fileprivate mutating func updatedFittingSize(within maxSize: CGSize) -> CGSize {
         // adjust maxSize according to the size guide
-        let maxFittingSize = Sizer.maxFittingSize(within: maxSize, using: sizeGuide)
+        let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
 
         // decrease by insets so that the content takes the decreased size
         let maxContentSize = maxFittingSize.decreased(by: insets)

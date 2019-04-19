@@ -23,7 +23,7 @@ public struct Sizer {
         return CGSize(width: horizontal, height: vertical)
     }
 
-    public static func maxFittingSize(within maxSize: CGSize, using guide: SizeGuide) -> CGSize {
+    public static func fittingSize(within maxSize: CGSize, using guide: SizeGuide) -> CGSize {
         let horizontal = dimension(
             fittingDimension: maxSize.width,
             within: maxSize.width,
