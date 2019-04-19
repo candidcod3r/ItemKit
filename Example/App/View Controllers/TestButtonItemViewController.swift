@@ -10,7 +10,6 @@ import UIKit
 import ItemKit
 
 class TestButtonItemViewController: UIViewController {
-
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -133,5 +132,4 @@ class TestButtonItemViewController: UIViewController {
 
         containerView.updateLayout(with: containerParentItem)
     }
-
 }

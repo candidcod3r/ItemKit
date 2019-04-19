@@ -9,7 +9,6 @@
 import ItemKit
 
 class ItineraryViewModel {
-
     struct Constant {
         static let fromTextFont = UIFont.helvetica(of: 14)
         static let airportTextFont = UIFont.helvetica(of: 28)
@@ -99,5 +98,4 @@ class ItineraryViewModel {
             alignment: .center,
             subItems: [leftStackItem, flightImageItem, rightStackItem])
     }
-
 }

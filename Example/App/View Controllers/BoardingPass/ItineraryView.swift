@@ -9,7 +9,6 @@
 import UIKit
 
 class ItineraryView: UIView {
-
     private(set) var viewModel: ItineraryViewModel?
 
     private let fromTextLabel: UILabel = {
@@ -95,5 +94,4 @@ class ItineraryView: UIView {
         configure(withItem: viewModel?.item)
         self.viewModel = viewModel
     }
-
 }

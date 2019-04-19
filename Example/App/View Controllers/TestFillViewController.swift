@@ -10,7 +10,6 @@ import UIKit
 import ItemKit
 
 class TestFillViewController: UIViewController {
-
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -177,5 +176,4 @@ class TestFillViewController: UIViewController {
 
         containerView.updateLayout(with: containerParentItem)
     }
-
 }

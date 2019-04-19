@@ -10,7 +10,6 @@ import UIKit
 import ItemKit
 
 class TestTextItemViewController: UIViewController {
-
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -131,5 +130,4 @@ class TestTextItemViewController: UIViewController {
 
         containerView.updateLayout(with: containerParentItem)
     }
-
 }

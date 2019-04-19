@@ -9,7 +9,6 @@
 import UIKit
 
 class BoardingDetailsView: UIView {
-
     private(set) var viewModel: BoardingDetailsViewModel?
 
     private let flightTextLabel: UILabel = {
@@ -103,5 +102,4 @@ class BoardingDetailsView: UIView {
         configure(withItem: viewModel?.item)
         self.viewModel = viewModel
     }
-
 }

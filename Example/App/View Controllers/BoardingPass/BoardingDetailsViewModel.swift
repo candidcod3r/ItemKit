@@ -9,7 +9,6 @@
 import ItemKit
 
 class BoardingDetailsViewModel {
-
     struct Constant {
         static let headerFont = UIFont.helveticaLight(of: 17)
         static let valueFont = UIFont.helvetica(of: 21)
@@ -120,6 +119,4 @@ class BoardingDetailsViewModel {
             sizeGuide: SizeGuide(width: .fill),
             subItems: [topStackItem, bottomStackItem])
     }
-
-
 }

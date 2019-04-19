@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class MenuViewController: UIViewController {
-
     struct Constant {
         static let tableViewCellReuseID = "tableViewCellID"
     }
@@ -41,7 +40,6 @@ class MenuViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constant.tableViewCellReuseID)
         tableView.reloadData()
     }
-
 }
 
 extension MenuViewController: UITableViewDataSource {

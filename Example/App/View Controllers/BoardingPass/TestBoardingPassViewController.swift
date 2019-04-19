@@ -10,7 +10,6 @@ import UIKit
 import ItemKit
 
 class TestBoardingPassViewController: UIViewController {
-
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -77,6 +76,5 @@ class TestBoardingPassViewController: UIViewController {
             }
         }
     }
-
 }
 
