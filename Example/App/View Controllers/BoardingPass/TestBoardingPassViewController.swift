@@ -74,7 +74,6 @@ class TestBoardingPassViewController: UIViewController {
 
                 self.containerView.configure(withItem: containerItem)
                 self.containerView.updateLayout(with: containerParentItem)
-                containerParentItem.createDebugViews(in: self.view)
             }
         }
     }

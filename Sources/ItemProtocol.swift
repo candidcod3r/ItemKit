@@ -13,31 +13,18 @@ public protocol ItemProtocol: Measurable, Layoutable {
     var alignment: Alignment { get set }
     var flexibility: Flexibility { get set }
     var subItems: [ItemProtocol] { get set }
-    
+
+    // computed automatically
     var frame: CGRect { get }
     var fittingSize: CGSize { get }
-    var withinFrame: CGRect { get }
-    
+    var contentFittingSize: CGSize { get }
+
     var requiresView: Bool { get }
 }
 
 extension ItemProtocol {
     public var requiresView: Bool {
         return (id?.count ?? 0) > 0
-    }
-
-    // MARK:- Measurable helper methods
-    fileprivate mutating func updatedFittingSize(within maxSize: CGSize) -> CGSize {
-        // adjust maxSize according to the size guide
-        let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
-
-        // decrease by insets so that the content takes the decreased size
-        let maxContentSize = maxFittingSize.decreased(by: insets)
-
-        // compute the content fitting size
-        let contentFittingSize = self.contentFittingSize(within: maxContentSize)
-
-        return contentFittingSize.increased(by: insets)
     }
 
     // MARK:- Layoutable helper methods
@@ -76,6 +63,7 @@ extension ItemProtocol {
 protocol InternalItemProtocol: ItemProtocol {
     var frame: CGRect { get set }
     var fittingSize: CGSize { get set }
+    var contentFittingSize: CGSize { get set }
 
     // MARK:- Internal properties
 
@@ -86,7 +74,16 @@ protocol InternalItemProtocol: ItemProtocol {
 extension InternalItemProtocol {
     // MARK:- Measurable
     public mutating func updateFittingSize(within maxSize: CGSize) {
-        fittingSize = self.updatedFittingSize(within: maxSize)
+        // adjust maxSize according to the size guide
+        let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
+
+        // decrease by insets so that the content takes the decreased size
+        let maxContentSize = maxFittingSize.decreased(by: insets)
+
+        // compute the content fitting size
+        contentFittingSize = self.contentFittingSize(within: maxContentSize)
+
+        fittingSize = contentFittingSize.increased(by: insets)
     }
 
     // MARK:- Layoutable

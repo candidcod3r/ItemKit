@@ -122,6 +122,7 @@ class TestStackItemViewController: UIViewController {
             axis: .horizontal,
             spacing: 8,
             distribution: .fillExtraSpace,
+            insets: UIEdgeInsets(8),
             sizeGuide: SizeGuide(width: .fill),
             alignment: .leadingCenter,
             subItems: [imageViewItem, rightStackItem])

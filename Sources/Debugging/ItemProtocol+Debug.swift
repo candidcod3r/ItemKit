@@ -10,10 +10,9 @@ extension ItemProtocol {
     func descriptionString() -> String {
         let classString = String(describing: type(of: self))
         let frameString = frame.formatted
-        let withinFrameString = withinFrame.formatted
         let itemIDString = id ?? "NO_ID"
 
-        let descriptionString = "[<\(classString):\(itemIDString)> \(frameString)], withIn: \(withinFrameString)"
+        let descriptionString = "[<\(classString):\(itemIDString)> \(frameString)]"
         return descriptionString
     }
 

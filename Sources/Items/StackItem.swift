@@ -27,7 +27,10 @@ public struct StackItem: InternalItemProtocol, Cacheable {
 
     public internal(set) var frame: CGRect = .zero
     public internal(set) var fittingSize: CGSize = .zero
-    public internal(set) var withinFrame: CGRect = .zero
+    public internal(set) var contentFittingSize: CGSize = .zero
+
+    // MARK:- Internal
+    var withinFrame: CGRect = .zero
 
     // MARK:- StackItem Properties
     public var axis: Axis
@@ -159,7 +162,7 @@ extension StackItem {
 extension StackItem {
     public mutating func updateContentLayout(within maxFrame: CGRect) {
         let availableAxisLength = maxFrame.size.value(along: axis)
-        let fittingAxisLength = fittingSize.value(along: axis)
+        let fittingAxisLength = contentFittingSize.value(along: axis)
         let excessAxisLength = availableAxisLength - fittingAxisLength
 
         let subItemOffset = self.subItemOffset(with: excessAxisLength)
@@ -183,29 +186,6 @@ extension StackItem {
 
             subItemAxisOrigin.axisValue += maxSubItemSize.value(along: axis)
             subItemAxisOrigin.axisValue += (subItemAxisOrigin.axisValue > 0) ? subItemSpacing : 0
-        }
-    }
-
-    private func adjustedSubItemAxisSize(subItemSize: CGSize,
-                                         within maxSize: CGSize,
-                                         excessAxisLength: CGFloat,
-                                         isMostFlexible: Bool) -> CGSize {
-        let subItemAxisSize = AxisSize(axis: axis, value: subItemSize)
-        let maxAxisSize = AxisSize(axis: axis, value: maxSize)
-
-        let axisLength = subItemAxisSize.axisValue
-        let crossLength = maxAxisSize.crossValue
-
-        if distribution == .equalSize {
-            return maxSubItemSizeForEqualDistribution(within: maxSize)
-        } else if distribution == .fillExtraSpace && isMostFlexible {
-            return CGSize(axisValue: axisLength + excessAxisLength, crossValue: crossLength, axis: axis)
-        } else if distribution == .fillExtraSpaceEqually {
-            let count = (subItems.count == 0) ? 1 : subItems.count
-            let additionalAxisLength = excessAxisLength / CGFloat(count)
-            return CGSize(axisValue: axisLength + additionalAxisLength, crossValue: crossLength, axis: axis)
-        } else {
-            return CGSize(axisValue: axisLength, crossValue: crossLength, axis: axis)
         }
     }
 
@@ -258,6 +238,29 @@ extension StackItem {
             }
         }
         return mostFlexibleIndex
+    }
+
+    private func adjustedSubItemAxisSize(subItemSize: CGSize,
+                                         within maxSize: CGSize,
+                                         excessAxisLength: CGFloat,
+                                         isMostFlexible: Bool) -> CGSize {
+        let subItemAxisSize = AxisSize(axis: axis, value: subItemSize)
+        let maxAxisSize = AxisSize(axis: axis, value: maxSize)
+
+        let axisLength = subItemAxisSize.axisValue
+        let crossLength = maxAxisSize.crossValue
+
+        if distribution == .equalSize {
+            return maxSubItemSizeForEqualDistribution(within: maxSize)
+        } else if distribution == .fillExtraSpace && isMostFlexible {
+            return CGSize(axisValue: axisLength + excessAxisLength, crossValue: crossLength, axis: axis)
+        } else if distribution == .fillExtraSpaceEqually {
+            let count = (subItems.count == 0) ? 1 : subItems.count
+            let additionalAxisLength = excessAxisLength / CGFloat(count)
+            return CGSize(axisValue: axisLength + additionalAxisLength, crossValue: crossLength, axis: axis)
+        } else {
+            return CGSize(axisValue: axisLength, crossValue: crossLength, axis: axis)
+        }
     }
 
 }
