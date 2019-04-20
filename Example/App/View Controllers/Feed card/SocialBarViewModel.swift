@@ -11,9 +11,9 @@ import ItemKit
 
 class SocialBarViewModel {
     struct Constant {
-        static let likeImage = UIImage(named: "like")
-        static let commentImage = UIImage(named: "comment")
-        static let shareImage = UIImage(named: "share")
+        static let likeImage = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate).resized(toWidth: 32)
+        static let commentImage = UIImage(named: "comment")?.withRenderingMode(.alwaysTemplate).resized(toWidth: 32)
+        static let shareImage = UIImage(named: "share")?.withRenderingMode(.alwaysTemplate).resized(toWidth: 32)
     }
 
     private(set) var likeButtonItem: ButtonItem

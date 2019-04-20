@@ -80,7 +80,7 @@ class ButtonItemViewController: UIViewController {
         let button2Item = ButtonItem(
             id: "button2",
             title: "Person",
-            image: UIImage(named: "user"),
+            image: UIImage(named: "user_color"),
             contentInsets: UIEdgeInsets(8),
             sizeGuide: SizeGuide(width: .fit, height: .fit),
             alignment: .trailingCenter)
@@ -101,7 +101,7 @@ class ButtonItemViewController: UIViewController {
             title: NSAttributedString(
                 string: "View Profile",
                 attributes: [NSAttributedString.Key.font : UIFont.helvetica(of: 13)]),
-            image: UIImage(named: "profile"),
+            image: UIImage(named: "profile_color"),
             font: UIFont.buttonTitle,
             titleInsets: UIEdgeInsets(left: 8),
             alignment: .leadingBottom)

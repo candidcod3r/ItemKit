@@ -6,4 +6,52 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-import Foundation
+import UIKit
+
+class SocialCountsView: UIView {
+    private let likesCountLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        return label
+    }()
+
+    private let dotLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        return label
+    }()
+
+    private let commentsCountLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        return label
+    }()
+
+    private var viewModel: SocialCountsViewModel? = nil
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func setup() {
+        backgroundColor = .white
+
+        addSubview(likesCountLabel)
+        addSubview(dotLabel)
+        addSubview(commentsCountLabel)
+    }
+
+    func configure(viewModel: SocialCountsViewModel?) {
+        likesCountLabel.configure(withTextItem: viewModel?.likesCountItem)
+        dotLabel.configure(withTextItem: viewModel?.dotItem)
+        commentsCountLabel.configure(withTextItem: viewModel?.commentsCountItem)
+
+        configure(withItem: viewModel?.item)
+        self.viewModel = viewModel
+    }
+}

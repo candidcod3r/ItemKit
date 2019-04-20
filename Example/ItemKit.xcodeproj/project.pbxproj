@@ -25,6 +25,7 @@
 		4EA6008E226A9F9A00B21807 /* SocialBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6008D226A9F9A00B21807 /* SocialBarView.swift */; };
 		4EA60090226A9FA500B21807 /* SocialBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */; };
 		4EA60092226A9FBB00B21807 /* FeedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */; };
+		4EA60094226AC53100B21807 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60093226AC53100B21807 /* UIImage+.swift */; };
 		4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* StackItemViewController.swift */; };
 		4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81852269850500B8D849 /* BoardingDetailsView.swift */; };
 		4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */; };
@@ -60,6 +61,7 @@
 		4EA6008D226A9F9A00B21807 /* SocialBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBarView.swift; sourceTree = "<group>"; };
 		4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBarViewModel.swift; sourceTree = "<group>"; };
 		4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardViewController.swift; sourceTree = "<group>"; };
+		4EA60093226AC53100B21807 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4EFB818222696A4400B8D849 /* StackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItemViewController.swift; sourceTree = "<group>"; };
 		4EFB81852269850500B8D849 /* BoardingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsView.swift; sourceTree = "<group>"; };
 		4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				4E05A1D6226464D5008F53CB /* UIColor+.swift */,
 				4E50753E2265C32B006DF752 /* UIEdgeInsets+.swift */,
 				4E66A6012266E1E500824280 /* UIFont+.swift */,
+				4EA60093226AC53100B21807 /* UIImage+.swift */,
 				4E05A1D8226464EF008F53CB /* UIView+.swift */,
 			);
 			path = Extensions;
@@ -128,9 +131,9 @@
 				4EA60081226A9F3000B21807 /* ActorViewModel.swift */,
 				4EA60085226A9F4800B21807 /* CommentaryView.swift */,
 				4EA60087226A9F5200B21807 /* CommentaryViewModel.swift */,
+				4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */,
 				4EA6008D226A9F9A00B21807 /* SocialBarView.swift */,
 				4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */,
-				4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */,
 				4EA60089226A9F6100B21807 /* SocialCountsView.swift */,
 				4EA6008B226A9F9200B21807 /* SocialCountsViewModel.swift */,
 			);
@@ -363,6 +366,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				4EA6008C226A9F9200B21807 /* SocialCountsViewModel.swift in Sources */,
 				4E05A1D7226464D5008F53CB /* UIColor+.swift in Sources */,
+				4EA60094226AC53100B21807 /* UIImage+.swift in Sources */,
 				4EFB818C2269851C00B8D849 /* ItineraryViewModel.swift in Sources */,
 				4EA60092226A9FBB00B21807 /* FeedCardViewController.swift in Sources */,
 			);

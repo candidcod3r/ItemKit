@@ -9,9 +9,8 @@
 import ItemKit
 
 class ActorViewModel {
-
     struct Constant {
-        static let image = UIImage(named: "user")
+        static let image = UIImage(named: "user_color")
     }
 
     private(set) var image = Constant.image

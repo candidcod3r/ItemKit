@@ -7,37 +7,19 @@
 //
 
 import UIKit
-import ItemKit
 
 class CommentaryView: UIView {
-    private let actorImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+    private let textView: UITextView = {
+        let textView = UITextView()
+        textView.textColor = .black
+        textView.scrollsToTop = false
+        textView.isScrollEnabled = false
+        textView.showsVerticalScrollIndicator = false
+        textView.showsHorizontalScrollIndicator = false
+        return textView
     }()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
-
-    private let subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
-
-    private let actionButton: UIButton = {
-        let button = UIButton()
-        button.isUserInteractionEnabled = true
-        button.imageView?.contentMode = .scaleAspectFill
-        button.setTitleColor(.black, for: .normal)
-        return button
-    }()
-
-    private var viewModel: ActorViewModel? = nil
+    private var viewModel: CommentaryViewModel? = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,19 +33,11 @@ class CommentaryView: UIView {
     func setup() {
         backgroundColor = .white
 
-        addSubview(actorImageView)
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
-        addSubview(actionButton)
+        addSubview(textView)
     }
 
-    func configure(viewModel: ActorViewModel?) {
-        actorImageView.configure(withItem: viewModel?.imageItem)
-        titleLabel.configure(withTextItem: viewModel?.titleItem)
-        subtitleLabel.configure(withTextItem: viewModel?.subtitleItem)
-        actionButton.configure(withButtonItem: viewModel?.actionButtonItem)
-
-        actorImageView.image = viewModel?.image
+    func configure(viewModel: CommentaryViewModel?) {
+        textView.configure(withItem: viewModel?.textItem)
 
         configure(withItem: viewModel?.item)
         self.viewModel = viewModel
