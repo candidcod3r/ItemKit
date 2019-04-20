@@ -14,6 +14,7 @@ class SocialBarView: UIView {
         button.setTitleColor(.black, for: .normal)
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFit
+        button.contentHorizontalAlignment = .left
         return button
     }()
 
@@ -22,6 +23,7 @@ class SocialBarView: UIView {
         button.setTitleColor(.black, for: .normal)
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFit
+        button.contentHorizontalAlignment = .center
         return button
     }()
 
@@ -30,6 +32,7 @@ class SocialBarView: UIView {
         button.setTitleColor(.black, for: .normal)
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFit
+        button.contentHorizontalAlignment = .right
         return button
     }()
 

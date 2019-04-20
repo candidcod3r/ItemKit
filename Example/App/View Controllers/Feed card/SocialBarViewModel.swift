@@ -37,7 +37,7 @@ class SocialBarViewModel {
             title: "Comment",
             image: Constant.commentImage,
             font: UIFont.buttonTitle,
-            titleInsets: UIEdgeInsets(left: 8),
+            titleInsets: UIEdgeInsets(left: 16),
             sizeGuide: SizeGuide(width: .fill))
 
         shareButtonItem = ButtonItem(
@@ -45,7 +45,7 @@ class SocialBarViewModel {
             title: "Share",
             image: Constant.shareImage,
             font: UIFont.buttonTitle,
-            titleInsets: UIEdgeInsets(left: 8),
+            imageInsets: UIEdgeInsets(right: 8),
             sizeGuide: SizeGuide(width: .fill))
 
         let stackItem = StackItem(

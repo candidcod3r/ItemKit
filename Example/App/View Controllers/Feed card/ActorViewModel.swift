@@ -10,7 +10,7 @@ import ItemKit
 
 class ActorViewModel {
     struct Constant {
-        static let actorImage = UIImage(named: "user_color")?.resized(toWidth: 42)
+        static let actorImage = UIImage(named: "user_color")
         static let titleFont = UIFont.helveticaLight(of: 15)
         static let subtitleFont = UIFont.helveticaLight(of: 14)
         static let degreeFont = UIFont.helveticaLight(of: 13)
