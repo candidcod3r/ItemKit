@@ -157,7 +157,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4EC1C5C522617F7A00C724AA /* View Controllers */ = {
+		4EC1C5C522617F7A00C724AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				4E66A60722670A3C00824280 /* ButtonItemViewController.swift */,
@@ -169,7 +169,7 @@
 				4EFB8184226984DB00B8D849 /* Boarding pass */,
 				4EA60080226A9F0A00B21807 /* Feed card */,
 			);
-			path = "View Controllers";
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		4EFB8184226984DB00B8D849 /* Boarding pass */ = {
@@ -177,9 +177,9 @@
 			children = (
 				4EFB81852269850500B8D849 /* BoardingDetailsView.swift */,
 				4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */,
+				4EFB818D2269852C00B8D849 /* BoardingPassViewController.swift */,
 				4EFB81892269851600B8D849 /* ItineraryView.swift */,
 				4EFB818B2269851C00B8D849 /* ItineraryViewModel.swift */,
-				4EFB818D2269852C00B8D849 /* BoardingPassViewController.swift */,
 			);
 			path = "Boarding pass";
 			sourceTree = "<group>";
@@ -208,9 +208,9 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				4E05A1D5226464BA008F53CB /* Extensions */,
 				4EC1C5C422617F6100C724AA /* Resources */,
+				4EC1C5C522617F7A00C724AA /* Screens */,
 				4EC1C5C222617F5500C724AA /* Support Files */,
 				4E45EC2C22686F5C006CD84B /* Testing */,
-				4EC1C5C522617F7A00C724AA /* View Controllers */,
 			);
 			path = App;
 			sourceTree = "<group>";
