@@ -11,6 +11,9 @@ import ItemKit
 class ActorViewModel {
     struct Constant {
         static let actorImage = UIImage(named: "user_color")?.resized(toWidth: 42)
+        static let titleFont = UIFont.helveticaLight(of: 15)
+        static let subtitleFont = UIFont.helveticaLight(of: 14)
+        static let degreeFont = UIFont.helveticaLight(of: 13)
         static let plusImage = UIImage(named: "plus")?.resized(toWidth: 20).withRenderingMode(.alwaysTemplate)
     }
 
@@ -32,13 +35,13 @@ class ActorViewModel {
         titleItem = TextItem(
             id: "titleItem",
             text: ActorViewModel.titleText(),
-            font: UIFont.helveticaLight(of: 15),
+            font: Constant.titleFont,
             sizeGuide: SizeGuide(width: .fill))
 
         subtitleItem = TextItem(
             id: "subtitleItem",
             text: "Make world a better place",
-            font: UIFont.helveticaLight(of: 14),
+            font: Constant.subtitleFont,
             sizeGuide: SizeGuide(width: .fill))
 
         actionButtonItem = ButtonItem(
@@ -46,7 +49,7 @@ class ActorViewModel {
             title: "Connect",
             image: Constant.plusImage,
             font: UIFont.buttonTitle,
-            contentInsets: UIEdgeInsets(4),
+            contentInsets: UIEdgeInsets(6),
             alignment: .trailingCenter)
 
         let labelsStackItem = StackItem(
@@ -60,7 +63,6 @@ class ActorViewModel {
             axis: .horizontal,
             spacing: 8,
             distribution: .fillExtraSpace,
-            insets: UIEdgeInsets(8),
             sizeGuide: SizeGuide(width: .fill),
             subItems: [imageItem, labelsStackItem, actionButtonItem])
 
@@ -72,12 +74,12 @@ class ActorViewModel {
         let title = NSMutableAttributedString()
         let name = NSAttributedString(
             string: "Candid Cod3r",
-            attributes: [NSAttributedString.Key.font : UIFont.helveticaLight(of: 11)])
+            attributes: [NSAttributedString.Key.font : Constant.titleFont])
         title.append(name)
 
         let degree = NSAttributedString(
             string: " 1st",
-            attributes: [NSAttributedString.Key.font : UIFont.helveticaLight(of: 5),
+            attributes: [NSAttributedString.Key.font : Constant.degreeFont,
                          NSAttributedString.Key.foregroundColor : UIColor.gray])
         title.append(degree)
 

@@ -20,7 +20,7 @@ extension UIImage {
 
         let toSize = CGSize(width: toWidth, height: toHeight)
 
-        UIGraphicsBeginImageContext(toSize)
+        UIGraphicsBeginImageContextWithOptions(toSize, false, 1)
         draw(in: CGRect(origin: .zero, size: toSize))
         let toImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

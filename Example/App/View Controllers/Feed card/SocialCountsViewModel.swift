@@ -9,6 +9,10 @@
 import ItemKit
 
 class SocialCountsViewModel {
+    struct Constant {
+        static let countsFont = UIFont.helveticaLight(of: 13)
+    }
+
     private(set) var likesCountItem: TextItem
     private(set) var dotItem: TextItem
     private(set) var commentsCountItem: TextItem
@@ -20,22 +24,22 @@ class SocialCountsViewModel {
         likesCountItem = TextItem(
             id: "likesCount",
             text: "1200 Likes",
-            font: UIFont.helvetica(of: 12))
+            font: Constant.countsFont)
 
         dotItem = TextItem(
             id: "dot",
             text: " • ",
-            font: UIFont.helvetica(of: 12))
+            font: Constant.countsFont)
 
         commentsCountItem = TextItem(
             id: "commentsCount",
             text: "300 Comments",
-            font: UIFont.helvetica(of: 12))
+            font: Constant.countsFont)
 
         let stackItem = StackItem(
             axis: .horizontal,
-            insets: UIEdgeInsets(8),
-            sizeGuide: SizeGuide(width: .fill))
+            sizeGuide: SizeGuide(width: .fill),
+            subItems: [likesCountItem, dotItem, commentsCountItem])
 
         self.item = stackItem
         self.itemCache = item?.createCache()

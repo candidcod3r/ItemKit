@@ -11,9 +11,9 @@ import ItemKit
 
 class SocialBarViewModel {
     struct Constant {
-        static let likeImage = UIImage(named: "like")?.withRenderingMode(.alwaysTemplate).resized(toWidth: 32)
-        static let commentImage = UIImage(named: "comment")?.withRenderingMode(.alwaysTemplate).resized(toWidth: 32)
-        static let shareImage = UIImage(named: "share")?.withRenderingMode(.alwaysTemplate).resized(toWidth: 32)
+        static let likeImage = UIImage(named: "heart_circle")
+        static let commentImage = UIImage(named: "comment_circle")
+        static let shareImage = UIImage(named: "share_circle")
     }
 
     private(set) var likeButtonItem: ButtonItem
@@ -29,6 +29,7 @@ class SocialBarViewModel {
             title: "Like",
             image: Constant.likeImage,
             font: UIFont.buttonTitle,
+            titleInsets: UIEdgeInsets(left: 8),
             sizeGuide: SizeGuide(width: .fill))
 
         commentButtonItem = ButtonItem(
@@ -36,6 +37,7 @@ class SocialBarViewModel {
             title: "Comment",
             image: Constant.commentImage,
             font: UIFont.buttonTitle,
+            titleInsets: UIEdgeInsets(left: 8),
             sizeGuide: SizeGuide(width: .fill))
 
         shareButtonItem = ButtonItem(
@@ -43,12 +45,12 @@ class SocialBarViewModel {
             title: "Share",
             image: Constant.shareImage,
             font: UIFont.buttonTitle,
+            titleInsets: UIEdgeInsets(left: 8),
             sizeGuide: SizeGuide(width: .fill))
 
         let stackItem = StackItem(
             axis: .horizontal,
             distribution: .fillExtraSpaceEqually,
-            insets: UIEdgeInsets(8),
             sizeGuide: SizeGuide(width: .fill),
             subItems: [likeButtonItem, commentButtonItem, shareButtonItem])
 

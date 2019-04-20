@@ -12,7 +12,8 @@ import ItemKit
 class CommentaryViewModel {
 
     struct Constant {
-        static let textFont = UIFont.helveticaMedium(of: 13)
+        static let textFont = UIFont.helvetica(of: 15)
+        static let mentionFont = UIFont.helveticaMedium(of: 15)
 
         static let hashTagAttributes = [NSAttributedString.Key.font: textFont,
                                         NSAttributedString.Key.foregroundColor: UIColor(hex: 0x0077CB)]
@@ -20,8 +21,8 @@ class CommentaryViewModel {
         static let textAttributes = [NSAttributedString.Key.font: textFont,
                                      NSAttributedString.Key.foregroundColor: UIColor.black]
 
-        static let mentionAttributes = [NSAttributedString.Key.font: textFont,
-                                        NSAttributedString.Key.foregroundColor: UIColor(hex: 0x0077CB)]
+        static let mentionAttributes = [NSAttributedString.Key.font: mentionFont,
+                                        NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 
     private(set) var textItem: TextItem
@@ -33,10 +34,14 @@ class CommentaryViewModel {
         textItem = TextItem(
             id: "commentaryText",
             text: CommentaryViewModel.creteText(),
-            insets: UIEdgeInsets(8),
-            sizeGuide: SizeGuide(width: .fill, height: .fill))
+            sizeGuide: SizeGuide(width: .fill))
 
-        self.item = textItem
+        let stackItem = StackItem(
+            axis: .vertical,
+            sizeGuide: SizeGuide(width: .fill),
+            subItems: [textItem])
+
+        self.item = stackItem
         self.itemCache = item?.createCache()
     }
 
@@ -49,12 +54,12 @@ class CommentaryViewModel {
 
         text.append(
             NSAttributedString(
-                string: " (born 24 April 1973) is a former Indian international cricketer and a former captain of the Indian national ",
+                string: " is a former Indian international cricketer and a former captain of the Indian national ",
                 attributes: Constant.textAttributes))
 
         text.append(
             NSAttributedString(
-                string: "team",
+                string: "#team",
                 attributes: Constant.hashTagAttributes))
 
         text.append(
@@ -64,12 +69,12 @@ class CommentaryViewModel {
 
         text.append(
             NSAttributedString(
-                string: "scorer",
+                string: "#scorer",
                 attributes: Constant.hashTagAttributes))
 
         text.append(
             NSAttributedString(
-                string: "of all time in International cricket 🏏.",
+                string: " of all time in International cricket 🏏.",
                 attributes: Constant.textAttributes))
 
         return text

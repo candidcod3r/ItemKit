@@ -11,19 +11,19 @@ import UIKit
 class SocialCountsView: UIView {
     private let likesCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .darkGray
         return label
     }()
 
     private let dotLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .darkGray
         return label
     }()
 
     private let commentsCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .darkGray
         return label
     }()
 

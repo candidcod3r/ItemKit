@@ -10,29 +10,26 @@ import UIKit
 
 class SocialBarView: UIView {
     private let likeButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .custom)
         button.setTitleColor(.black, for: .normal)
-        button.tintColor = .black
         button.isUserInteractionEnabled = true
-        button.imageView?.contentMode = .scaleAspectFill
+        button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
 
     private let commentButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = UIColor(hex: 0x545A63)
+        let button = UIButton(type: .custom)
         button.setTitleColor(.black, for: .normal)
         button.isUserInteractionEnabled = true
-        button.imageView?.contentMode = .scaleAspectFill
+        button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
 
     private let shareButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = UIColor(hex: 0x545A63)
+        let button = UIButton(type: .custom)
         button.setTitleColor(.black, for: .normal)
         button.isUserInteractionEnabled = true
-        button.imageView?.contentMode = .scaleAspectFill
+        button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
 
