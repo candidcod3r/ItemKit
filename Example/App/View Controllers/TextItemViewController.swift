@@ -1,5 +1,5 @@
 //
-//  TestTextItemViewController.swift
+//  TextItemViewController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 4/16/19.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class TestTextItemViewController: UIViewController {
+class TextItemViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FixedViewController.swift
 //  ItemKit
 //
 //  Created by candidcod3r on 04/12/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class TestFixedViewController: UIViewController {
+class FixedViewController: UIViewController {
 
     private let containerView: UIView = {
         let view = UIView()

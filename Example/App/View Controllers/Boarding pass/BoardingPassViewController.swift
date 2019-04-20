@@ -1,5 +1,5 @@
 //
-//  TestBoardingPassViewController.swift
+//  BoardingPassViewController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 4/18/19.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class TestBoardingPassViewController: UIViewController {
+class BoardingPassViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false

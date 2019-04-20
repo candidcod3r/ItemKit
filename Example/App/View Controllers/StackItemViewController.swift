@@ -1,5 +1,5 @@
 //
-//  TestStackItemViewController.swift
+//  StackItemViewController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 4/18/19.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class TestStackItemViewController: UIViewController {
+class StackItemViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false

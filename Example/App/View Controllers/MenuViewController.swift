@@ -15,12 +15,13 @@ class MenuViewController: UIViewController {
     }
 
     private let viewControllers: [UIViewController.Type] = [
-        TestFixedViewController.self,
-        TestFillViewController.self,
-        TestTextItemViewController.self,
-        TestButtonItemViewController.self,
-        TestStackItemViewController.self,
-        TestBoardingPassViewController.self
+        FixedViewController.self,
+        FillViewController.self,
+        TextItemViewController.self,
+        ButtonItemViewController.self,
+        StackItemViewController.self,
+        BoardingPassViewController.self,
+        FeedCardViewController.self
     ]
 
     private let tableView: UITableView = {

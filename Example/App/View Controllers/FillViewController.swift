@@ -1,5 +1,5 @@
 //
-//  TestFillViewController.swift
+//  FillViewController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 4/15/19.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class TestFillViewController: UIViewController {
+class FillViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
