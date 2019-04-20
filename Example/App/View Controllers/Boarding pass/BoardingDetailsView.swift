@@ -70,6 +70,9 @@ class BoardingDetailsView: UIView {
     }
 
     func setup() {
+        backgroundColor = UIColor(hex: 0xF21B3E)
+        layer.cornerRadius = 4
+
         addSubview(flightTextLabel)
         addSubview(flightNumberLabel)
 
@@ -81,9 +84,6 @@ class BoardingDetailsView: UIView {
 
         addSubview(boardingTimeLabel)
         addSubview(boardingTextLabel)
-
-        backgroundColor = UIColor(hex: 0xF21B3E)
-        layer.cornerRadius = 4
     }
 
     func configure(viewModel: BoardingDetailsViewModel?) {

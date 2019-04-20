@@ -65,6 +65,9 @@ class ItineraryView: UIView {
     }
 
     func setup() {
+        backgroundColor = .white
+        layer.cornerRadius = 4
+
         addSubview(fromTextLabel)
         addSubview(fromAirportLabel)
         addSubview(fromTimeLabel)
@@ -74,9 +77,6 @@ class ItineraryView: UIView {
         addSubview(toTimeLabel)
 
         addSubview(flightImageView)
-
-        backgroundColor = .white
-        layer.cornerRadius = 4
     }
 
     func configure(viewModel: ItineraryViewModel?) {

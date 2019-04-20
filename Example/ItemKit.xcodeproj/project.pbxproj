@@ -16,6 +16,15 @@
 		4E66A6002266DFDA00824280 /* TestTextItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */; };
 		4E66A6022266E1E500824280 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A6012266E1E500824280 /* UIFont+.swift */; };
 		4E66A60822670A3C00824280 /* TestButtonItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */; };
+		4EA60082226A9F3000B21807 /* ActorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60081226A9F3000B21807 /* ActorViewModel.swift */; };
+		4EA60084226A9F3B00B21807 /* ActorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60083226A9F3B00B21807 /* ActorView.swift */; };
+		4EA60086226A9F4800B21807 /* CommentaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60085226A9F4800B21807 /* CommentaryView.swift */; };
+		4EA60088226A9F5200B21807 /* CommentaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60087226A9F5200B21807 /* CommentaryViewModel.swift */; };
+		4EA6008A226A9F6100B21807 /* SocialCountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60089226A9F6100B21807 /* SocialCountsView.swift */; };
+		4EA6008C226A9F9200B21807 /* SocialCountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6008B226A9F9200B21807 /* SocialCountsViewModel.swift */; };
+		4EA6008E226A9F9A00B21807 /* SocialBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6008D226A9F9A00B21807 /* SocialBarView.swift */; };
+		4EA60090226A9FA500B21807 /* SocialBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */; };
+		4EA60092226A9FBB00B21807 /* FeedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */; };
 		4EFB818322696A4400B8D849 /* TestStackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* TestStackItemViewController.swift */; };
 		4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81852269850500B8D849 /* BoardingDetailsView.swift */; };
 		4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */; };
@@ -42,6 +51,15 @@
 		4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextItemViewController.swift; sourceTree = "<group>"; };
 		4E66A6012266E1E500824280 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		4E66A60722670A3C00824280 /* TestButtonItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonItemViewController.swift; sourceTree = "<group>"; };
+		4EA60081226A9F3000B21807 /* ActorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorViewModel.swift; sourceTree = "<group>"; };
+		4EA60083226A9F3B00B21807 /* ActorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorView.swift; sourceTree = "<group>"; };
+		4EA60085226A9F4800B21807 /* CommentaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryView.swift; sourceTree = "<group>"; };
+		4EA60087226A9F5200B21807 /* CommentaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryViewModel.swift; sourceTree = "<group>"; };
+		4EA60089226A9F6100B21807 /* SocialCountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCountsView.swift; sourceTree = "<group>"; };
+		4EA6008B226A9F9200B21807 /* SocialCountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCountsViewModel.swift; sourceTree = "<group>"; };
+		4EA6008D226A9F9A00B21807 /* SocialBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBarView.swift; sourceTree = "<group>"; };
+		4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBarViewModel.swift; sourceTree = "<group>"; };
+		4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardViewController.swift; sourceTree = "<group>"; };
 		4EFB818222696A4400B8D849 /* TestStackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStackItemViewController.swift; sourceTree = "<group>"; };
 		4EFB81852269850500B8D849 /* BoardingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsView.swift; sourceTree = "<group>"; };
 		4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +121,22 @@
 			path = Testing;
 			sourceTree = "<group>";
 		};
+		4EA60080226A9F0A00B21807 /* Feed card */ = {
+			isa = PBXGroup;
+			children = (
+				4EA60083226A9F3B00B21807 /* ActorView.swift */,
+				4EA60081226A9F3000B21807 /* ActorViewModel.swift */,
+				4EA60085226A9F4800B21807 /* CommentaryView.swift */,
+				4EA60087226A9F5200B21807 /* CommentaryViewModel.swift */,
+				4EA6008D226A9F9A00B21807 /* SocialBarView.swift */,
+				4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */,
+				4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */,
+				4EA60089226A9F6100B21807 /* SocialCountsView.swift */,
+				4EA6008B226A9F9200B21807 /* SocialCountsViewModel.swift */,
+			);
+			path = "Feed card";
+			sourceTree = "<group>";
+		};
 		4EC1C5C222617F5500C724AA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +163,13 @@
 				607FACD71AFB9204008FA782 /* TestFixedViewController.swift */,
 				4EFB818222696A4400B8D849 /* TestStackItemViewController.swift */,
 				4E66A5FF2266DFDA00824280 /* TestTextItemViewController.swift */,
-				4EFB8184226984DB00B8D849 /* BoardingPass */,
+				4EFB8184226984DB00B8D849 /* Boarding pass */,
+				4EA60080226A9F0A00B21807 /* Feed card */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		4EFB8184226984DB00B8D849 /* BoardingPass */ = {
+		4EFB8184226984DB00B8D849 /* Boarding pass */ = {
 			isa = PBXGroup;
 			children = (
 				4EFB81852269850500B8D849 /* BoardingDetailsView.swift */,
@@ -143,7 +178,7 @@
 				4EFB818B2269851C00B8D849 /* ItineraryViewModel.swift */,
 				4EFB818D2269852C00B8D849 /* TestBoardingPassViewController.swift */,
 			);
-			path = BoardingPass;
+			path = "Boarding pass";
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -305,22 +340,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA60086226A9F4800B21807 /* CommentaryView.swift in Sources */,
 				4EFB818322696A4400B8D849 /* TestStackItemViewController.swift in Sources */,
 				4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */,
+				4EA6008A226A9F6100B21807 /* SocialCountsView.swift in Sources */,
 				4E66A6022266E1E500824280 /* UIFont+.swift in Sources */,
 				4E50753722654D3E006DF752 /* MenuViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* TestFixedViewController.swift in Sources */,
+				4EA60090226A9FA500B21807 /* SocialBarViewModel.swift in Sources */,
 				4E50753F2265C32B006DF752 /* UIEdgeInsets+.swift in Sources */,
+				4EA60088226A9F5200B21807 /* CommentaryViewModel.swift in Sources */,
+				4EA60084226A9F3B00B21807 /* ActorView.swift in Sources */,
+				4EA6008E226A9F9A00B21807 /* SocialBarView.swift in Sources */,
 				4EFB818A2269851600B8D849 /* ItineraryView.swift in Sources */,
 				4E66A6002266DFDA00824280 /* TestTextItemViewController.swift in Sources */,
 				4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */,
 				4E50753922659B45006DF752 /* TestFillViewController.swift in Sources */,
 				4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */,
+				4EA60082226A9F3000B21807 /* ActorViewModel.swift in Sources */,
 				4EFB818E2269852C00B8D849 /* TestBoardingPassViewController.swift in Sources */,
 				4E66A60822670A3C00824280 /* TestButtonItemViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				4EA6008C226A9F9200B21807 /* SocialCountsViewModel.swift in Sources */,
 				4E05A1D7226464D5008F53CB /* UIColor+.swift in Sources */,
 				4EFB818C2269851C00B8D849 /* ItineraryViewModel.swift in Sources */,
+				4EA60092226A9FBB00B21807 /* FeedCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
