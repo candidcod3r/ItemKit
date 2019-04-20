@@ -95,7 +95,7 @@ class StackItemViewController: UIViewController {
         let connectButtonItem = ButtonItem(
             id: "connectButton",
             title: "Connect",
-            image: UIImage(named: "plus"),
+            image: UIImage(named: "plus")?.resized(toWidth: 36),
             font: UIFont.buttonTitle,
             alignment: .trailingCenter)
         connectButton.configure(withButtonItem: connectButtonItem)

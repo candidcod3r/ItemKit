@@ -10,10 +10,11 @@ import ItemKit
 
 class ActorViewModel {
     struct Constant {
-        static let image = UIImage(named: "user_color")
+        static let actorImage = UIImage(named: "user_color")?.resized(toWidth: 42)
+        static let plusImage = UIImage(named: "plus")?.resized(toWidth: 20).withRenderingMode(.alwaysTemplate)
     }
 
-    private(set) var image = Constant.image
+    private(set) var image = Constant.actorImage
     private(set) var imageItem: Item
     private(set) var titleItem: TextItem
     private(set) var subtitleItem: TextItem
@@ -37,21 +38,23 @@ class ActorViewModel {
         subtitleItem = TextItem(
             id: "subtitleItem",
             text: "Make world a better place",
-            font: UIFont.helveticaLight(of: 15),
+            font: UIFont.helveticaLight(of: 14),
             sizeGuide: SizeGuide(width: .fill))
 
         actionButtonItem = ButtonItem(
             id: "actionButton",
             title: "Connect",
-            image: UIImage(named: "plus"),
+            image: Constant.plusImage,
             font: UIFont.buttonTitle,
+            contentInsets: UIEdgeInsets(4),
             alignment: .trailingCenter)
 
         let labelsStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             sizeGuide: SizeGuide(width: .fill),
-            flexibility: .high)
+            flexibility: .high,
+            subItems: [titleItem, subtitleItem])
 
         let stackItem = StackItem(
             axis: .horizontal,
@@ -66,16 +69,18 @@ class ActorViewModel {
     }
 
     static func titleText() -> NSAttributedString {
-        let title = NSMutableAttributedString(
+        let title = NSMutableAttributedString()
+        let name = NSAttributedString(
             string: "Candid Cod3r",
-            attributes: [NSAttributedString.Key.font : UIFont.helveticaLight(of: 15)])
+            attributes: [NSAttributedString.Key.font : UIFont.helveticaLight(of: 11)])
+        title.append(name)
 
         let degree = NSAttributedString(
-            string: "1st",
-            attributes: [NSAttributedString.Key.font : UIFont.helveticaLight(of: 13),
-                         NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-
+            string: " 1st",
+            attributes: [NSAttributedString.Key.font : UIFont.helveticaLight(of: 5),
+                         NSAttributedString.Key.foregroundColor : UIColor.gray])
         title.append(degree)
+
         return title
     }
 }

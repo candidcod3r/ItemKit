@@ -13,14 +13,15 @@ extension UILabel {
         }
 
         configure(withItem: item)
+
         switch item.text {
         case .simple(let text):
             self.text = text
+            font = item.font
         case .attributed(let attributedText):
             self.attributedText = attributedText
         }
 
-        font = item.font
         numberOfLines = item.numberOfLines
     }
 }

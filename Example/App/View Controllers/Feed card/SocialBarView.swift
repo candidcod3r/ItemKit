@@ -11,8 +11,8 @@ import UIKit
 class SocialBarView: UIView {
     private let likeButton: UIButton = {
         let button = UIButton()
-        button.tintColor = UIColor(hex: 0x545A63)
         button.setTitleColor(.black, for: .normal)
+        button.tintColor = .black
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFill
         return button
@@ -48,8 +48,6 @@ class SocialBarView: UIView {
     }
 
     func setup() {
-        backgroundColor = .white
-
         addSubview(likeButton)
         addSubview(commentButton)
         addSubview(shareButton)

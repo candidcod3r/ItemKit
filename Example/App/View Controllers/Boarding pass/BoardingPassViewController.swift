@@ -24,7 +24,7 @@ class BoardingPassViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Testing boarding pass layout"
-        view.backgroundColor = UIColor(hex: 0xEAEAEA)
+        view.backgroundColor = UIColor(hex: 0xF5F6FA)
         view.clipsToBounds = false
 
         view.addSubview(containerView)

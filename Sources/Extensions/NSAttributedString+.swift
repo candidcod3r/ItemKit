@@ -7,7 +7,11 @@
 //
 
 extension NSAttributedString {
-    func apply(font: UIFont) -> NSAttributedString {
+    func apply(font: UIFont?) -> NSAttributedString {
+        guard let font = font else {
+            return self
+        }
+        
         let result = NSMutableAttributedString(string: string, attributes: [NSAttributedString.Key.font : font])
         let range = NSRange(location: 0, length: self.string.count)
 

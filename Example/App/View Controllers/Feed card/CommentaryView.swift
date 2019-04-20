@@ -31,8 +31,6 @@ class CommentaryView: UIView {
     }
 
     func setup() {
-        backgroundColor = .white
-
         addSubview(textView)
     }
 

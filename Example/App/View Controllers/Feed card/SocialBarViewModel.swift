@@ -27,21 +27,21 @@ class SocialBarViewModel {
         likeButtonItem = ButtonItem(
             id: "likeButton",
             title: "Like",
-            image: UIImage(named: "plus"), // TODO change the image
+            image: Constant.likeImage,
             font: UIFont.buttonTitle,
             sizeGuide: SizeGuide(width: .fill))
 
         commentButtonItem = ButtonItem(
             id: "commentButton",
             title: "Comment",
-            image: UIImage(named: "plus"), // TODO change the image
+            image: Constant.commentImage,
             font: UIFont.buttonTitle,
             sizeGuide: SizeGuide(width: .fill))
 
         shareButtonItem = ButtonItem(
             id: "shareButton",
             title: "Share",
-            image: UIImage(named: "plus"), // TODO change the image
+            image: Constant.shareImage,
             font: UIFont.buttonTitle,
             sizeGuide: SizeGuide(width: .fill))
 

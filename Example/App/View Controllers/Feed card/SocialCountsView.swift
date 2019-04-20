@@ -39,8 +39,6 @@ class SocialCountsView: UIView {
     }
 
     func setup() {
-        backgroundColor = .white
-
         addSubview(likesCountLabel)
         addSubview(dotLabel)
         addSubview(commentsCountLabel)

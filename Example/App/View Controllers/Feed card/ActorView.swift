@@ -10,6 +10,9 @@ import UIKit
 import ItemKit
 
 class ActorView: UIView {
+    struct Constant {
+        static let actionButtonTintColor = UIColor(hex: 0x268BD2)
+    }
     private let actorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -33,7 +36,11 @@ class ActorView: UIView {
         let button = UIButton()
         button.isUserInteractionEnabled = true
         button.imageView?.contentMode = .scaleAspectFill
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(Constant.actionButtonTintColor, for: .normal)
+        button.tintColor = Constant.actionButtonTintColor
+        button.layer.borderWidth = 1
+        button.layer.borderColor = Constant.actionButtonTintColor.cgColor
+        button.layer.cornerRadius = 4
         return button
     }()
 
@@ -49,8 +56,6 @@ class ActorView: UIView {
     }
 
     func setup() {
-        backgroundColor = .white
-        
         addSubview(actorImageView)
         addSubview(titleLabel)
         addSubview(subtitleLabel)

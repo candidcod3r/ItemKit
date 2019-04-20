@@ -16,11 +16,11 @@ extension UITextView {
         switch item.text {
         case .simple(let text):
             self.text = text
+            font = item.font
         case .attributed(let attributedText):
             self.attributedText = attributedText
         }
 
-        font = item.font
         textContainerInset = item.textContainerInsets
         textContainer.lineFragmentPadding = item.lineFragmentPadding
         layoutManager.usesFontLeading = false
