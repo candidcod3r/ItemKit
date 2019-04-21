@@ -29,9 +29,6 @@ public struct StackItem: Itemable, Cacheable {
     public var fittingSize: CGSize = .zero
     public var contentFittingSize: CGSize = .zero
 
-    // MARK:- Internal
-    var withinFrame: CGRect = .zero
-
     // MARK:- StackItem Properties
     public var axis: Axis
     public var spacing: CGFloat

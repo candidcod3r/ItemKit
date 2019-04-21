@@ -19,9 +19,6 @@ public struct TextItem: Itemable, Cacheable {
     public var fittingSize: CGSize = .zero
     public var contentFittingSize: CGSize = .zero
 
-    // MARK:- Internal
-    var withinFrame: CGRect = .zero
-
     // MARK:- TextItem Properties
     public var text: Text
     public var font: UIFont

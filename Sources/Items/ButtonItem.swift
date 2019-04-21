@@ -18,9 +18,6 @@ public struct ButtonItem: Itemable, Cacheable {
     public var frame: CGRect = .zero
     public var fittingSize: CGSize = .zero
     public var contentFittingSize: CGSize = .zero
-
-    // MARK:- Internal
-    var withinFrame: CGRect = .zero
     
     // MARK:- ButtonItem Properties
     public var title: Text?

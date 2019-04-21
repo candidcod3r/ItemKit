@@ -19,9 +19,6 @@ public struct Item: Itemable, Cacheable {
     public var fittingSize: CGSize = .zero
     public var contentFittingSize: CGSize = .zero
 
-    // MARK:- Internal
-    var withinFrame: CGRect = .zero
-
     // MARK:- Designated intializer
     public init(id: String? = nil,
                 insets: UIEdgeInsets = .zero,
