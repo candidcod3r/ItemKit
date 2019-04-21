@@ -16,43 +16,34 @@ public enum StackDistribution {
     case fillExtraSpaceEqually
 }
 
-public struct StackItem: Itemable, Cacheable {
-    // MARK:- ItemProtocol Properties
-    public var id: String?
-    public var insets: UIEdgeInsets
-    public var sizeGuide: SizeGuide
-    public var alignment: Alignment
-    public var flexibility: Flexibility
-    public var subItems: [Itemable]
-
-    public var frame: CGRect = .zero
-    public var fittingSize: CGSize = .zero
-    public var contentFittingSize: CGSize = .zero
-
+open class StackItem: Item {
     // MARK:- StackItem Properties
-    public var axis: Axis
-    public var spacing: CGFloat
-    public var distribution: StackDistribution
+    open var axis: Axis
+    open var spacing: CGFloat
+    open var distribution: StackDistribution
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
                 axis: Axis = .horizontal,
                 spacing: CGFloat = 0,
                 distribution: StackDistribution = .leading,
-                insets: UIEdgeInsets = .zero,
                 sizeGuide: SizeGuide = SizeGuide(),
+                insets: UIEdgeInsets = .zero,
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility? = nil,
                 subItems: [Itemable] = []) {
-        self.id = id
         self.axis = axis
         self.spacing = spacing
         self.distribution = distribution
-        self.insets = insets
-        self.sizeGuide = sizeGuide
-        self.alignment = alignment
-        self.flexibility = flexibility ?? StackItem.defaultFlexibility(for: axis, subItems: subItems)
-        self.subItems = subItems
+
+        let flexibility = flexibility ?? StackItem.defaultFlexibility(for: axis, subItems: subItems)
+        super.init(
+            id: id,
+            sizeGuide: sizeGuide,
+            insets: insets,
+            alignment: alignment,
+            flexibility: flexibility,
+            subItems: subItems)
     }
 
     static func defaultFlexibility(for axis: Axis, subItems: [Itemable]) -> Flexibility {
@@ -64,11 +55,9 @@ public struct StackItem: Itemable, Cacheable {
         }
         return Flexibility(axisValue: axisFlex, crossValue: crossFlex, axis: axis)
     }
-}
 
-// MARK: Measurable
-extension StackItem {
-    public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    // MARK: Measurable
+    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
         guard distribution != .equalSize else {
             return contentFittingSizeForEqualDistribution(within: maxSize)
         }
@@ -95,8 +84,40 @@ extension StackItem {
         return usedSize.value
     }
 
-    // MARK:- Private helpers (Equal distribution)
-    private mutating func contentFittingSizeForEqualDistribution(within maxSize: CGSize) -> CGSize {
+    // MARK: Layoutable
+    open override func updateContentLayout(within maxFrame: CGRect) {
+        let availableAxisLength = maxFrame.size.value(along: axis)
+        let fittingAxisLength = contentFittingSize.value(along: axis)
+        let excessAxisLength = availableAxisLength - fittingAxisLength
+
+        let subItemOffset = self.subItemOffset(with: excessAxisLength)
+        let subItemSpacing = self.subItemSpacing(with: excessAxisLength)
+        let mostFlexibleSubItemIndex = self.mostFlexibleSubItemIndex()
+        let maxSubItemSizeForEqualDistribution = self.maxSubItemSizeForEqualDistribution(within: maxFrame.size)
+
+        var subItemAxisOrigin = AxisPoint(axis: axis, value: maxFrame.origin)
+        subItemAxisOrigin.axisValue += subItemOffset
+
+        for i in 0..<subItems.count {
+            let maxSubItemSize = (distribution == .equalSize)
+                ? maxSubItemSizeForEqualDistribution
+                : adjustedSubItemAxisSize(
+                    subItemSize: subItems[i].fittingSize,
+                    within: maxFrame.size,
+                    excessAxisLength: excessAxisLength,
+                    isMostFlexible: i == mostFlexibleSubItemIndex)
+            let maxSubItemFrame = CGRect(origin: subItemAxisOrigin.value, size: maxSubItemSize)
+            subItems[i].updateLayout(within: maxSubItemFrame)
+
+            subItemAxisOrigin.axisValue += maxSubItemSize.value(along: axis)
+            subItemAxisOrigin.axisValue += (subItemAxisOrigin.axisValue > 0) ? subItemSpacing : 0
+        }
+    }
+}
+
+// MARK:- Private helpers (Equal distribution)
+extension StackItem {
+    private func contentFittingSizeForEqualDistribution(within maxSize: CGSize) -> CGSize {
         let maxSubItemSize = maxSubItemSizeForEqualDistribution(within: maxSize)
 
         var maxSubItemAxisLength = CGFloat.leastNormalMagnitude
@@ -139,7 +160,6 @@ extension StackItem {
         }
     }
 
-    // MARK:- Private helpers
     private func indicesSortedByFlexibility() -> [Int] {
         let indexedSubItems = subItems.indexedValues()
         let sortedIndexedSubItems = indexedSubItems.sorted { (indexedValue1, indexedValue2) -> Bool in
@@ -155,37 +175,8 @@ extension StackItem {
     }
 }
 
-// MARK: Layoutable
+// MARK:- Private helpers for Layoutable
 extension StackItem {
-    public mutating func updateContentLayout(within maxFrame: CGRect) {
-        let availableAxisLength = maxFrame.size.value(along: axis)
-        let fittingAxisLength = contentFittingSize.value(along: axis)
-        let excessAxisLength = availableAxisLength - fittingAxisLength
-
-        let subItemOffset = self.subItemOffset(with: excessAxisLength)
-        let subItemSpacing = self.subItemSpacing(with: excessAxisLength)
-        let mostFlexibleSubItemIndex = self.mostFlexibleSubItemIndex()
-        let maxSubItemSizeForEqualDistribution = self.maxSubItemSizeForEqualDistribution(within: maxFrame.size)
-
-        var subItemAxisOrigin = AxisPoint(axis: axis, value: maxFrame.origin)
-        subItemAxisOrigin.axisValue += subItemOffset
-
-        for i in 0..<subItems.count {
-            let maxSubItemSize = (distribution == .equalSize)
-                ? maxSubItemSizeForEqualDistribution
-                : adjustedSubItemAxisSize(
-                    subItemSize: subItems[i].fittingSize,
-                    within: maxFrame.size,
-                    excessAxisLength: excessAxisLength,
-                    isMostFlexible: i == mostFlexibleSubItemIndex)
-            let maxSubItemFrame = CGRect(origin: subItemAxisOrigin.value, size: maxSubItemSize)
-            subItems[i].updateLayout(within: maxSubItemFrame)
-
-            subItemAxisOrigin.axisValue += maxSubItemSize.value(along: axis)
-            subItemAxisOrigin.axisValue += (subItemAxisOrigin.axisValue > 0) ? subItemSpacing : 0
-        }
-    }
-
     private func subItemOffset(with excessLength: CGFloat) -> CGFloat {
         switch distribution {
         case .leading,
@@ -220,7 +211,7 @@ extension StackItem {
             }
         }
     }
-
+    
     private func mostFlexibleSubItemIndex() -> Int {
         guard subItems.count > 0 else {
             return -1

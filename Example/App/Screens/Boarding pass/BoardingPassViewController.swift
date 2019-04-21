@@ -57,9 +57,9 @@ class BoardingPassViewController: UIViewController {
                 sizeGuide: SizeGuide(width: .fill, height: .fill),
                 subItems: [stackItem])
 
-            var containerParentItem = Item(
-                insets: UIEdgeInsets(8),
+            let containerParentItem = Item(
                 sizeGuide: SizeGuide(width: .fixed(360), height: .fixed(680)),
+                insets: UIEdgeInsets(8),
                 alignment: .centerTop,
                 flexibility: .normal,
                 subItems: [containerItem])

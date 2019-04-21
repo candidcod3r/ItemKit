@@ -97,7 +97,7 @@ class FixedViewController: UIViewController {
         ///////////////////
         // containerView //
         ///////////////////
-        var containerItem = Item(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(withItem: containerItem)
@@ -107,8 +107,8 @@ class FixedViewController: UIViewController {
         /////////////
         let redItem = Item(
             id: "redItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(20)),
+            insets: .zero,
             alignment: .leadingTop,
             flexibility: .normal,
             subItems: [])
@@ -120,8 +120,8 @@ class FixedViewController: UIViewController {
         //////////////
         let blueItem = Item(
             id: "blueItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(10)),
+            insets: .zero,
             alignment: .trailingTop,
             flexibility: .normal,
             subItems: [])
@@ -133,8 +133,8 @@ class FixedViewController: UIViewController {
         //////////////
         let cyanItem = Item(
             id: "cyanItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(20)),
+            insets: .zero,
             alignment: .leadingBottom,
             flexibility: .normal,
             subItems: [])
@@ -146,8 +146,8 @@ class FixedViewController: UIViewController {
         ///////////////
         let greenItem = Item(
             id: "greenItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(50), height: .fixed(50)),
+            insets: .zero,
             alignment: .center,
             flexibility: .normal,
             subItems: [])
@@ -159,8 +159,8 @@ class FixedViewController: UIViewController {
         ////////////////
         let yellowItem = Item(
             id: "yellowItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(15), height: .fixed(20)),
+            insets: .zero,
             alignment: .trailingBottom,
             flexibility: .normal,
             subItems: [])
@@ -172,8 +172,8 @@ class FixedViewController: UIViewController {
         ////////////////
         let purpleItem = Item(
             id: "purpleItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
+            insets: .zero,
             alignment: .trailingCenter,
             flexibility: .normal,
             subItems: [])
@@ -185,8 +185,8 @@ class FixedViewController: UIViewController {
         ////////////////
         let orangeItem = Item(
             id: "orangeItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
+            insets: .zero,
             alignment: .leadingCenter,
             flexibility: .normal,
             subItems: [])
@@ -198,8 +198,8 @@ class FixedViewController: UIViewController {
         ////////////////////
         let lightGreenItem = Item(
             id: "lightGreenItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
+            insets: .zero,
             alignment: .centerTop,
             flexibility: .normal,
             subItems: [])
@@ -211,8 +211,8 @@ class FixedViewController: UIViewController {
         //////////////
         let pinkItem = Item(
             id: "pinkItem",
-            insets: .zero,
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
+            insets: .zero,
             alignment: .centerBottom,
             flexibility: .normal,
             subItems: [])
@@ -225,9 +225,9 @@ class FixedViewController: UIViewController {
         /////////////////////////
         // containerParentItem //
         /////////////////////////
-        var containerParentItem = Item(
-            insets: UIEdgeInsets(8),
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
+            insets: UIEdgeInsets(8),
             alignment: .centerTop,
             flexibility: .normal,
             subItems: [containerItem])

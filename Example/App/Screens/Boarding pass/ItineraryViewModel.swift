@@ -93,8 +93,8 @@ class ItineraryViewModel {
             id: "itineraryView",
             axis: .horizontal,
             distribution: .fillExtraSpace,
-            insets: UIEdgeInsets(16),
             sizeGuide: SizeGuide(width: .fill, height: .fill),
+            insets: UIEdgeInsets(16),
             alignment: .center,
             subItems: [leftStackItem, flightImageItem, rightStackItem])
     }

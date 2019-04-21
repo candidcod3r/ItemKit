@@ -62,7 +62,7 @@ class TextItemViewController: UIViewController {
     }
 
     private func setup() {
-        var containerItem = Item(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(withItem: containerItem)
@@ -118,9 +118,9 @@ class TextItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        var containerParentItem = Item(
-            insets: UIEdgeInsets(8),
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
+            insets: UIEdgeInsets(8),
             alignment: .centerTop,
             flexibility: .normal,
             subItems: [containerItem])

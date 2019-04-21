@@ -12,7 +12,7 @@ public struct SizeGuide {
     public static let fullRange = 0...CGFloat.greatestFiniteMagnitude
 
     public var width: DimensionGuide
-    public var widthRange: DimensionRange
+    public  var widthRange: DimensionRange
 
     public var height: DimensionGuide
     public var heightRange: DimensionRange

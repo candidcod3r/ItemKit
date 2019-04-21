@@ -7,7 +7,7 @@
 //
 
 extension UIButton {
-    public func configure(withButtonItem item: ButtonItem?) {
+    open func configure(withButtonItem item: ButtonItem?) {
         guard let item = item else {
             return
         }

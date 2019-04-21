@@ -6,26 +6,14 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct ButtonItem: Itemable, Cacheable {
-    // MARK:- ItemProtocol Properties
-    public var id: String?
-    public var insets: UIEdgeInsets
-    public var sizeGuide: SizeGuide
-    public var alignment: Alignment
-    public var flexibility: Flexibility
-    public var subItems: [Itemable]
-    
-    public var frame: CGRect = .zero
-    public var fittingSize: CGSize = .zero
-    public var contentFittingSize: CGSize = .zero
-    
+open class ButtonItem: Item {
     // MARK:- ButtonItem Properties
-    public var title: Text?
-    public var image: UIImage?
-    public var font: UIFont
-    public var contentInsets: UIEdgeInsets
-    public var titleInsets: UIEdgeInsets
-    public var imageInsets: UIEdgeInsets
+    open var title: Text?
+    open var image: UIImage?
+    open var font: UIFont
+    open var contentInsets: UIEdgeInsets
+    open var titleInsets: UIEdgeInsets
+    open var imageInsets: UIEdgeInsets
     
     // MARK:- Designated intializer
     public init(id: String? = nil,
@@ -35,36 +23,38 @@ public struct ButtonItem: Itemable, Cacheable {
                 contentInsets: UIEdgeInsets = .zero,
                 titleInsets: UIEdgeInsets = .zero,
                 imageInsets: UIEdgeInsets = .zero,
-                insets: UIEdgeInsets = .zero,
                 sizeGuide: SizeGuide = SizeGuide(),
+                insets: UIEdgeInsets = .zero,
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility = .normal) {
-        self.id = id
         self.title = title
         self.image = image
         self.font = font ?? UIFont.buttonTitle
         self.contentInsets = contentInsets
         self.titleInsets = titleInsets
         self.imageInsets = imageInsets
-        self.insets = insets
-        self.sizeGuide = sizeGuide
-        self.alignment = alignment
-        self.flexibility = flexibility
-        self.subItems = []
+
+        super.init(
+            id: id,
+            sizeGuide: sizeGuide,
+            insets: insets,
+            alignment: alignment,
+            flexibility: flexibility,
+            subItems: [])
     }
     
     // MARK:- Convenience intializers
-    public init(id: String? = nil,
-                title: String,
-                image: UIImage? = nil,
-                font: UIFont? = nil,
-                contentInsets: UIEdgeInsets = .zero,
-                titleInsets: UIEdgeInsets = .zero,
-                imageInsets: UIEdgeInsets = .zero,
-                insets: UIEdgeInsets = .zero,
-                sizeGuide: SizeGuide = SizeGuide(),
-                alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal) {
+    public convenience init(id: String? = nil,
+                            title: String,
+                            image: UIImage? = nil,
+                            font: UIFont? = nil,
+                            contentInsets: UIEdgeInsets = .zero,
+                            titleInsets: UIEdgeInsets = .zero,
+                            imageInsets: UIEdgeInsets = .zero,
+                            sizeGuide: SizeGuide = SizeGuide(),
+                            insets: UIEdgeInsets = .zero,
+                            alignment: Alignment = .leadingTop,
+                            flexibility: Flexibility = .normal) {
         self.init(
             id: id,
             title: Text.simple(title),
@@ -73,23 +63,23 @@ public struct ButtonItem: Itemable, Cacheable {
             contentInsets: contentInsets,
             titleInsets: titleInsets,
             imageInsets: imageInsets,
-            insets: insets,
             sizeGuide: sizeGuide,
+            insets: insets,
             alignment: alignment,
             flexibility: flexibility)
     }
     
-    public init(id: String? = nil,
-                title: NSAttributedString,
-                image: UIImage? = nil,
-                font: UIFont? = nil,
-                contentInsets: UIEdgeInsets = .zero,
-                titleInsets: UIEdgeInsets = .zero,
-                imageInsets: UIEdgeInsets = .zero,
-                insets: UIEdgeInsets = .zero,
-                sizeGuide: SizeGuide = SizeGuide(),
-                alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal) {
+    public convenience init(id: String? = nil,
+                            title: NSAttributedString,
+                            image: UIImage? = nil,
+                            font: UIFont? = nil,
+                            contentInsets: UIEdgeInsets = .zero,
+                            titleInsets: UIEdgeInsets = .zero,
+                            imageInsets: UIEdgeInsets = .zero,
+                            sizeGuide: SizeGuide = SizeGuide(),
+                            insets: UIEdgeInsets = .zero,
+                            alignment: Alignment = .leadingTop,
+                            flexibility: Flexibility = .normal) {
         self.init(
             id: id,
             title: Text.attributed(title),
@@ -98,16 +88,14 @@ public struct ButtonItem: Itemable, Cacheable {
             contentInsets: contentInsets,
             titleInsets: titleInsets,
             imageInsets: imageInsets,
-            insets: insets,
             sizeGuide: sizeGuide,
+            insets: insets,
             alignment: alignment,
             flexibility: flexibility)
     }
-}
 
-// MARK:- Measurable
-extension ButtonItem {
-    public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    // MARK:- Measurable
+    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
         let imageSize = self.imageSize
             .insetted(by: imageInsets)
             .decreased(to: maxSize)
@@ -130,11 +118,5 @@ extension ButtonItem {
     
     private var imageSize: CGSize {
         return image?.size ?? .zero
-    }
-}
-
-// MARK:- Layoutable
-extension ButtonItem {
-    public mutating func updateContentLayout(within maxFrame: CGRect) {
     }
 }

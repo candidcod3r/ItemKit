@@ -115,8 +115,8 @@ class BoardingDetailsViewModel {
             id: "boardingDetailsView",
             axis: .vertical,
             spacing: 16,
-            insets: UIEdgeInsets(16),
             sizeGuide: SizeGuide(width: .fill),
+            insets: UIEdgeInsets(16),
             subItems: [topStackItem, bottomStackItem])
     }
 }

@@ -6,25 +6,13 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct TextItem: Itemable, Cacheable {
-    // MARK:- ItemProtocol Properties
-    public var id: String?
-    public var insets: UIEdgeInsets
-    public var sizeGuide: SizeGuide
-    public var alignment: Alignment
-    public var flexibility: Flexibility
-    public var subItems: [Itemable]
-
-    public var frame: CGRect = .zero
-    public var fittingSize: CGSize = .zero
-    public var contentFittingSize: CGSize = .zero
-
+open class TextItem: Item {
     // MARK:- TextItem Properties
-    public var text: Text
-    public var font: UIFont
-    public var numberOfLines: Int
-    public var textContainerInsets: UIEdgeInsets
-    public var lineFragmentPadding: CGFloat
+    open var text: Text
+    open var font: UIFont
+    open var numberOfLines: Int
+    open var textContainerInsets: UIEdgeInsets
+    open var lineFragmentPadding: CGFloat
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
@@ -33,34 +21,36 @@ public struct TextItem: Itemable, Cacheable {
                 numberOfLines: Int = 0,
                 textContainerInsets: UIEdgeInsets = .zero,
                 lineFragmentPadding: CGFloat = 0,
-                insets: UIEdgeInsets = .zero,
                 sizeGuide: SizeGuide = SizeGuide(),
+                insets: UIEdgeInsets = .zero,
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility = .normal) {
-        self.id = id
         self.text = text
         self.font = font ?? UIFont.label
         self.numberOfLines = max(numberOfLines, 0)
         self.textContainerInsets = textContainerInsets
         self.lineFragmentPadding = lineFragmentPadding
-        self.insets = insets
-        self.sizeGuide = sizeGuide
-        self.alignment = alignment
-        self.flexibility = flexibility
-        self.subItems = []
+
+        super.init(
+            id: id,
+            sizeGuide: sizeGuide,
+            insets: insets,
+            alignment: alignment,
+            flexibility: flexibility,
+            subItems: [])
     }
 
     // MARK:- Convenience intializers
-    public init(id: String? = nil,
-                text: String,
-                font: UIFont? = nil,
-                numberOfLines: Int = 0,
-                textContainerInsets: UIEdgeInsets = .zero,
-                lineFragmentPadding: CGFloat = 0,
-                insets: UIEdgeInsets = .zero,
-                sizeGuide: SizeGuide = SizeGuide(),
-                alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal) {
+    public convenience init(id: String? = nil,
+                            text: String,
+                            font: UIFont? = nil,
+                            numberOfLines: Int = 0,
+                            textContainerInsets: UIEdgeInsets = .zero,
+                            lineFragmentPadding: CGFloat = 0,
+                            sizeGuide: SizeGuide = SizeGuide(),
+                            insets: UIEdgeInsets = .zero,
+                            alignment: Alignment = .leadingTop,
+                            flexibility: Flexibility = .normal) {
         self.init(
             id: id,
             text: Text.simple(text),
@@ -68,22 +58,22 @@ public struct TextItem: Itemable, Cacheable {
             numberOfLines: numberOfLines,
             textContainerInsets: textContainerInsets,
             lineFragmentPadding: lineFragmentPadding,
-            insets: insets,
             sizeGuide: sizeGuide,
+            insets: insets,
             alignment: alignment,
             flexibility: flexibility)
     }
 
-    public init(id: String? = nil,
-                text: NSAttributedString,
-                font: UIFont? = nil,
-                numberOfLines: Int = 0,
-                textContainerInsets: UIEdgeInsets = .zero,
-                lineFragmentPadding: CGFloat = 0,
-                insets: UIEdgeInsets = .zero,
-                sizeGuide: SizeGuide = SizeGuide(),
-                alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal) {
+    public convenience init(id: String? = nil,
+                            text: NSAttributedString,
+                            font: UIFont? = nil,
+                            numberOfLines: Int = 0,
+                            textContainerInsets: UIEdgeInsets = .zero,
+                            lineFragmentPadding: CGFloat = 0,
+                            sizeGuide: SizeGuide = SizeGuide(),
+                            insets: UIEdgeInsets = .zero,
+                            alignment: Alignment = .leadingTop,
+                            flexibility: Flexibility = .normal) {
         self.init(
             id: id,
             text: Text.attributed(text),
@@ -91,16 +81,14 @@ public struct TextItem: Itemable, Cacheable {
             numberOfLines: numberOfLines,
             textContainerInsets: textContainerInsets,
             lineFragmentPadding: lineFragmentPadding,
-            insets: insets,
             sizeGuide: sizeGuide,
+            insets: insets,
             alignment: alignment,
             flexibility: flexibility)
     }
-}
 
-// MARK:- Measurable
-extension TextItem {
-    public mutating func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    // MARK:- Measurable
+    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
         let lineFragmentInsets = UIEdgeInsets(horizontal: lineFragmentPadding)
         let maxTextSize = maxSize
             .decreased(by: textContainerInsets)
@@ -129,11 +117,5 @@ extension TextItem {
         let totalLinesHeight = CGFloat(numberOfLines) * font.lineHeight
         let maxHeight = totalLinesHeight.roundedUp
         return maxHeight
-    }
-}
-
-// MARK:- Layoutable
-extension TextItem {
-    public mutating func updateContentLayout(within maxFrame: CGRect) {
     }
 }
