@@ -7,6 +7,8 @@
 //
 
 public protocol Layoutable {
+    var frame: CGRect { get set }
+    
     mutating func updateLayout(within maxFrame: CGRect)
 
     mutating func updateContentLayout(within maxFrame: CGRect)

@@ -57,7 +57,7 @@ class FeedCardViewController: UIViewController {
 
             let stackItem = StackItem(
                 axis: .vertical,
-                spacing: 4,
+                spacing: 8,
                 insets: UIEdgeInsets(8),
                 sizeGuide: SizeGuide(width: .fill),
                 subItems: [actorViewItem, commentaryItem, socialCountsItem, socialBarItem])

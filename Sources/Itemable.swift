@@ -1,34 +1,38 @@
 //
-//  ItemProtocol.swift
+//  Itemable.swift
 //  ItemKit
 //
 //  Created by Candid Cod3r on 4/13/19.
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public protocol ItemProtocol: Measurable, Layoutable {
+public protocol Itemable: Measurable, Layoutable {
     var id: String? { get set }
     var insets: UIEdgeInsets { get set }
     var sizeGuide: SizeGuide { get set }
     var alignment: Alignment { get set }
     var flexibility: Flexibility { get set }
-    var subItems: [ItemProtocol] { get set }
+    var subItems: [Itemable] { get set }
 
     // computed automatically
-    var frame: CGRect { get }
-    var fittingSize: CGSize { get }
-    var contentFittingSize: CGSize { get }
+    var fittingSize: CGSize { get set }
+    var contentFittingSize: CGSize { get set }
 
     var requiresView: Bool { get }
 }
 
-extension ItemProtocol {
+extension Itemable {
     public var requiresView: Bool {
         return (id?.count ?? 0) > 0
     }
+}
 
-    // MARK:- Layoutable helper methods
-    fileprivate mutating func updatedFrame(within maxFrame: CGRect) -> CGRect {
+// MARK:- Layoutable helper methods
+extension Itemable {
+    public mutating func updateLayout(within maxFrame: CGRect) {
+        // update the fitting size
+        updateFittingSize(within: maxFrame.size)
+
         let size = Sizer.size(of: fittingSize, within: maxFrame.size, using: sizeGuide)
         let origin = Aligner.origin(of: size, with: alignment, within: maxFrame)
 
@@ -37,7 +41,7 @@ extension ItemProtocol {
         // update the content layout
         updateContentLayout(itemFrame: itemFrame)
 
-        return itemFrame
+        frame = itemFrame
     }
 
     private mutating func updateContentLayout(itemFrame: CGRect) {
@@ -57,22 +61,8 @@ extension ItemProtocol {
     }
 }
 
-/**
- Internal protocol for ItemProtocol to access the setters for stored properties
- */
-protocol InternalItemProtocol: ItemProtocol {
-    var frame: CGRect { get set }
-    var fittingSize: CGSize { get set }
-    var contentFittingSize: CGSize { get set }
-
-    // MARK:- Internal properties
-
-    // used for debugging purposes
-    var withinFrame: CGRect { get set }
-}
-
-extension InternalItemProtocol {
-    // MARK:- Measurable
+// MARK:- Measurable
+extension Itemable {
     public mutating func updateFittingSize(within maxSize: CGSize) {
         // adjust maxSize according to the size guide
         let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
@@ -84,16 +74,5 @@ extension InternalItemProtocol {
         contentFittingSize = self.contentFittingSize(within: maxContentSize)
 
         fittingSize = contentFittingSize.increased(by: insets)
-    }
-
-    // MARK:- Layoutable
-    public mutating func updateLayout(within maxFrame: CGRect) {
-        // update withinFrame
-        withinFrame = maxFrame
-
-        // update the fitting size
-        updateFittingSize(within: maxFrame.size)
-
-        frame = updatedFrame(within: maxFrame)
     }
 }

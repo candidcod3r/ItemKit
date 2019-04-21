@@ -26,7 +26,7 @@ class BoardingDetailsViewModel {
     private(set) var boardingTextItem: TextItem
     private(set) var boardingTimeItem: TextItem
 
-    private(set) var item: ItemProtocol? = nil
+    private(set) var item: Itemable? = nil
     private(set) var itemCache: ViewItemCache? = nil
 
     init() {
@@ -74,7 +74,7 @@ class BoardingDetailsViewModel {
         itemCache = item?.createCache()
     }
 
-    private func createItem() -> ItemProtocol {
+    private func createItem() -> Itemable {
         let flightStackItem = StackItem(
             axis: .vertical,
             spacing: 4,

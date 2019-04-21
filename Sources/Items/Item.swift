@@ -6,18 +6,18 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public struct Item: InternalItemProtocol, Cacheable {
+public struct Item: Itemable, Cacheable {
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
     public var sizeGuide: SizeGuide
     public var alignment: Alignment
     public var flexibility: Flexibility
-    public var subItems: [ItemProtocol]
+    public var subItems: [Itemable]
 
-    public internal(set) var frame: CGRect = .zero
-    public internal(set) var fittingSize: CGSize = .zero
-    public internal(set) var contentFittingSize: CGSize = .zero
+    public var frame: CGRect = .zero
+    public var fittingSize: CGSize = .zero
+    public var contentFittingSize: CGSize = .zero
 
     // MARK:- Internal
     var withinFrame: CGRect = .zero
@@ -28,7 +28,7 @@ public struct Item: InternalItemProtocol, Cacheable {
                 sizeGuide: SizeGuide = SizeGuide(),
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility = .normal,
-                subItems: [ItemProtocol] = []) {
+                subItems: [Itemable] = []) {
         self.id = id
         self.insets = insets
         self.sizeGuide = sizeGuide

@@ -16,18 +16,18 @@ public enum StackDistribution {
     case fillExtraSpaceEqually
 }
 
-public struct StackItem: InternalItemProtocol, Cacheable {
+public struct StackItem: Itemable, Cacheable {
     // MARK:- ItemProtocol Properties
     public var id: String?
     public var insets: UIEdgeInsets
     public var sizeGuide: SizeGuide
     public var alignment: Alignment
     public var flexibility: Flexibility
-    public var subItems: [ItemProtocol]
+    public var subItems: [Itemable]
 
-    public internal(set) var frame: CGRect = .zero
-    public internal(set) var fittingSize: CGSize = .zero
-    public internal(set) var contentFittingSize: CGSize = .zero
+    public var frame: CGRect = .zero
+    public var fittingSize: CGSize = .zero
+    public var contentFittingSize: CGSize = .zero
 
     // MARK:- Internal
     var withinFrame: CGRect = .zero
@@ -46,7 +46,7 @@ public struct StackItem: InternalItemProtocol, Cacheable {
                 sizeGuide: SizeGuide = SizeGuide(),
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility? = nil,
-                subItems: [ItemProtocol] = []) {
+                subItems: [Itemable] = []) {
         self.id = id
         self.axis = axis
         self.spacing = spacing
@@ -58,7 +58,7 @@ public struct StackItem: InternalItemProtocol, Cacheable {
         self.subItems = subItems
     }
 
-    static func defaultFlexibility(for axis: Axis, subItems: [ItemProtocol]) -> Flexibility {
+    static func defaultFlexibility(for axis: Axis, subItems: [Itemable]) -> Flexibility {
         var axisFlex = Flex.min
         var crossFlex = Flex.max
         for i in 0..<subItems.count {

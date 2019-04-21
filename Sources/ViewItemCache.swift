@@ -7,7 +7,7 @@
 //
 
 public class ViewItemCache {
-    public typealias BackingStore = [String : ItemProtocol]
+    public typealias BackingStore = [String : Itemable]
 
     public private(set) var store: BackingStore!
 
@@ -15,14 +15,14 @@ public class ViewItemCache {
         store = BackingStore()
     }
 
-    public func viewItem(for key: String?) -> ItemProtocol? {
+    public func viewItem(for key: String?) -> Itemable? {
         guard let key = key else {
             return nil
         }
         return store[key]
     }
 
-    public func setViewItem(_ item: ItemProtocol, for key: String) {
+    public func setViewItem(_ item: Itemable, for key: String) {
         store[key] = item
     }
 

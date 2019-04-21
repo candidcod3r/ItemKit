@@ -27,7 +27,7 @@ class CommentaryViewModel {
 
     private(set) var textItem: TextItem
 
-    private(set) var item: ItemProtocol? = nil
+    private(set) var item: Itemable? = nil
     private(set) var itemCache: ViewItemCache? = nil
 
     init() {

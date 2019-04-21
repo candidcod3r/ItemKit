@@ -10,7 +10,7 @@ public protocol Cacheable {
     func createCache() -> ViewItemCache
 }
 
-extension ItemProtocol {
+extension Itemable {
     public func createCache() -> ViewItemCache {
         let cache = ViewItemCache()
         self.add(to: cache)

@@ -17,7 +17,7 @@ class SocialCountsViewModel {
     private(set) var dotItem: TextItem
     private(set) var commentsCountItem: TextItem
 
-    private(set) var item: ItemProtocol? = nil
+    private(set) var item: Itemable? = nil
     private(set) var itemCache: ViewItemCache? = nil
 
     init() {

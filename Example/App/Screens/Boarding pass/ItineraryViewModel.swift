@@ -26,7 +26,7 @@ class ItineraryViewModel {
     private(set) var toAirportItem: TextItem
     private(set) var toTimeItem: TextItem
 
-    private(set) var item: ItemProtocol? = nil
+    private(set) var item: Itemable? = nil
     private var itemCache: ViewItemCache? = nil
 
     init() {
@@ -76,7 +76,7 @@ class ItineraryViewModel {
         itemCache = item?.createCache()
     }
 
-    private func createItem() -> ItemProtocol {
+    private func createItem() -> Itemable {
         let leftStackItem = StackItem(
             axis: .vertical,
             spacing: 4,

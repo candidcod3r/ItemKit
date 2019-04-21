@@ -23,7 +23,7 @@ class ActorViewModel {
     private(set) var subtitleItem: TextItem
     private(set) var actionButtonItem: ButtonItem
 
-    private(set) var item: ItemProtocol? = nil
+    private(set) var item: Itemable? = nil
     private(set) var itemCache: ViewItemCache? = nil
 
     init() {
