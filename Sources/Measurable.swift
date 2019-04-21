@@ -11,12 +11,12 @@ public protocol Measurable {
      Fitting size of the measurable that is computed based on a maxSize given. Fitting size is computed based on the
      contentFittingSize.
      */
-    var fittingSize: CGSize { get set }
+    var fittingSize: CGSize { get }
 
     /**
      Content fitting size of this measurable, this is the size of the inner content of the item.
      */
-    var contentFittingSize: CGSize { get set }
+    var contentFittingSize: CGSize { get }
 
     /**
      Used to update the fitting size of the measurable, this might internally update the contentFitting size

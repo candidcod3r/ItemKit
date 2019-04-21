@@ -10,7 +10,7 @@ public protocol Layoutable {
     /**
      Frame of the layoutable.
      */
-    var frame: CGRect { get set }
+    var frame: CGRect { get }
 
     /**
      Update the layout including the sublayouts of the layoutable if available.
