@@ -62,6 +62,7 @@
 		4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBarViewModel.swift; sourceTree = "<group>"; };
 		4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardViewController.swift; sourceTree = "<group>"; };
 		4EA60093226AC53100B21807 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		4EA6009A226C0A9900B21807 /* ItemKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ItemKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4EFB818222696A4400B8D849 /* StackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItemViewController.swift; sourceTree = "<group>"; };
 		4EFB81852269850500B8D849 /* BoardingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsView.swift; sourceTree = "<group>"; };
 		4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				4EA6009A226C0A9900B21807 /* ItemKit.playground */,
 				607FACD21AFB9204008FA782 /* App */,
 				27CAD5CDB44F51D9E151B58D /* Frameworks */,
 				78D336EB865AFE41D4D35D2C /* Pods */,
