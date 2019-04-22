@@ -28,7 +28,7 @@
 		4EA60094226AC53100B21807 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60093226AC53100B21807 /* UIImage+.swift */; };
 		4EA6009D226D7E1D00B21807 /* ImagesRollupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */; };
 		4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F161226D917700C72655 /* ImagesRollupView.swift */; };
-		4ED4F164226D93D900C72655 /* BackgroundItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F163226D93D900C72655 /* BackgroundItemViewController.swift */; };
+		4ED4F164226D93D900C72655 /* CanvasItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F163226D93D900C72655 /* CanvasItemViewController.swift */; };
 		4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* StackItemViewController.swift */; };
 		4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81852269850500B8D849 /* BoardingDetailsView.swift */; };
 		4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */; };
@@ -68,7 +68,7 @@
 		4EA6009A226C0A9900B21807 /* ItemKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ItemKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupItem.swift; sourceTree = "<group>"; };
 		4ED4F161226D917700C72655 /* ImagesRollupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupView.swift; sourceTree = "<group>"; };
-		4ED4F163226D93D900C72655 /* BackgroundItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundItemViewController.swift; sourceTree = "<group>"; };
+		4ED4F163226D93D900C72655 /* CanvasItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasItemViewController.swift; sourceTree = "<group>"; };
 		4EFB818222696A4400B8D849 /* StackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItemViewController.swift; sourceTree = "<group>"; };
 		4EFB81852269850500B8D849 /* BoardingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsView.swift; sourceTree = "<group>"; };
 		4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 		4EC1C5C522617F7A00C724AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4ED4F163226D93D900C72655 /* BackgroundItemViewController.swift */,
 				4E66A60722670A3C00824280 /* ButtonItemViewController.swift */,
+				4ED4F163226D93D900C72655 /* CanvasItemViewController.swift */,
 				4E50753822659B45006DF752 /* FillViewController.swift */,
 				607FACD71AFB9204008FA782 /* FixedViewController.swift */,
 				4E50753622654D3E006DF752 /* MenuViewController.swift */,
@@ -385,7 +385,7 @@
 				4EFB818A2269851600B8D849 /* ItineraryView.swift in Sources */,
 				4E66A6002266DFDA00824280 /* TextItemViewController.swift in Sources */,
 				4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */,
-				4ED4F164226D93D900C72655 /* BackgroundItemViewController.swift in Sources */,
+				4ED4F164226D93D900C72655 /* CanvasItemViewController.swift in Sources */,
 				4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */,
 				4E50753922659B45006DF752 /* FillViewController.swift in Sources */,
 				4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */,

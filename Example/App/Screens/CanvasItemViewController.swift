@@ -1,5 +1,5 @@
 //
-//  BackgroundItemViewController.swift
+//  CanvasItemViewController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 4/21/19.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class BackgroundItemViewController: UIViewController {
+class CanvasItemViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -47,7 +47,7 @@ class BackgroundItemViewController: UIViewController {
 
         view.addSubview(containerView)
         containerView.addSubview(backgroundImageView)
-        backgroundImageView.addSubview(overlayView)
+        containerView.addSubview(overlayView)
         overlayView.addSubview(titleLabel)
 
         setup()
@@ -59,19 +59,23 @@ class BackgroundItemViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(withItem: containerItem)
 
-        let imageViewItem = BackgroundItem(
-            id: "imageView",
+        let canvasItem = CanvasItem(
             sizeGuide: SizeGuide(width: .fill, height: .fixed(200)),
-            alignment: .leadingCenter)
-        backgroundImageView.configure(withItem: imageViewItem)
-        containerItem.subItems.append(imageViewItem)
+            alignment: .center)
+        containerItem.subItems.append(canvasItem)
 
-        let overlayItem = BackgroundItem(
+        let imageViewItem = Item(
+            id: "imageView",
+            sizeGuide: SizeGuide(width: .fill, height: .fill))
+        backgroundImageView.configure(withItem: imageViewItem)
+        canvasItem.subItems.append(imageViewItem)
+
+        let overlayItem = CanvasItem(
             id: "overlay",
             sizeGuide: SizeGuide(width: .fill, height: .percent(0.40)),
             alignment: .leadingBottom)
         overlayView.configure(withItem: overlayItem)
-        imageViewItem.subItems.append(overlayItem)
+        canvasItem.subItems.append(overlayItem)
 
         let titleLabelItem = TextItem(
             id: "titleLabel",
