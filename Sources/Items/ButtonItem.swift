@@ -10,6 +10,7 @@ open class ButtonItem: Item {
     // MARK:- ButtonItem Properties
     open var title: Text?
     open var image: UIImage?
+    open var imageSize: CGSize
     open var font: UIFont
     open var contentInsets: UIEdgeInsets
     open var titleInsets: UIEdgeInsets
@@ -19,6 +20,7 @@ open class ButtonItem: Item {
     public init(id: String? = nil,
                 title: Text? = nil,
                 image: UIImage? = nil,
+                imageSize: CGSize = .zero,
                 font: UIFont? = nil,
                 contentInsets: UIEdgeInsets = .zero,
                 titleInsets: UIEdgeInsets = .zero,
@@ -29,6 +31,7 @@ open class ButtonItem: Item {
                 flexibility: Flexibility = .normal) {
         self.title = title
         self.image = image
+        self.imageSize = image?.size ?? imageSize
         self.font = font ?? UIFont.buttonTitle
         self.contentInsets = contentInsets
         self.titleInsets = titleInsets
@@ -47,6 +50,7 @@ open class ButtonItem: Item {
     public convenience init(id: String? = nil,
                             title: String,
                             image: UIImage? = nil,
+                            imageSize: CGSize = .zero,
                             font: UIFont? = nil,
                             contentInsets: UIEdgeInsets = .zero,
                             titleInsets: UIEdgeInsets = .zero,
@@ -59,6 +63,7 @@ open class ButtonItem: Item {
             id: id,
             title: Text.simple(title),
             image: image,
+            imageSize: imageSize,
             font: font,
             contentInsets: contentInsets,
             titleInsets: titleInsets,
@@ -72,6 +77,7 @@ open class ButtonItem: Item {
     public convenience init(id: String? = nil,
                             title: NSAttributedString,
                             image: UIImage? = nil,
+                            imageSize: CGSize = .zero,
                             font: UIFont? = nil,
                             contentInsets: UIEdgeInsets = .zero,
                             titleInsets: UIEdgeInsets = .zero,
@@ -84,6 +90,7 @@ open class ButtonItem: Item {
             id: id,
             title: Text.attributed(title),
             image: image,
+            imageSize: imageSize,
             font: font,
             contentInsets: contentInsets,
             titleInsets: titleInsets,
@@ -96,7 +103,7 @@ open class ButtonItem: Item {
 
     // MARK:- Measurable
     open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
-        let imageSize = self.imageSize
+        let imageSize = self.buttonImageSize
             .insetted(by: imageInsets)
             .decreased(to: maxSize)
         
@@ -117,7 +124,7 @@ open class ButtonItem: Item {
         return title?.size(with: font, within: maxSize) ?? .zero
     }
     
-    private var imageSize: CGSize {
-        return image?.size ?? .zero
+    private var buttonImageSize: CGSize {
+        return image?.size ?? imageSize
     }
 }

@@ -20,6 +20,7 @@
 		3EDB7998385CB615F2F7B2D2F2D94F24 /* Pods-ItemKitExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 271A4145A2C31CA261FD9F16C556B582 /* Pods-ItemKitExample-dummy.m */; };
 		40C0AD395B0FD2FF9BA4B2695298F3D3 /* Pods-ItemKitExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BEB1A33F6A8EE2D4658784794D612FFC /* Pods-ItemKitExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		478A80BB5E739BDA7490A09DE35CEEEC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484CFBFE2A7C64F31ED406CB49E7DDE /* UIKit.framework */; };
+		4ED4F166226D97B200C72655 /* BackgroundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F165226D97B200C72655 /* BackgroundItem.swift */; };
 		5B874F24BDD090928F5731A0C74FA735 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DAFA12558D298108029219346CE49E /* CGRect+.swift */; };
 		624E12EDBC18758AB198CA0B733714A3 /* DirectionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFFCA83C69A2873A4610AF731AA0DD5 /* DirectionalValue.swift */; };
 		62F1B11CFBE2ACE53E7F2F9192EF230E /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4BB6370490D0C3A0172E9118A1F6E8 /* CGFloat+.swift */; };
@@ -79,6 +80,7 @@
 		4695BFBBBED0ACC00F44909EC074CEA7 /* StackItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StackItem.swift; sourceTree = "<group>"; };
 		49C54A4FA04DF2B972BA62D0B31D57C7 /* UIEdgeInsets+.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+.swift"; sourceTree = "<group>"; };
 		4E3A2F67573419D48EB5F8C97B5A6F06 /* UIButton+Configure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIButton+Configure.swift"; sourceTree = "<group>"; };
+		4ED4F165226D97B200C72655 /* BackgroundItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundItem.swift; sourceTree = "<group>"; };
 		4F2ED0B1842A79F0669179980C701562 /* Pods-ItemKitExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-resources.sh"; sourceTree = "<group>"; };
 		55E11CFF046A76BD2EA8FE154AB90E0D /* UIView+Debug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Debug.swift"; sourceTree = "<group>"; };
 		56489F2F821735AA1EC875ACA4360D41 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,6 +344,7 @@
 		FE2AF167B547AE4EBB9DCFFF476A9BF4 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				4ED4F165226D97B200C72655 /* BackgroundItem.swift */,
 				DDA9EBCC5DEF2044BD40CDCB2C905CFD /* ButtonItem.swift */,
 				BF18555D4DD45516238A2F090D53AC47 /* Item.swift */,
 				4695BFBBBED0ACC00F44909EC074CEA7 /* StackItem.swift */,
@@ -488,6 +491,7 @@
 				B7A526A87BF62DD102F3DE75AA9F2535 /* TextItem.swift in Sources */,
 				656BAC14FC5818355E57F0D58FFDBFB5 /* UIButton+Configure.swift in Sources */,
 				3E674978C9EAC2EB8119EE07756E3031 /* UIColor+Debug.swift in Sources */,
+				4ED4F166226D97B200C72655 /* BackgroundItem.swift in Sources */,
 				8041F63D5C241254BE5D839F10BA89CA /* UIEdgeInsets+.swift in Sources */,
 				FD1A86FDD581775FE21B7FF01CF16516 /* UIFont+.swift in Sources */,
 				B9985BB4F39E8DEA6E59D69C5ECAAB4E /* UILabel+Configure.swift in Sources */,

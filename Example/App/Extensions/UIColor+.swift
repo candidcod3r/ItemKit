@@ -12,10 +12,10 @@ import UIKit
 extension UIColor {
 
     convenience init(hex: Int) {
-        let red = (CGFloat((hex >> 16) & 0xff)) / 255.0
-        let green = (CGFloat((hex >> 8) & 0xff)) / 255.0
-        let blue = (CGFloat((hex >> 0) & 0xff)) / 255.0
-        let alpha = hex > 0xffffff ? (CGFloat((hex >> 24) & 0xff)) / 255.0 : 1
+        let red = (CGFloat((hex >> 16) & 0xFF)) / 255.0
+        let green = (CGFloat((hex >> 8) & 0xFF)) / 255.0
+        let blue = (CGFloat((hex >> 0) & 0xFF)) / 255.0
+        let alpha = hex > 0xFFFFFF ? (CGFloat((hex >> 24) & 0xFF)) / 255.0 : 1
 
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }

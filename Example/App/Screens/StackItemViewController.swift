@@ -22,6 +22,7 @@ class StackItemViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "user_color")
         return imageView
     }()
 
@@ -73,7 +74,6 @@ class StackItemViewController: UIViewController {
             id: "imageView",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
-        actorImageView.image = UIImage(named: "user_color")
         actorImageView.configure(withItem: imageViewItem)
 
         let titleLabelItem = TextItem(
