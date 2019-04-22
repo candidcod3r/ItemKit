@@ -42,6 +42,6 @@ class SocialCountsViewModel {
             subItems: [likesCountItem, dotItem, commentsCountItem])
 
         self.item = stackItem
-        self.itemCache = item?.createCache()
+        self.itemCache = item?.makeCache()
     }
 }

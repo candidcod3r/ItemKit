@@ -7,11 +7,11 @@
 //
 
 public protocol Cacheable {
-    func createCache() -> ViewItemCache
+    func makeCache() -> ViewItemCache
 }
 
 extension Itemable {
-    public func createCache() -> ViewItemCache {
+    public func makeCache() -> ViewItemCache {
         let cache = ViewItemCache()
         self.add(to: cache)
         return cache

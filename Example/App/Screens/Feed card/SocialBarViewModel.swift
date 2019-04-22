@@ -55,6 +55,6 @@ class SocialBarViewModel {
             subItems: [likeButtonItem, commentButtonItem, shareButtonItem])
 
         self.item = stackItem
-        self.itemCache = item?.createCache()
+        self.itemCache = item?.makeCache()
     }
 }

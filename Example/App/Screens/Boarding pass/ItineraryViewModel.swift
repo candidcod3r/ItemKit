@@ -73,7 +73,7 @@ class ItineraryViewModel {
             alignment: .center)
 
         item = createItem()
-        itemCache = item?.createCache()
+        itemCache = item?.makeCache()
     }
 
     private func createItem() -> Itemable {

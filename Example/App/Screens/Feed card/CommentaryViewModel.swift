@@ -42,7 +42,7 @@ class CommentaryViewModel {
             subItems: [textItem])
 
         self.item = stackItem
-        self.itemCache = item?.createCache()
+        self.itemCache = item?.makeCache()
     }
 
     static func creteText() -> NSAttributedString {

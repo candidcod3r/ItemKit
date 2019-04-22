@@ -71,7 +71,7 @@ class BoardingDetailsViewModel {
             font: Constant.valueFont)
 
         item = createItem()
-        itemCache = item?.createCache()
+        itemCache = item?.makeCache()
     }
 
     private func createItem() -> Itemable {

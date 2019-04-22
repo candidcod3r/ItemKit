@@ -67,7 +67,7 @@ class ActorViewModel {
             subItems: [imageItem, labelsStackItem, actionButtonItem])
 
         self.item = stackItem
-        self.itemCache = item?.createCache()
+        self.itemCache = item?.makeCache()
     }
 
     static func titleText() -> NSAttributedString {

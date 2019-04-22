@@ -111,7 +111,8 @@ open class ButtonItem: Item {
         
         return contentSize
     }
-    
+
+    // MARK:- Private helpers
     private func titleSize(within maxSize: CGSize) -> CGSize {
         return title?.size(with: font, within: maxSize) ?? .zero
     }

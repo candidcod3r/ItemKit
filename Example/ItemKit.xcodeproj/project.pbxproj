@@ -26,6 +26,8 @@
 		4EA60090226A9FA500B21807 /* SocialBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6008F226A9FA500B21807 /* SocialBarViewModel.swift */; };
 		4EA60092226A9FBB00B21807 /* FeedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */; };
 		4EA60094226AC53100B21807 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60093226AC53100B21807 /* UIImage+.swift */; };
+		4EA6009D226D7E1D00B21807 /* ImagesRollupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */; };
+		4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F161226D917700C72655 /* ImagesRollupView.swift */; };
 		4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* StackItemViewController.swift */; };
 		4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81852269850500B8D849 /* BoardingDetailsView.swift */; };
 		4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */; };
@@ -63,6 +65,8 @@
 		4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardViewController.swift; sourceTree = "<group>"; };
 		4EA60093226AC53100B21807 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4EA6009A226C0A9900B21807 /* ItemKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ItemKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupItem.swift; sourceTree = "<group>"; };
+		4ED4F161226D917700C72655 /* ImagesRollupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupView.swift; sourceTree = "<group>"; };
 		4EFB818222696A4400B8D849 /* StackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItemViewController.swift; sourceTree = "<group>"; };
 		4EFB81852269850500B8D849 /* BoardingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsView.swift; sourceTree = "<group>"; };
 		4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +145,14 @@
 			path = "Feed card";
 			sourceTree = "<group>";
 		};
+		4EA6009B226D7E0200B21807 /* Example Items */ = {
+			isa = PBXGroup;
+			children = (
+				4ED4F160226D914800C72655 /* ImagesRollup */,
+			);
+			path = "Example Items";
+			sourceTree = "<group>";
+		};
 		4EC1C5C222617F5500C724AA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,15 @@
 				4EA60080226A9F0A00B21807 /* Feed card */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		4ED4F160226D914800C72655 /* ImagesRollup */ = {
+			isa = PBXGroup;
+			children = (
+				4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */,
+				4ED4F161226D917700C72655 /* ImagesRollupView.swift */,
+			);
+			path = ImagesRollup;
 			sourceTree = "<group>";
 		};
 		4EFB8184226984DB00B8D849 /* Boarding pass */ = {
@@ -208,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				4EA6009B226D7E0200B21807 /* Example Items */,
 				4E05A1D5226464BA008F53CB /* Extensions */,
 				4EC1C5C422617F6100C724AA /* Resources */,
 				4EC1C5C522617F7A00C724AA /* Screens */,
@@ -271,10 +293,9 @@
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "ItemKit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -357,9 +378,11 @@
 				4EA60088226A9F5200B21807 /* CommentaryViewModel.swift in Sources */,
 				4EA60084226A9F3B00B21807 /* ActorView.swift in Sources */,
 				4EA6008E226A9F9A00B21807 /* SocialBarView.swift in Sources */,
+				4EA6009D226D7E1D00B21807 /* ImagesRollupItem.swift in Sources */,
 				4EFB818A2269851600B8D849 /* ItineraryView.swift in Sources */,
 				4E66A6002266DFDA00824280 /* TextItemViewController.swift in Sources */,
 				4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */,
+				4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */,
 				4E50753922659B45006DF752 /* FillViewController.swift in Sources */,
 				4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */,
 				4EA60082226A9F3000B21807 /* ActorViewModel.swift in Sources */,
