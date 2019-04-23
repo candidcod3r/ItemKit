@@ -27,6 +27,8 @@
 		4EA60092226A9FBB00B21807 /* FeedCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60091226A9FBB00B21807 /* FeedCardViewController.swift */; };
 		4EA60094226AC53100B21807 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA60093226AC53100B21807 /* UIImage+.swift */; };
 		4EA6009D226D7E1D00B21807 /* ImagesRollupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */; };
+		4EB735D0226EE69E0011B977 /* ProfileCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB735CF226EE69E0011B977 /* ProfileCardViewModel.swift */; };
+		4EB735D2226EE8320011B977 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB735D1226EE8320011B977 /* ProfileCardView.swift */; };
 		4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F161226D917700C72655 /* ImagesRollupView.swift */; };
 		4ED4F164226D93D900C72655 /* SubItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F163226D93D900C72655 /* SubItemViewController.swift */; };
 		4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* StackItemViewController.swift */; };
@@ -67,6 +69,8 @@
 		4EA60093226AC53100B21807 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4EA6009A226C0A9900B21807 /* ItemKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ItemKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4EA6009C226D7E1D00B21807 /* ImagesRollupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupItem.swift; sourceTree = "<group>"; };
+		4EB735CF226EE69E0011B977 /* ProfileCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardViewModel.swift; sourceTree = "<group>"; };
+		4EB735D1226EE8320011B977 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		4ED4F161226D917700C72655 /* ImagesRollupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupView.swift; sourceTree = "<group>"; };
 		4ED4F163226D93D900C72655 /* SubItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubItemViewController.swift; sourceTree = "<group>"; };
 		4EFB818222696A4400B8D849 /* StackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItemViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +155,18 @@
 			isa = PBXGroup;
 			children = (
 				4ED4F160226D914800C72655 /* ImagesRollup */,
+				4EB735CE226EE68E0011B977 /* ProfileCard */,
 			);
 			path = "Example Items";
+			sourceTree = "<group>";
+		};
+		4EB735CE226EE68E0011B977 /* ProfileCard */ = {
+			isa = PBXGroup;
+			children = (
+				4EB735CF226EE69E0011B977 /* ProfileCardViewModel.swift */,
+				4EB735D1226EE8320011B977 /* ProfileCardView.swift */,
+			);
+			path = ProfileCard;
 			sourceTree = "<group>";
 		};
 		4EC1C5C222617F5500C724AA /* Support Files */ = {
@@ -369,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB735D2226EE8320011B977 /* ProfileCardView.swift in Sources */,
 				4EA60086226A9F4800B21807 /* CommentaryView.swift in Sources */,
 				4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */,
 				4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */,
@@ -391,6 +406,7 @@
 				4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */,
 				4EA60082226A9F3000B21807 /* ActorViewModel.swift in Sources */,
 				4EFB818E2269852C00B8D849 /* BoardingPassViewController.swift in Sources */,
+				4EB735D0226EE69E0011B977 /* ProfileCardViewModel.swift in Sources */,
 				4E66A60822670A3C00824280 /* ButtonItemViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				4EA6008C226A9F9200B21807 /* SocialCountsViewModel.swift in Sources */,

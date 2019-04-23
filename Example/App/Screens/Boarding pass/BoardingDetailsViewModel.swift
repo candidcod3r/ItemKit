@@ -27,7 +27,6 @@ class BoardingDetailsViewModel {
     private(set) var boardingTimeItem: TextItem
 
     private(set) var item: Itemable? = nil
-    private(set) var itemCache: ViewItemCache? = nil
 
     init() {
         flightTextItem = TextItem(
@@ -71,7 +70,6 @@ class BoardingDetailsViewModel {
             font: Constant.valueFont)
 
         item = createItem()
-        itemCache = item?.makeCache()
     }
 
     private func createItem() -> Itemable {

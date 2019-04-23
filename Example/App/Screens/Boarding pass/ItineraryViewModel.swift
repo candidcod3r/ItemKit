@@ -27,7 +27,6 @@ class ItineraryViewModel {
     private(set) var toTimeItem: TextItem
 
     private(set) var item: Itemable? = nil
-    private var itemCache: ViewItemCache? = nil
 
     init() {
         fromTextItem = TextItem(
@@ -73,7 +72,6 @@ class ItineraryViewModel {
             alignment: .center)
 
         item = createItem()
-        itemCache = item?.makeCache()
     }
 
     private func createItem() -> Itemable {

@@ -24,7 +24,6 @@ class ActorViewModel {
     private(set) var actionButtonItem: ButtonItem
 
     private(set) var item: Itemable? = nil
-    private(set) var itemCache: ViewItemCache? = nil
 
     init() {
         imageItem = Item(
@@ -67,7 +66,6 @@ class ActorViewModel {
             subItems: [imageItem, labelsStackItem, actionButtonItem])
 
         self.item = stackItem
-        self.itemCache = item?.makeCache()
     }
 
     static func titleText() -> NSAttributedString {

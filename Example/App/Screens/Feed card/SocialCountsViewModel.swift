@@ -18,7 +18,6 @@ class SocialCountsViewModel {
     private(set) var commentsCountItem: TextItem
 
     private(set) var item: Itemable? = nil
-    private(set) var itemCache: ViewItemCache? = nil
 
     init() {
         likesCountItem = TextItem(
@@ -42,6 +41,5 @@ class SocialCountsViewModel {
             subItems: [likesCountItem, dotItem, commentsCountItem])
 
         self.item = stackItem
-        self.itemCache = item?.makeCache()
     }
 }

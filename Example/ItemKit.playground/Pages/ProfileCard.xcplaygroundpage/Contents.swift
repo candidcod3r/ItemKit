@@ -1,5 +1,3 @@
-//: A UIKit based Playground for presenting user interface
-
 import UIKit
 import PlaygroundSupport
 import ItemKit
@@ -14,13 +12,14 @@ let rootView: UIView = {
 
 let backgroundImageItem = Item(
     id: "backgroundImage",
-    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)))
+    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
+    alignment: .leadingTop)
 
 let actionButtonItem = ButtonItem(
     id: "actionButton",
     title: "follow",
     insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4),
-    alignment: .trailingTop)
+    alignment: .trailingBottom)
 
 let titleItem = TextItem(
     id: "title",
@@ -51,39 +50,37 @@ let presenceItem = Item(
 
 let profileImageContainerItem = Item(
     sizeGuide: SizeGuide(width: .fixed(60), height: .fixed(60)),
-    alignment: Alignment(
-        horizontal: .leading,
-        vertical: .top,
-        offset: UIOffset(horizontal: 8, vertical: 76 - 30)),
+    alignment: .leadingBottom,
     subItems: [profileImageItem, presenceItem])
 
-let textStackItem = StackItem(
+let topStackItem = StackItem(
+    axis: .horizontal,
+    distribution: .fillExtraSpace,
+    sizeGuide: SizeGuide(width: .fill),
+    insets: UIEdgeInsets(top: 76 - 25, left: 8, bottom: 16, right: 8),
+    subItems: [profileImageContainerItem, actionButtonItem])
+
+let topItem = CanvasItem(
+    sizeGuide: SizeGuide(width: .fill),
+    primaryItem: topStackItem,
+    subItems: [backgroundImageItem])
+
+let bottomStackItem = StackItem(
     axis: .vertical,
     spacing: 4,
     sizeGuide: SizeGuide(width: .fill),
+    insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
     subItems: [
         titleItem,
         headlineItem,
         subtitleItem])
 
-let bottomStackItem = StackItem(
-    axis: .vertical,
-    spacing: 20,
-    sizeGuide: SizeGuide(width: .fill),
-    insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
-    subItems: [
-        actionButtonItem,
-        textStackItem])
-
 let stackItem = StackItem(
     axis: .vertical,
     sizeGuide: SizeGuide(width: .fill),
-    subItems: [backgroundImageItem, bottomStackItem])
+    subItems: [topItem, bottomStackItem])
 
-let profileCardItem = CanvasItem(
-    sizeGuide: SizeGuide(width: .fill),
-    primaryItem: stackItem,
-    subItems: [profileImageContainerItem])
+let profileCardItem = stackItem
 
 profileCardItem.updateLayout(within: rootView.bounds)
 print(profileCardItem.debugDescription())

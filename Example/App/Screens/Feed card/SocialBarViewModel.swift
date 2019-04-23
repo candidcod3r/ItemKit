@@ -21,7 +21,6 @@ class SocialBarViewModel {
     private(set) var shareButtonItem: ButtonItem
 
     private(set) var item: Itemable? = nil
-    private(set) var itemCache: ViewItemCache? = nil
 
     init() {
         likeButtonItem = ButtonItem(
@@ -55,6 +54,5 @@ class SocialBarViewModel {
             subItems: [likeButtonItem, commentButtonItem, shareButtonItem])
 
         self.item = stackItem
-        self.itemCache = item?.makeCache()
     }
 }

@@ -28,7 +28,6 @@ class CommentaryViewModel {
     private(set) var textItem: TextItem
 
     private(set) var item: Itemable? = nil
-    private(set) var itemCache: ViewItemCache? = nil
 
     init() {
         textItem = TextItem(
@@ -42,7 +41,6 @@ class CommentaryViewModel {
             subItems: [textItem])
 
         self.item = stackItem
-        self.itemCache = item?.makeCache()
     }
 
     static func creteText() -> NSAttributedString {
