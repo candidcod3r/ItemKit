@@ -21,10 +21,10 @@ public enum DimensionGuide {
 
     func dimension(of value: CGFloat, within maxDimension: CGFloat) -> CGFloat {
         switch self {
-        case .fixed(let value):
-            return value
-        case .percent(let value):
-            let clampedPercentage = clamp(value, within: 0...1)
+        case .fixed(let fixedValue):
+            return fixedValue
+        case .percent(let percentValue):
+            let clampedPercentage = clamp(percentValue, within: 0...1)
             return maxDimension * clampedPercentage
         case .fit:
             return value

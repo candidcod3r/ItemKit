@@ -43,12 +43,12 @@ extension Itemable {
         let rect = coordinateSpaceView.convert(frame, to: parentView)
         let debugView = makeDebugView(with: rect)
         parentView.addSubview(debugView)
-        
-        for i in 0..<subItems.count {
+
+        for subItem in subItems {
             if requiresView {
-                subItems[i].makeDebugViews(in: debugView, coordinateSpaceView: debugView)
+                subItem.makeDebugViews(in: debugView, coordinateSpaceView: debugView)
             } else {
-                subItems[i].makeDebugViews(in: debugView, coordinateSpaceView: coordinateSpaceView)
+                subItem.makeDebugViews(in: debugView, coordinateSpaceView: coordinateSpaceView)
             }
         }
 

@@ -14,7 +14,7 @@ public struct Aligner {
         let yOffset = alignment.vertical.offet(with: size.height, within: maxFrame.size.height)
 
         return CGPoint(
-            x: maxFrame.origin.x + xOffset,
-            y: maxFrame.origin.y + yOffset)
+            x: maxFrame.origin.x + xOffset + alignment.offset.horizontal,
+            y: maxFrame.origin.y + yOffset + alignment.offset.vertical)
     }
 }

@@ -12,111 +12,79 @@ let rootView: UIView = {
     return view
 }()
 
-public class ImagesRollupItem: StackItem {
-    struct Constant {
-        static let subItemIDPrefix = "rollupItem"
-    }
+let backgroundImageItem = Item(
+    id: "backgroundImage",
+    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)))
 
-    // MARK:- Designated intializer
-    public init(id: String,
-                imagesCount: Int,
-                imageSize: CGSize,
-                insets: UIEdgeInsets = .zero,
-                alignment: Alignment = .leadingTop) {
-        let subItemSizeGuide = SizeGuide(
-            width: .fixed(imageSize.width),
-            height: .fixed(imageSize.height))
-        let imageItems: [Itemable] = (imagesCount <= 0)
-            ? []
-            : (0..<imagesCount).map { (index) in
-                return Item(
-                    id: Constant.subItemIDPrefix + "\(index)",
-                    sizeGuide: subItemSizeGuide)}
+let actionButtonItem = ButtonItem(
+    id: "actionButton",
+    title: "follow",
+    insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4),
+    alignment: .trailingTop)
 
-        super.init(
-            id: id,
-            spacing: -imageSize.width/2,
-            sizeGuide: SizeGuide(width: .fit, height: .fit),
-            insets: insets,
-            alignment: alignment,
-            flexibility: Flexibility.low,
-            subItems: imageItems)
-    }
-}
+let titleItem = TextItem(
+    id: "title",
+    text: "Candid Cod3r",
+    numberOfLines: 1,
+    sizeGuide: SizeGuide(width: .fill))
 
-class ImagesRollupView: UIView {
-    let imageView1: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "avatar1")
-        return imageView
-    }()
+let headlineItem = TextItem(
+    id: "headline",
+    text: "Make world a better place",
+    numberOfLines: 1,
+    sizeGuide: SizeGuide(width: .fill))
 
-    let imageView3: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "avatar2")
-        return imageView
-    }()
+let subtitleItem = TextItem(
+    id: "subtitle",
+    text: "500+ connections",
+    numberOfLines: 1,
+    sizeGuide: SizeGuide(width: .fill))
 
-    let imageView2: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "avatar3")
-        return imageView
-    }()
+let profileImageItem = Item(
+    id: "profileImage",
+    sizeGuide: SizeGuide(width: .fill, height: .fill))
 
-    public var imageRadius: CGFloat
+let presenceItem = Item(
+    id: "presence",
+    sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(10)),
+    alignment: .trailingBottom)
 
-    private var imageViews: [UIImageView] {
-        return [imageView1, imageView2, imageView3]
-    }
+let profileImageContainerItem = Item(
+    sizeGuide: SizeGuide(width: .fixed(60), height: .fixed(60)),
+    alignment: Alignment(
+        horizontal: .leading,
+        vertical: .top,
+        offset: UIOffset(horizontal: 8, vertical: 76 - 30)),
+    subItems: [profileImageItem, presenceItem])
 
-    init(imageRadius: CGFloat) {
-        self.imageRadius = imageRadius
+let textStackItem = StackItem(
+    axis: .vertical,
+    spacing: 4,
+    sizeGuide: SizeGuide(width: .fill),
+    subItems: [
+        titleItem,
+        headlineItem,
+        subtitleItem])
 
-        super.init(frame: .zero)
-        setup()
-    }
+let bottomStackItem = StackItem(
+    axis: .vertical,
+    spacing: 20,
+    sizeGuide: SizeGuide(width: .fill),
+    insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
+    subItems: [
+        actionButtonItem,
+        textStackItem])
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+let stackItem = StackItem(
+    axis: .vertical,
+    sizeGuide: SizeGuide(width: .fill),
+    subItems: [backgroundImageItem, bottomStackItem])
 
-    func setup() {
-        imageViews.forEach(addSubview)
-        imageViews.forEach { configure(imageView: $0) }
-    }
+let profileCardItem = CanvasItem(
+    sizeGuide: SizeGuide(width: .fill),
+    primaryItem: stackItem,
+    subItems: [profileImageContainerItem])
 
-    func configure(withImagesRollupItem imagesRollupItem: ImagesRollupItem?) {
-        guard let imagesRollupItem = imagesRollupItem else {
-            return
-        }
-
-        configure(withItem: imagesRollupItem)
-        for (subview, subItem) in zip(subviews, imagesRollupItem.subItems) {
-
-            subview.configure(withItem: subItem)
-        }
-    }
-
-    private func configure(imageView: UIImageView) {
-        imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .white
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 2
-        imageView.layer.cornerRadius = imageRadius
-        imageView.layer.masksToBounds = true
-    }
-}
-
-let rollupItem = ImagesRollupItem(
-    id: "imagesRollupItem",
-    imagesCount: 3,
-    imageSize: CGSize(width: 50, height: 50),
-    alignment: .center)
-
-rollupItem.updateLayout(within: rootView.bounds)
-print(rollupItem.debugDescription())
-
-let imagesRollupview = ImagesRollupView(imageRadius: 25)
-rootView.addSubview(imagesRollupview)
-imagesRollupview.configure(withImagesRollupItem: rollupItem)
-imagesRollupview.updateLayout(with: rollupItem)
+profileCardItem.updateLayout(within: rootView.bounds)
+print(profileCardItem.debugDescription())
+profileCardItem.makeDebugViews(in: rootView)

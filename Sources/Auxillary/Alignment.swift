@@ -45,23 +45,27 @@ public enum VerticalAlignment {
 public struct Alignment {
     public var horizontal: HorizontalAlignment
     public var vertical:VerticalAlignment
+    public var offset: UIOffset
 
-    public init(_ horizontal: HorizontalAlignment, _ vertical: VerticalAlignment) {
+    public init(horizontal: HorizontalAlignment,
+                vertical: VerticalAlignment,
+                offset: UIOffset = .zero) {
         self.horizontal = horizontal
         self.vertical = vertical
+        self.offset = offset
     }
 
-    public static let leadingTop = Alignment(.leading, .top)
-    public static let leadingBottom = Alignment(.leading, .bottom)
-    public static let leadingCenter = Alignment(.leading, .center)
+    public static let leadingTop = Alignment(horizontal: .leading, vertical: .top)
+    public static let leadingBottom = Alignment(horizontal: .leading, vertical: .bottom)
+    public static let leadingCenter = Alignment(horizontal: .leading, vertical: .center)
 
-    public static let trailingTop = Alignment(.trailing, .top)
-    public static let trailingBottom = Alignment(.trailing, .bottom)
-    public static let trailingCenter = Alignment(.trailing, .center)
+    public static let trailingTop = Alignment(horizontal: .trailing, vertical: .top)
+    public static let trailingBottom = Alignment(horizontal: .trailing, vertical: .bottom)
+    public static let trailingCenter = Alignment(horizontal: .trailing, vertical: .center)
 
-    public static let centerTop = Alignment(.center, .top)
-    public static let centerBottom = Alignment(.center, .bottom)
-    public static let center = Alignment(.center, .center)
+    public static let centerTop = Alignment(horizontal: .center, vertical: .top)
+    public static let centerBottom = Alignment(horizontal: .center, vertical: .bottom)
+    public static let center = Alignment(horizontal: .center, vertical: .center)
 }
 
 extension HorizontalAlignment {
