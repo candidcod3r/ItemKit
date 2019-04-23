@@ -1,5 +1,5 @@
 //
-//  CanvasItemViewController.swift
+//  SubItemViewController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 4/21/19.
@@ -9,7 +9,7 @@
 import UIKit
 import ItemKit
 
-class CanvasItemViewController: UIViewController {
+class SubItemViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -59,7 +59,7 @@ class CanvasItemViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(withItem: containerItem)
 
-        let canvasItem = CanvasItem(
+        let canvasItem = Item(
             sizeGuide: SizeGuide(width: .fill, height: .fixed(200)),
             alignment: .center)
         containerItem.subItems.append(canvasItem)
@@ -70,7 +70,7 @@ class CanvasItemViewController: UIViewController {
         backgroundImageView.configure(withItem: imageViewItem)
         canvasItem.subItems.append(imageViewItem)
 
-        let overlayItem = CanvasItem(
+        let overlayItem = Item(
             id: "overlay",
             sizeGuide: SizeGuide(width: .fill, height: .percent(0.40)),
             alignment: .leadingBottom)

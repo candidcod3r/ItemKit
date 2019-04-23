@@ -49,13 +49,10 @@ open class Item: Itemable, Cacheable {
     }
 
     open func contentFittingSize(within maxSize: CGSize) -> CGSize {
-        var contentFittingSize = CGSize.zero
         for i in 0..<subItems.count {
             subItems[i].updateFittingSize(within: maxSize)
-            contentFittingSize = subItems[i].fittingSize
-
         }
-        return Sizer.fittingSize(within: contentFittingSize, using: sizeGuide)
+        return Sizer.fittingSize(within: maxSize, using: sizeGuide)
     }
 
     // MARK:- Layoutable
