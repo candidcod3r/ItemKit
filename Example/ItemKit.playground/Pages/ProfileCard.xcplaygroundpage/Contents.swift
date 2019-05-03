@@ -5,7 +5,7 @@ import ItemKit
 let rootView: UIView = {
     let view = UIView()
     view.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-    view.backgroundColor = .lightText
+    view.backgroundColor = .white
     PlaygroundPage.current.liveView = view
     return view
 }()
