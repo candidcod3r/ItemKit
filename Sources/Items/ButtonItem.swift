@@ -61,7 +61,7 @@ open class ButtonItem: Item {
                             flexibility: Flexibility = .normal) {
         self.init(
             id: id,
-            title: Text.simple(title),
+            title: .normal(title),
             image: image,
             imageSize: imageSize,
             font: font,

@@ -15,7 +15,7 @@ extension UILabel {
         configure(withItem: item)
 
         switch item.text {
-        case .simple(let text):
+        case .normal(let text):
             self.text = text
             font = item.font
         case .attributed(let attributedText):

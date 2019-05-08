@@ -9,12 +9,12 @@
 import UIKit
 
 public enum Text {
-    case simple(String)
+    case normal(String)
     case attributed(NSAttributedString)
 
     var isEmpty: Bool {
         switch self {
-        case .simple(let string):
+        case .normal(let string):
             return string.isEmpty
         case .attributed(let attributedString):
             return attributedString.string.isEmpty
@@ -30,7 +30,7 @@ public enum Text {
 
         let textSize: CGSize
         switch self {
-        case .simple(let string):
+        case .normal(let string):
             let boundingRect = string.boundingRect(
                 with: maxSize,
                 options: options,

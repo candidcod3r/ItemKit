@@ -29,7 +29,7 @@ extension UIButton {
         }
 
         switch title {
-        case .simple(let title):
+        case .normal(let title):
             setTitle(title, for: [.normal])
             titleLabel?.font = item.font
         case .attributed(let attributedTitle):
