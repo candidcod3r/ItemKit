@@ -35,7 +35,7 @@ class CommentaryView: UIView {
     }
 
     func configure(viewModel: CommentaryViewModel?) {
-        textView.configure(withTextItem: viewModel?.textItem)
+        textView.configure(with: viewModel?.textItem)
 
         configure(with: viewModel?.item)
         self.viewModel = viewModel

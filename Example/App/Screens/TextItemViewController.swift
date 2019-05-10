@@ -76,7 +76,7 @@ class TextItemViewController: UIViewController {
             lineFragmentPadding: 0,
             alignment: .leadingTop)
         containerItem.subItems.append(label1Item)
-        label1.configure(withTextItem: label1Item)
+        label1.configure(with: label1Item)
 
         let textView1Item = TextItem(
             id: "textView1",
@@ -92,7 +92,7 @@ class TextItemViewController: UIViewController {
             alignment: .trailingTop,
             subItems: [textView1Item])
         containerItem.subItems.append(textView1ParentItem)
-        textView1.configure(withTextItem: textView1Item)
+        textView1.configure(with: textView1Item)
 
         let textView2Item = TextItem(
             id: "textView2",
@@ -103,7 +103,7 @@ class TextItemViewController: UIViewController {
             lineFragmentPadding: 0,
             alignment: .center)
         containerItem.subItems.append(textView2Item)
-        textView2.configure(withTextItem: textView2Item)
+        textView2.configure(with: textView2Item)
 
         let label2Item = TextItem(
             id: "label2",
@@ -114,7 +114,7 @@ class TextItemViewController: UIViewController {
             lineFragmentPadding: 0,
             alignment: .centerBottom)
         containerItem.subItems.append(label2Item)
-        label2.configure(withTextItem: label2Item)
+        label2.configure(with: label2Item)
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)

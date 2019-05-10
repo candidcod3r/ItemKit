@@ -87,17 +87,17 @@ class BoardingDetailsView: UIView {
     }
 
     func configure(viewModel: BoardingDetailsViewModel?) {
-        flightTextLabel.configure(withTextItem: viewModel?.flightTextItem)
-        flightNumberLabel.configure(withTextItem: viewModel?.flightNumberItem)
+        flightTextLabel.configure(with: viewModel?.flightTextItem)
+        flightNumberLabel.configure(with: viewModel?.flightNumberItem)
 
-        terminalTextLabel.configure(withTextItem: viewModel?.terminalTextItem)
-        terminalNumberLabel.configure(withTextItem: viewModel?.terminalNumberItem)
+        terminalTextLabel.configure(with: viewModel?.terminalTextItem)
+        terminalNumberLabel.configure(with: viewModel?.terminalNumberItem)
 
-        gateTextLabel.configure(withTextItem: viewModel?.gateTextItem)
-        gateNumberLabel.configure(withTextItem: viewModel?.gateNumberItem)
+        gateTextLabel.configure(with: viewModel?.gateTextItem)
+        gateNumberLabel.configure(with: viewModel?.gateNumberItem)
 
-        boardingTextLabel.configure(withTextItem: viewModel?.boardingTextItem)
-        boardingTimeLabel.configure(withTextItem: viewModel?.boardingTimeItem)
+        boardingTextLabel.configure(with: viewModel?.boardingTextItem)
+        boardingTimeLabel.configure(with: viewModel?.boardingTimeItem)
 
         configure(with: viewModel?.item)
         self.viewModel = viewModel

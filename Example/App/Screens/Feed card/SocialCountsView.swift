@@ -45,9 +45,9 @@ class SocialCountsView: UIView {
     }
 
     func configure(viewModel: SocialCountsViewModel?) {
-        likesCountLabel.configure(withTextItem: viewModel?.likesCountItem)
-        dotLabel.configure(withTextItem: viewModel?.dotItem)
-        commentsCountLabel.configure(withTextItem: viewModel?.commentsCountItem)
+        likesCountLabel.configure(with: viewModel?.likesCountItem)
+        dotLabel.configure(with: viewModel?.dotItem)
+        commentsCountLabel.configure(with: viewModel?.commentsCountItem)
 
         configure(with: viewModel?.item)
         self.viewModel = viewModel

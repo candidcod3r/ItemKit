@@ -82,7 +82,7 @@ class StackItemViewController: UIViewController {
             font: UIFont.helveticaLight(of: 15),
             sizeGuide: SizeGuide(width: .fill),
             alignment: .leadingCenter)
-        titleLabel.configure(withTextItem: titleLabelItem)
+        titleLabel.configure(with: titleLabelItem)
 
         let subtitleLabelItem = TextItem(
             id: "subtitleLabel",
@@ -90,7 +90,7 @@ class StackItemViewController: UIViewController {
             font: UIFont.helveticaLight(of: 13),
             sizeGuide: SizeGuide(width: .fill),
             alignment: .leadingCenter)
-        subtitleLabel.configure(withTextItem: subtitleLabelItem)
+        subtitleLabel.configure(with: subtitleLabelItem)
 
         let connectButtonItem = ButtonItem(
             id: "connectButton",

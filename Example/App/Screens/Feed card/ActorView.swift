@@ -64,8 +64,8 @@ class ActorView: UIView {
 
     func configure(viewModel: ActorViewModel?) {
         actorImageView.configure(with: viewModel?.imageItem)
-        titleLabel.configure(withTextItem: viewModel?.titleItem)
-        subtitleLabel.configure(withTextItem: viewModel?.subtitleItem)
+        titleLabel.configure(with: viewModel?.titleItem)
+        subtitleLabel.configure(with: viewModel?.subtitleItem)
         actionButton.configure(with: viewModel?.actionButtonItem)
 
         actorImageView.image = viewModel?.image

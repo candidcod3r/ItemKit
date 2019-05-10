@@ -7,12 +7,12 @@
 //
 
 extension UILabel {
-    open func configure(withTextItem item: TextItem?) {
+    open func configure(with item: TextItem?) {
         guard let item = item else {
             return
         }
 
-        configure(with: item)
+        (self as UIView).configure(with: item)
 
         switch item.text {
         case .normal(let text):

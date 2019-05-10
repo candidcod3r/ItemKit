@@ -82,7 +82,7 @@ class SubItemViewController: UIViewController {
             text: "Make world a better place",
             font: UIFont.helvetica(of: 22),
             alignment: .center)
-        titleLabel.configure(withTextItem: titleLabelItem)
+        titleLabel.configure(with: titleLabelItem)
         overlayItem.subItems.append(titleLabelItem)
 
         let containerParentWidth = CGFloat(360)

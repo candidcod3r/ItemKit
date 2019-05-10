@@ -80,13 +80,13 @@ class ItineraryView: UIView {
     }
 
     func configure(viewModel: ItineraryViewModel?) {
-        fromTextLabel.configure(withTextItem: viewModel?.fromTextItem)
-        fromAirportLabel.configure(withTextItem: viewModel?.fromAirportItem)
-        fromTimeLabel.configure(withTextItem: viewModel?.fromTimeItem)
+        fromTextLabel.configure(with: viewModel?.fromTextItem)
+        fromAirportLabel.configure(with: viewModel?.fromAirportItem)
+        fromTimeLabel.configure(with: viewModel?.fromTimeItem)
 
-        toTextLabel.configure(withTextItem: viewModel?.toTextItem)
-        toAirportLabel.configure(withTextItem: viewModel?.toAirportItem)
-        toTimeLabel.configure(withTextItem: viewModel?.toTimeItem)
+        toTextLabel.configure(with: viewModel?.toTextItem)
+        toAirportLabel.configure(with: viewModel?.toAirportItem)
+        toTimeLabel.configure(with: viewModel?.toTimeItem)
 
         flightImageView.configure(with: viewModel?.flightImageItem)
         flightImageView.image = viewModel?.flightImage
