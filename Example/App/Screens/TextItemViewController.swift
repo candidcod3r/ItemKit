@@ -65,7 +65,7 @@ class TextItemViewController: UIViewController {
         let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(withItem: containerItem)
+        containerView.configure(with: containerItem)
 
         let label1Item = TextItem(
             id: "label1",

@@ -12,7 +12,7 @@ extension UILabel {
             return
         }
 
-        configure(withItem: item)
+        configure(with: item)
 
         switch item.text {
         case .normal(let text):

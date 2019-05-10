@@ -78,7 +78,7 @@ class FillViewController: UIViewController {
         let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(withItem: containerItem)
+        containerView.configure(with: containerItem)
 
         /////////////
         // redView //
@@ -91,7 +91,7 @@ class FillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(redItem)
-        redView.configure(withItem: redItem)
+        redView.configure(with: redItem)
 
         //////////////
         // blueView //
@@ -104,7 +104,7 @@ class FillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(blueItem)
-        blueView.configure(withItem: blueItem)
+        blueView.configure(with: blueItem)
 
         //////////////
         // cyanView //
@@ -117,7 +117,7 @@ class FillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(cyanItem)
-        cyanView.configure(withItem: cyanItem)
+        cyanView.configure(with: cyanItem)
 
         ///////////////
         // greenView //
@@ -130,7 +130,7 @@ class FillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(greenItem)
-        greenView.configure(withItem: greenItem)
+        greenView.configure(with: greenItem)
 
         ////////////////
         // yellowView //
@@ -143,7 +143,7 @@ class FillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(yellowItem)
-        yellowView.configure(withItem: yellowItem)
+        yellowView.configure(with: yellowItem)
 
         ////////////////
         // orangeView //
@@ -156,7 +156,7 @@ class FillViewController: UIViewController {
             flexibility: .normal,
             subItems: [])
         containerItem.subItems.append(orangeItem)
-        orangeView.configure(withItem: orangeItem)
+        orangeView.configure(with: orangeItem)
 
         let containerParentWidth: CGFloat = 360
         let containerParentHeight: CGFloat = 400

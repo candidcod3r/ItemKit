@@ -49,7 +49,7 @@ class SocialCountsView: UIView {
         dotLabel.configure(withTextItem: viewModel?.dotItem)
         commentsCountLabel.configure(withTextItem: viewModel?.commentsCountItem)
 
-        configure(withItem: viewModel?.item)
+        configure(with: viewModel?.item)
         self.viewModel = viewModel
     }
 }

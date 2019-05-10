@@ -83,7 +83,7 @@ class FeedCardViewController: UIViewController {
                 self.socialCountsView.configure(viewModel: socialCountsViewModel)
                 self.socialBarView.configure(viewModel: socialBarViewModel)
 
-                self.containerView.configure(withItem: containerItem)
+                self.containerView.configure(with: containerItem)
                 self.containerView.updateLayout(with: containerParentItem)
             }
         }

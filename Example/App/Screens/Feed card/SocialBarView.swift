@@ -54,11 +54,11 @@ class SocialBarView: UIView {
     }
 
     func configure(viewModel: SocialBarViewModel?) {
-        likeButton.configure(withButtonItem: viewModel?.likeButtonItem)
-        commentButton.configure(withButtonItem: viewModel?.commentButtonItem)
-        shareButton.configure(withButtonItem: viewModel?.shareButtonItem)
+        likeButton.configure(with: viewModel?.likeButtonItem)
+        commentButton.configure(with: viewModel?.commentButtonItem)
+        shareButton.configure(with: viewModel?.shareButtonItem)
 
-        configure(withItem: viewModel?.item)
+        configure(with: viewModel?.item)
         self.viewModel = viewModel
     }
 }

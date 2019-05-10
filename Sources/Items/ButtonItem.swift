@@ -88,7 +88,7 @@ open class ButtonItem: Item {
                             flexibility: Flexibility = .normal) {
         self.init(
             id: id,
-            title: Text.attributed(title),
+            title: .attributed(title),
             image: image,
             imageSize: imageSize,
             font: font,
@@ -126,5 +126,93 @@ open class ButtonItem: Item {
     
     private var buttonImageSize: CGSize {
         return image?.size ?? imageSize
+    }
+}
+
+
+open class ButtonViewItem<View: UIButton>: ButtonItem, InternalViewItemable {
+    open var itemView: UIView?
+
+    // MARK:- Designated intializer
+    public init(view: View? = nil,
+                title: Text? = nil,
+                image: UIImage? = nil,
+                imageSize: CGSize = .zero,
+                font: UIFont? = nil,
+                contentInsets: UIEdgeInsets = .zero,
+                titleInsets: UIEdgeInsets = .zero,
+                imageInsets: UIEdgeInsets = .zero,
+                sizeGuide: SizeGuide = SizeGuide(),
+                insets: UIEdgeInsets = .zero,
+                alignment: Alignment = .leadingTop,
+                flexibility: Flexibility = .normal) {
+        self.itemView = view
+
+        super.init(
+            title: title,
+            image: image,
+            imageSize: imageSize,
+            font: font,
+            contentInsets: contentInsets,
+            titleInsets: titleInsets,
+            imageInsets: imageInsets,
+            sizeGuide: sizeGuide,
+            insets: insets,
+            alignment: alignment,
+            flexibility: flexibility)
+    }
+
+    public convenience init(view: View? = nil,
+                            title: String,
+                            image: UIImage? = nil,
+                            imageSize: CGSize = .zero,
+                            font: UIFont? = nil,
+                            contentInsets: UIEdgeInsets = .zero,
+                            titleInsets: UIEdgeInsets = .zero,
+                            imageInsets: UIEdgeInsets = .zero,
+                            sizeGuide: SizeGuide = SizeGuide(),
+                            insets: UIEdgeInsets = .zero,
+                            alignment: Alignment = .leadingTop,
+                            flexibility: Flexibility = .normal) {
+        self.init(
+            view: view,
+            title: .normal(title),
+            image: image,
+            imageSize: imageSize,
+            font: font,
+            contentInsets: contentInsets,
+            titleInsets: titleInsets,
+            imageInsets: imageInsets,
+            sizeGuide: sizeGuide,
+            insets: insets,
+            alignment: alignment,
+            flexibility: flexibility)
+    }
+
+    public convenience init(view: View? = nil,
+                            title: NSAttributedString,
+                            image: UIImage? = nil,
+                            imageSize: CGSize = .zero,
+                            font: UIFont? = nil,
+                            contentInsets: UIEdgeInsets = .zero,
+                            titleInsets: UIEdgeInsets = .zero,
+                            imageInsets: UIEdgeInsets = .zero,
+                            sizeGuide: SizeGuide = SizeGuide(),
+                            insets: UIEdgeInsets = .zero,
+                            alignment: Alignment = .leadingTop,
+                            flexibility: Flexibility = .normal) {
+        self.init(
+            view: view,
+            title: .attributed(title),
+            image: image,
+            imageSize: imageSize,
+            font: font,
+            contentInsets: contentInsets,
+            titleInsets: titleInsets,
+            imageInsets: imageInsets,
+            sizeGuide: sizeGuide,
+            insets: insets,
+            alignment: alignment,
+            flexibility: flexibility)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  UIView+Item.swift
+//  UIView+Itemable.swift
 //  ItemKit
 //
 //  Created by Candid Cod3r on 4/14/19.

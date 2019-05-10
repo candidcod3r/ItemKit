@@ -7,7 +7,7 @@
 //
 
 extension UIView {
-    open func configure(withItem item: Itemable?) {
+    open func configure(with item: Itemable?) {
         guard let item = item else {
             return
         }

@@ -1,4 +1,4 @@
-cd Example; pod install; cd..;
+cd Example; pod install; cd ..;
 git add .; git commit -m "Updated podspec to $1";
 git tag $1;
 git push;

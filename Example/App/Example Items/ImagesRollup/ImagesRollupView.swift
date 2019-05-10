@@ -55,10 +55,10 @@ class ImagesRollupView: UIView {
             return
         }
 
-        configure(withItem: imagesRollupItem)
+        configure(with: imagesRollupItem)
         for (subview, subItem) in zip(subviews, imagesRollupItem.subItems) {
 
-            subview.configure(withItem: subItem)
+            subview.configure(with: subItem)
         }
     }
 

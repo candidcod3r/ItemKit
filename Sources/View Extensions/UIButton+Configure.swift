@@ -7,12 +7,12 @@
 //
 
 extension UIButton {
-    open func configure(withButtonItem item: ButtonItem?) {
+    open func configure(with item: ButtonItem?) {
         guard let item = item else {
             return
         }
 
-        configure(withItem: item)
+        (self as UIView).configure(with: item)
 
         setTitle(item)
         setImage(item.image, for: .normal)

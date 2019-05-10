@@ -88,10 +88,10 @@ class ItineraryView: UIView {
         toAirportLabel.configure(withTextItem: viewModel?.toAirportItem)
         toTimeLabel.configure(withTextItem: viewModel?.toTimeItem)
 
-        flightImageView.configure(withItem: viewModel?.flightImageItem)
+        flightImageView.configure(with: viewModel?.flightImageItem)
         flightImageView.image = viewModel?.flightImage
 
-        configure(withItem: viewModel?.item)
+        configure(with: viewModel?.item)
         self.viewModel = viewModel
     }
 }

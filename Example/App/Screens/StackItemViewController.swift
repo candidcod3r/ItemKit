@@ -68,13 +68,13 @@ class StackItemViewController: UIViewController {
         let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(withItem: containerItem)
+        containerView.configure(with: containerItem)
 
         let imageViewItem = Item(
             id: "imageView",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
-        actorImageView.configure(withItem: imageViewItem)
+        actorImageView.configure(with: imageViewItem)
 
         let titleLabelItem = TextItem(
             id: "titleLabel",
@@ -98,7 +98,7 @@ class StackItemViewController: UIViewController {
             image: UIImage(named: "plus")?.resized(toWidth: 36),
             font: UIFont.buttonTitle,
             alignment: .trailingCenter)
-        connectButton.configure(withButtonItem: connectButtonItem)
+        connectButton.configure(with: connectButtonItem)
 
         let titlesStackItem = StackItem(
             axis: .vertical,

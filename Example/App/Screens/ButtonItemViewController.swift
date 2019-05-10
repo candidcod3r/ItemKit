@@ -67,7 +67,7 @@ class ButtonItemViewController: UIViewController {
         let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(withItem: containerItem)
+        containerView.configure(with: containerItem)
 
         let button1Item = ButtonItem(
             id: "button1",
@@ -75,7 +75,7 @@ class ButtonItemViewController: UIViewController {
             font: UIFont.helveticaMedium(of: 15),
             alignment: .centerTop)
         containerItem.subItems.append(button1Item)
-        button1.configure(withButtonItem: button1Item)
+        button1.configure(with: button1Item)
 
         let button2Item = ButtonItem(
             id: "button2",
@@ -85,7 +85,7 @@ class ButtonItemViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fit, height: .fit),
             alignment: .trailingCenter)
         containerItem.subItems.append(button2Item)
-        button2.configure(withButtonItem: button2Item)
+        button2.configure(with: button2Item)
 
         let button3Item = ButtonItem(
             id: "button3",
@@ -94,7 +94,7 @@ class ButtonItemViewController: UIViewController {
             contentInsets: UIEdgeInsets(8),
             alignment: .center)
         containerItem.subItems.append(button3Item)
-        button3.configure(withButtonItem: button3Item)
+        button3.configure(with: button3Item)
 
         let button4Item = ButtonItem(
             id: "button4",
@@ -106,7 +106,7 @@ class ButtonItemViewController: UIViewController {
             titleInsets: UIEdgeInsets(left: 8),
             alignment: .leadingBottom)
         containerItem.subItems.append(button4Item)
-        button4.configure(withButtonItem: button4Item)
+        button4.configure(with: button4Item)
 
         let button5Item = ButtonItem(
             id: "button5",
@@ -116,7 +116,7 @@ class ButtonItemViewController: UIViewController {
             imageInsets: UIEdgeInsets(right: 8),
             alignment: .trailingBottom)
         containerItem.subItems.append(button5Item)
-        button5.configure(withButtonItem: button5Item)
+        button5.configure(with: button5Item)
 
         let containerParentWidth: CGFloat = 360
         let containerParentHeight: CGFloat = 400

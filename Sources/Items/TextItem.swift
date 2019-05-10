@@ -76,7 +76,7 @@ open class TextItem: Item {
                             flexibility: Flexibility = .normal) {
         self.init(
             id: id,
-            text: Text.attributed(text),
+            text: .attributed(text),
             font: font ?? UIFont.label,
             numberOfLines: numberOfLines,
             textContainerInsets: textContainerInsets,

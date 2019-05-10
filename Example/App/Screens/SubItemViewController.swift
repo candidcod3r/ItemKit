@@ -57,7 +57,7 @@ class SubItemViewController: UIViewController {
         let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerView.configure(withItem: containerItem)
+        containerView.configure(with: containerItem)
 
         let canvasItem = Item(
             sizeGuide: SizeGuide(width: .fill, height: .fixed(200)),
@@ -67,14 +67,14 @@ class SubItemViewController: UIViewController {
         let imageViewItem = Item(
             id: "imageView",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        backgroundImageView.configure(withItem: imageViewItem)
+        backgroundImageView.configure(with: imageViewItem)
         canvasItem.subItems.append(imageViewItem)
 
         let overlayItem = Item(
             id: "overlay",
             sizeGuide: SizeGuide(width: .fill, height: .percent(0.40)),
             alignment: .leadingBottom)
-        overlayView.configure(withItem: overlayItem)
+        overlayView.configure(with: overlayItem)
         canvasItem.subItems.append(overlayItem)
 
         let titleLabelItem = TextItem(

@@ -63,14 +63,14 @@ class ProfileCardView: UIView {
     }
 
     func configure(viewModel: ActorViewModel?) {
-        actorImageView.configure(withItem: viewModel?.imageItem)
+        actorImageView.configure(with: viewModel?.imageItem)
         titleLabel.configure(withTextItem: viewModel?.titleItem)
         subtitleLabel.configure(withTextItem: viewModel?.subtitleItem)
-        actionButton.configure(withButtonItem: viewModel?.actionButtonItem)
+        actionButton.configure(with: viewModel?.actionButtonItem)
 
         actorImageView.image = viewModel?.image
 
-        configure(withItem: viewModel?.item)
+        configure(with: viewModel?.item)
         self.viewModel = viewModel
     }
 }

@@ -71,7 +71,7 @@ class BoardingPassViewController: UIViewController {
                 self.itineraryView.configure(viewModel: itineraryViewModel)
                 self.boardingDetailsView.configure(viewModel: boardingDetailsViewModel)
 
-                self.containerView.configure(withItem: containerItem)
+                self.containerView.configure(with: containerItem)
                 self.containerView.updateLayout(with: containerParentItem)
             }
         }
