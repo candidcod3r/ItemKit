@@ -26,7 +26,7 @@ extension ViewItemable {
     }
 }
 
-extension ViewItemable {
+extension Itemable {
     public mutating func layoutViews(within containerView: UIView) {
         updateLayout(within: containerView.frame)
 
