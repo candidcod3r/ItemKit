@@ -22,7 +22,8 @@ class MenuViewController: UIViewController {
         StackItemViewController.self,
         BoardingPassViewController.self,
         FeedCardViewController.self,
-        SubItemViewController.self
+        SubItemViewController.self,
+        TestItemViewController.self
     ]
 
     private let tableView: UITableView = {

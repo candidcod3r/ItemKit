@@ -119,3 +119,11 @@ open class TextItem: Item {
         return maxHeight
     }
 }
+
+open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
+    open var view: View?
+}
+
+open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
+    open var view: View?
+}

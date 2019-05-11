@@ -10,12 +10,30 @@ let rootView: UIView = {
     return view
 }()
 
-let backgroundImageItem = Item(
-    id: "backgroundImage",
-    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
-    alignment: .leadingTop)
+let textView: UITextView = {
+    let view = UITextView()
+    view.textColor = .black
+    return view
+}()
 
-let item = backgroundImageItem
-item.updateLayout(within: rootView.bounds)
+let textItem = TextViewItem(
+    text: "Great going",
+    alignment: .center)
+textItem.itemView = textView
+
+let backgroundImageView: UIView = {
+    let view = UIView()
+    view.backgroundColor = .cyan
+    return view
+}()
+
+let backgroundImageItem = ViewItem(
+    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
+    alignment: .leadingTop,
+    subItems: [textItem])
+backgroundImageItem.itemView = backgroundImageView
+
+
+var item = backgroundImageItem
+item.layoutViews(within: rootView)
 print(item.debugDescription())
-item.makeDebugViews(in: rootView)

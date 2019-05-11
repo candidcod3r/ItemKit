@@ -252,3 +252,7 @@ extension StackItem {
     }
 
 }
+
+open class StackViewItem<View: UIView>: StackItem, ViewItemable {
+    open var view: View?
+}

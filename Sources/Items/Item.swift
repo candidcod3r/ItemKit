@@ -93,3 +93,7 @@ open class Item: Itemable, Cacheable {
         }
     }
 }
+
+open class ViewItem<View: UIView>: Item, ViewItemable {
+    open var view: View?
+}

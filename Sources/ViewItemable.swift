@@ -6,13 +6,23 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public protocol ViewItemable: Itemable {
+public protocol UIViewItemable {
     var itemView: UIView? { get }
+}
+
+public protocol ViewItemable: Itemable, UIViewItemable {
+    associatedtype View: UIView
+
+    var view: View? { get }
 }
 
 extension ViewItemable {
     public var requiresView: Bool {
-        return (id?.count ?? 0) > 0 || itemView != nil
+        return (id?.count ?? 0) > 0 || view != nil
+    }
+
+    public var itemView: UIView? {
+        return view
     }
 }
 
@@ -24,7 +34,7 @@ extension ViewItemable {
     }
 
     fileprivate func layoutViews(for item: Itemable, in containerView: UIView) {
-        let viewItemable = item as? ViewItemable
+        let viewItemable = item as? UIViewItemable
         let itemView = viewItemable?.itemView
         if let itemView = itemView {
             containerView.addSubview(itemView)
@@ -40,14 +50,4 @@ extension ViewItemable {
     }
 }
 
-protocol InternalViewItemable: ViewItemable {
-    associatedtype View: UIView
 
-    var view: View? { get }
-}
-
-extension InternalViewItemable {
-    public var view: View? {
-        return itemView as? View
-    }
-}
