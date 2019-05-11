@@ -42,12 +42,9 @@ extension Itemable {
 
         // set the frame of the view
         itemView?.frame = item.frame
-        itemView?.configure(with: item)
 
         for subItem in item.subItems {
             layoutViews(for: subItem, in: itemView ?? containerView)
         }
     }
 }
-
-

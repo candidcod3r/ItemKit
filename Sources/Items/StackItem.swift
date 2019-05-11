@@ -250,7 +250,6 @@ extension StackItem {
             return CGSize(axisValue: axisLength, crossValue: crossLength, axis: axis)
         }
     }
-
 }
 
 open class StackViewItem<View: UIView>: StackItem, ViewItemable {

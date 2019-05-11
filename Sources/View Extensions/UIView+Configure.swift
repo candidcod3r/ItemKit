@@ -6,13 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public protocol Configurable: class {
-    associatedtype ItemType
-
-    func configure(with item: ItemType?)
-}
-
-extension UIView: Configurable {
+extension UIView {
     open func configure(with item: Itemable?) {
         guard let item = item else {
             return
