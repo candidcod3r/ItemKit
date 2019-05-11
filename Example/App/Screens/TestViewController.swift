@@ -45,6 +45,7 @@ class TestItemViewController: UIViewController {
             label.backgroundColor = UIColor(hex: 0xFFD444)
             return label
         }()
+        labelItem.configureView()
         containerItem.subItems.append(labelItem)
 
         let textViewItem = TextViewItem(
@@ -61,6 +62,7 @@ class TestItemViewController: UIViewController {
             textView.backgroundColor = UIColor(hex: 0xD8ED9C)
             return textView
         }()
+        textViewItem.configureView()
         containerItem.subItems.append(textViewItem)
 
         let containerParentWidth = CGFloat(360)

@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class CanvasItem: Item {
+open class CanvasItem<View: UIView>: Item<View> {
     open var primaryItem: Itemable
 
     public init(id: String? = nil,
@@ -33,8 +33,4 @@ open class CanvasItem: Item {
         }
         return Sizer.fittingSize(within: primaryItem.fittingSize, using: sizeGuide)
     }
-}
-
-open class CanvasViewItem<View: UIView>: CanvasItem, ViewItemable {
-    open var view: View?
 }

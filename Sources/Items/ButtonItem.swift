@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class ButtonItem: Item {
+open class ButtonItem<View: UIView>: Item<View> {
     // MARK:- ButtonItem Properties
     open var title: Text?
     open var image: UIImage?
@@ -127,8 +127,4 @@ open class ButtonItem: Item {
     private var buttonImageSize: CGSize {
         return image?.size ?? imageSize
     }
-}
-
-open class ButtonViewItem<View: UIButton>: ButtonItem, ViewItemable {
-    open var view: View?
 }

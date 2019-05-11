@@ -16,7 +16,7 @@ public enum StackDistribution {
     case fillExtraSpaceEqually
 }
 
-open class StackItem: Item {
+open class StackItem<View: UIView>: Item<View> {
     // MARK:- StackItem Properties
     open var axis: Axis
     open var spacing: CGFloat
@@ -250,8 +250,4 @@ extension StackItem {
             return CGSize(axisValue: axisLength, crossValue: crossLength, axis: axis)
         }
     }
-}
-
-open class StackViewItem<View: UIView>: StackItem, ViewItemable {
-    open var view: View?
 }

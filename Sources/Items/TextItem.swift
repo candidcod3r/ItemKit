@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class TextItem: Item {
+open class TextItem<View: UIView>: Item<View> {
     // MARK:- TextItem Properties
     open var text: Text
     open var font: UIFont
@@ -118,12 +118,4 @@ open class TextItem: Item {
         let maxHeight = totalLinesHeight.roundedUp
         return maxHeight
     }
-}
-
-open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
-    open var view: View?
-}
-
-open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
-    open var view: View?
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class Item: Itemable, Cacheable {
+open class Item<View: UIView>: Itemable, Cacheable {
     // MARK:- Itemable Properties
     public let id: String?
     open var insets: UIEdgeInsets
@@ -15,9 +15,13 @@ open class Item: Itemable, Cacheable {
     open var flexibility: Flexibility
     open var subItems: [Itemable]
 
+    // MARK:- autocomputed properties
     open var frame: CGRect = .zero
     open var fittingSize: CGSize = .zero
     open var contentFittingSize: CGSize = .zero
+
+    // MARK:- Backing view
+    open var view: View?
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
@@ -92,8 +96,12 @@ open class Item: Itemable, Cacheable {
             return CGPoint(x: maxFrame.origin.x + insets.left, y: maxFrame.origin.y + insets.top)
         }
     }
-}
 
-open class ViewItem<View: UIView>: Item, ViewItemable {
-    open var view: View?
+    // MARK:- Configurable
+    public func configureView() {
+        view?.configure(with: self)
+        for subItem in subItems {
+            subItem.configureView()
+        }
+    }
 }

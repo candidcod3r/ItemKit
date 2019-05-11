@@ -10,22 +10,6 @@ public protocol UIViewItemable {
     var itemView: UIView? { get }
 }
 
-public protocol ViewItemable: Itemable, UIViewItemable {
-    associatedtype View: UIView
-
-    var view: View? { get }
-}
-
-extension ViewItemable {
-    public var requiresView: Bool {
-        return (id?.count ?? 0) > 0 || view != nil
-    }
-
-    public var itemView: UIView? {
-        return view
-    }
-}
-
 extension Itemable {
     public mutating func layoutViews(within containerView: UIView) {
         updateLayout(within: containerView.frame)

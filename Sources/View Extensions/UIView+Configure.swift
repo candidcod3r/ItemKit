@@ -7,11 +7,11 @@
 //
 
 extension UIView {
-    open func configure(with item: Itemable?) {
+    open func configure<View: UIView>(with item: Item<View>?) {
         guard let item = item else {
             return
         }
-        
+
         self.itemID = item.id
     }
 }

@@ -7,7 +7,7 @@
 //
 
 extension UIButton {
-    open func configure(with item: ButtonItem?) {
+    open func configure<View: UIButton>(with item: ButtonItem<View>?) {
         guard let item = item else {
             return
         }
@@ -22,7 +22,7 @@ extension UIButton {
         contentEdgeInsets = item.contentInsets
     }
 
-    func setTitle(_ item: ButtonItem) {
+    func setTitle<View: UIButton>(_ item: ButtonItem<View>) {
         guard let title = item.title else {
             setTitle(nil, for: .normal)
             return
