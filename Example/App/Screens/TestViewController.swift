@@ -63,7 +63,7 @@ class TestItemViewController: UIViewController {
         }()
         containerItem.subItems.append(textViewItem)
 
-        let buttonItem = ButtonItem(
+        let buttonItem = ButtonViewItem(
             id: "button",
             title: NSAttributedString(
                 string: "View Profile",

@@ -10,7 +10,7 @@ import ItemKit
 
 class ProfileCardViewModel {
     private(set) var backgroundImageItem: Item
-    private(set) var actionButtonItem: ButtonItem
+    private(set) var actionButtonItem: ButtonViewItem
     private(set) var titleItem: LabelItem
     private(set) var headlineItem: LabelItem
     private(set) var subtitleItem: LabelItem
@@ -25,7 +25,7 @@ class ProfileCardViewModel {
             id: "backgroundImage",
             sizeGuide: SizeGuide(width: .fill, height: .fixed(76)))
 
-        actionButtonItem = ButtonItem(
+        actionButtonItem = ButtonViewItem(
             id: "actionButton",
             title: "follow",
             insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4),

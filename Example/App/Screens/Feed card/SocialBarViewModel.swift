@@ -16,14 +16,14 @@ class SocialBarViewModel {
         static let shareImage = UIImage(named: "share_circle")
     }
 
-    private(set) var likeButtonItem: ButtonItem
-    private(set) var commentButtonItem: ButtonItem
-    private(set) var shareButtonItem: ButtonItem
+    private(set) var likeButtonItem: ButtonViewItem
+    private(set) var commentButtonItem: ButtonViewItem
+    private(set) var shareButtonItem: ButtonViewItem
 
     private(set) var item: Item? = nil
 
     init() {
-        likeButtonItem = ButtonItem(
+        likeButtonItem = ButtonViewItem(
             id: "likeButton",
             title: "Like",
             image: Constant.likeImage,
@@ -31,7 +31,7 @@ class SocialBarViewModel {
             titleInsets: UIEdgeInsets(left: 8),
             sizeGuide: SizeGuide(width: .fill))
 
-        commentButtonItem = ButtonItem(
+        commentButtonItem = ButtonViewItem(
             id: "commentButton",
             title: "Comment",
             image: Constant.commentImage,
@@ -39,7 +39,7 @@ class SocialBarViewModel {
             titleInsets: UIEdgeInsets(left: 16),
             sizeGuide: SizeGuide(width: .fill))
 
-        shareButtonItem = ButtonItem(
+        shareButtonItem = ButtonViewItem(
             id: "shareButton",
             title: "Share",
             image: Constant.shareImage,

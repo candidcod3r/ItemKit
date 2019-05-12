@@ -6,9 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public typealias ButtonItem = ButtonViewItem<UIButton>
+public typealias ButtonViewItem = ButtonItem<UIButton>
 
-open class ButtonViewItem<View: UIButton>: ViewItem<View> {
+open class ButtonItem<View: UIButton>: ViewItem<View> {
     // MARK:- ButtonItem Properties
     open var title: Text?
     open var image: UIImage?

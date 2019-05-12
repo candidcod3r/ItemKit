@@ -92,7 +92,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter)
         subtitleLabel.configure(with: subtitleLabelItem)
 
-        let connectButtonItem = ButtonItem(
+        let connectButtonItem = ButtonViewItem(
             id: "connectButton",
             title: "Connect",
             image: UIImage(named: "plus")?.resized(toWidth: 36),

@@ -21,7 +21,7 @@ class ActorViewModel {
     private(set) var imageItem: Item
     private(set) var titleItem: LabelItem
     private(set) var subtitleItem: LabelItem
-    private(set) var actionButtonItem: ButtonItem
+    private(set) var actionButtonItem: ButtonViewItem
 
     private(set) var item: Item? = nil
 
@@ -43,7 +43,7 @@ class ActorViewModel {
             font: Constant.subtitleFont,
             sizeGuide: SizeGuide(width: .fill))
 
-        actionButtonItem = ButtonItem(
+        actionButtonItem = ButtonViewItem(
             id: "actionButton",
             title: "Connect",
             image: Constant.plusImage,

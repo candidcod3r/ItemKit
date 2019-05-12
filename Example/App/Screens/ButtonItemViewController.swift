@@ -69,7 +69,7 @@ class ButtonItemViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let button1Item = ButtonItem(
+        let button1Item = ButtonViewItem(
             id: "button1",
             title: "Click this",
             font: UIFont.helveticaMedium(of: 15),
@@ -77,7 +77,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button1Item)
         button1.configure(with: button1Item)
 
-        let button2Item = ButtonItem(
+        let button2Item = ButtonViewItem(
             id: "button2",
             title: "Person",
             image: UIImage(named: "user_color"),
@@ -87,7 +87,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button2Item)
         button2.configure(with: button2Item)
 
-        let button3Item = ButtonItem(
+        let button3Item = ButtonViewItem(
             id: "button3",
             title: "Great going!!",
             font: UIFont.helvetica(of: 15),
@@ -96,7 +96,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button3Item)
         button3.configure(with: button3Item)
 
-        let button4Item = ButtonItem(
+        let button4Item = ButtonViewItem(
             id: "button4",
             title: NSAttributedString(
                 string: "View Profile",
@@ -108,7 +108,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button4Item)
         button4.configure(with: button4Item)
 
-        let button5Item = ButtonItem(
+        let button5Item = ButtonViewItem(
             id: "button5",
             title: "Connect",
             image: UIImage(named: "plus"),
