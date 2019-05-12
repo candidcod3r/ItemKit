@@ -8,7 +8,7 @@
 
 import ItemKit
 
-public class ImagesRollupItem: StackItem {
+public class ImagesRollupItem: StackViewItem {
     struct Constant {
         static let subItemIDPrefix = "rollupItem"
     }

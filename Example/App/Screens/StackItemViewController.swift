@@ -100,7 +100,7 @@ class StackItemViewController: UIViewController {
             alignment: .trailingCenter)
         connectButton.configure(with: connectButtonItem)
 
-        let titlesStackItem = StackItem(
+        let titlesStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             distribution: .leading,
@@ -109,7 +109,7 @@ class StackItemViewController: UIViewController {
             flexibility: .high,
             subItems: [titleLabelItem, subtitleLabelItem])
 
-        let rightStackItem = StackItem(
+        let rightStackItem = StackViewItem(
             axis: .horizontal,
             spacing: 4,
             distribution: .fillExtraSpace,
@@ -117,7 +117,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter,
             subItems: [titlesStackItem, connectButtonItem])
 
-        let stackItem = StackItem(
+        let stackItem = StackViewItem(
             axis: .horizontal,
             spacing: 8,
             distribution: .fillExtraSpace,

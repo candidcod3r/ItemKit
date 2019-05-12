@@ -6,9 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public typealias StackItem = StackViewItem<UIView>
+public typealias StackViewItem = StackItem<UIView>
 
-open class StackViewItem<View: UIView>: Item<View> {
+open class StackItem<View: UIView>: Item<View> {
     // MARK:- StackItem Properties
     open var axis: Axis
     open var spacing: CGFloat
@@ -28,7 +28,7 @@ open class StackViewItem<View: UIView>: Item<View> {
         self.spacing = spacing
         self.distribution = distribution
 
-        let flexibility = flexibility ?? StackItem.defaultFlexibility(for: axis, subItems: subItems)
+        let flexibility = flexibility ?? StackViewItem.defaultFlexibility(for: axis, subItems: subItems)
         super.init(
             id: id,
             sizeGuide: sizeGuide,
@@ -108,7 +108,7 @@ open class StackViewItem<View: UIView>: Item<View> {
 }
 
 // MARK:- Private helpers (Equal distribution)
-extension StackViewItem {
+extension StackItem {
     private func contentFittingSizeForEqualDistribution(within maxSize: CGSize) -> CGSize {
         let maxSubItemSize = maxSubItemSizeForEqualDistribution(within: maxSize)
 
@@ -168,7 +168,7 @@ extension StackViewItem {
 }
 
 // MARK:- Private helpers for Layoutable
-extension StackViewItem {
+extension StackItem {
     private func subItemOffset(with excessLength: CGFloat) -> CGFloat {
         switch distribution {
         case .leading,

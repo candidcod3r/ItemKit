@@ -35,7 +35,7 @@ class CommentaryViewModel {
             text: CommentaryViewModel.creteText(),
             sizeGuide: SizeGuide(width: .fill))
 
-        let stackItem = StackItem(
+        let stackItem = StackViewItem(
             axis: .vertical,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [textItem])

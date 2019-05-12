@@ -51,14 +51,14 @@ class ActorViewModel {
             contentInsets: UIEdgeInsets(6),
             alignment: .trailingCenter)
 
-        let labelsStackItem = StackItem(
+        let labelsStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             sizeGuide: SizeGuide(width: .fill),
             flexibility: .high,
             subItems: [titleItem, subtitleItem])
 
-        let stackItem = StackItem(
+        let stackItem = StackViewItem(
             axis: .horizontal,
             spacing: 8,
             distribution: .fillExtraSpace,

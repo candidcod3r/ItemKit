@@ -35,7 +35,7 @@ class SocialCountsViewModel {
             text: "300 Comments",
             font: Constant.countsFont)
 
-        let stackItem = StackItem(
+        let stackItem = StackViewItem(
             axis: .horizontal,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [likesCountItem, dotItem, commentsCountItem])

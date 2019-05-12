@@ -55,7 +55,7 @@ class FeedCardViewController: UIViewController {
                     return
             }
 
-            let stackItem = StackItem(
+            let stackItem = StackViewItem(
                 axis: .vertical,
                 spacing: 8,
                 sizeGuide: SizeGuide(width: .fill),

@@ -45,7 +45,7 @@ class BoardingPassViewController: UIViewController {
                 return
             }
 
-            let stackItem = StackItem(
+            let stackItem = StackViewItem(
                 axis: .vertical,
                 spacing: 24,
                 sizeGuide: SizeGuide(width: .fill),

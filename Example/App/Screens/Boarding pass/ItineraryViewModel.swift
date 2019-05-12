@@ -75,19 +75,19 @@ class ItineraryViewModel {
     }
 
     private func createItem() -> ViewItem {
-        let leftStackItem = StackItem(
+        let leftStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
             subItems: [fromLabelItem, fromAirportItem, fromTimeItem])
 
-        let rightStackItem = StackItem(
+        let rightStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
             subItems: [toLabelItem, toAirportItem, toTimeItem])
 
-        return StackItem(
+        return StackViewItem(
             id: "itineraryView",
             axis: .horizontal,
             distribution: .fillExtraSpace,

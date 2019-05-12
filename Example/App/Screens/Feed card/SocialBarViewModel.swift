@@ -47,7 +47,7 @@ class SocialBarViewModel {
             imageInsets: UIEdgeInsets(right: 8),
             sizeGuide: SizeGuide(width: .fill))
 
-        let stackItem = StackItem(
+        let stackItem = StackViewItem(
             axis: .horizontal,
             distribution: .fillExtraSpaceEqually,
             sizeGuide: SizeGuide(width: .fill),

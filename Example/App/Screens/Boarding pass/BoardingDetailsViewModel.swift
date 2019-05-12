@@ -73,43 +73,43 @@ class BoardingDetailsViewModel {
     }
 
     private func createItem() -> ViewItem {
-        let flightStackItem = StackItem(
+        let flightStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
             subItems: [flightLabelItem, flightNumberItem])
 
-        let terminalStackItem = StackItem(
+        let terminalStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
             subItems: [terminalLabelItem, terminalNumberItem])
 
-        let gateStackItem = StackItem(
+        let gateStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
             subItems: [gateLabelItem, gateNumberItem])
 
-        let boardingStackItem = StackItem(
+        let boardingStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
             subItems: [boardingLabelItem, boardingTimeItem])
 
-        let topStackItem = StackItem(
+        let topStackItem = StackViewItem(
             axis: .horizontal,
             distribution: .equalSize,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [flightStackItem, terminalStackItem])
 
-        let bottomStackItem = StackItem(
+        let bottomStackItem = StackViewItem(
             axis: .horizontal,
             distribution: .equalSize,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [gateStackItem, boardingStackItem])
 
-        return StackItem(
+        return StackViewItem(
             id: "boardingDetailsView",
             axis: .vertical,
             spacing: 16,

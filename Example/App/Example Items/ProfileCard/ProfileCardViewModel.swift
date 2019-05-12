@@ -66,7 +66,7 @@ class ProfileCardViewModel {
                 offset: UIOffset(horizontal: 8, vertical: 76 - 30)),
             subItems: [profileImageItem, presenceItem])
 
-        let textStackItem = StackItem(
+        let textStackItem = StackViewItem(
             axis: .vertical,
             spacing: 4,
             sizeGuide: SizeGuide(width: .fill),
@@ -75,7 +75,7 @@ class ProfileCardViewModel {
                 headlineItem,
                 subtitleItem])
 
-        let bottomStackItem = StackItem(
+        let bottomStackItem = StackViewItem(
             axis: .vertical,
             spacing: 20,
             sizeGuide: SizeGuide(width: .fill),
@@ -84,7 +84,7 @@ class ProfileCardViewModel {
                 actionButtonItem,
                 textStackItem])
 
-        let stackItem = StackItem(
+        let stackItem = StackViewItem(
             axis: .vertical,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [backgroundImageItem, bottomStackItem])
