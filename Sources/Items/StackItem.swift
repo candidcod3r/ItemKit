@@ -6,9 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public typealias StackViewItem = StackItem<UIView>
-
-open class StackItem<View: UIView>: Item<View> {
+open class StackItem: Item {
     // MARK:- StackItem Properties
     open var axis: Axis
     open var spacing: CGFloat
@@ -252,4 +250,10 @@ public enum StackDistribution {
     case equalSpacing
     case fillExtraSpace
     case fillExtraSpaceEqually
+}
+
+// MARK:- ViewItemable
+open class StackViewItem<View: UIView>: StackItem, ViewItemable {
+    // MARK:- Backing view
+    open var view: View?
 }

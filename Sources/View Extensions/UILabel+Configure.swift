@@ -7,7 +7,7 @@
 //
 
 extension UILabel {
-    open func configure<View: UILabel>(with item: TextItem<View>?) {
+    open func configure(with item: TextItem?) {
         guard let item = item else {
             return
         }

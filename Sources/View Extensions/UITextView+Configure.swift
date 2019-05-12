@@ -7,7 +7,7 @@
 //
 
 extension UITextView {
-    open func configure<View: UITextView>(with item: TextItem<View>?) {
+    open func configure(with item: TextItem?) {
         guard let item = item else {
             return
         }

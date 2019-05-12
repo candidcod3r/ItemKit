@@ -17,13 +17,6 @@ public protocol Itemable: Measurable, Layoutable {
     var flexibility: Flexibility { get }
     var subItems: [Itemable] { get }
     var requiresView: Bool { get }
-
-    var itemView: UIView? { get }
-
-    /**
-     Configure the view with required properties
-     */
-    func configureView()
 }
 
 extension Itemable {
@@ -40,7 +33,8 @@ extension Itemable {
     }
 
     fileprivate func layoutViews(for item: Itemable, in containerView: UIView) {
-        let itemView = item.itemView
+        let viewItem = item as? UIViewItemable
+        let itemView = viewItem?.itemView
         if let itemView = itemView {
             containerView.addSubview(itemView)
         }
@@ -53,3 +47,4 @@ extension Itemable {
         }
     }
 }
+

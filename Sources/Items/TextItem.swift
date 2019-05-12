@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class TextItem<View: UIView>: Item<View> {
+open class TextItem: Item {
     // MARK:- TextItem Properties
     open var text: Text
     open var font: UIFont
@@ -120,22 +120,14 @@ open class TextItem<View: UIView>: Item<View> {
     }
 }
 
-
-open class TextViewItem: TextItem<UITextView> {
-    // MARK:- Configurable
-    open override func configureView() {
-        view?.configure(with: self)
-        for subItem in subItems {
-            subItem.configureView()
-        }
-    }
+// MARK:- ViewItemable
+open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
+    // MARK:- Backing view
+    open var view: View?
 }
-open class LabelViewItem: TextItem<UILabel> {
-    // MARK:- Configurable
-    open override func configureView() {
-        view?.configure(with: self)
-        for subItem in subItems {
-            subItem.configureView()
-        }
-    }
+
+// MARK:- ViewItemable
+open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
+    // MARK:- Backing view
+    open var view: View?
 }
