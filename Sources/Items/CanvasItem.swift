@@ -8,7 +8,7 @@
 
 public typealias CanvasViewItem = CanvasItem<UIView>
 
-open class CanvasItem<View: UIView>: ViewItem<View> {
+open class CanvasItem<View: UIView>: Item<View> {
     open var primaryItem: Itemable
 
     public init(id: String? = nil,

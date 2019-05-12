@@ -9,19 +9,19 @@
 import ItemKit
 
 class ProfileCardViewModel {
-    private(set) var backgroundImageItem: Item
+    private(set) var backgroundImageItem: ViewItem
     private(set) var actionButtonItem: ButtonViewItem
     private(set) var titleItem: LabelItem
     private(set) var headlineItem: LabelItem
     private(set) var subtitleItem: LabelItem
-    private(set) var profileImageItem: Item
-    private(set) var presenceItem: Item
+    private(set) var profileImageItem: ViewItem
+    private(set) var presenceItem: ViewItem
 
     private(set) var item: Itemable? = nil
     private(set) var itemCache: ViewItemCache? = nil
 
     init() {
-        backgroundImageItem = Item(
+        backgroundImageItem = ViewItem(
             id: "backgroundImage",
             sizeGuide: SizeGuide(width: .fill, height: .fixed(76)))
 
@@ -49,16 +49,16 @@ class ProfileCardViewModel {
             numberOfLines: 1,
             sizeGuide: SizeGuide(width: .fill))
 
-        profileImageItem = Item(
+        profileImageItem = ViewItem(
             id: "profileImage",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
 
-        presenceItem = Item(
+        presenceItem = ViewItem(
             id: "presence",
             sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(10)),
             alignment: .trailingBottom)
 
-        let profileImageContainerItem = Item(
+        let profileImageContainerItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(60), height: .fixed(60)),
             alignment: Alignment(
                 horizontal: .leading,

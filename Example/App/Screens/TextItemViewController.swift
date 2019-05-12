@@ -62,12 +62,12 @@ class TextItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = Item(
+        let containerItem = ViewItem(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let label1Item = LabelItem(
+        let labelViewItem = LabelItem(
             id: "label1",
             text: "This is a statement",
             font: UIFont.helveticaLight(of: 13),
@@ -75,10 +75,10 @@ class TextItemViewController: UIViewController {
             textContainerInsets: .zero,
             lineFragmentPadding: 0,
             alignment: .leadingTop)
-        containerItem.subItems.append(label1Item)
-        label1.configure(with: label1Item)
+        containerItem.subItems.append(labelViewItem)
+        label1.configure(with: labelViewItem)
 
-        let textView1Item = TextItem(
+        let textViewViewItem = TextItem(
             id: "textView1",
             text: "The U.S. 🇺🇸 is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.",
             font: UIFont.helveticaLight(of: 13),
@@ -87,12 +87,12 @@ class TextItemViewController: UIViewController {
             lineFragmentPadding: 8,
             alignment: .trailingTop)
 
-        let textView1ParentItem = Item(
+        let textView1ParentItem = ViewItem(
             insets: UIEdgeInsets(top: 32),
             alignment: .trailingTop,
-            subItems: [textView1Item])
+            subItems: [textViewViewItem])
         containerItem.subItems.append(textView1ParentItem)
-        textView1.configure(with: textView1Item)
+        textView1.configure(with: textViewViewItem)
 
         let textView2Item = TextItem(
             id: "textView2",
@@ -118,7 +118,7 @@ class TextItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = Item(
+        let containerParentItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

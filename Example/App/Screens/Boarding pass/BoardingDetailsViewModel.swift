@@ -26,7 +26,7 @@ class BoardingDetailsViewModel {
     private(set) var boardingLabelItem: LabelItem
     private(set) var boardingTimeItem: LabelItem
 
-    private(set) var item: Item? = nil
+    private(set) var item: ViewItem? = nil
 
     init() {
         flightLabelItem = LabelItem(
@@ -72,7 +72,7 @@ class BoardingDetailsViewModel {
         item = createItem()
     }
 
-    private func createItem() -> Item {
+    private func createItem() -> ViewItem {
         let flightStackItem = StackItem(
             axis: .vertical,
             spacing: 4,

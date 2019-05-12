@@ -20,7 +20,7 @@ class TestItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = ViewItem(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerItem.view = {
@@ -85,7 +85,7 @@ class TestItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        var containerParentItem = Item(
+        var containerParentItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

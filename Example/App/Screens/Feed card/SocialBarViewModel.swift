@@ -20,7 +20,7 @@ class SocialBarViewModel {
     private(set) var commentButtonItem: ButtonViewItem
     private(set) var shareButtonItem: ButtonViewItem
 
-    private(set) var item: Item? = nil
+    private(set) var item: ViewItem? = nil
 
     init() {
         likeButtonItem = ButtonViewItem(

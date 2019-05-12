@@ -65,12 +65,12 @@ class StackItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = Item(
+        let containerItem = ViewItem(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let imageViewItem = Item(
+        let imageViewItem = ViewItem(
             id: "imageView",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
@@ -129,7 +129,7 @@ class StackItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = Item(
+        let containerParentItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

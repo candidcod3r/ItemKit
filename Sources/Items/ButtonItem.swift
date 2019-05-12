@@ -8,7 +8,7 @@
 
 public typealias ButtonViewItem = ButtonItem<UIButton>
 
-open class ButtonItem<View: UIButton>: ViewItem<View> {
+open class ButtonItem<View: UIButton>: Item<View> {
     // MARK:- ButtonItem Properties
     open var title: Text?
     open var image: UIImage?

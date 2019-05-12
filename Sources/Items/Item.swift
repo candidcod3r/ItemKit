@@ -6,9 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public typealias Item = ViewItem<UIView>
+public typealias ViewItem = Item<UIView>
 
-open class ViewItem<View: UIView>: Itemable, Cacheable {
+open class Item<View: UIView>: Itemable, Cacheable {
     // MARK:- Itemable Properties
     public let id: String?
     open var insets: UIEdgeInsets
@@ -109,7 +109,7 @@ open class ViewItem<View: UIView>: Itemable, Cacheable {
 }
 
 // MARK- Itemable
-extension ViewItem {
+extension Item {
     open var itemView: UIView? {
         return view
     }

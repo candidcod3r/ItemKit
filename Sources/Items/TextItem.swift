@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class TextViewItem<View: UIView>: ViewItem<View> {
+open class TextViewItem<View: UIView>: Item<View> {
     // MARK:- TextItem Properties
     open var text: Text
     open var font: UIFont

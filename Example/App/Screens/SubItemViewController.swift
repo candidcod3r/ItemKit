@@ -54,23 +54,23 @@ class SubItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = Item(
+        let containerItem = ViewItem(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let canvasItem = Item(
+        let canvasItem = ViewItem(
             sizeGuide: SizeGuide(width: .fill, height: .fixed(200)),
             alignment: .center)
         containerItem.subItems.append(canvasItem)
 
-        let imageViewItem = Item(
+        let imageViewItem = ViewItem(
             id: "imageView",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         backgroundImageView.configure(with: imageViewItem)
         canvasItem.subItems.append(imageViewItem)
 
-        let overlayItem = Item(
+        let overlayItem = ViewItem(
             id: "overlay",
             sizeGuide: SizeGuide(width: .fill, height: .percent(0.40)),
             alignment: .leadingBottom)
@@ -87,7 +87,7 @@ class SubItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = Item(
+        let containerParentItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

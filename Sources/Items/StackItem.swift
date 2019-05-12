@@ -8,7 +8,7 @@
 
 public typealias StackItem = StackViewItem<UIView>
 
-open class StackViewItem<View: UIView>: ViewItem<View> {
+open class StackViewItem<View: UIView>: Item<View> {
     // MARK:- StackItem Properties
     open var axis: Axis
     open var spacing: CGFloat

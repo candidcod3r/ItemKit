@@ -64,18 +64,18 @@ class ButtonItemViewController: UIViewController {
     }
 
     func setup() {
-        let containerItem = Item(
+        let containerItem = ViewItem(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let button1Item = ButtonViewItem(
+        let buttonViewItem = ButtonViewItem(
             id: "button1",
             title: "Click this",
             font: UIFont.helveticaMedium(of: 15),
             alignment: .centerTop)
-        containerItem.subItems.append(button1Item)
-        button1.configure(with: button1Item)
+        containerItem.subItems.append(buttonViewItem)
+        button1.configure(with: buttonViewItem)
 
         let button2Item = ButtonViewItem(
             id: "button2",
@@ -120,7 +120,7 @@ class ButtonItemViewController: UIViewController {
 
         let containerParentWidth: CGFloat = 360
         let containerParentHeight: CGFloat = 400
-        let containerParentItem = Item(
+        let containerParentItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

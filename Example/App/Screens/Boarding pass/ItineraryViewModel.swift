@@ -20,13 +20,13 @@ class ItineraryViewModel {
     private(set) var fromTimeItem: LabelItem
 
     private(set) var flightImage = UIImage(named: "flight")?.withRenderingMode(.alwaysTemplate)
-    private(set) var flightImageItem: Item
+    private(set) var flightImageItem: ViewItem
 
     private(set) var toLabelItem: LabelItem
     private(set) var toAirportItem: LabelItem
     private(set) var toTimeItem: LabelItem
 
-    private(set) var item: Item? = nil
+    private(set) var item: ViewItem? = nil
 
     init() {
         fromLabelItem = LabelItem(
@@ -47,7 +47,7 @@ class ItineraryViewModel {
             font: Constant.timeTextFont,
             alignment: .center)
 
-        flightImageItem = Item(
+        flightImageItem = ViewItem(
             id: "flightImage",
             sizeGuide: SizeGuide(width: .fixed(32), height: .fixed(32)),
             alignment: .center,
@@ -74,7 +74,7 @@ class ItineraryViewModel {
         item = createItem()
     }
 
-    private func createItem() -> Item {
+    private func createItem() -> ViewItem {
         let leftStackItem = StackItem(
             axis: .vertical,
             spacing: 4,

@@ -18,15 +18,15 @@ class ActorViewModel {
     }
 
     private(set) var image = Constant.actorImage
-    private(set) var imageItem: Item
+    private(set) var imageItem: ViewItem
     private(set) var titleItem: LabelItem
     private(set) var subtitleItem: LabelItem
     private(set) var actionButtonItem: ButtonViewItem
 
-    private(set) var item: Item? = nil
+    private(set) var item: ViewItem? = nil
 
     init() {
-        imageItem = Item(
+        imageItem = ViewItem(
             id: "imageItem",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)

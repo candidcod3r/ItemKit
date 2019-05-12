@@ -52,12 +52,12 @@ class BoardingPassViewController: UIViewController {
                 alignment: .leadingTop,
                 subItems: [itineraryItem, boardingItem])
 
-            let containerItem = Item(
+            let containerItem = ViewItem(
                 id: "containerItem",
                 sizeGuide: SizeGuide(width: .fill, height: .fill),
                 subItems: [stackItem])
 
-            let containerParentItem = Item(
+            let containerParentItem = ViewItem(
                 sizeGuide: SizeGuide(width: .fixed(360), height: .fixed(680)),
                 insets: UIEdgeInsets(8),
                 alignment: .centerTop,

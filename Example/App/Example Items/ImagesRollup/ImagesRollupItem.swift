@@ -25,7 +25,7 @@ public class ImagesRollupItem: StackItem {
         let imageItems: [Itemable] = (imagesCount <= 0)
             ? []
             : (0..<imagesCount).map { (index) in
-                return Item(
+                return ViewItem(
                     id: Constant.subItemIDPrefix + "\(index)",
                     sizeGuide: subItemSizeGuide)}
 

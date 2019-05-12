@@ -17,7 +17,7 @@ class SocialCountsViewModel {
     private(set) var dotItem: LabelItem
     private(set) var commentsCountItem: LabelItem
 
-    private(set) var item: Item? = nil
+    private(set) var item: ViewItem? = nil
 
     init() {
         likesCountItem = LabelItem(

@@ -75,7 +75,7 @@ class FillViewController: UIViewController {
         ///////////////////
         // containerView //
         ///////////////////
-        let containerItem = Item(
+        let containerItem = ViewItem(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
@@ -83,7 +83,7 @@ class FillViewController: UIViewController {
         /////////////
         // redView //
         /////////////
-        let redItem = Item(
+        let redItem = ViewItem(
             id: "redItem",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fill),
             insets: .zero,
@@ -96,7 +96,7 @@ class FillViewController: UIViewController {
         //////////////
         // blueView //
         //////////////
-        let blueItem = Item(
+        let blueItem = ViewItem(
             id: "blueItem",
             sizeGuide: SizeGuide(width: .fill, height: .fixed(10)),
             insets: .zero,
@@ -109,7 +109,7 @@ class FillViewController: UIViewController {
         //////////////
         // cyanView //
         //////////////
-        let cyanItem = Item(
+        let cyanItem = ViewItem(
             id: "cyanItem",
             sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
             insets: .zero,
@@ -122,7 +122,7 @@ class FillViewController: UIViewController {
         ///////////////
         // greenView //
         ///////////////
-        let greenItem = Item(
+        let greenItem = ViewItem(
             id: "greenItem",
             sizeGuide: SizeGuide(width: .fixed(50), height: .fill),
             insets: .zero,
@@ -135,7 +135,7 @@ class FillViewController: UIViewController {
         ////////////////
         // yellowView //
         ////////////////
-        let yellowItem = Item(
+        let yellowItem = ViewItem(
             id: "yellowItem",
             sizeGuide: SizeGuide(width: .fixed(15), height: .fill),
             insets: .zero,
@@ -148,7 +148,7 @@ class FillViewController: UIViewController {
         ////////////////
         // orangeView //
         ////////////////
-        let orangeItem = Item(
+        let orangeItem = ViewItem(
             id: "orangeItem",
             sizeGuide: SizeGuide(width: .fill, height: .fixed(20)),
             insets: .zero,
@@ -164,7 +164,7 @@ class FillViewController: UIViewController {
         /////////////////////////
         // containerParentItem //
         /////////////////////////
-        let containerParentItem = Item(
+        let containerParentItem = ViewItem(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,
