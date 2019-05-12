@@ -54,30 +54,30 @@ class SubItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = ViewItem(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let canvasItem = ViewItem(
+        let canvasItem = Item(
             sizeGuide: SizeGuide(width: .fill, height: .fixed(200)),
             alignment: .center)
         containerItem.subItems.append(canvasItem)
 
-        let imageViewItem = ViewItem(
+        let imageViewItem = Item(
             id: "imageView",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         backgroundImageView.configure(with: imageViewItem)
         canvasItem.subItems.append(imageViewItem)
 
-        let overlayItem = ViewItem(
+        let overlayItem = Item(
             id: "overlay",
             sizeGuide: SizeGuide(width: .fill, height: .percent(0.40)),
             alignment: .leadingBottom)
         overlayView.configure(with: overlayItem)
         canvasItem.subItems.append(overlayItem)
 
-        let titleLabelItem = LabelViewItem(
+        let titleLabelItem = TextItem(
             id: "titleLabel",
             text: "Make world a better place",
             font: UIFont.helvetica(of: 22),
@@ -87,7 +87,7 @@ class SubItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = ViewItem(
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

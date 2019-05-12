@@ -14,57 +14,57 @@ class BoardingDetailsViewModel {
         static let valueFont = UIFont.helvetica(of: 21)
     }
 
-    private(set) var flightLabelItem: LabelViewItem
-    private(set) var flightNumberItem: LabelViewItem
+    private(set) var flightLabelItem: TextItem
+    private(set) var flightNumberItem: TextItem
 
-    private(set) var terminalLabelItem: LabelViewItem
-    private(set) var terminalNumberItem: LabelViewItem
+    private(set) var terminalLabelItem: TextItem
+    private(set) var terminalNumberItem: TextItem
 
-    private(set) var gateLabelItem: LabelViewItem
-    private(set) var gateNumberItem: LabelViewItem
+    private(set) var gateLabelItem: TextItem
+    private(set) var gateNumberItem: TextItem
 
-    private(set) var boardingLabelItem: LabelViewItem
-    private(set) var boardingTimeItem: LabelViewItem
+    private(set) var boardingLabelItem: TextItem
+    private(set) var boardingTimeItem: TextItem
 
-    private(set) var item: ViewItem? = nil
+    private(set) var item: Itemable? = nil
 
     init() {
-        flightLabelItem = LabelViewItem(
+        flightLabelItem = TextItem(
             id: "flightText",
             text: "FLIGHT",
             font: Constant.headerFont)
 
-        flightNumberItem = LabelViewItem(
+        flightNumberItem = TextItem(
             id: "flightNumber",
             text: "IK123",
             font: Constant.valueFont)
 
-        terminalLabelItem = LabelViewItem(
+        terminalLabelItem = TextItem(
             id: "terminalText",
             text: "TERMINAL",
             font: Constant.headerFont)
 
-        terminalNumberItem = LabelViewItem(
+        terminalNumberItem = TextItem(
             id: "terminalNumber",
             text: "3",
             font: Constant.valueFont)
 
-        gateLabelItem = LabelViewItem(
+        gateLabelItem = TextItem(
             id: "gateText",
             text: "GATE",
             font: Constant.headerFont)
 
-        gateNumberItem = LabelViewItem(
+        gateNumberItem = TextItem(
             id: "gateNumber",
             text: "12",
             font: Constant.valueFont)
 
-        boardingLabelItem = LabelViewItem(
+        boardingLabelItem = TextItem(
             id: "boardingText",
             text: "BOARDING",
             font: Constant.headerFont)
 
-        boardingTimeItem = LabelViewItem(
+        boardingTimeItem = TextItem(
             id: "boardingTime",
             text: "12:30AM",
             font: Constant.valueFont)
@@ -72,44 +72,44 @@ class BoardingDetailsViewModel {
         item = createItem()
     }
 
-    private func createItem() -> ViewItem {
-        let flightStackItem = StackViewItem(
+    private func createItem() -> Item {
+        let flightStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
             subItems: [flightLabelItem, flightNumberItem])
 
-        let terminalStackItem = StackViewItem(
+        let terminalStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
             subItems: [terminalLabelItem, terminalNumberItem])
 
-        let gateStackItem = StackViewItem(
+        let gateStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
             subItems: [gateLabelItem, gateNumberItem])
 
-        let boardingStackItem = StackViewItem(
+        let boardingStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
             subItems: [boardingLabelItem, boardingTimeItem])
 
-        let topStackItem = StackViewItem(
+        let topStackItem = StackItem(
             axis: .horizontal,
             distribution: .equalSize,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [flightStackItem, terminalStackItem])
 
-        let bottomStackItem = StackViewItem(
+        let bottomStackItem = StackItem(
             axis: .horizontal,
             distribution: .equalSize,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [gateStackItem, boardingStackItem])
 
-        return StackViewItem(
+        return StackItem(
             id: "boardingDetailsView",
             axis: .vertical,
             spacing: 16,

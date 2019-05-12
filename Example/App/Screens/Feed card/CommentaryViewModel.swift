@@ -25,17 +25,17 @@ class CommentaryViewModel {
                                         NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 
-    private(set) var textItem: TextViewItem
+    private(set) var textItem: TextItem
 
-    private(set) var item: ViewItem? = nil
+    private(set) var item: Itemable? = nil
 
     init() {
-        textItem = TextViewItem(
+        textItem = TextItem(
             id: "commentaryText",
             text: CommentaryViewModel.creteText(),
             sizeGuide: SizeGuide(width: .fill))
 
-        let stackItem = StackViewItem(
+        let stackItem = StackItem(
             axis: .vertical,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [textItem])

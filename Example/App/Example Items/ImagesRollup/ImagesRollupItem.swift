@@ -8,7 +8,7 @@
 
 import ItemKit
 
-public class ImagesRollupItem: StackViewItem {
+public class ImagesRollupItem: StackItem {
     struct Constant {
         static let subItemIDPrefix = "rollupItem"
     }
@@ -25,7 +25,7 @@ public class ImagesRollupItem: StackViewItem {
         let imageItems: [Itemable] = (imagesCount <= 0)
             ? []
             : (0..<imagesCount).map { (index) in
-                return ViewItem(
+                return Item(
                     id: Constant.subItemIDPrefix + "\(index)",
                     sizeGuide: subItemSizeGuide)}
 

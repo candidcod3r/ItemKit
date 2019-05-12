@@ -62,12 +62,12 @@ class TextItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = ViewItem(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let labelViewItem = LabelViewItem(
+        let labelViewItem = TextItem(
             id: "label1",
             text: "This is a statement",
             font: UIFont.helveticaLight(of: 13),
@@ -78,7 +78,7 @@ class TextItemViewController: UIViewController {
         containerItem.subItems.append(labelViewItem)
         label1.configure(with: labelViewItem)
 
-        let textViewViewItem = TextViewItem(
+        let textViewViewItem = TextItem(
             id: "textView1",
             text: "The U.S. 🇺🇸 is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.",
             font: UIFont.helveticaLight(of: 13),
@@ -87,14 +87,14 @@ class TextItemViewController: UIViewController {
             lineFragmentPadding: 8,
             alignment: .trailingTop)
 
-        let textView1ParentItem = ViewItem(
+        let textView1ParentItem = Item(
             insets: UIEdgeInsets(top: 32),
             alignment: .trailingTop,
             subItems: [textViewViewItem])
         containerItem.subItems.append(textView1ParentItem)
         textView1.configure(with: textViewViewItem)
 
-        let textView2Item = TextViewItem(
+        let textView2Item = TextItem(
             id: "textView2",
             text: "The Great Smoky Mountains ⛰️ are a mountain range rising along the Tennessee–North Carolina border in the southeastern United States. They are a subrange of the Appalachian Mountains, and form part of the Blue Ridge Physiographic Province.",
             font: UIFont.helveticaLight(of: 15),
@@ -105,7 +105,7 @@ class TextItemViewController: UIViewController {
         containerItem.subItems.append(textView2Item)
         textView2.configure(with: textView2Item)
 
-        let label2Item = LabelViewItem(
+        let label2Item = TextItem(
             id: "label2",
             text: "Sachin Ramesh Tendulkar is a former Indian international cricketer 🏏 and a former captain of the Indian national team, regarded as one of the greatest batsmen of all time. He is the highest run scorer of all time in International cricket.",
             font: UIFont.helveticaLight(of: 15),
@@ -118,7 +118,7 @@ class TextItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = ViewItem(
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

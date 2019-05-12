@@ -16,7 +16,7 @@ let textView: UITextView = {
     return view
 }()
 
-let textItem = TextViewItem(
+let textItem = TextItem(
     text: "Great going",
     alignment: .center)
 textItem.itemView = textView
@@ -27,7 +27,7 @@ let backgroundImageView: UIView = {
     return view
 }()
 
-let backgroundImageItem = ViewItem(
+let backgroundImageItem = Item(
     sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
     alignment: .leadingTop,
     subItems: [textItem])

@@ -64,20 +64,20 @@ class ButtonItemViewController: UIViewController {
     }
 
     func setup() {
-        let containerItem = ViewItem(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let buttonViewItem = ButtonViewItem(
+        let button1Item = ButtonItem(
             id: "button1",
             title: "Click this",
             font: UIFont.helveticaMedium(of: 15),
             alignment: .centerTop)
-        containerItem.subItems.append(buttonViewItem)
-        button1.configure(with: buttonViewItem)
+        containerItem.subItems.append(button1Item)
+        button1.configure(with: button1Item)
 
-        let button2Item = ButtonViewItem(
+        let button2Item = ButtonItem(
             id: "button2",
             title: "Person",
             image: UIImage(named: "user_color"),
@@ -87,7 +87,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button2Item)
         button2.configure(with: button2Item)
 
-        let button3Item = ButtonViewItem(
+        let button3Item = ButtonItem(
             id: "button3",
             title: "Great going!!",
             font: UIFont.helvetica(of: 15),
@@ -96,7 +96,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button3Item)
         button3.configure(with: button3Item)
 
-        let button4Item = ButtonViewItem(
+        let button4Item = ButtonItem(
             id: "button4",
             title: NSAttributedString(
                 string: "View Profile",
@@ -108,7 +108,7 @@ class ButtonItemViewController: UIViewController {
         containerItem.subItems.append(button4Item)
         button4.configure(with: button4Item)
 
-        let button5Item = ButtonViewItem(
+        let button5Item = ButtonItem(
             id: "button5",
             title: "Connect",
             image: UIImage(named: "plus"),
@@ -120,7 +120,7 @@ class ButtonItemViewController: UIViewController {
 
         let containerParentWidth: CGFloat = 360
         let containerParentHeight: CGFloat = 400
-        let containerParentItem = ViewItem(
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

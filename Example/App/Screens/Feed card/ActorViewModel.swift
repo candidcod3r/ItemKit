@@ -18,32 +18,32 @@ class ActorViewModel {
     }
 
     private(set) var image = Constant.actorImage
-    private(set) var imageItem: ViewItem
-    private(set) var titleItem: LabelViewItem
-    private(set) var subtitleItem: LabelViewItem
-    private(set) var actionButtonItem: ButtonViewItem
+    private(set) var imageItem: Item
+    private(set) var titleItem: TextItem
+    private(set) var subtitleItem: TextItem
+    private(set) var actionButtonItem: ButtonItem
 
-    private(set) var item: ViewItem? = nil
+    private(set) var item: Itemable? = nil
 
     init() {
-        imageItem = ViewItem(
+        imageItem = Item(
             id: "imageItem",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
 
-        titleItem = LabelViewItem(
+        titleItem = TextItem(
             id: "titleItem",
             text: ActorViewModel.titleText(),
             font: Constant.titleFont,
             sizeGuide: SizeGuide(width: .fill))
 
-        subtitleItem = LabelViewItem(
+        subtitleItem = TextItem(
             id: "subtitleItem",
             text: "Make world a better place",
             font: Constant.subtitleFont,
             sizeGuide: SizeGuide(width: .fill))
 
-        actionButtonItem = ButtonViewItem(
+        actionButtonItem = ButtonItem(
             id: "actionButton",
             title: "Connect",
             image: Constant.plusImage,
@@ -51,14 +51,14 @@ class ActorViewModel {
             contentInsets: UIEdgeInsets(6),
             alignment: .trailingCenter)
 
-        let labelsStackItem = StackViewItem(
+        let labelsStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             sizeGuide: SizeGuide(width: .fill),
             flexibility: .high,
             subItems: [titleItem, subtitleItem])
 
-        let stackItem = StackViewItem(
+        let stackItem = StackItem(
             axis: .horizontal,
             spacing: 8,
             distribution: .fillExtraSpace,

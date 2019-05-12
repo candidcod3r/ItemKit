@@ -65,18 +65,18 @@ class StackItemViewController: UIViewController {
     }
 
     private func setup() {
-        let containerItem = ViewItem(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let imageViewItem = ViewItem(
+        let imageViewItem = Item(
             id: "imageView",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
         actorImageView.configure(with: imageViewItem)
 
-        let titleLabelItem = LabelViewItem(
+        let titleLabelItem = TextItem(
             id: "titleLabel",
             text: "Candid Cod3r",
             font: UIFont.helveticaLight(of: 15),
@@ -84,7 +84,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter)
         titleLabel.configure(with: titleLabelItem)
 
-        let subtitleLabelItem = LabelViewItem(
+        let subtitleLabelItem = TextItem(
             id: "subtitleLabel",
             text: "Make world a better place",
             font: UIFont.helveticaLight(of: 13),
@@ -92,7 +92,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter)
         subtitleLabel.configure(with: subtitleLabelItem)
 
-        let connectButtonItem = ButtonViewItem(
+        let connectButtonItem = ButtonItem(
             id: "connectButton",
             title: "Connect",
             image: UIImage(named: "plus")?.resized(toWidth: 36),
@@ -100,7 +100,7 @@ class StackItemViewController: UIViewController {
             alignment: .trailingCenter)
         connectButton.configure(with: connectButtonItem)
 
-        let titlesStackItem = StackViewItem(
+        let titlesStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             distribution: .leading,
@@ -109,7 +109,7 @@ class StackItemViewController: UIViewController {
             flexibility: .high,
             subItems: [titleLabelItem, subtitleLabelItem])
 
-        let rightStackItem = StackViewItem(
+        let rightStackItem = StackItem(
             axis: .horizontal,
             spacing: 4,
             distribution: .fillExtraSpace,
@@ -117,7 +117,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter,
             subItems: [titlesStackItem, connectButtonItem])
 
-        let stackItem = StackViewItem(
+        let stackItem = StackItem(
             axis: .horizontal,
             spacing: 8,
             distribution: .fillExtraSpace,
@@ -129,7 +129,7 @@ class StackItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = ViewItem(
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

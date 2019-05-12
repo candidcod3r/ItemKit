@@ -45,19 +45,19 @@ class BoardingPassViewController: UIViewController {
                 return
             }
 
-            let stackItem = StackViewItem(
+            let stackItem = StackItem(
                 axis: .vertical,
                 spacing: 24,
                 sizeGuide: SizeGuide(width: .fill),
                 alignment: .leadingTop,
                 subItems: [itineraryItem, boardingItem])
 
-            let containerItem = ViewItem(
+            let containerItem = Item(
                 id: "containerItem",
                 sizeGuide: SizeGuide(width: .fill, height: .fill),
                 subItems: [stackItem])
 
-            let containerParentItem = ViewItem(
+            let containerParentItem = Item(
                 sizeGuide: SizeGuide(width: .fixed(360), height: .fixed(680)),
                 insets: UIEdgeInsets(8),
                 alignment: .centerTop,

@@ -55,19 +55,19 @@ class FeedCardViewController: UIViewController {
                     return
             }
 
-            let stackItem = StackViewItem(
+            let stackItem = StackItem(
                 axis: .vertical,
                 spacing: 8,
                 sizeGuide: SizeGuide(width: .fill),
                 insets: UIEdgeInsets(8),
                 subItems: [actorViewItem, commentaryItem, socialCountsItem, socialBarItem])
 
-            let containerItem = ViewItem(
+            let containerItem = Item(
                 id: "containerItem",
                 sizeGuide: SizeGuide(width: .fill),
                 subItems: [stackItem])
 
-            let containerParentItem = ViewItem(
+            let containerParentItem = Item(
                 sizeGuide: SizeGuide(width: .fixed(360), height: .fixed(680)),
                 insets: UIEdgeInsets(8),
                 alignment: .centerTop,

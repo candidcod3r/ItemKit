@@ -9,56 +9,56 @@
 import ItemKit
 
 class ProfileCardViewModel {
-    private(set) var backgroundImageItem: ViewItem
-    private(set) var actionButtonItem: ButtonViewItem
-    private(set) var titleItem: LabelViewItem
-    private(set) var headlineItem: LabelViewItem
-    private(set) var subtitleItem: LabelViewItem
-    private(set) var profileImageItem: ViewItem
-    private(set) var presenceItem: ViewItem
+    private(set) var backgroundImageItem: Item
+    private(set) var actionButtonItem: ButtonItem
+    private(set) var titleItem: TextItem
+    private(set) var headlineItem: TextItem
+    private(set) var subtitleItem: TextItem
+    private(set) var profileImageItem: Item
+    private(set) var presenceItem: Item
 
     private(set) var item: Itemable? = nil
     private(set) var itemCache: ViewItemCache? = nil
 
     init() {
-        backgroundImageItem = ViewItem(
+        backgroundImageItem = Item(
             id: "backgroundImage",
             sizeGuide: SizeGuide(width: .fill, height: .fixed(76)))
 
-        actionButtonItem = ButtonViewItem(
+        actionButtonItem = ButtonItem(
             id: "actionButton",
             title: "follow",
             insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4),
             alignment: .trailingTop)
 
-        titleItem = LabelViewItem(
+        titleItem = TextItem(
             id: "title",
             text: "Candid Cod3r",
             numberOfLines: 1,
             sizeGuide: SizeGuide(width: .fill))
 
-        headlineItem = LabelViewItem(
+        headlineItem = TextItem(
             id: "headline",
             text: "Make world a better place",
             numberOfLines: 1,
             sizeGuide: SizeGuide(width: .fill))
 
-        subtitleItem = LabelViewItem(
+        subtitleItem = TextItem(
             id: "subtitle",
             text: "500+ connections",
             numberOfLines: 1,
             sizeGuide: SizeGuide(width: .fill))
 
-        profileImageItem = ViewItem(
+        profileImageItem = Item(
             id: "profileImage",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
 
-        presenceItem = ViewItem(
+        presenceItem = Item(
             id: "presence",
             sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(10)),
             alignment: .trailingBottom)
 
-        let profileImageContainerItem = ViewItem(
+        let profileImageContainerItem = Item(
             sizeGuide: SizeGuide(width: .fixed(60), height: .fixed(60)),
             alignment: Alignment(
                 horizontal: .leading,
@@ -66,7 +66,7 @@ class ProfileCardViewModel {
                 offset: UIOffset(horizontal: 8, vertical: 76 - 30)),
             subItems: [profileImageItem, presenceItem])
 
-        let textStackItem = StackViewItem(
+        let textStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             sizeGuide: SizeGuide(width: .fill),
@@ -75,7 +75,7 @@ class ProfileCardViewModel {
                 headlineItem,
                 subtitleItem])
 
-        let bottomStackItem = StackViewItem(
+        let bottomStackItem = StackItem(
             axis: .vertical,
             spacing: 20,
             sizeGuide: SizeGuide(width: .fill),
@@ -84,12 +84,12 @@ class ProfileCardViewModel {
                 actionButtonItem,
                 textStackItem])
 
-        let stackItem = StackViewItem(
+        let stackItem = StackItem(
             axis: .vertical,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [backgroundImageItem, bottomStackItem])
 
-        item = CanvasViewItem(
+        item = CanvasItem(
             sizeGuide: SizeGuide(width: .fill),
             primaryItem: stackItem,
             subItems: [profileImageContainerItem])

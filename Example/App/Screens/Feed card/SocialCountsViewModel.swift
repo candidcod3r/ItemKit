@@ -13,29 +13,29 @@ class SocialCountsViewModel {
         static let countsFont = UIFont.helveticaLight(of: 13)
     }
 
-    private(set) var likesCountItem: LabelViewItem
-    private(set) var dotItem: LabelViewItem
-    private(set) var commentsCountItem: LabelViewItem
+    private(set) var likesCountItem: TextItem
+    private(set) var dotItem: TextItem
+    private(set) var commentsCountItem: TextItem
 
-    private(set) var item: ViewItem? = nil
+    private(set) var item: Itemable? = nil
 
     init() {
-        likesCountItem = LabelViewItem(
+        likesCountItem = TextItem(
             id: "likesCount",
             text: "1200 Likes",
             font: Constant.countsFont)
 
-        dotItem = LabelViewItem(
+        dotItem = TextItem(
             id: "dot",
             text: " • ",
             font: Constant.countsFont)
 
-        commentsCountItem = LabelViewItem(
+        commentsCountItem = TextItem(
             id: "commentsCount",
             text: "300 Comments",
             font: Constant.countsFont)
 
-        let stackItem = StackViewItem(
+        let stackItem = StackItem(
             axis: .horizontal,
             sizeGuide: SizeGuide(width: .fill),
             subItems: [likesCountItem, dotItem, commentsCountItem])

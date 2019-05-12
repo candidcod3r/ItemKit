@@ -97,7 +97,7 @@ class FixedViewController: UIViewController {
         ///////////////////
         // containerView //
         ///////////////////
-        let containerItem = ViewItem(
+        let containerItem = Item(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
@@ -105,7 +105,7 @@ class FixedViewController: UIViewController {
         /////////////
         // redView //
         /////////////
-        let redItem = ViewItem(
+        let redItem = Item(
             id: "redItem",
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(20)),
             insets: .zero,
@@ -118,7 +118,7 @@ class FixedViewController: UIViewController {
         //////////////
         // blueView //
         //////////////
-        let blueItem = ViewItem(
+        let blueItem = Item(
             id: "blueItem",
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(10)),
             insets: .zero,
@@ -131,7 +131,7 @@ class FixedViewController: UIViewController {
         //////////////
         // cyanView //
         //////////////
-        let cyanItem = ViewItem(
+        let cyanItem = Item(
             id: "cyanItem",
             sizeGuide: SizeGuide(width: .fixed(10), height: .fixed(20)),
             insets: .zero,
@@ -144,7 +144,7 @@ class FixedViewController: UIViewController {
         ///////////////
         // greenView //
         ///////////////
-        let greenItem = ViewItem(
+        let greenItem = Item(
             id: "greenItem",
             sizeGuide: SizeGuide(width: .fixed(50), height: .fixed(50)),
             insets: .zero,
@@ -157,7 +157,7 @@ class FixedViewController: UIViewController {
         ////////////////
         // yellowView //
         ////////////////
-        let yellowItem = ViewItem(
+        let yellowItem = Item(
             id: "yellowItem",
             sizeGuide: SizeGuide(width: .fixed(15), height: .fixed(20)),
             insets: .zero,
@@ -170,7 +170,7 @@ class FixedViewController: UIViewController {
         ////////////////
         // purpleView //
         ////////////////
-        let purpleItem = ViewItem(
+        let purpleItem = Item(
             id: "purpleItem",
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
             insets: .zero,
@@ -183,7 +183,7 @@ class FixedViewController: UIViewController {
         ////////////////
         // orangeView //
         ////////////////
-        let orangeItem = ViewItem(
+        let orangeItem = Item(
             id: "orangeItem",
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
             insets: .zero,
@@ -196,7 +196,7 @@ class FixedViewController: UIViewController {
         ////////////////////
         // lightGreenView //
         ////////////////////
-        let lightGreenItem = ViewItem(
+        let lightGreenItem = Item(
             id: "lightGreenItem",
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
             insets: .zero,
@@ -209,7 +209,7 @@ class FixedViewController: UIViewController {
         //////////////
         // pinkView //
         //////////////
-        let pinkItem = ViewItem(
+        let pinkItem = Item(
             id: "pinkItem",
             sizeGuide: SizeGuide(width: .fixed(20), height: .fixed(20)),
             insets: .zero,
@@ -225,7 +225,7 @@ class FixedViewController: UIViewController {
         /////////////////////////
         // containerParentItem //
         /////////////////////////
-        let containerParentItem = ViewItem(
+        let containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

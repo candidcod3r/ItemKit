@@ -15,57 +15,57 @@ class ItineraryViewModel {
         static let timeTextFont = UIFont.helvetica(of: 14)
     }
 
-    private(set) var fromLabelItem: LabelViewItem
-    private(set) var fromAirportItem: LabelViewItem
-    private(set) var fromTimeItem: LabelViewItem
+    private(set) var fromLabelItem: TextItem
+    private(set) var fromAirportItem: TextItem
+    private(set) var fromTimeItem: TextItem
 
     private(set) var flightImage = UIImage(named: "flight")?.withRenderingMode(.alwaysTemplate)
-    private(set) var flightImageItem: ViewItem
+    private(set) var flightImageItem: Item
 
-    private(set) var toLabelItem: LabelViewItem
-    private(set) var toAirportItem: LabelViewItem
-    private(set) var toTimeItem: LabelViewItem
+    private(set) var toLabelItem: TextItem
+    private(set) var toAirportItem: TextItem
+    private(set) var toTimeItem: TextItem
 
-    private(set) var item: ViewItem? = nil
+    private(set) var item: Itemable? = nil
 
     init() {
-        fromLabelItem = LabelViewItem(
+        fromLabelItem = TextItem(
             id: "fromText",
             text: "FROM",
             font: Constant.fromTextFont,
             alignment: .center)
 
-        fromAirportItem = LabelViewItem(
+        fromAirportItem = TextItem(
             id: "fromAirport",
             text: "HYD",
             font: Constant.airportTextFont,
             alignment: .center)
 
-        fromTimeItem = LabelViewItem(
+        fromTimeItem = TextItem(
             id: "fromTime",
             text: "6:00AM",
             font: Constant.timeTextFont,
             alignment: .center)
 
-        flightImageItem = ViewItem(
+        flightImageItem = Item(
             id: "flightImage",
             sizeGuide: SizeGuide(width: .fixed(32), height: .fixed(32)),
             alignment: .center,
             flexibility: .high)
 
-        toLabelItem = LabelViewItem(
+        toLabelItem = TextItem(
             id: "toText",
             text: "TO",
             font: Constant.fromTextFont,
             alignment: .center)
 
-        toAirportItem = LabelViewItem(
+        toAirportItem = TextItem(
             id: "toAirport",
             text: "HYD",
             font: Constant.airportTextFont,
             alignment: .center)
 
-        toTimeItem = LabelViewItem(
+        toTimeItem = TextItem(
             id: "toTime",
             text: "8:00AM",
             font: Constant.timeTextFont,
@@ -74,20 +74,20 @@ class ItineraryViewModel {
         item = createItem()
     }
 
-    private func createItem() -> ViewItem {
-        let leftStackItem = StackViewItem(
+    private func createItem() -> Item {
+        let leftStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
             subItems: [fromLabelItem, fromAirportItem, fromTimeItem])
 
-        let rightStackItem = StackViewItem(
+        let rightStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
             subItems: [toLabelItem, toAirportItem, toTimeItem])
 
-        return StackViewItem(
+        return StackItem(
             id: "itineraryView",
             axis: .horizontal,
             distribution: .fillExtraSpace,
