@@ -1,5 +1,5 @@
 //
-//  PlaygroundViewController.swift
+//  TestStackViewWithFixedDimensionController.swift
 //  ItemKitExample
 //
 //  Created by Candid Cod3r on 5/12/19.
@@ -9,11 +9,11 @@
 import UIKit
 import ItemKit
 
-class PlaygroundViewController: UIViewController {
+class TestStackViewWithFixedDimensionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Playground"
+        title = "Test StackView with fixed dimension"
         view.backgroundColor = .white
 
         setup()
@@ -51,11 +51,11 @@ class PlaygroundViewController: UIViewController {
             button.layer.masksToBounds = true
         }
 
-        let containerItem = ViewItem(
+        let containerItem = StackViewItem(
             id: "containerItem",
-//            axis: .vertical,
-            sizeGuide: SizeGuide(width: .fill, height: .fixed(10)),
-            subItems: []) // textViewItem, buttonItem
+            axis: .vertical,
+            sizeGuide: SizeGuide(width: .fill),
+            subItems: [textViewItem, buttonItem])
 
         containerItem.prepareView = { (view) in
             view.clipsToBounds = false

@@ -50,7 +50,8 @@ open class Item: Itemable, Cacheable {
         // compute the content fitting size
         contentFittingSize = self.contentFittingSizes(within: maxContentSize)
 
-        fittingSize = contentFittingSize.increased(by: insets)
+        let itemFittingSize = contentFittingSize.increased(by: insets)
+        fittingSize = Sizer.size(from: itemFittingSize, fittingSize: maxFittingSize, using: sizeGuide)
     }
 
     open func contentFittingSizes(within maxSize: CGSize) -> CGSize {

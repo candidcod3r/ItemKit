@@ -19,7 +19,7 @@ public enum DimensionGuide {
     // use the max value
     case fill
 
-    func dimension(of value: CGFloat, within maxDimension: CGFloat) -> CGFloat {
+    public func dimension(of value: CGFloat, within maxDimension: CGFloat) -> CGFloat {
         switch self {
         case .fixed(let fixedValue):
             return fixedValue
@@ -32,8 +32,8 @@ public enum DimensionGuide {
             return maxDimension
         }
     }
-
-    var isFit: Bool {
+    
+    public var isFit: Bool {
         switch self {
         case .fit:
             return true
@@ -42,7 +42,7 @@ public enum DimensionGuide {
         }
     }
 
-    var isFill: Bool {
+    public var isFill: Bool {
         switch self {
         case .fill:
             return true

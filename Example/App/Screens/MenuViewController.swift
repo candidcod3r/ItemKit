@@ -24,7 +24,7 @@ class MenuViewController: UIViewController {
         FeedCardViewController.self,
         SubItemViewController.self,
         TestConfigureViewsViewController.self,
-        PlaygroundViewController.self]
+        TestStackViewWithFixedDimensionController.self]
 
     private let tableView: UITableView = {
         let tableView = UITableView()

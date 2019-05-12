@@ -57,11 +57,6 @@ open class StackItem: Item {
         var usedSize = AxisSize(axis: axis, value: .zero)
 
         for i in sortedIndices {
-            // as long as there is available size in either direction of axis
-            if availableAxisSize.axisValue <= 0 || availableAxisSize.crossValue <= 0 {
-                break
-            }
-
             subItems[i].updateFittingSizes(within: availableAxisSize.value)
 
             let subItemAxisFittingSize = AxisSize(axis: axis, value: subItems[i].fittingSize)

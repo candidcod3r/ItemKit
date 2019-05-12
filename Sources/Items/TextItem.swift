@@ -103,7 +103,7 @@ open class TextItem: Item {
 
         let textAreaSize = CGSize(width: textSize.width, height: min(textSize.height, maxPermissibleLinesHeight))
 
-        let size: CGSize = textAreaSize
+        let size = textAreaSize
             .increased(by: adjustedTextContainerInsets)
             .increased(by: lineFragmentInsets)
         return size

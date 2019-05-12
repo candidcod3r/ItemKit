@@ -32,7 +32,7 @@
 		4EB735D2226EE8320011B977 /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB735D1226EE8320011B977 /* ProfileCardView.swift */; };
 		4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F161226D917700C72655 /* ImagesRollupView.swift */; };
 		4ED4F164226D93D900C72655 /* SubItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4F163226D93D900C72655 /* SubItemViewController.swift */; };
-		4EE8AF4922881585008329FC /* PlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8AF4822881585008329FC /* PlaygroundViewController.swift */; };
+		4EE8AF4922881585008329FC /* TestStackViewWithFixedDimensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8AF4822881585008329FC /* TestStackViewWithFixedDimensionController.swift */; };
 		4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB818222696A4400B8D849 /* StackItemViewController.swift */; };
 		4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81852269850500B8D849 /* BoardingDetailsView.swift */; };
 		4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */; };
@@ -76,7 +76,7 @@
 		4EB735D1226EE8320011B977 /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
 		4ED4F161226D917700C72655 /* ImagesRollupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRollupView.swift; sourceTree = "<group>"; };
 		4ED4F163226D93D900C72655 /* SubItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubItemViewController.swift; sourceTree = "<group>"; };
-		4EE8AF4822881585008329FC /* PlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundViewController.swift; sourceTree = "<group>"; };
+		4EE8AF4822881585008329FC /* TestStackViewWithFixedDimensionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStackViewWithFixedDimensionController.swift; sourceTree = "<group>"; };
 		4EFB818222696A4400B8D849 /* StackItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackItemViewController.swift; sourceTree = "<group>"; };
 		4EFB81852269850500B8D849 /* BoardingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsView.swift; sourceTree = "<group>"; };
 		4EFB81872269850C00B8D849 /* BoardingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				4E50753822659B45006DF752 /* FillViewController.swift */,
 				607FACD71AFB9204008FA782 /* FixedViewController.swift */,
 				4E50753622654D3E006DF752 /* MenuViewController.swift */,
-				4EE8AF4822881585008329FC /* PlaygroundViewController.swift */,
+				4EE8AF4822881585008329FC /* TestStackViewWithFixedDimensionController.swift */,
 				4EFB818222696A4400B8D849 /* StackItemViewController.swift */,
 				4ED4F163226D93D900C72655 /* SubItemViewController.swift */,
 				4E2BF4EB22864B2C0072456D /* TestConfigureViewsViewController.swift */,
@@ -391,7 +391,7 @@
 			files = (
 				4EB735D2226EE8320011B977 /* ProfileCardView.swift in Sources */,
 				4EA60086226A9F4800B21807 /* CommentaryView.swift in Sources */,
-				4EE8AF4922881585008329FC /* PlaygroundViewController.swift in Sources */,
+				4EE8AF4922881585008329FC /* TestStackViewWithFixedDimensionController.swift in Sources */,
 				4EFB818322696A4400B8D849 /* StackItemViewController.swift in Sources */,
 				4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */,
 				4EA6008A226A9F6100B21807 /* SocialCountsView.swift in Sources */,
