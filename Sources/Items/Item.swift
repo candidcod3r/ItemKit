@@ -35,8 +35,12 @@ open class Item: Itemable, Cacheable {
         self.subItems = subItems
     }
 
+    open var requiresView: Bool {
+        return (id?.count ?? 0) > 0
+    }
+
     // MARK:- Measurable
-    open func updateFittingSize(within maxSize: CGSize) {
+    public final func updateFittingSize(within maxSize: CGSize) {
         // adjust maxSize according to the size guide
         let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
 
@@ -57,7 +61,7 @@ open class Item: Itemable, Cacheable {
     }
 
     // MARK:- Layoutable
-    open func updateLayout(within maxFrame: CGRect) {
+    public final func updateLayout(within maxFrame: CGRect) {
         // update the fitting size
         updateFittingSize(within: maxFrame.size)
 
@@ -104,5 +108,9 @@ open class ViewItem<View: UIView>: Item, ViewItemable {
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)
+    }
+
+    open override var requiresView: Bool {
+        return true
     }
 }

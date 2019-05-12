@@ -45,4 +45,8 @@ open class CanvasViewItem<View: UIView>: CanvasItem, ViewItemable {
         prepareView?(view)
         view.configure(with: self)
     }
+
+    open override var requiresView: Bool {
+        return true
+    }
 }

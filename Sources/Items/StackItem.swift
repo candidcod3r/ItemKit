@@ -262,4 +262,8 @@ open class StackViewItem<View: UIView>: StackItem, ViewItemable {
         prepareView?(view)
         view.configure(with: self)
     }
+
+    open override var requiresView: Bool {
+        return true
+    }
 }

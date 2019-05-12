@@ -130,6 +130,10 @@ open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
         prepareView?(view)
         view.configure(with: self)
     }
+
+    open override var requiresView: Bool {
+        return true
+    }
 }
 
 
@@ -143,6 +147,10 @@ open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
         prepareView?(view)
         view.configure(with: self)
     }
+
+    open override var requiresView: Bool {
+        return true
+    }
 }
 
 open class TextFieldViewItem<View: UITextField>: TextItem, ViewItemable {
@@ -153,5 +161,9 @@ open class TextFieldViewItem<View: UITextField>: TextItem, ViewItemable {
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)
+    }
+
+    open override var requiresView: Bool {
+        return true
     }
 }

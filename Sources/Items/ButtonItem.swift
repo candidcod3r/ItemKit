@@ -139,4 +139,8 @@ open class ButtonViewItem<View: UIButton>: ButtonItem, ViewItemable {
         prepareView?(view)
         view.configure(with: self)
     }
+
+    open override var requiresView: Bool {
+        return true
+    }
 }

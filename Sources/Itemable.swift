@@ -18,9 +18,3 @@ public protocol Itemable: Measurable, Layoutable {
     var subItems: [Itemable] { get }
     var requiresView: Bool { get }
 }
-
-extension Itemable {
-    public var requiresView: Bool {
-        return (id?.count ?? 0) > 0
-    }
-}

@@ -24,10 +24,6 @@ public protocol ViewItemable: Itemable, Configurable, UIViewItemable {
 }
 
 extension ViewItemable {
-    public var requiresView: Bool {
-        return true
-    }
-
     public var itemView: UIView {
         return view
     }
@@ -48,11 +44,18 @@ extension Itemable {
         layoutViews(for: self, in: containerView)
     }
 
-    fileprivate func layoutViews(for item: Itemable, in containerView: UIView) {
+    public mutating func layoutViews(within rect: CGRect) {
+        updateLayout(within: rect)
+
+        layoutViews(for: self)
+    }
+
+
+    fileprivate func layoutViews(for item: Itemable, in containerView: UIView? = nil) {
         let viewItem = item as? UIViewItemable
         let itemView = viewItem?.itemView
         if let itemView = itemView {
-            containerView.addSubview(itemView)
+            containerView?.addSubview(itemView)
         }
 
         // configure the view

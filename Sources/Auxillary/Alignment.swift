@@ -43,9 +43,9 @@ public enum VerticalAlignment {
 }
 
 public struct Alignment {
-    public var horizontal: HorizontalAlignment
-    public var vertical:VerticalAlignment
-    public var offset: UIOffset
+    public let horizontal: HorizontalAlignment
+    public let vertical:VerticalAlignment
+    public let offset: UIOffset
 
     public init(horizontal: HorizontalAlignment,
                 vertical: VerticalAlignment,
