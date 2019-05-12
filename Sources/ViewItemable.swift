@@ -31,3 +31,30 @@ extension ViewItemable {
 public protocol UIViewItemable {
     var itemView: UIView? { get }
 }
+
+extension Itemable {
+    public mutating func layoutViews(within containerView: UIView) {
+        updateLayout(within: containerView.frame)
+
+        layoutViews(for: self, in: containerView)
+    }
+
+    fileprivate func layoutViews(for item: Itemable, in containerView: UIView) {
+        let viewItem = item as? UIViewItemable
+        let itemView = viewItem?.itemView
+        if let itemView = itemView {
+            containerView.addSubview(itemView)
+        }
+
+        // configure the view
+        let configurableItem = item as? Configurable
+        configurableItem?.configureView()
+
+        // set the frame of the view
+        itemView?.frame = item.frame
+
+        for subItem in item.subItems {
+            layoutViews(for: subItem, in: itemView ?? containerView)
+        }
+    }
+}
