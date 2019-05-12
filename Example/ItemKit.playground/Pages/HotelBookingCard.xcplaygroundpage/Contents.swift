@@ -81,7 +81,7 @@ let stackItem = StackItem(
     insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8),
     subItems: [leftItem, rightItem])
 
-let item = stackItem
+var item = stackItem
 item.updateLayout(within: rootView.bounds)
 print(item.debugDescription())
 item.makeDebugViews(in: rootView)

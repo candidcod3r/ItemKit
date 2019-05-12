@@ -118,7 +118,7 @@ class TextItemViewController: UIViewController {
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
-        let containerParentItem = Item(
+        var containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

@@ -67,7 +67,7 @@ class FeedCardViewController: UIViewController {
                 sizeGuide: SizeGuide(width: .fill),
                 subItems: [stackItem])
 
-            let containerParentItem = Item(
+            var containerParentItem = Item(
                 sizeGuide: SizeGuide(width: .fixed(360), height: .fixed(680)),
                 insets: UIEdgeInsets(8),
                 alignment: .centerTop,

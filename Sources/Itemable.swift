@@ -18,3 +18,17 @@ public protocol Itemable: Measurable, Layoutable {
     var subItems: [Itemable] { get }
     var requiresView: Bool { get }
 }
+
+
+extension Itemable {
+    /**
+     Update the item's and subItem's layout.
+     */
+    public mutating func updateLayout(within maxFrame: CGRect) {
+        // update the fitting sizes
+        updateFittingSizes(within: maxFrame.size)
+
+        // update the frames
+        updateFrames(within: maxFrame)
+    }
+}

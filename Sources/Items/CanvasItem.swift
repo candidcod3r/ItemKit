@@ -27,9 +27,9 @@ open class CanvasItem: Item {
             subItems: subItems)
     }
 
-    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         for i in 0..<subItems.count {
-            subItems[i].updateFittingSize(within: maxSize)
+            subItems[i].updateFittingSizes(within: maxSize)
         }
         return Sizer.fittingSize(within: primaryItem.fittingSize, using: sizeGuide)
     }

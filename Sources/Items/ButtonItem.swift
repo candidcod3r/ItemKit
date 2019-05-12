@@ -102,7 +102,7 @@ open class ButtonItem: Item {
     }
 
     // MARK:- Measurable
-    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         let imageSize = self.buttonImageSize
             .insetted(by: imageInsets)
             .decreased(to: maxSize)

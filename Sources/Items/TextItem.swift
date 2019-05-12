@@ -88,7 +88,7 @@ open class TextItem: Item {
     }
 
     // MARK:- Measurable
-    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         let lineFragmentInsets = UIEdgeInsets(horizontal: lineFragmentPadding)
         let maxTextSize = maxSize
             .decreased(by: textContainerInsets)

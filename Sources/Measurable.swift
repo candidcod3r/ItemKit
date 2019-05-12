@@ -25,12 +25,12 @@ public protocol Measurable {
 
      - Parameter maxSize: FittingSize computed with in the maxSize
      */
-    mutating func updateFittingSize(within maxSize: CGSize)
+    mutating func updateFittingSizes(within maxSize: CGSize)
 
     /**
      Returns ths content fitting size.
 
      - Returns: Content fitting size of the measurable
      */
-    mutating func contentFittingSize(within maxSize: CGSize) -> CGSize
+    mutating func contentFittingSizes(within maxSize: CGSize) -> CGSize
 }

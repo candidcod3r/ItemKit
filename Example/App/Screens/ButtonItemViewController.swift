@@ -120,7 +120,7 @@ class ButtonItemViewController: UIViewController {
 
         let containerParentWidth: CGFloat = 360
         let containerParentHeight: CGFloat = 400
-        let containerParentItem = Item(
+        var containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,

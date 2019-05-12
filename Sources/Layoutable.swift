@@ -17,12 +17,12 @@ public protocol Layoutable {
 
      - Parameter maxFrame: Layout updated with in the maxFrame rect for the layoutable
      */
-    mutating func updateLayout(within maxFrame: CGRect)
+    mutating func updateFrames(within maxFrame: CGRect)
 
     /**
      Update the content layouts of the layoutable. Callers mostly likely doens't have to call this method direclty.
 
      - Parameter maxFrame: Content layout updated with in the maxFrame rect for the layoutable
      */
-    mutating func updateContentLayout(within maxFrame: CGRect)
+    mutating func updateContentFrames(within maxFrame: CGRect)
 }

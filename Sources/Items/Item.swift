@@ -40,7 +40,7 @@ open class Item: Itemable, Cacheable {
     }
 
     // MARK:- Measurable
-    public final func updateFittingSize(within maxSize: CGSize) {
+    public final func updateFittingSizes(within maxSize: CGSize) {
         // adjust maxSize according to the size guide
         let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
 
@@ -48,46 +48,43 @@ open class Item: Itemable, Cacheable {
         let maxContentSize = maxFittingSize.decreased(by: insets)
 
         // compute the content fitting size
-        contentFittingSize = self.contentFittingSize(within: maxContentSize)
+        contentFittingSize = self.contentFittingSizes(within: maxContentSize)
 
         fittingSize = contentFittingSize.increased(by: insets)
     }
 
-    open func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    open func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         for i in 0..<subItems.count {
-            subItems[i].updateFittingSize(within: maxSize)
+            subItems[i].updateFittingSizes(within: maxSize)
         }
         return Sizer.fittingSize(within: maxSize, using: sizeGuide)
     }
 
     // MARK:- Layoutable
-    public final func updateLayout(within maxFrame: CGRect) {
-        // update the fitting size
-        updateFittingSize(within: maxFrame.size)
-
+    public final func updateFrames(within maxFrame: CGRect) {
         let size = Sizer.size(of: fittingSize, within: maxFrame.size, using: sizeGuide)
         let origin = Aligner.origin(of: size, with: alignment, within: maxFrame)
         
         let itemFrame = CGRect(origin: origin, size: size)
 
         // update the content layout
-        updateContentLayout(itemFrame: itemFrame)
+        updateContentFrames(itemFrame: itemFrame)
 
         frame = itemFrame
     }
 
-    open func updateContentLayout(within maxFrame: CGRect) {
+    open func updateContentFrames(within maxFrame: CGRect) {
         for i in 0..<subItems.count {
-            subItems[i].updateLayout(within: maxFrame)
+            subItems[i].updateFrames(within: maxFrame)
         }
     }
 
-    private func updateContentLayout(itemFrame: CGRect) {
+    private func updateContentFrames(itemFrame: CGRect) {
         let contentFrameOrigin = self.contentFrameOrigin(within: itemFrame)
         let contentFrameSize = itemFrame.size.decreased(by: insets)
 
         let maxContentFrame = CGRect(origin: contentFrameOrigin, size: contentFrameSize)
-        updateContentLayout(within: maxContentFrame)
+        updateContentFrames(within: maxContentFrame)
     }
 
     private func contentFrameOrigin(within maxFrame: CGRect) -> CGPoint {

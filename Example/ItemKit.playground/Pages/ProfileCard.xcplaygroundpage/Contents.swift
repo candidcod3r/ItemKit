@@ -80,8 +80,7 @@ let stackItem = StackItem(
     sizeGuide: SizeGuide(width: .fill),
     subItems: [topItem, bottomStackItem])
 
-let profileCardItem = stackItem
-
+var profileCardItem = stackItem
 profileCardItem.updateLayout(within: rootView.bounds)
 print(profileCardItem.debugDescription())
 profileCardItem.makeDebugViews(in: rootView)

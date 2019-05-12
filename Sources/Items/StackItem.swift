@@ -47,7 +47,7 @@ open class StackItem: Item {
     }
 
     // MARK: Measurable
-    open override func contentFittingSize(within maxSize: CGSize) -> CGSize {
+    open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         guard distribution != .equalSize else {
             return contentFittingSizeForEqualDistribution(within: maxSize)
         }
@@ -62,7 +62,7 @@ open class StackItem: Item {
                 break
             }
 
-            subItems[i].updateFittingSize(within: availableAxisSize.value)
+            subItems[i].updateFittingSizes(within: availableAxisSize.value)
 
             let subItemAxisFittingSize = AxisSize(axis: axis, value: subItems[i].fittingSize)
             let leadingSpace = (usedSize.axisValue > 0) ? spacing : 0
@@ -75,7 +75,7 @@ open class StackItem: Item {
     }
 
     // MARK: Layoutable
-    open override func updateContentLayout(within maxFrame: CGRect) {
+    open override func updateContentFrames(within maxFrame: CGRect) {
         let availableAxisLength = maxFrame.size.value(along: axis)
         let fittingAxisLength = contentFittingSize.value(along: axis)
         let excessAxisLength = availableAxisLength - fittingAxisLength
@@ -97,7 +97,7 @@ open class StackItem: Item {
                     excessAxisLength: excessAxisLength,
                     isMostFlexible: i == mostFlexibleSubItemIndex)
             let maxSubItemFrame = CGRect(origin: subItemAxisOrigin.value, size: maxSubItemSize)
-            subItems[i].updateLayout(within: maxSubItemFrame)
+            subItems[i].updateFrames(within: maxSubItemFrame)
 
             subItemAxisOrigin.axisValue += maxSubItemSize.value(along: axis)
             subItemAxisOrigin.axisValue += (subItemAxisOrigin.axisValue > 0) ? subItemSpacing : 0
@@ -114,7 +114,7 @@ extension StackItem {
         var contentFittingCrossLength = CGFloat.leastNormalMagnitude
 
         for i in 0..<subItems.count {
-            subItems[i].updateFittingSize(within: maxSubItemSize)
+            subItems[i].updateFittingSizes(within: maxSubItemSize)
 
             let subItemAxisLength = subItems[i].fittingSize.value(along: axis)
             let subItemCrossLength = subItems[i].fittingSize.value(across: axis)

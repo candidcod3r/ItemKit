@@ -225,7 +225,7 @@ class FixedViewController: UIViewController {
         /////////////////////////
         // containerParentItem //
         /////////////////////////
-        let containerParentItem = Item(
+        var containerParentItem = Item(
             sizeGuide: SizeGuide(width: .fixed(containerParentWidth), height: .fixed(containerParentHeight)),
             insets: UIEdgeInsets(8),
             alignment: .centerTop,
