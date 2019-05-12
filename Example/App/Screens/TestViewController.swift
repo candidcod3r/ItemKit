@@ -31,7 +31,7 @@ class TestItemViewController: UIViewController {
             return containerView
         }()
 
-        let labelItem = LabelItem(
+        let labelItem = LabelViewItem(
             id: "label",
             text: "This is a statement",
             font: UIFont.helveticaLight(of: 13),
@@ -47,7 +47,7 @@ class TestItemViewController: UIViewController {
         }()
         containerItem.subItems.append(labelItem)
 
-        let textViewItem = TextItem(
+        let textViewItem = TextViewItem(
             id: "textView",
             text: "The U.S. 🇺🇸 is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.",
             font: UIFont.helveticaLight(of: 13),

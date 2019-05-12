@@ -76,7 +76,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter)
         actorImageView.configure(with: imageViewItem)
 
-        let titleLabelItem = LabelItem(
+        let titleLabelItem = LabelViewItem(
             id: "titleLabel",
             text: "Candid Cod3r",
             font: UIFont.helveticaLight(of: 15),
@@ -84,7 +84,7 @@ class StackItemViewController: UIViewController {
             alignment: .leadingCenter)
         titleLabel.configure(with: titleLabelItem)
 
-        let subtitleLabelItem = LabelItem(
+        let subtitleLabelItem = LabelViewItem(
             id: "subtitleLabel",
             text: "Make world a better place",
             font: UIFont.helveticaLight(of: 13),

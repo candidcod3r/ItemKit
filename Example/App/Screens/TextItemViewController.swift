@@ -67,7 +67,7 @@ class TextItemViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let labelViewItem = LabelItem(
+        let labelViewItem = LabelViewItem(
             id: "label1",
             text: "This is a statement",
             font: UIFont.helveticaLight(of: 13),
@@ -78,7 +78,7 @@ class TextItemViewController: UIViewController {
         containerItem.subItems.append(labelViewItem)
         label1.configure(with: labelViewItem)
 
-        let textViewViewItem = TextItem(
+        let textViewViewItem = TextViewItem(
             id: "textView1",
             text: "The U.S. 🇺🇸 is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.",
             font: UIFont.helveticaLight(of: 13),
@@ -94,7 +94,7 @@ class TextItemViewController: UIViewController {
         containerItem.subItems.append(textView1ParentItem)
         textView1.configure(with: textViewViewItem)
 
-        let textView2Item = TextItem(
+        let textView2Item = TextViewItem(
             id: "textView2",
             text: "The Great Smoky Mountains ⛰️ are a mountain range rising along the Tennessee–North Carolina border in the southeastern United States. They are a subrange of the Appalachian Mountains, and form part of the Blue Ridge Physiographic Province.",
             font: UIFont.helveticaLight(of: 15),
@@ -105,7 +105,7 @@ class TextItemViewController: UIViewController {
         containerItem.subItems.append(textView2Item)
         textView2.configure(with: textView2Item)
 
-        let label2Item = LabelItem(
+        let label2Item = LabelViewItem(
             id: "label2",
             text: "Sachin Ramesh Tendulkar is a former Indian international cricketer 🏏 and a former captain of the Indian national team, regarded as one of the greatest batsmen of all time. He is the highest run scorer of all time in International cricket.",
             font: UIFont.helveticaLight(of: 15),

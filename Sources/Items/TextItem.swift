@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class TextViewItem<View: UIView>: Item<View> {
+open class TextItem<View: UIView>: Item<View> {
     // MARK:- TextItem Properties
     open var text: Text
     open var font: UIFont
@@ -121,7 +121,7 @@ open class TextViewItem<View: UIView>: Item<View> {
 }
 
 
-open class TextItem: TextViewItem<UITextView> {
+open class TextViewItem: TextItem<UITextView> {
     // MARK:- Configurable
     open override func configureView() {
         view?.configure(with: self)
@@ -130,7 +130,7 @@ open class TextItem: TextViewItem<UITextView> {
         }
     }
 }
-open class LabelItem: TextViewItem<UILabel> {
+open class LabelViewItem: TextItem<UILabel> {
     // MARK:- Configurable
     open override func configureView() {
         view?.configure(with: self)

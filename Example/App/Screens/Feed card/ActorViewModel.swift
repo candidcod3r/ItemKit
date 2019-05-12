@@ -19,8 +19,8 @@ class ActorViewModel {
 
     private(set) var image = Constant.actorImage
     private(set) var imageItem: ViewItem
-    private(set) var titleItem: LabelItem
-    private(set) var subtitleItem: LabelItem
+    private(set) var titleItem: LabelViewItem
+    private(set) var subtitleItem: LabelViewItem
     private(set) var actionButtonItem: ButtonViewItem
 
     private(set) var item: ViewItem? = nil
@@ -31,13 +31,13 @@ class ActorViewModel {
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
 
-        titleItem = LabelItem(
+        titleItem = LabelViewItem(
             id: "titleItem",
             text: ActorViewModel.titleText(),
             font: Constant.titleFont,
             sizeGuide: SizeGuide(width: .fill))
 
-        subtitleItem = LabelItem(
+        subtitleItem = LabelViewItem(
             id: "subtitleItem",
             text: "Make world a better place",
             font: Constant.subtitleFont,

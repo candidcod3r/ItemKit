@@ -15,33 +15,33 @@ class ItineraryViewModel {
         static let timeTextFont = UIFont.helvetica(of: 14)
     }
 
-    private(set) var fromLabelItem: LabelItem
-    private(set) var fromAirportItem: LabelItem
-    private(set) var fromTimeItem: LabelItem
+    private(set) var fromLabelItem: LabelViewItem
+    private(set) var fromAirportItem: LabelViewItem
+    private(set) var fromTimeItem: LabelViewItem
 
     private(set) var flightImage = UIImage(named: "flight")?.withRenderingMode(.alwaysTemplate)
     private(set) var flightImageItem: ViewItem
 
-    private(set) var toLabelItem: LabelItem
-    private(set) var toAirportItem: LabelItem
-    private(set) var toTimeItem: LabelItem
+    private(set) var toLabelItem: LabelViewItem
+    private(set) var toAirportItem: LabelViewItem
+    private(set) var toTimeItem: LabelViewItem
 
     private(set) var item: ViewItem? = nil
 
     init() {
-        fromLabelItem = LabelItem(
+        fromLabelItem = LabelViewItem(
             id: "fromText",
             text: "FROM",
             font: Constant.fromTextFont,
             alignment: .center)
 
-        fromAirportItem = LabelItem(
+        fromAirportItem = LabelViewItem(
             id: "fromAirport",
             text: "HYD",
             font: Constant.airportTextFont,
             alignment: .center)
 
-        fromTimeItem = LabelItem(
+        fromTimeItem = LabelViewItem(
             id: "fromTime",
             text: "6:00AM",
             font: Constant.timeTextFont,
@@ -53,19 +53,19 @@ class ItineraryViewModel {
             alignment: .center,
             flexibility: .high)
 
-        toLabelItem = LabelItem(
+        toLabelItem = LabelViewItem(
             id: "toText",
             text: "TO",
             font: Constant.fromTextFont,
             alignment: .center)
 
-        toAirportItem = LabelItem(
+        toAirportItem = LabelViewItem(
             id: "toAirport",
             text: "HYD",
             font: Constant.airportTextFont,
             alignment: .center)
 
-        toTimeItem = LabelItem(
+        toTimeItem = LabelViewItem(
             id: "toTime",
             text: "8:00AM",
             font: Constant.timeTextFont,

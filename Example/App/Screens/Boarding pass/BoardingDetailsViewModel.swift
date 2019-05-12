@@ -14,57 +14,57 @@ class BoardingDetailsViewModel {
         static let valueFont = UIFont.helvetica(of: 21)
     }
 
-    private(set) var flightLabelItem: LabelItem
-    private(set) var flightNumberItem: LabelItem
+    private(set) var flightLabelItem: LabelViewItem
+    private(set) var flightNumberItem: LabelViewItem
 
-    private(set) var terminalLabelItem: LabelItem
-    private(set) var terminalNumberItem: LabelItem
+    private(set) var terminalLabelItem: LabelViewItem
+    private(set) var terminalNumberItem: LabelViewItem
 
-    private(set) var gateLabelItem: LabelItem
-    private(set) var gateNumberItem: LabelItem
+    private(set) var gateLabelItem: LabelViewItem
+    private(set) var gateNumberItem: LabelViewItem
 
-    private(set) var boardingLabelItem: LabelItem
-    private(set) var boardingTimeItem: LabelItem
+    private(set) var boardingLabelItem: LabelViewItem
+    private(set) var boardingTimeItem: LabelViewItem
 
     private(set) var item: ViewItem? = nil
 
     init() {
-        flightLabelItem = LabelItem(
+        flightLabelItem = LabelViewItem(
             id: "flightText",
             text: "FLIGHT",
             font: Constant.headerFont)
 
-        flightNumberItem = LabelItem(
+        flightNumberItem = LabelViewItem(
             id: "flightNumber",
             text: "IK123",
             font: Constant.valueFont)
 
-        terminalLabelItem = LabelItem(
+        terminalLabelItem = LabelViewItem(
             id: "terminalText",
             text: "TERMINAL",
             font: Constant.headerFont)
 
-        terminalNumberItem = LabelItem(
+        terminalNumberItem = LabelViewItem(
             id: "terminalNumber",
             text: "3",
             font: Constant.valueFont)
 
-        gateLabelItem = LabelItem(
+        gateLabelItem = LabelViewItem(
             id: "gateText",
             text: "GATE",
             font: Constant.headerFont)
 
-        gateNumberItem = LabelItem(
+        gateNumberItem = LabelViewItem(
             id: "gateNumber",
             text: "12",
             font: Constant.valueFont)
 
-        boardingLabelItem = LabelItem(
+        boardingLabelItem = LabelViewItem(
             id: "boardingText",
             text: "BOARDING",
             font: Constant.headerFont)
 
-        boardingTimeItem = LabelItem(
+        boardingTimeItem = LabelViewItem(
             id: "boardingTime",
             text: "12:30AM",
             font: Constant.valueFont)
