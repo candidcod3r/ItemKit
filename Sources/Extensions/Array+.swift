@@ -8,8 +8,6 @@
 
 extension Array {
     func `as`<T>(_ type: T.Type) -> [T] {
-        return compactMap { (element) in
-            (element as? T)
-        }
+        return compactMap { ($0 as? T) }
     }
 }

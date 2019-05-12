@@ -133,4 +133,12 @@ open class ButtonItem: Item {
 open class ButtonViewItem<View: UIButton>: ButtonItem, ViewItemable {
     // MARK:- Backing view
     open var view: View?
+
+    // MARK:- Configurable
+    public func configureView() {
+        view?.configure(with: self)
+        for configurable in subItems.as(Configurable.self) {
+            configurable.configureView()
+        }
+    }
 }

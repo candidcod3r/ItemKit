@@ -256,4 +256,12 @@ public enum StackDistribution {
 open class StackViewItem<View: UIView>: StackItem, ViewItemable {
     // MARK:- Backing view
     open var view: View?
+
+    // MARK:- Configurable
+    public func configureView() {
+        view?.configure(with: self)
+        for configurable in subItems.as(Configurable.self) {
+            configurable.configureView()
+        }
+    }
 }

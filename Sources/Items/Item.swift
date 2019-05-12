@@ -99,4 +99,12 @@ open class Item: Itemable, Cacheable {
 open class ViewItem<View: UIView>: Item, ViewItemable {
     // MARK:- Backing view
     open var view: View?
+
+    // MARK:- Configurable
+    public func configureView() {
+        view?.configure(with: self)
+        for configurable in subItems.as(Configurable.self) {
+            configurable.configureView()
+        }
+    }
 }

@@ -124,10 +124,26 @@ open class TextItem: Item {
 open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
     // MARK:- Backing view
     open var view: View?
+
+    // MARK:- Configurable
+    public func configureView() {
+        view?.configure(with: self)
+        for configurable in subItems.as(Configurable.self) {
+            configurable.configureView()
+        }
+    }
 }
 
 // MARK:- ViewItemable
 open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
     // MARK:- Backing view
     open var view: View?
+
+    // MARK:- Configurable
+    public func configureView() {
+        view?.configure(with: self)
+        for configurable in subItems.as(Configurable.self) {
+            configurable.configureView()
+        }
+    }
 }

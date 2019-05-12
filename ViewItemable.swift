@@ -13,7 +13,7 @@ public protocol Configurable {
     func configureView()
 }
 
-public protocol ViewItemable: Itemable, UIViewItemable {
+public protocol ViewItemable: Itemable, Configurable, UIViewItemable {
     associatedtype View: UIView
     var view: View? { get }
 }
@@ -30,16 +30,4 @@ extension ViewItemable {
 
 public protocol UIViewItemable {
     var itemView: UIView? { get }
-}
-
-
-// TODO remove from everywhere and use this
-extension ViewItemable where Self: Item  {
-    // MARK:- Configurable
-    public func configureView() {
-        view?.configure(with: self)
-        for subItem in subItems {
-            (subItem as? Configurable)?.configureView()
-        }
-    }
 }
