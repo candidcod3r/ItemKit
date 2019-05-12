@@ -260,8 +260,5 @@ open class StackViewItem<View: UIView>: StackItem, ViewItemable {
     // MARK:- Configurable
     public func configureView() {
         view?.configure(with: self)
-        for configurable in subItems.as(Configurable.self) {
-            configurable.configureView()
-        }
     }
 }

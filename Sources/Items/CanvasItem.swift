@@ -43,8 +43,5 @@ open class CanvasViewItem<View: UIView>: CanvasItem, ViewItemable {
     // MARK:- Configurable
     public func configureView() {
         view?.configure(with: self)
-        for configurable in subItems.as(Configurable.self) {
-            configurable.configureView()
-        }
     }
 }

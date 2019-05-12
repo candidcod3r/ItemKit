@@ -39,6 +39,10 @@ extension Itemable {
             containerView.addSubview(itemView)
         }
 
+        // configure the view
+        let configurableItem = item as? Configurable
+        configurableItem?.configureView()
+
         // set the frame of the view
         itemView?.frame = item.frame
 

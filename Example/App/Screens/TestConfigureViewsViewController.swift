@@ -92,7 +92,6 @@ class TestConfigureViewsViewController: UIViewController {
             flexibility: .normal,
             subItems: [containerItem])
 
-        containerParentItem.configureView()
         containerParentItem.layoutViews(within: view)
         print(containerParentItem.debugDescription())
     }
