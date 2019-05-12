@@ -89,7 +89,7 @@ class ProfileCardViewModel {
             sizeGuide: SizeGuide(width: .fill),
             subItems: [backgroundImageItem, bottomStackItem])
 
-        item = CanvasItem(
+        item = CanvasViewItem(
             sizeGuide: SizeGuide(width: .fill),
             primaryItem: stackItem,
             subItems: [profileImageContainerItem])

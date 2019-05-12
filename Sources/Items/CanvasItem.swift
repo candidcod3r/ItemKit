@@ -6,9 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public typealias CanvasItem = CanvasViewItem<UIView>
+public typealias CanvasViewItem = CanvasItem<UIView>
 
-open class CanvasViewItem<View: UIView>: ViewItem<View> {
+open class CanvasItem<View: UIView>: ViewItem<View> {
     open var primaryItem: Itemable
 
     public init(id: String? = nil,
