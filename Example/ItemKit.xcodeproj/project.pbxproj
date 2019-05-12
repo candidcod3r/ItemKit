@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E05A1D7226464D5008F53CB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1D6226464D5008F53CB /* UIColor+.swift */; };
 		4E05A1D9226464EF008F53CB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E05A1D8226464EF008F53CB /* UIView+.swift */; };
-		4E2BF4EC22864B2C0072456D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF4EB22864B2C0072456D /* TestViewController.swift */; };
+		4E2BF4EC22864B2C0072456D /* TestConfigureViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BF4EB22864B2C0072456D /* TestConfigureViewsViewController.swift */; };
 		4E45EC2E22686F79006CD84B /* ConsoleOutput.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4E45EC2D22686F79006CD84B /* ConsoleOutput.rtf */; };
 		4E50753722654D3E006DF752 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E50753622654D3E006DF752 /* MenuViewController.swift */; };
 		4E50753922659B45006DF752 /* FillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E50753822659B45006DF752 /* FillViewController.swift */; };
@@ -51,7 +51,7 @@
 		4940495ADF0B36F91C265FC5 /* Pods_ItemKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E05A1D6226464D5008F53CB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		4E05A1D8226464EF008F53CB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		4E2BF4EB22864B2C0072456D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		4E2BF4EB22864B2C0072456D /* TestConfigureViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfigureViewsViewController.swift; sourceTree = "<group>"; };
 		4E45EC2D22686F79006CD84B /* ConsoleOutput.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ConsoleOutput.rtf; sourceTree = "<group>"; };
 		4E50753622654D3E006DF752 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4E50753822659B45006DF752 /* FillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				4E50753622654D3E006DF752 /* MenuViewController.swift */,
 				4EFB818222696A4400B8D849 /* StackItemViewController.swift */,
 				4ED4F163226D93D900C72655 /* SubItemViewController.swift */,
-				4E2BF4EB22864B2C0072456D /* TestViewController.swift */,
+				4E2BF4EB22864B2C0072456D /* TestConfigureViewsViewController.swift */,
 				4E66A5FF2266DFDA00824280 /* TextItemViewController.swift */,
 				4EFB8184226984DB00B8D849 /* Boarding pass */,
 				4EA60080226A9F0A00B21807 /* Feed card */,
@@ -404,7 +404,7 @@
 				4E66A6002266DFDA00824280 /* TextItemViewController.swift in Sources */,
 				4EFB81862269850500B8D849 /* BoardingDetailsView.swift in Sources */,
 				4ED4F164226D93D900C72655 /* SubItemViewController.swift in Sources */,
-				4E2BF4EC22864B2C0072456D /* TestViewController.swift in Sources */,
+				4E2BF4EC22864B2C0072456D /* TestConfigureViewsViewController.swift in Sources */,
 				4ED4F162226D917700C72655 /* ImagesRollupView.swift in Sources */,
 				4E50753922659B45006DF752 /* FillViewController.swift in Sources */,
 				4EFB81882269850C00B8D849 /* BoardingDetailsViewModel.swift in Sources */,

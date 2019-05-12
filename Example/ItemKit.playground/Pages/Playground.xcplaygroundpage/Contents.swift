@@ -10,30 +10,27 @@ let rootView: UIView = {
     return view
 }()
 
-let textView: UITextView = {
+let textItem = TextViewItem(
+    text: "Great going",
+    alignment: .center)
+textItem.view = {
     let view = UITextView()
     view.textColor = .black
     return view
 }()
 
-let textItem = TextItem(
-    text: "Great going",
-    alignment: .center)
-textItem.itemView = textView
-
-let backgroundImageView: UIView = {
+let backgroundImageItem = ViewItem(
+    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
+    alignment: .leadingTop,
+    subItems: [textItem])
+backgroundImageItem.view = {
     let view = UIView()
     view.backgroundColor = .cyan
     return view
 }()
 
-let backgroundImageItem = Item(
-    sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
-    alignment: .leadingTop,
-    subItems: [textItem])
-backgroundImageItem.itemView = backgroundImageView
-
 
 var item = backgroundImageItem
+item.configureView()
 item.layoutViews(within: rootView)
 print(item.debugDescription())
