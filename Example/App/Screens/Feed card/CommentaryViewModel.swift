@@ -27,7 +27,7 @@ class CommentaryViewModel {
 
     private(set) var textItem: TextItem
 
-    private(set) var item: Itemable? = nil
+    private(set) var item: Item? = nil
 
     init() {
         textItem = TextItem(

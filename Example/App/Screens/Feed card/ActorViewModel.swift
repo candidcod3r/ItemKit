@@ -19,11 +19,11 @@ class ActorViewModel {
 
     private(set) var image = Constant.actorImage
     private(set) var imageItem: Item
-    private(set) var titleItem: TextItem
-    private(set) var subtitleItem: TextItem
+    private(set) var titleItem: LabelItem
+    private(set) var subtitleItem: LabelItem
     private(set) var actionButtonItem: ButtonItem
 
-    private(set) var item: Itemable? = nil
+    private(set) var item: Item? = nil
 
     init() {
         imageItem = Item(
@@ -31,13 +31,13 @@ class ActorViewModel {
             sizeGuide: SizeGuide(width: .fixed(40), height: .fixed(40)),
             alignment: .leadingCenter)
 
-        titleItem = TextItem(
+        titleItem = LabelItem(
             id: "titleItem",
             text: ActorViewModel.titleText(),
             font: Constant.titleFont,
             sizeGuide: SizeGuide(width: .fill))
 
-        subtitleItem = TextItem(
+        subtitleItem = LabelItem(
             id: "subtitleItem",
             text: "Make world a better place",
             font: Constant.subtitleFont,

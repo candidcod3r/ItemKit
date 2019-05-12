@@ -6,17 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public enum StackDistribution {
-    case leading
-    case trailing
-    case center
-    case equalSize
-    case equalSpacing
-    case fillExtraSpace
-    case fillExtraSpaceEqually
-}
+public typealias StackItem = StackViewItem<UIView>
 
-open class StackItem<View: UIView>: Item<View> {
+open class StackViewItem<View: UIView>: ViewItem<View> {
     // MARK:- StackItem Properties
     open var axis: Axis
     open var spacing: CGFloat
@@ -116,7 +108,7 @@ open class StackItem<View: UIView>: Item<View> {
 }
 
 // MARK:- Private helpers (Equal distribution)
-extension StackItem {
+extension StackViewItem {
     private func contentFittingSizeForEqualDistribution(within maxSize: CGSize) -> CGSize {
         let maxSubItemSize = maxSubItemSizeForEqualDistribution(within: maxSize)
 
@@ -176,7 +168,7 @@ extension StackItem {
 }
 
 // MARK:- Private helpers for Layoutable
-extension StackItem {
+extension StackViewItem {
     private func subItemOffset(with excessLength: CGFloat) -> CGFloat {
         switch distribution {
         case .leading,
@@ -250,4 +242,14 @@ extension StackItem {
             return CGSize(axisValue: axisLength, crossValue: crossLength, axis: axis)
         }
     }
+}
+
+public enum StackDistribution {
+    case leading
+    case trailing
+    case center
+    case equalSize
+    case equalSpacing
+    case fillExtraSpace
+    case fillExtraSpaceEqually
 }

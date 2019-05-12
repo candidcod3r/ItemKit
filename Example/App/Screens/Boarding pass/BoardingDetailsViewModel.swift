@@ -14,57 +14,57 @@ class BoardingDetailsViewModel {
         static let valueFont = UIFont.helvetica(of: 21)
     }
 
-    private(set) var flightTextItem: TextItem
-    private(set) var flightNumberItem: TextItem
+    private(set) var flightLabelItem: LabelItem
+    private(set) var flightNumberItem: LabelItem
 
-    private(set) var terminalTextItem: TextItem
-    private(set) var terminalNumberItem: TextItem
+    private(set) var terminalLabelItem: LabelItem
+    private(set) var terminalNumberItem: LabelItem
 
-    private(set) var gateTextItem: TextItem
-    private(set) var gateNumberItem: TextItem
+    private(set) var gateLabelItem: LabelItem
+    private(set) var gateNumberItem: LabelItem
 
-    private(set) var boardingTextItem: TextItem
-    private(set) var boardingTimeItem: TextItem
+    private(set) var boardingLabelItem: LabelItem
+    private(set) var boardingTimeItem: LabelItem
 
-    private(set) var item: Itemable? = nil
+    private(set) var item: Item? = nil
 
     init() {
-        flightTextItem = TextItem(
+        flightLabelItem = LabelItem(
             id: "flightText",
             text: "FLIGHT",
             font: Constant.headerFont)
 
-        flightNumberItem = TextItem(
+        flightNumberItem = LabelItem(
             id: "flightNumber",
             text: "IK123",
             font: Constant.valueFont)
 
-        terminalTextItem = TextItem(
+        terminalLabelItem = LabelItem(
             id: "terminalText",
             text: "TERMINAL",
             font: Constant.headerFont)
 
-        terminalNumberItem = TextItem(
+        terminalNumberItem = LabelItem(
             id: "terminalNumber",
             text: "3",
             font: Constant.valueFont)
 
-        gateTextItem = TextItem(
+        gateLabelItem = LabelItem(
             id: "gateText",
             text: "GATE",
             font: Constant.headerFont)
 
-        gateNumberItem = TextItem(
+        gateNumberItem = LabelItem(
             id: "gateNumber",
             text: "12",
             font: Constant.valueFont)
 
-        boardingTextItem = TextItem(
+        boardingLabelItem = LabelItem(
             id: "boardingText",
             text: "BOARDING",
             font: Constant.headerFont)
 
-        boardingTimeItem = TextItem(
+        boardingTimeItem = LabelItem(
             id: "boardingTime",
             text: "12:30AM",
             font: Constant.valueFont)
@@ -72,30 +72,30 @@ class BoardingDetailsViewModel {
         item = createItem()
     }
 
-    private func createItem() -> Itemable {
+    private func createItem() -> Item {
         let flightStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
-            subItems: [flightTextItem, flightNumberItem])
+            subItems: [flightLabelItem, flightNumberItem])
 
         let terminalStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
-            subItems: [terminalTextItem, terminalNumberItem])
+            subItems: [terminalLabelItem, terminalNumberItem])
 
         let gateStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .leadingCenter,
-            subItems: [gateTextItem, gateNumberItem])
+            subItems: [gateLabelItem, gateNumberItem])
 
         let boardingStackItem = StackItem(
             axis: .vertical,
             spacing: 4,
             alignment: .trailingCenter,
-            subItems: [boardingTextItem, boardingTimeItem])
+            subItems: [boardingLabelItem, boardingTimeItem])
 
         let topStackItem = StackItem(
             axis: .horizontal,

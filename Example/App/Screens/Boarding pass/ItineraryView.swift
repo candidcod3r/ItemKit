@@ -80,11 +80,11 @@ class ItineraryView: UIView {
     }
 
     func configure(viewModel: ItineraryViewModel?) {
-        fromTextLabel.configure(with: viewModel?.fromTextItem)
+        fromTextLabel.configure(with: viewModel?.fromLabelItem)
         fromAirportLabel.configure(with: viewModel?.fromAirportItem)
         fromTimeLabel.configure(with: viewModel?.fromTimeItem)
 
-        toTextLabel.configure(with: viewModel?.toTextItem)
+        toTextLabel.configure(with: viewModel?.toLabelItem)
         toAirportLabel.configure(with: viewModel?.toAirportItem)
         toTimeLabel.configure(with: viewModel?.toTimeItem)
 

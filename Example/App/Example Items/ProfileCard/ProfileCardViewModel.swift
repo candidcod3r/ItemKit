@@ -11,9 +11,9 @@ import ItemKit
 class ProfileCardViewModel {
     private(set) var backgroundImageItem: Item
     private(set) var actionButtonItem: ButtonItem
-    private(set) var titleItem: TextItem
-    private(set) var headlineItem: TextItem
-    private(set) var subtitleItem: TextItem
+    private(set) var titleItem: LabelItem
+    private(set) var headlineItem: LabelItem
+    private(set) var subtitleItem: LabelItem
     private(set) var profileImageItem: Item
     private(set) var presenceItem: Item
 
@@ -31,19 +31,19 @@ class ProfileCardViewModel {
             insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4),
             alignment: .trailingTop)
 
-        titleItem = TextItem(
+        titleItem = LabelItem(
             id: "title",
             text: "Candid Cod3r",
             numberOfLines: 1,
             sizeGuide: SizeGuide(width: .fill))
 
-        headlineItem = TextItem(
+        headlineItem = LabelItem(
             id: "headline",
             text: "Make world a better place",
             numberOfLines: 1,
             sizeGuide: SizeGuide(width: .fill))
 
-        subtitleItem = TextItem(
+        subtitleItem = LabelItem(
             id: "subtitle",
             text: "500+ connections",
             numberOfLines: 1,

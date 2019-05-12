@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension UIView {
-
     func setBorders(with color: UIColor? = nil, recursively: Bool = true) {
         let nonnilColor = color ?? .random
         layer.borderColor = nonnilColor.cgColor
@@ -24,5 +23,4 @@ extension UIView {
             subview.setBorders(with: color, recursively: recursively)
         }
     }
-
 }

@@ -67,7 +67,7 @@ class TextItemViewController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fill))
         containerView.configure(with: containerItem)
 
-        let label1Item = TextItem(
+        let label1Item = LabelItem(
             id: "label1",
             text: "This is a statement",
             font: UIFont.helveticaLight(of: 13),
@@ -105,7 +105,7 @@ class TextItemViewController: UIViewController {
         containerItem.subItems.append(textView2Item)
         textView2.configure(with: textView2Item)
 
-        let label2Item = TextItem(
+        let label2Item = LabelItem(
             id: "label2",
             text: "Sachin Ramesh Tendulkar is a former Indian international cricketer 🏏 and a former captain of the Indian national team, regarded as one of the greatest batsmen of all time. He is the highest run scorer of all time in International cricket.",
             font: UIFont.helveticaLight(of: 15),

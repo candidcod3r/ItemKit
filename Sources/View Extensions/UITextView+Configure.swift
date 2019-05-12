@@ -7,12 +7,12 @@
 //
 
 extension UITextView {
-    open func configure<View: UITextView>(with item: TextItem<View>?) {
+    open func configure<View: UITextView>(with item: TextViewItem<View>?) {
         guard let item = item else {
             return
         }
 
-        (self as UIView).configure(with: item)
+        super.configure(with: item)
 
         switch item.text {
         case .normal(let text):

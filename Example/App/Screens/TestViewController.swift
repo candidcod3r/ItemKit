@@ -31,8 +31,8 @@ class TestItemViewController: UIViewController {
             return containerView
         }()
 
-        let labelItem = LabelViewItem(
-            id: "label1",
+        let labelItem = LabelItem(
+            id: "label",
             text: "This is a statement",
             font: UIFont.helveticaLight(of: 13),
             numberOfLines: 0,
@@ -45,11 +45,10 @@ class TestItemViewController: UIViewController {
             label.backgroundColor = UIColor(hex: 0xFFD444)
             return label
         }()
-        labelItem.configureView()
         containerItem.subItems.append(labelItem)
 
-        let textViewItem = TextViewItem(
-            id: "textView1",
+        let textViewItem = TextItem(
+            id: "textView",
             text: "The U.S. 🇺🇸 is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.",
             font: UIFont.helveticaLight(of: 13),
             numberOfLines: 3,
@@ -62,8 +61,27 @@ class TestItemViewController: UIViewController {
             textView.backgroundColor = UIColor(hex: 0xD8ED9C)
             return textView
         }()
-        textViewItem.configureView()
         containerItem.subItems.append(textViewItem)
+
+        let buttonItem = ButtonItem(
+            id: "button",
+            title: NSAttributedString(
+                string: "View Profile",
+                attributes: [NSAttributedString.Key.font : UIFont.helvetica(of: 13)]),
+            image: UIImage(named: "profile_color"),
+            font: UIFont.buttonTitle,
+            contentInsets: UIEdgeInsets(8),
+            titleInsets: UIEdgeInsets(left: 8),
+            alignment: .centerBottom)
+        buttonItem.view = {
+            let button = UIButton()
+            button.backgroundColor = .lightGray
+            button.setTitleColor(.black, for: .normal)
+            button.layer.cornerRadius = 4
+            button.layer.masksToBounds = true
+            return button
+        }()
+        containerItem.subItems.append(buttonItem)
 
         let containerParentWidth = CGFloat(360)
         let containerParentHeight = CGFloat(680)
@@ -74,6 +92,7 @@ class TestItemViewController: UIViewController {
             flexibility: .normal,
             subItems: [containerItem])
 
+        containerParentItem.configureView()
         containerParentItem.layoutViews(within: view)
         print(containerParentItem.debugDescription())
     }

@@ -77,7 +77,7 @@ class SubItemViewController: UIViewController {
         overlayView.configure(with: overlayItem)
         canvasItem.subItems.append(overlayItem)
 
-        let titleLabelItem = TextItem(
+        let titleLabelItem = LabelItem(
             id: "titleLabel",
             text: "Make world a better place",
             font: UIFont.helvetica(of: 22),

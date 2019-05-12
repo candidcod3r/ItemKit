@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class TextItem<View: UIView>: Item<View> {
+open class TextViewItem<View: UIView>: ViewItem<View> {
     // MARK:- TextItem Properties
     open var text: Text
     open var font: UIFont
@@ -117,5 +117,25 @@ open class TextItem<View: UIView>: Item<View> {
         let totalLinesHeight = CGFloat(numberOfLines) * font.lineHeight
         let maxHeight = totalLinesHeight.roundedUp
         return maxHeight
+    }
+}
+
+
+open class TextItem: TextViewItem<UITextView> {
+    // MARK:- Configurable
+    open override func configureView() {
+        view?.configure(with: self)
+        for subItem in subItems {
+            subItem.configureView()
+        }
+    }
+}
+open class LabelItem: TextViewItem<UILabel> {
+    // MARK:- Configurable
+    open override func configureView() {
+        view?.configure(with: self)
+        for subItem in subItems {
+            subItem.configureView()
+        }
     }
 }

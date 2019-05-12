@@ -6,7 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class Item<View: UIView>: Itemable, Cacheable {
+public typealias Item = ViewItem<UIView>
+
+open class ViewItem<View: UIView>: Itemable, Cacheable {
     // MARK:- Itemable Properties
     public let id: String?
     open var insets: UIEdgeInsets
@@ -98,10 +100,17 @@ open class Item<View: UIView>: Itemable, Cacheable {
     }
 
     // MARK:- Configurable
-    public func configureView() {
+    open func configureView() {
         view?.configure(with: self)
         for subItem in subItems {
             subItem.configureView()
         }
+    }
+}
+
+// MARK- Itemable
+extension ViewItem {
+    open var itemView: UIView? {
+        return view
     }
 }

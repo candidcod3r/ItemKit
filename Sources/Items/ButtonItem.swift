@@ -6,7 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class ButtonItem<View: UIView>: Item<View> {
+public typealias ButtonItem = ButtonViewItem<UIButton>
+
+open class ButtonViewItem<View: UIButton>: ViewItem<View> {
     // MARK:- ButtonItem Properties
     open var title: Text?
     open var image: UIImage?
@@ -126,5 +128,13 @@ open class ButtonItem<View: UIView>: Item<View> {
     
     private var buttonImageSize: CGSize {
         return image?.size ?? imageSize
+    }
+
+    // MARK:- Configurable
+    open override func configureView() {
+        view?.configure(with: self)
+        for subItem in subItems {
+            subItem.configureView()
+        }
     }
 }

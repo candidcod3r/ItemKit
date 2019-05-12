@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public protocol Itemable: Measurable, Layoutable, Configurable {
+public protocol Itemable: Measurable, Layoutable {
     /**
      Unique ID that represents the item
      */
@@ -19,6 +19,11 @@ public protocol Itemable: Measurable, Layoutable, Configurable {
     var requiresView: Bool { get }
 
     var itemView: UIView? { get }
+
+    /**
+     Configure the view with required properties
+     */
+    func configureView()
 }
 
 extension Itemable {
@@ -27,8 +32,24 @@ extension Itemable {
     }
 }
 
-extension Item {
-    public var itemView: UIView? {
-        return view
+extension Itemable {
+    public mutating func layoutViews(within containerView: UIView) {
+        updateLayout(within: containerView.frame)
+
+        layoutViews(for: self, in: containerView)
+    }
+
+    fileprivate func layoutViews(for item: Itemable, in containerView: UIView) {
+        let itemView = item.itemView
+        if let itemView = itemView {
+            containerView.addSubview(itemView)
+        }
+
+        // set the frame of the view
+        itemView?.frame = item.frame
+
+        for subItem in item.subItems {
+            layoutViews(for: subItem, in: itemView ?? containerView)
+        }
     }
 }
