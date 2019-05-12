@@ -13,22 +13,17 @@ let rootView: UIView = {
 let textItem = TextViewItem(
     text: "Great going",
     alignment: .center)
-textItem.view = {
-    let view = UITextView()
-    view.textColor = .black
-    return view
-}()
+textItem..prepareView = { (textView) in
+    textView.textColor = .black
+}
 
 let backgroundImageItem = ViewItem(
     sizeGuide: SizeGuide(width: .fill, height: .fixed(76)),
     alignment: .leadingTop,
     subItems: [textItem])
-backgroundImageItem.view = {
-    let view = UIView()
+backgroundImageItem.prepareView = { (view) in
     view.backgroundColor = .cyan
-    return view
-}()
-
+}
 
 var item = backgroundImageItem
 item.configureView()

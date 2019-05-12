@@ -122,25 +122,36 @@ open class TextItem: Item {
 
 // MARK:- ViewItemable
 open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
-    // MARK:- Backing view
-    open var view: View?
+    open var view = makeView()
+    open var prepareView: ((View) -> Void)?
 
     // MARK:- Configurable
-    public func configureView() {
-        view?.configure(with: self)
-        for configurable in subItems.as(Configurable.self) {
-            configurable.configureView()
-        }
+    open func configureView() {
+        prepareView?(view)
+        view.configure(with: self)
     }
 }
 
+
 // MARK:- ViewItemable
 open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
-    // MARK:- Backing view
-    open var view: View?
+    open var view = makeView()
+    open var prepareView: ((View) -> Void)?
 
     // MARK:- Configurable
-    public func configureView() {
-        view?.configure(with: self)
+    open func configureView() {
+        prepareView?(view)
+        view.configure(with: self)
+    }
+}
+
+open class TextFieldViewItem<View: UITextField>: TextItem, ViewItemable {
+    open var view = makeView()
+    open var prepareView: ((View) -> Void)?
+
+    // MARK:- Configurable
+    open func configureView() {
+        prepareView?(view)
+        view.configure(with: self)
     }
 }

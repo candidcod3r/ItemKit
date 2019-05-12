@@ -15,21 +15,30 @@ public protocol Configurable {
 
 public protocol ViewItemable: Itemable, Configurable, UIViewItemable {
     associatedtype View: UIView
-    var view: View? { get }
+
+    // backing view
+    var view: View { get }
+
+    // prepare the view
+    var prepareView: ((View) -> Void)? { get }
 }
 
 extension ViewItemable {
     public var requiresView: Bool {
-        return (id?.count ?? 0) > 0 && (view != nil)
+        return true
     }
 
-    public var itemView: UIView? {
+    public var itemView: UIView {
         return view
+    }
+
+    public static func makeView() -> View {
+        return View()
     }
 }
 
 public protocol UIViewItemable {
-    var itemView: UIView? { get }
+    var itemView: UIView { get }
 }
 
 extension Itemable {

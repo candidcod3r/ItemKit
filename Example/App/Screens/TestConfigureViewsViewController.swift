@@ -23,13 +23,11 @@ class TestConfigureViewsViewController: UIViewController {
         let containerItem = ViewItem<UIView>(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerItem.view = {
-            let containerView = UIView()
-            containerView.clipsToBounds = false
-            containerView.layer.masksToBounds = false
-            containerView.backgroundColor = UIColor(hex: 0xE9E9E9)
-            return containerView
-        }()
+        containerItem.prepareView = { (view) in
+            view.clipsToBounds = false
+            view.layer.masksToBounds = false
+            view.backgroundColor = UIColor(hex: 0xE9E9E9)
+        }
 
         let labelItem = LabelViewItem(
             id: "label",
@@ -39,12 +37,10 @@ class TestConfigureViewsViewController: UIViewController {
             textContainerInsets: .zero,
             lineFragmentPadding: 0,
             alignment: .leadingTop)
-        labelItem.view = {
-            let label = UILabel()
+        labelItem.prepareView = { (label) in
             label.textColor = .black
             label.backgroundColor = UIColor(hex: 0xFFD444)
-            return label
-        }()
+        }
         containerItem.subItems.append(labelItem)
 
         let textViewItem = TextViewItem(
@@ -55,12 +51,10 @@ class TestConfigureViewsViewController: UIViewController {
             textContainerInsets: .zero,
             lineFragmentPadding: 8,
             alignment: .center)
-        textViewItem.view = {
-            let textView = UITextView()
+        textViewItem.prepareView = { (textView) in
             textView.textColor = .black
             textView.backgroundColor = UIColor(hex: 0xD8ED9C)
-            return textView
-        }()
+        }
         containerItem.subItems.append(textViewItem)
 
         let buttonItem = ButtonViewItem(
@@ -73,14 +67,12 @@ class TestConfigureViewsViewController: UIViewController {
             contentInsets: UIEdgeInsets(8),
             titleInsets: UIEdgeInsets(left: 8),
             alignment: .centerBottom)
-        buttonItem.view = {
-            let button = UIButton()
+        buttonItem.prepareView = { (button) in
             button.backgroundColor = .lightGray
             button.setTitleColor(.black, for: .normal)
             button.layer.cornerRadius = 4
             button.layer.masksToBounds = true
-            return button
-        }()
+        }
         containerItem.subItems.append(buttonItem)
 
         let containerParentWidth = CGFloat(360)

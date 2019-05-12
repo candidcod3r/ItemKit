@@ -97,11 +97,12 @@ open class Item: Itemable, Cacheable {
 
 // MARK:- ViewItemable
 open class ViewItem<View: UIView>: Item, ViewItemable {
-    // MARK:- Backing view
-    open var view: View?
+    open var view = makeView()
+    open var prepareView: ((View) -> Void)?
 
     // MARK:- Configurable
-    public func configureView() {
-        view?.configure(with: self)
+    open func configureView() {
+        prepareView?(view)
+        view.configure(with: self)
     }
 }

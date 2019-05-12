@@ -37,11 +37,12 @@ open class CanvasItem: Item {
 
 // MARK:- ViewItemable
 open class CanvasViewItem<View: UIView>: CanvasItem, ViewItemable {
-    // MARK:- Backing view
-    open var view: View?
+    open var view = makeView()
+    open var prepareView: ((View) -> Void)?
 
     // MARK:- Configurable
-    public func configureView() {
-        view?.configure(with: self)
+    open func configureView() {
+        prepareView?(view)
+        view.configure(with: self)
     }
 }

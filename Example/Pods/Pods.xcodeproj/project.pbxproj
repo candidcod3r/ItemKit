@@ -23,6 +23,7 @@
 		437DF460838CC1ABAD31FA2115B4ED3F /* CanvasItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE73ECE31CDBA796880D65545F952E /* CanvasItem.swift */; };
 		44133D220880602F15E03FD4ECD7C3B2 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C943101F480D97503F63E607F7E8A8 /* Alignment.swift */; };
 		47FFA8F3E0179CCA47795F219A908E6B /* UIView+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7DDA149C40212A0CD9EE9B04894BAB /* UIView+Debug.swift */; };
+		4EE8AF4722880714008329FC /* UITextField+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8AF4622880714008329FC /* UITextField+Configure.swift */; };
 		512C22FDC8F2FB0A126E7C63D64F301F /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182EBF92661E59D383101C6FF86C043 /* CGRect+.swift */; };
 		664AA18F221FBF80D2AC6BA73A67FCF8 /* ItemKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D878897A52463EE6291351ECA004598 /* ItemKit-dummy.m */; };
 		6B2B757C3E2456B5BD9DAA274A2D06B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC14D54CF483CF531F6412BFC589C4B /* CoreGraphics.framework */; };
@@ -85,6 +86,7 @@
 		469AE107A270583E8ACC4B1A7D326EE6 /* DirectionalValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DirectionalValue.swift; sourceTree = "<group>"; };
 		4A020E9EEA3F5EA0952E9974241B0ECE /* IndexedValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IndexedValue.swift; sourceTree = "<group>"; };
 		4D7DDA149C40212A0CD9EE9B04894BAB /* UIView+Debug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Debug.swift"; sourceTree = "<group>"; };
+		4EE8AF4622880714008329FC /* UITextField+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Configure.swift"; sourceTree = "<group>"; };
 		4F2ED0B1842A79F0669179980C701562 /* Pods-ItemKitExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-resources.sh"; sourceTree = "<group>"; };
 		56489F2F821735AA1EC875ACA4360D41 /* Pods_ItemKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57065064A21471B7A84EF8910A2A0516 /* Pods-ItemKitExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemKitExample-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				9FAB82E47493B4803AB2B7E94DB4D623 /* UITextView+Configure.swift */,
 				AD3C6889CAA221242FBA4CF29805AD06 /* UIView+Configure.swift */,
 				DC0E40F1A3371571349FF94FF9CDF7D2 /* UIView+Itemable.swift */,
+				4EE8AF4622880714008329FC /* UITextField+Configure.swift */,
 			);
 			name = "View Extensions";
 			path = "Sources/View Extensions";
@@ -479,6 +482,7 @@
 				437DF460838CC1ABAD31FA2115B4ED3F /* CanvasItem.swift in Sources */,
 				B87A6EDF0C3FE4E546E2A599886B4F08 /* CGFloat+.swift in Sources */,
 				512C22FDC8F2FB0A126E7C63D64F301F /* CGRect+.swift in Sources */,
+				4EE8AF4722880714008329FC /* UITextField+Configure.swift in Sources */,
 				791024A1E2AA673355BA9ABD4DF90A35 /* CGSize+.swift in Sources */,
 				D48B03F54E1CD150ECC168E65E5ED6A0 /* DimensionGuide.swift in Sources */,
 				D7406EFF64862932D48AE34FBAC6DBA7 /* DirectionalValue.swift in Sources */,
