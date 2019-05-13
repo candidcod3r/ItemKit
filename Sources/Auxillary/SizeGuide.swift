@@ -9,6 +9,10 @@
 public typealias DimensionRange = ClosedRange<CGFloat>
 
 public struct SizeGuide {
+    public static let fill = SizeGuide(width: .fill, height: .fill)
+    public static let fillWidth = SizeGuide(width: .fill)
+    public static let fillHeight = SizeGuide(height: .fill)
+
     public static let fullRange = 0...CGFloat.greatestFiniteMagnitude
 
     public var width: DimensionGuide
