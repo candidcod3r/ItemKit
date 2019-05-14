@@ -12,7 +12,21 @@ public enum Text {
     case normal(String)
     case attributed(NSAttributedString)
 
-    var isEmpty: Bool {
+    public init?(_ string: String?) {
+        guard let string = string else {
+            return nil
+        }
+        self = .normal(string)
+    }
+
+    public init?(_ attributedString: NSAttributedString?) {
+        guard let attributedString = attributedString else {
+            return nil
+        }
+        self = .attributed(attributedString)
+    }
+
+    public var isEmpty: Bool {
         switch self {
         case .normal(let string):
             return string.isEmpty
@@ -21,7 +35,7 @@ public enum Text {
         }
     }
 
-    func size(with font: UIFont, within maxSize: CGSize) -> CGSize {
+    public func size(with font: UIFont, within maxSize: CGSize) -> CGSize {
         guard !isEmpty else {
             return .zero
         }
