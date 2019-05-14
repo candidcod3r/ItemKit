@@ -7,7 +7,9 @@
 //
 
 open class Item: Itemable, Cacheable {
-    // MARK:- Itemable Properties
+
+    // MARK: - Itemable Properties
+
     public let id: String?
     open var insets: UIEdgeInsets
     open var sizeGuide: SizeGuide
@@ -15,12 +17,14 @@ open class Item: Itemable, Cacheable {
     open var flexibility: Flexibility
     open var subItems: [Itemable]
 
-    // MARK:- autocomputed properties
+    // MARK: - Autocomputed properties
+
     open var frame: CGRect = .zero
     open var fittingSize: CGSize = .zero
     open var contentFittingSize: CGSize = .zero
 
-    // MARK:- Designated intializer
+    // MARK: - Designated intializer
+
     public init(id: String? = nil,
                 sizeGuide: SizeGuide = SizeGuide(),
                 insets: UIEdgeInsets = .zero,
@@ -39,7 +43,8 @@ open class Item: Itemable, Cacheable {
         return (id?.count ?? 0) > 0
     }
 
-    // MARK:- Measurable
+    // MARK: - Measurable
+
     public final func updateFittingSizes(within maxSize: CGSize) {
         // adjust maxSize according to the size guide
         let maxFittingSize = Sizer.fittingSize(within: maxSize, using: sizeGuide)
@@ -61,7 +66,8 @@ open class Item: Itemable, Cacheable {
         return Sizer.fittingSize(within: maxSize, using: sizeGuide)
     }
 
-    // MARK:- Layoutable
+    // MARK: - Layoutable
+
     public final func updateFrames(within maxFrame: CGRect) {
         let size = Sizer.size(of: fittingSize, within: maxFrame.size, using: sizeGuide)
         let origin = Aligner.origin(of: size, with: alignment, within: maxFrame)
@@ -97,12 +103,20 @@ open class Item: Itemable, Cacheable {
     }
 }
 
-// MARK:- ViewItemable
+// MARK: - ViewItemable
+
 open class ViewItem<View: UIView>: Item, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
+
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)

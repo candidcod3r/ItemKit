@@ -35,12 +35,20 @@ open class CanvasItem: Item {
     }
 }
 
-// MARK:- ViewItemable
+// MARK: - CanvasViewItem
+
 open class CanvasViewItem<View: UIView>: CanvasItem, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
+    
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)

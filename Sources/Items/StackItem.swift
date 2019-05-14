@@ -7,12 +7,15 @@
 //
 
 open class StackItem: Item {
-    // MARK:- StackItem Properties
+
+    // MARK: - StackItem Properties
+
     open var axis: Axis
     open var spacing: CGFloat
     open var distribution: StackDistribution
 
-    // MARK:- Designated intializer
+    // MARK: - Designated intializer
+
     public init(id: String? = nil,
                 axis: Axis = .horizontal,
                 spacing: CGFloat = 0,
@@ -47,6 +50,7 @@ open class StackItem: Item {
     }
 
     // MARK: Measurable
+
     open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         guard distribution != .equalSize else {
             return contentFittingSizeForEqualDistribution(within: maxSize)
@@ -70,6 +74,7 @@ open class StackItem: Item {
     }
 
     // MARK: Layoutable
+
     open override func updateContentFrames(within maxFrame: CGRect) {
         let availableAxisLength = maxFrame.size.value(along: axis)
         let fittingAxisLength = contentFittingSize.value(along: axis)
@@ -100,7 +105,8 @@ open class StackItem: Item {
     }
 }
 
-// MARK:- Private helpers (Equal distribution)
+// MARK: - Private helpers (Equal distribution)
+
 extension StackItem {
     private func contentFittingSizeForEqualDistribution(within maxSize: CGSize) -> CGSize {
         let maxSubItemSize = maxSubItemSizeForEqualDistribution(within: maxSize)
@@ -160,7 +166,8 @@ extension StackItem {
     }
 }
 
-// MARK:- Private helpers for Layoutable
+// MARK: - Private helpers for Layoutable
+
 extension StackItem {
     private func subItemOffset(with excessLength: CGFloat) -> CGFloat {
         switch distribution {
@@ -247,12 +254,20 @@ public enum StackDistribution {
     case fillExtraSpaceEqually
 }
 
-// MARK:- ViewItemable
+// MARK: - StackViewItem
+
 open class StackViewItem<View: UIView>: StackItem, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
+    
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)

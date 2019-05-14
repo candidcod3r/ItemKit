@@ -7,14 +7,17 @@
 //
 
 open class TextItem: Item {
-    // MARK:- TextItem Properties
+
+    // MARK: - TextItem Properties
+
     open var text: Text
     open var font: UIFont
     open var numberOfLines: Int
     open var textContainerInsets: UIEdgeInsets
     open var lineFragmentPadding: CGFloat
 
-    // MARK:- Designated intializer
+    // MARK: - Designated intializer
+
     public init(id: String? = nil,
                 text: Text? = nil,
                 font: UIFont? = nil,
@@ -40,7 +43,8 @@ open class TextItem: Item {
             subItems: [])
     }
 
-    // MARK:- Convenience intializers
+    // MARK: - Convenience intializers
+
     public convenience init(id: String? = nil,
                             text: String,
                             font: UIFont? = nil,
@@ -87,7 +91,8 @@ open class TextItem: Item {
             flexibility: flexibility)
     }
 
-    // MARK:- Measurable
+    // MARK: - Measurable
+
     open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         let lineFragmentInsets = UIEdgeInsets(horizontal: lineFragmentPadding)
         let maxTextSize = maxSize
@@ -120,12 +125,19 @@ open class TextItem: Item {
     }
 }
 
-// MARK:- ViewItemable
+// MARK: - TextViewItem
+
 open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)
@@ -136,13 +148,20 @@ open class TextViewItem<View: UITextView>: TextItem, ViewItemable {
     }
 }
 
+// MARK: - LabelViewItem
 
-// MARK:- ViewItemable
 open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
+
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)
@@ -152,12 +171,21 @@ open class LabelViewItem<View: UILabel>: TextItem, ViewItemable {
         return true
     }
 }
+
+// MARK: - TextFieldViewItem
 
 open class TextFieldViewItem<View: UITextField>: TextItem, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
+
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)

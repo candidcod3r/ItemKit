@@ -7,7 +7,9 @@
 //
 
 open class ButtonItem: Item {
-    // MARK:- ButtonItem Properties
+
+    // MARK: - ButtonItem Properties
+
     open var title: Text?
     open var image: UIImage?
     open var imageSize: CGSize
@@ -16,7 +18,8 @@ open class ButtonItem: Item {
     open var titleInsets: UIEdgeInsets
     open var imageInsets: UIEdgeInsets
     
-    // MARK:- Designated intializer
+    // MARK: - Designated intializer
+    
     public init(id: String? = nil,
                 title: Text? = nil,
                 image: UIImage? = nil,
@@ -46,7 +49,8 @@ open class ButtonItem: Item {
             subItems: [])
     }
     
-    // MARK:- Convenience intializers
+    // MARK: - Convenience intializers
+
     public convenience init(id: String? = nil,
                             title: String,
                             image: UIImage? = nil,
@@ -101,7 +105,8 @@ open class ButtonItem: Item {
             flexibility: flexibility)
     }
 
-    // MARK:- Measurable
+    // MARK: - Measurable
+
     open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
         let imageSize = self.buttonImageSize
             .insetted(by: imageInsets)
@@ -119,7 +124,8 @@ open class ButtonItem: Item {
         return contentSize
     }
 
-    // MARK:- Private helpers
+    // MARK: - Private helpers
+
     private func titleSize(within maxSize: CGSize) -> CGSize {
         return title?.size(with: font, within: maxSize) ?? .zero
     }
@@ -129,12 +135,20 @@ open class ButtonItem: Item {
     }
 }
 
-// MARK:- ViewItemable
+// MARK: - ButtonViewItem
+
 open class ButtonViewItem<View: UIButton>: ButtonItem, ViewItemable {
     open var view = makeView()
     open var prepareView: ((View) -> Void)?
 
-    // MARK:- Configurable
+    open override var frame: CGRect {
+        didSet {
+            view.frame = frame
+        }
+    }
+
+    // MARK: - Configurable
+    
     open func configureView() {
         prepareView?(view)
         view.configure(with: self)
