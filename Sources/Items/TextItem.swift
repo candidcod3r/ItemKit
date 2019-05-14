@@ -16,7 +16,7 @@ open class TextItem: Item {
 
     // MARK:- Designated intializer
     public init(id: String? = nil,
-                text: Text,
+                text: Text? = nil,
                 font: UIFont? = nil,
                 numberOfLines: Int = 0,
                 textContainerInsets: UIEdgeInsets = .zero,
@@ -25,7 +25,7 @@ open class TextItem: Item {
                 insets: UIEdgeInsets = .zero,
                 alignment: Alignment = .leadingTop,
                 flexibility: Flexibility = .normal) {
-        self.text = text
+        self.text = text ?? .normal("")
         self.font = font ?? UIFont.label
         self.numberOfLines = max(numberOfLines, 0)
         self.textContainerInsets = textContainerInsets
