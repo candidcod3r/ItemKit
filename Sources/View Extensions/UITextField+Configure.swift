@@ -14,7 +14,13 @@ extension UITextField {
 
         super.configure(with: item)
 
-        switch item.text {
+        guard let itemText = item.text else {
+            text = nil
+            font = item.font
+            return
+        }
+
+        switch itemText {
         case .normal(let text):
             self.text = text
             font = item.font

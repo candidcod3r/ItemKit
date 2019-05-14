@@ -14,14 +14,20 @@ extension UILabel {
 
         super.configure(with: item)
 
-        switch item.text {
+        numberOfLines = item.numberOfLines
+
+        guard let itemText = item.text else {
+            text = nil
+            font = item.font
+            return
+        }
+
+        switch itemText {
         case .normal(let text):
             self.text = text
             font = item.font
         case .attributed(let attributedText):
             self.attributedText = attributedText
         }
-
-        numberOfLines = item.numberOfLines
     }
 }

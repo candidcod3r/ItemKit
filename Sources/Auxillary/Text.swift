@@ -65,3 +65,16 @@ public enum Text {
         return textSize.roundedUp
     }
 }
+
+// MARK: - Helpful methods
+
+extension Text {
+    public var string: String {
+        switch self {
+        case .normal(let string):
+            return string
+        case .attributed(let attributedString):
+            return attributedString.string
+        }
+    }
+}

@@ -10,7 +10,7 @@ open class TextItem: Item {
 
     // MARK: - TextItem Properties
 
-    open var text: Text
+    open var text: Text?
     open var font: UIFont
     open var numberOfLines: Int
     open var textContainerInsets: UIEdgeInsets
@@ -100,7 +100,7 @@ open class TextItem: Item {
             .decreased(by: lineFragmentInsets)
 
         let maxPermissibleLinesHeight = self.maxPermissibleLinesHeight()
-        let textSize = text.size(with: font, within: maxTextSize)
+        let textSize = text?.size(with: font, within: maxTextSize) ?? .zero
 
         let adjustedTextContainerInsets = textSize.height > maxPermissibleLinesHeight
             ? textContainerInsets.removedBottom()
