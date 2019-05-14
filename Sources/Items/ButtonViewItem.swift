@@ -1,25 +1,21 @@
 //
-//  ButtonItem.swift
+//  ButtonViewItem.swift
 //  ItemKit
 //
-//  Created by Candid Cod3r on 4/14/19.
+//  Created by Candid Cod3r on 5/14/19.
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class ButtonItem: Item {
+/**
+ ButtonItem that has a backing UIButton.
+ */
+open class ButtonViewItem<View: UIButton>: ButtonItem, ViewItemable {
+    open private(set) var view: View
+    open private(set) var makeView: (() -> View)?
+    open var configureView: ((View) -> Void)?
 
-    // MARK: - ButtonItem Properties
-
-    open var title: Text?
-    open var image: UIImage?
-    open var imageSize: CGSize
-    open var font: UIFont
-    open var contentInsets: UIEdgeInsets
-    open var titleInsets: UIEdgeInsets
-    open var imageInsets: UIEdgeInsets
-    
     // MARK: - Designated intializer
-    
+
     public init(id: String? = nil,
                 title: Text? = nil,
                 image: UIImage? = nil,
@@ -31,24 +27,24 @@ open class ButtonItem: Item {
                 sizeGuide: SizeGuide = SizeGuide(),
                 insets: UIEdgeInsets = .zero,
                 alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal) {
-        self.title = title
-        self.image = image
-        self.imageSize = image?.size ?? imageSize
-        self.font = font ?? UIFont.buttonTitle
-        self.contentInsets = contentInsets
-        self.titleInsets = titleInsets
-        self.imageInsets = imageInsets
+                flexibility: Flexibility = .normal,
+                makeView: (() -> View)? = nil) {
+        self.view = makeView?() ?? ViewItem.makeView()
 
-        super.init(
-            id: id,
-            sizeGuide: sizeGuide,
-            insets: insets,
-            alignment: alignment,
-            flexibility: flexibility,
-            subItems: [])
+        super.init(id: id,
+                   title: title,
+                   image: image,
+                   imageSize: imageSize,
+                   font: font,
+                   contentInsets: contentInsets,
+                   titleInsets: titleInsets,
+                   imageInsets: imageInsets,
+                   sizeGuide: sizeGuide,
+                   insets: insets,
+                   alignment: alignment,
+                   flexibility: flexibility)
     }
-    
+
     // MARK: - Convenience intializers
 
     public convenience init(id: String? = nil,
@@ -62,7 +58,8 @@ open class ButtonItem: Item {
                             sizeGuide: SizeGuide = SizeGuide(),
                             insets: UIEdgeInsets = .zero,
                             alignment: Alignment = .leadingTop,
-                            flexibility: Flexibility = .normal) {
+                            flexibility: Flexibility = .normal,
+                            makeView: (() -> View)? = nil) {
         self.init(
             id: id,
             title: .normal(title),
@@ -75,9 +72,10 @@ open class ButtonItem: Item {
             sizeGuide: sizeGuide,
             insets: insets,
             alignment: alignment,
-            flexibility: flexibility)
+            flexibility: flexibility,
+            makeView: makeView)
     }
-    
+
     public convenience init(id: String? = nil,
                             title: NSAttributedString,
                             image: UIImage? = nil,
@@ -89,7 +87,8 @@ open class ButtonItem: Item {
                             sizeGuide: SizeGuide = SizeGuide(),
                             insets: UIEdgeInsets = .zero,
                             alignment: Alignment = .leadingTop,
-                            flexibility: Flexibility = .normal) {
+                            flexibility: Flexibility = .normal,
+                            makeView: (() -> View)? = nil) {
         self.init(
             id: id,
             title: .attributed(title),
@@ -102,35 +101,18 @@ open class ButtonItem: Item {
             sizeGuide: sizeGuide,
             insets: insets,
             alignment: alignment,
-            flexibility: flexibility)
+            flexibility: flexibility,
+            makeView: makeView)
     }
 
-    // MARK: - Measurable
+    // MARK: - Configurable
 
-    open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
-        let imageSize = self.buttonImageSize
-            .insetted(by: imageInsets)
-            .decreased(to: maxSize)
-        
-        let titleSize = self.titleSize(within: maxSize)
-            .insetted(by: titleInsets)
-        
-        let contentWidth = imageSize.width + titleSize.width
-        let contentHeight = max(imageSize.height, titleSize.height)
-        let contentSize = CGSize(width: contentWidth, height: contentHeight)
-            .insetted(by: contentInsets)
-            .decreased(to: maxSize)
-        
-        return contentSize
+    open func configure() {
+        configureView?(view)
+        view.configure(with: self)
     }
 
-    // MARK: - Private helpers
-
-    private func titleSize(within maxSize: CGSize) -> CGSize {
-        return title?.size(with: font, within: maxSize) ?? .zero
-    }
-    
-    private var buttonImageSize: CGSize {
-        return image?.size ?? imageSize
+    open override var requiresView: Bool {
+        return true
     }
 }

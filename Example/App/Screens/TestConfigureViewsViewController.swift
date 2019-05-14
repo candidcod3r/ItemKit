@@ -23,7 +23,7 @@ class TestConfigureViewsViewController: UIViewController {
         let containerItem = ViewItem<UIView>(
             id: "containerItem",
             sizeGuide: SizeGuide(width: .fill, height: .fill))
-        containerItem.prepareView = { (view) in
+        containerItem.configureView = { (view) in
             view.clipsToBounds = false
             view.layer.masksToBounds = false
             view.backgroundColor = UIColor(hex: 0xE9E9E9)
@@ -37,7 +37,7 @@ class TestConfigureViewsViewController: UIViewController {
             textContainerInsets: .zero,
             lineFragmentPadding: 0,
             alignment: .leadingTop)
-        labelItem.prepareView = { (label) in
+        labelItem.configureView = { (label) in
             label.textColor = .black
             label.backgroundColor = UIColor(hex: 0xFFD444)
         }
@@ -52,7 +52,7 @@ class TestConfigureViewsViewController: UIViewController {
             lineFragmentPadding: 8,
             sizeGuide: SizeGuide(height: .fixed(100)),
             alignment: .center)
-        textViewItem.prepareView = { (textView) in
+        textViewItem.configureView = { (textView) in
             textView.textColor = .black
             textView.backgroundColor = UIColor(hex: 0xD8ED9C)
         }
@@ -68,7 +68,7 @@ class TestConfigureViewsViewController: UIViewController {
             contentInsets: UIEdgeInsets(8),
             titleInsets: UIEdgeInsets(left: 8),
             alignment: .centerBottom)
-        buttonItem.prepareView = { (button) in
+        buttonItem.configureView = { (button) in
             button.backgroundColor = .lightGray
             button.setTitleColor(.black, for: .normal)
             button.layer.cornerRadius = 4

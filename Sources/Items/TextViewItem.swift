@@ -1,20 +1,56 @@
 //
-//  TextItem.swift
+//  TextViewItem.swift
 //  ItemKit
 //
-//  Created by Candid Cod3r on 4/14/19.
+//  Created by Candid Cod3r on 5/14/19.
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-open class TextItem: Item {
+// MARK: - TextViewItem
 
-    // MARK: - TextItem Properties
+/**
+ TextItem that has a backing UITextView.
+ */
+open class TextViewItem<View: UITextView>: GenericTextViewItem<View> {
+    open override func configure() {
+        configureView?(view)
+        view.configure(with: self)
+    }
+}
 
-    open var text: Text
-    open var font: UIFont
-    open var numberOfLines: Int
-    open var textContainerInsets: UIEdgeInsets
-    open var lineFragmentPadding: CGFloat
+// MARK: - LabelViewItem
+
+/**
+ TextItem that has a backing UILabel.
+ */
+open class LabelViewItem<View: UILabel>: GenericTextViewItem<View> {
+    open override func configure() {
+        configureView?(view)
+        view.configure(with: self)
+    }
+}
+
+// MARK: - TextFieldViewItem
+
+/**
+ TextItem that has a backing UITextField.
+ */
+open class TextFieldViewItem<View: UITextField>: GenericTextViewItem<View> {
+    open override func configure() {
+        configureView?(view)
+        view.configure(with: self)
+    }
+}
+
+// MARK: - GenericTextViewItem
+
+/**
+ TextItem that has a backing UIView.
+ */
+open class GenericTextViewItem<View: UIView>: TextItem, ViewItemable {
+    open private(set) var view: View
+    open private(set) var makeView: (() -> View)?
+    open var configureView: ((View) -> Void)?
 
     // MARK: - Designated intializer
 
@@ -27,20 +63,21 @@ open class TextItem: Item {
                 sizeGuide: SizeGuide = SizeGuide(),
                 insets: UIEdgeInsets = .zero,
                 alignment: Alignment = .leadingTop,
-                flexibility: Flexibility = .normal) {
-        self.text = text ?? .normal("")
-        self.font = font ?? UIFont.label
-        self.numberOfLines = max(numberOfLines, 0)
-        self.textContainerInsets = textContainerInsets
-        self.lineFragmentPadding = lineFragmentPadding
+                flexibility: Flexibility = .normal,
+                makeView: (() -> View)? = nil) {
+        self.view = makeView?() ?? ViewItem.makeView()
 
         super.init(
             id: id,
+            text: text,
+            font: font,
+            numberOfLines: numberOfLines,
+            textContainerInsets: textContainerInsets,
+            lineFragmentPadding: lineFragmentPadding,
             sizeGuide: sizeGuide,
             insets: insets,
             alignment: alignment,
-            flexibility: flexibility,
-            subItems: [])
+            flexibility: flexibility)
     }
 
     // MARK: - Convenience intializers
@@ -54,7 +91,8 @@ open class TextItem: Item {
                             sizeGuide: SizeGuide = SizeGuide(),
                             insets: UIEdgeInsets = .zero,
                             alignment: Alignment = .leadingTop,
-                            flexibility: Flexibility = .normal) {
+                            flexibility: Flexibility = .normal,
+                            makeView: (() -> View)? = nil) {
         self.init(
             id: id,
             text: .normal(text),
@@ -65,7 +103,8 @@ open class TextItem: Item {
             sizeGuide: sizeGuide,
             insets: insets,
             alignment: alignment,
-            flexibility: flexibility)
+            flexibility: flexibility,
+            makeView: makeView)
     }
 
     public convenience init(id: String? = nil,
@@ -77,7 +116,8 @@ open class TextItem: Item {
                             sizeGuide: SizeGuide = SizeGuide(),
                             insets: UIEdgeInsets = .zero,
                             alignment: Alignment = .leadingTop,
-                            flexibility: Flexibility = .normal) {
+                            flexibility: Flexibility = .normal,
+                            makeView: (() -> View)? = nil) {
         self.init(
             id: id,
             text: .attributed(text),
@@ -88,39 +128,18 @@ open class TextItem: Item {
             sizeGuide: sizeGuide,
             insets: insets,
             alignment: alignment,
-            flexibility: flexibility)
+            flexibility: flexibility,
+            makeView: makeView)
     }
 
-    // MARK: - Measurable
+    // MARK: - Configurable
 
-    open override func contentFittingSizes(within maxSize: CGSize) -> CGSize {
-        let lineFragmentInsets = UIEdgeInsets(horizontal: lineFragmentPadding)
-        let maxTextSize = maxSize
-            .decreased(by: textContainerInsets)
-            .decreased(by: lineFragmentInsets)
-
-        let maxPermissibleLinesHeight = self.maxPermissibleLinesHeight()
-        let textSize = text.size(with: font, within: maxTextSize)
-
-        let adjustedTextContainerInsets = textSize.height > maxPermissibleLinesHeight
-            ? textContainerInsets.removedBottom()
-            : textContainerInsets
-
-        let textAreaSize = CGSize(width: textSize.width, height: min(textSize.height, maxPermissibleLinesHeight))
-
-        let size = textAreaSize
-            .increased(by: adjustedTextContainerInsets)
-            .increased(by: lineFragmentInsets)
-        return size
+    open func configure() {
+        configureView?(view)
+        view.configure(with: self)
     }
 
-    private func maxPermissibleLinesHeight() -> CGFloat {
-        guard numberOfLines > 0 && numberOfLines != Int.max else {
-            return CGFloat.greatestFiniteMagnitude
-        }
-
-        let totalLinesHeight = CGFloat(numberOfLines) * font.lineHeight
-        let maxHeight = totalLinesHeight.roundedUp
-        return maxHeight
+    open override var requiresView: Bool {
+        return true
     }
 }

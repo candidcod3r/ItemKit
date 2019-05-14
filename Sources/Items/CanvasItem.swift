@@ -6,6 +6,10 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
+/**
+ Item that has a primary item which determines the frame of the CanvasItem. All subItems are supposed to be overlay
+ on top of the primary item.
+ */
 open class CanvasItem: Item {
     open var primaryItem: Itemable
 
@@ -32,29 +36,5 @@ open class CanvasItem: Item {
             subItems[i].updateFittingSizes(within: maxSize)
         }
         return Sizer.fittingSize(within: primaryItem.fittingSize, using: sizeGuide)
-    }
-}
-
-// MARK: - CanvasViewItem
-
-open class CanvasViewItem<View: UIView>: CanvasItem, ViewItemable {
-    open var view = makeView()
-    open var prepareView: ((View) -> Void)?
-
-    open override var frame: CGRect {
-        didSet {
-            view.frame = frame
-        }
-    }
-
-    // MARK: - Configurable
-    
-    open func configureView() {
-        prepareView?(view)
-        view.configure(with: self)
-    }
-
-    open override var requiresView: Bool {
-        return true
     }
 }

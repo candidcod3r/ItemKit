@@ -29,7 +29,7 @@ class TestStackViewWithFixedDimensionController: UIViewController {
             sizeGuide: SizeGuide(width: .fill, height: .fixed(100)),
             alignment: .center)
 
-        textViewItem.prepareView = { (textView) in
+        textViewItem.configureView = { (textView) in
             textView.textColor = .black
             textView.backgroundColor = UIColor(hex: 0xD8ED9C)
         }
@@ -44,7 +44,7 @@ class TestStackViewWithFixedDimensionController: UIViewController {
             titleInsets: UIEdgeInsets(left: 8),
             alignment: .centerBottom)
 
-        buttonItem.prepareView = { (button) in
+        buttonItem.configureView = { (button) in
             button.backgroundColor = .lightGray
             button.setTitleColor(.black, for: .normal)
             button.layer.cornerRadius = 4
@@ -57,7 +57,7 @@ class TestStackViewWithFixedDimensionController: UIViewController {
             sizeGuide: SizeGuide(width: .fill),
             subItems: [textViewItem, buttonItem])
 
-        containerItem.prepareView = { (view) in
+        containerItem.configureView = { (view) in
             view.clipsToBounds = false
             view.layer.masksToBounds = false
             view.backgroundColor = UIColor(hex: 0xE9E9E9)
@@ -73,7 +73,7 @@ class TestStackViewWithFixedDimensionController: UIViewController {
             flexibility: .normal,
             subItems: [containerItem])
 
-        containerParentItem.prepareView = { (view) in
+        containerParentItem.configureView = { (view) in
             view.layer.borderColor = UIColor.darkGray.cgColor
             view.layer.borderWidth = 1
         }

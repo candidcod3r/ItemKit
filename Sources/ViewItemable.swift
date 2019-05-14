@@ -10,7 +10,7 @@ public protocol Configurable {
     /**
      Configure the view with required properties
      */
-    func configureView()
+    func configure()
 }
 
 public protocol ViewItemable: Itemable, Configurable, UIViewItemable {
@@ -19,8 +19,11 @@ public protocol ViewItemable: Itemable, Configurable, UIViewItemable {
     // backing view
     var view: View { get }
 
-    // prepare the view
-    var prepareView: ((View) -> Void)? { get }
+    // make the view
+    var makeView: (() -> View)? { get }
+
+    // prepare the view before the layout
+    var configureView: ((View) -> Void)? { get }
 }
 
 extension ViewItemable {
@@ -60,7 +63,7 @@ extension Itemable {
 
         // configure the view
         let configurableItem = item as? Configurable
-        configurableItem?.configureView()
+        configurableItem?.configure()
 
         // set the frame of the view
         itemView?.frame = item.frame

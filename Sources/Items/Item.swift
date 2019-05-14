@@ -102,27 +102,3 @@ open class Item: Itemable, Cacheable {
         }
     }
 }
-
-// MARK: - ViewItemable
-
-open class ViewItem<View: UIView>: Item, ViewItemable {
-    open var view = makeView()
-    open var prepareView: ((View) -> Void)?
-
-    open override var frame: CGRect {
-        didSet {
-            view.frame = frame
-        }
-    }
-
-    // MARK: - Configurable
-
-    open func configureView() {
-        prepareView?(view)
-        view.configure(with: self)
-    }
-
-    open override var requiresView: Bool {
-        return true
-    }
-}

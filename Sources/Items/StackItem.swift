@@ -6,6 +6,9 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
+/**
+ Stack item to layout items in stack fashion. Axis defines the stacking direction either horizontal or vertical.
+ */
 open class StackItem: Item {
 
     // MARK: - StackItem Properties
@@ -29,7 +32,7 @@ open class StackItem: Item {
         self.spacing = spacing
         self.distribution = distribution
 
-        let flexibility = flexibility ?? StackViewItem.defaultFlexibility(for: axis, subItems: subItems)
+        let flexibility = flexibility ?? StackItem.defaultFlexibility(for: axis, subItems: subItems)
         super.init(
             id: id,
             sizeGuide: sizeGuide,
@@ -37,16 +40,6 @@ open class StackItem: Item {
             alignment: alignment,
             flexibility: flexibility,
             subItems: subItems)
-    }
-
-    static func defaultFlexibility(for axis: Axis, subItems: [Itemable]) -> Flexibility {
-        var axisFlex = Flex.min
-        var crossFlex = Flex.max
-        for i in 0..<subItems.count {
-            axisFlex = max(axisFlex, subItems[i].flexibility.value(along: axis))
-            crossFlex = min(crossFlex,  subItems[i].flexibility.value(across: axis))
-        }
-        return Flexibility(axisValue: axisFlex, crossValue: crossFlex, axis: axis)
     }
 
     // MARK: Measurable
@@ -244,6 +237,20 @@ extension StackItem {
     }
 }
 
+// MARK: -  Private helpers
+
+extension StackItem {
+    private static func defaultFlexibility(for axis: Axis, subItems: [Itemable]) -> Flexibility {
+        var axisFlex = Flex.min
+        var crossFlex = Flex.max
+        for i in 0..<subItems.count {
+            axisFlex = max(axisFlex, subItems[i].flexibility.value(along: axis))
+            crossFlex = min(crossFlex,  subItems[i].flexibility.value(across: axis))
+        }
+        return Flexibility(axisValue: axisFlex, crossValue: crossFlex, axis: axis)
+    }
+}
+
 public enum StackDistribution {
     case leading
     case trailing
@@ -252,28 +259,4 @@ public enum StackDistribution {
     case equalSpacing
     case fillExtraSpace
     case fillExtraSpaceEqually
-}
-
-// MARK: - StackViewItem
-
-open class StackViewItem<View: UIView>: StackItem, ViewItemable {
-    open var view = makeView()
-    open var prepareView: ((View) -> Void)?
-
-    open override var frame: CGRect {
-        didSet {
-            view.frame = frame
-        }
-    }
-
-    // MARK: - Configurable
-    
-    open func configureView() {
-        prepareView?(view)
-        view.configure(with: self)
-    }
-
-    open override var requiresView: Bool {
-        return true
-    }
 }
