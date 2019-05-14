@@ -42,7 +42,7 @@ public protocol UIViewItemable {
 
 extension Itemable {
     public mutating func layoutViews(within containerView: UIView) {
-        updateLayout(within: containerView.frame)
+        updateLayout(within: containerView.bounds)
 
         layoutViews(for: self, in: containerView)
     }
