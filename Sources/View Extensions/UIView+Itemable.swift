@@ -18,12 +18,16 @@ extension UIView {
         }
     }
 
-    open func updateLayout<ItemType: Itemable & Cacheable>(with item: ItemType) {
-        let itemCache = item.makeCache()
+    open func updateLayout<ItemType: Itemable & Cacheable>(with item: ItemType?) {
+        let itemCache = item?.makeCache()
         updateLayout(with: itemCache)
     }
 
-    open func updateLayout(with itemCache: ItemCache) {
+    open func updateLayout(with itemCache: ItemCache?) {
+        guard let itemCache = itemCache else {
+            return
+        }
+
         if let item = itemCache.item(for: itemID) {
             frame = item.frame
         }
