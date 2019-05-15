@@ -18,7 +18,7 @@ class ProfileCardViewModel {
     private(set) var presenceItem: Item
 
     private(set) var item: Itemable? = nil
-    private(set) var itemCache: ViewItemCache? = nil
+    private(set) var itemCache: ItemCache? = nil
 
     init() {
         backgroundImageItem = Item(

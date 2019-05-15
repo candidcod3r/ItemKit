@@ -23,8 +23,8 @@ extension UIView {
         updateLayout(with: itemCache)
     }
 
-    open func updateLayout(with itemCache: ViewItemCache) {
-        if let item = itemCache.viewItem(for: itemID) {
+    open func updateLayout(with itemCache: ItemCache) {
+        if let item = itemCache.item(for: itemID) {
             frame = item.frame
         }
 

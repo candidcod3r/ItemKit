@@ -41,19 +41,27 @@ public protocol UIViewItemable {
 }
 
 extension Itemable {
+    /**
+     Layout the item's view and its subitems views within the container view.
+     */
     public mutating func layoutViews(within containerView: UIView) {
         updateLayout(within: containerView.bounds)
 
         layoutViews(for: self, in: containerView)
     }
 
+    /**
+     Layout the item's view and its subitems views within the given rect.
+     */
     public mutating func layoutViews(within rect: CGRect) {
         updateLayout(within: rect)
 
         layoutViews(for: self)
     }
 
-
+    /**
+     Layout the item's view and its subitems views in the container view.
+     */
     fileprivate func layoutViews(for item: Itemable, in containerView: UIView? = nil) {
         let viewItem = item as? UIViewItemable
         let itemView = viewItem?.itemView

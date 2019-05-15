@@ -7,20 +7,20 @@
 //
 
 public protocol Cacheable {
-    func makeCache() -> ViewItemCache
+    func makeCache() -> ItemCache
 }
 
 extension Itemable {
-    public func makeCache() -> ViewItemCache {
-        let cache = ViewItemCache()
+    public func makeCache() -> ItemCache {
+        let cache = ItemCache()
         self.add(to: cache)
         return cache
     }
 
-    func add(to cache: ViewItemCache) {
+    private func add(to cache: ItemCache) {
         let viewIDString = id ?? ""
         if !viewIDString.isEmpty {
-            cache.setViewItem(self, for: viewIDString)
+            cache.setItem(self, for: viewIDString)
         }
         for subItem in subItems {
             subItem.add(to: cache)

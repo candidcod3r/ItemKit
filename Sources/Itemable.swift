@@ -22,7 +22,7 @@ public protocol Itemable: Measurable, Layoutable {
 
 extension Itemable {
     /**
-     Update the item's and subItem's layout.
+     Update the item's and subItem's layout within maxFrame.
      */
     public mutating func updateLayout(within maxFrame: CGRect) {
         // update the fitting sizes
@@ -30,5 +30,13 @@ extension Itemable {
 
         // update the frames
         updateFrames(within: maxFrame)
+    }
+
+    /**
+     Update the item's and subItem's layout within boundingSize.
+     */
+    public mutating func updateLayout(within boundingSize: CGSize) {
+        let maxFrame = CGRect(x: 0, y: 0, width: boundingSize.width, height: boundingSize.height)
+        updateLayout(within: maxFrame)
     }
 }

@@ -10,7 +10,7 @@
 		10E771E17109FB77CB154E69647830F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AF5EA4D9F769D41042A99A80FFB9ED /* Foundation.framework */; };
 		178C9493761B83CCC7EC02B1E3E439F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC14D54CF483CF531F6412BFC589C4B /* CoreGraphics.framework */; };
 		1B94CCC876F40CC3528DC3B6D7444510 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C19EA7B43AB86B56848984260A043 /* CGRect+.swift */; };
-		273D3DA1E663E2F0CEF90B8E0C9A388E /* ViewItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED7E7FE8C6482AA610C49C8E1F1B90 /* ViewItemCache.swift */; };
+		273D3DA1E663E2F0CEF90B8E0C9A388E /* ItemCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED7E7FE8C6482AA610C49C8E1F1B90 /* ItemCache.swift */; };
 		28E0A17D75F6D09F7CABD28E836C7641 /* DirectionalValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6317194024E097B1CDB58E3D6958B65F /* DirectionalValue.swift */; };
 		2AA3D5C75031C2BBBF8BA07998F47D67 /* UITextField+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881A64064986EE82D7016593BC287C3F /* UITextField+Configure.swift */; };
 		2C543B0E5B084F23EE7F45CAD09A2809 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE588630729A7D2CEE7C4A57ACF4632C /* Axis.swift */; };
@@ -93,7 +93,7 @@
 		418F47348A591C14D2AA0BA6B656A1F2 /* Pods-ItemKitExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemKitExample-frameworks.sh"; sourceTree = "<group>"; };
 		42C5F3E3AFB7041B53CFD162EFA9FF88 /* UITextView+Configure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextView+Configure.swift"; sourceTree = "<group>"; };
 		4989F489CBF9902EE2DD4F963187E7AA /* UIFont+.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		49ED7E7FE8C6482AA610C49C8E1F1B90 /* ViewItemCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewItemCache.swift; path = Sources/ViewItemCache.swift; sourceTree = "<group>"; };
+		49ED7E7FE8C6482AA610C49C8E1F1B90 /* ItemCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ItemCache.swift; path = Sources/ItemCache.swift; sourceTree = "<group>"; };
 		4BD5A2D79B0C705854DA3C06AB51883B /* ItemKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ItemKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4EE3DDAE228B778C00C00C52 /* StackViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewItem.swift; sourceTree = "<group>"; };
 		4EE3DDB0228B77DC00C00C52 /* TextViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewItem.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 				80145B98B9608E2C91B847D729E52A4C /* Layoutable.swift */,
 				D132D037E47A2CD5729C07F93EE367CF /* Measurable.swift */,
 				67552F928B85FA65242F378175B0C15F /* ViewItemable.swift */,
-				49ED7E7FE8C6482AA610C49C8E1F1B90 /* ViewItemCache.swift */,
+				49ED7E7FE8C6482AA610C49C8E1F1B90 /* ItemCache.swift */,
 				B3D7DA701C3A067FE8D77A182B92813E /* Auxillary */,
 				17EBF4D4940694494F229026902C1605 /* Axis */,
 				F597C71DD2326CE7DFC0E7E8B9FE1DAF /* Debugging */,
@@ -531,7 +531,7 @@
 				DA3830AF502F7F3D05F9F9AD7EE3E7F3 /* UIView+Debug.swift in Sources */,
 				76CC990CE317EAED9E747020E02AF38F /* UIView+Itemable.swift in Sources */,
 				B4F60374155BCF5C03E6AB4E0F9E0046 /* ViewItemable.swift in Sources */,
-				273D3DA1E663E2F0CEF90B8E0C9A388E /* ViewItemCache.swift in Sources */,
+				273D3DA1E663E2F0CEF90B8E0C9A388E /* ItemCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
