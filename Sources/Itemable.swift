@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Candid Cod3r.
 //
 
-public protocol Itemable: Measurable, Layoutable {
+public protocol Itemable: Measurable, Layoutable, Cacheable {
     /**
      Unique ID that represents the item
      */

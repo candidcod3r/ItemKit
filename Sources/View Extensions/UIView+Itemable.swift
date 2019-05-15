@@ -18,7 +18,7 @@ extension UIView {
         }
     }
 
-    open func updateLayout<ItemType: Itemable & Cacheable>(with item: ItemType?) {
+    open func updateLayout(with item: Itemable?) {
         let itemCache = item?.makeCache()
         updateLayout(with: itemCache)
     }
