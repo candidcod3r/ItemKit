@@ -1,5 +1,5 @@
 PODS:
-  - ItemKit (2.2.1)
+  - ItemKit (2.4.0)
 
 DEPENDENCIES:
   - ItemKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ItemKit: 9ef7d1e627b3bb2ed478ef9eae07b362be7f0b00
+  ItemKit: 3ceba278b156365b4338012a57d3d6ec76b8a531
 
 PODFILE CHECKSUM: c6dc9985b82d6da2f16f8ffb25fad5c338a67fe5
 
