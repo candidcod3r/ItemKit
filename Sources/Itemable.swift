@@ -11,11 +11,35 @@ public protocol Itemable: Measurable, Layoutable, Cacheable {
      Unique ID that represents the item
      */
     var id: String? { get }
+
+    /**
+     Insets inside the Itemable, note that insets contribute to the width and height of the Itemable
+     */
     var insets: UIEdgeInsets { get }
+
+    /**
+     Size guide for computing the width and height of the Itemable
+     */
     var sizeGuide: SizeGuide { get }
+
+    /**
+     Alignment defines the positioning of the Itemable
+     */
     var alignment: Alignment { get }
+
+    /**
+     Flexibility is relative measure of strechability with other Itemables
+     */
     var flexibility: Flexibility { get }
+
+    /**
+     Sub Itemables of the Item
+     */
     var subItems: [Itemable] { get }
+
+    /**
+     Indicates whether a view is required for representing this Itemable
+     */
     var requiresView: Bool { get }
 }
 
